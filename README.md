@@ -6,151 +6,158 @@ This directory contains the help documentation for the Intalos Bot Builder platf
 
 ```
 documentation/
-├── help/                           # Main help content
+├── help/                           # Component help documentation
 │   ├── index.md                    # Main index page
-│   ├── USER_DOCUMENTATION_APIREQUEST.md
-│   ├── USER_DOCUMENTATION_MEDIA.md
-│   └── USER_DOCUMENTATION_QUESTIONMEDIA.md
+│   ├── api-request.md
+│   ├── email.md
+│   ├── custom-code.md
+│   └── ... (all component docs)
 ├── mkdocs.yml                     # MkDocs configuration
+├── deploy-docs.sh                 # Deployment script
 └── README.md                      # This file
 ```
 
-## 🚀 Getting Started with MkDocs
+## 🌐 Live Documentation
 
-### Prerequisites
-- Python 3.7+
-- pip (Python package manager)
+- **Live Site**: https://help.intalos.de
+- **Public Repository**: https://github.com/intalos-ai/intalos-help-docs
 
-### Installation
+Documentation source is maintained here in the private repo and deployed to the public repo for GitHub Pages hosting.
 
-1. **Install MkDocs and Material theme**:
-   ```bash
-   pip install mkdocs mkdocs-material
-   ```
+## 🚀 Quick Start
 
-2. **Navigate to documentation directory**:
-   ```bash
-   cd documentation
-   ```
-
-3. **Start the development server**:
-   ```bash
-   mkdocs serve
-   ```
-
-4. **Open your browser** to `http://localhost:8000`
-
-### Building the Site
-
-To build the static site:
+### View Locally
 
 ```bash
-mkdocs build
+cd documentation
+mkdocs serve
 ```
 
-The built site will be in the `site/` directory.
+Open http://localhost:8000 in your browser.
 
-### Deployment
+### Deploy to Production
 
-#### GitHub Pages
 ```bash
-mkdocs gh-deploy
+cd documentation
+./deploy-docs.sh
 ```
 
-#### Netlify
-1. Connect your repository to Netlify
-2. Set build command: `mkdocs build`
-3. Set publish directory: `site`
+This automatically:
+1. Copies documentation to public repository
+2. Commits and pushes changes
+3. Deploys to GitHub Pages at https://help.intalos.de
 
-#### Custom Server
-Upload the contents of the `site/` directory to your web server.
+## 📝 Editing Documentation
 
-## 📝 Adding New Content
+### 1. Edit Files
+Modify markdown files in the `help/` directory.
 
-### 1. Create New Help Files
-Add new `.md` files to the `help/` directory.
+### 2. Test Locally
+```bash
+mkdocs serve
+```
 
-### 2. Update Navigation
-Edit `mkdocs.yml` to add new pages to the navigation:
+### 3. Deploy
+```bash
+./deploy-docs.sh
+```
+
+### 4. Commit to This Repo
+```bash
+git add documentation/
+git commit -m "Update documentation"
+git push origin feature/help_docs
+```
+
+## 📋 Adding New Components
+
+### 1. Create New Documentation File
+```bash
+touch help/new-component.md
+```
+
+### 2. Add to Navigation
+Edit `mkdocs.yml` and add to the `nav` section:
 
 ```yaml
 nav:
   - Home: index.md
-  - New Section:
-    - New Page: help/new-page.md
+  - Your Category:
+    - New Component: new-component.md
 ```
 
 ### 3. Update Index
-Modify `help/index.md` to include links to new content.
+Add a link to the new component in `help/index.md`.
 
-## 🎨 Customization
+### 4. Deploy
+```bash
+./deploy-docs.sh
+```
 
-### Theme Configuration
-Edit the `theme` section in `mkdocs.yml` to customize:
-- Colors and palettes
-- Navigation features
-- Icons and branding
+## 🎨 Theme
 
-### Plugins
-Add plugins in the `plugins` section:
-- `search` - Built-in search functionality
-- `git-revision-date-localized` - Show last updated dates
-- `minify` - Minify HTML/CSS/JS
+We use the **Landing** theme for MkDocs with:
+- Poppins font for all text
+- Clean, modern design
+- Mobile-responsive layout
 
-### Markdown Extensions
-Configure markdown features in the `markdown_extensions` section:
-- Code highlighting
-- Tables
-- Admonitions (callouts)
-- Emoji support
-- Math equations
+## 🔧 Manual Deployment (If Needed)
 
-## 📚 Content Guidelines
+If the automated script doesn't work:
+
+```bash
+# 1. Copy files to public repo
+cp -r help /path/to/intalos-help-docs/
+cp mkdocs.yml /path/to/intalos-help-docs/
+
+# 2. Deploy from public repo
+cd /path/to/intalos-help-docs
+mkdocs gh-deploy --force
+```
+
+## 📚 Documentation Guidelines
 
 ### Writing Style
-- Use clear, concise language
-- Include practical examples
-- Add screenshots where helpful
-- Use consistent formatting
+- Clear, concise language
+- Practical examples
+- Step-by-step instructions
+- Visual aids where helpful
 
-### File Naming
-- Use descriptive filenames
-- Use kebab-case for multi-word files
-- Keep filenames short but meaningful
+### File Organization
+- One component per file
+- Consistent structure across all docs
+- Use headings for easy navigation
 
-### Structure
-- Start with an overview
-- Include step-by-step instructions
-- Add troubleshooting sections
-- End with related resources
+### Standard Structure
+1. Overview
+2. Configuration
+3. Use Cases & Examples
+4. Best Practices
+5. Error Handling
+6. Troubleshooting
 
-## 🔧 Development
+## 🛠️ Technical Details
 
-### Local Development
-```bash
-# Start development server with auto-reload
-mkdocs serve
+### Build Process
+1. MkDocs reads `mkdocs.yml` configuration
+2. Processes markdown files from `help/` directory
+3. Applies Landing theme
+4. Generates static HTML in `site/` directory
+5. Pushes to `gh-pages` branch in public repo
 
-# Build and serve from a specific directory
-mkdocs serve --dev-addr 0.0.0.0:8000
-```
-
-### Testing
-```bash
-# Check for broken links
-mkdocs build --strict
-
-# Validate configuration
-mkdocs config
-```
+### Custom Domain
+The site is configured for `help.intalos.de` via:
+- CNAME file in `gh-pages` branch
+- DNS CNAME record pointing to `intalos-ai.github.io`
+- GitHub Pages custom domain setting
 
 ## 📞 Support
 
 For documentation issues:
-- Check MkDocs documentation: https://www.mkdocs.org/
-- Material theme docs: https://squidfunk.github.io/mkdocs-material/
+- Check MkDocs docs: https://www.mkdocs.org/
 - Create an issue in the repository
+- Contact: contact@intalos.de
 
 ---
 
-*This documentation is built with MkDocs and the Material theme.*
+**Last Updated**: October 20, 2025

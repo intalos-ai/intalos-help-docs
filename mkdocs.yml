@@ -7,6 +7,7 @@ repo_name: Intalos Bot Builder
 # Configuration
 theme:
   name: landing
+  favicon: images/favicon.ico
 
 # Extra JavaScript for font loading - this will load everything
 extra_javascript:
