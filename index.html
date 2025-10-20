@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Home - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsivity.css" rel="stylesheet">  
+    <script src="javascripts/poppins.js"></script>  
+    <script src="search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "Home -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="header">
+    
+    
+     
+    
+    <img id="avatar" src="assets/landing-logo.png" />
+    
+
+    
+    
+    
+     
+    
+
+    
+    
+    
+     
+    <h1 id="title"><a href=.>Intalos AI Bot Builder Help</a></h1>
+
+    
+    
+    
+     
+    <ul id="socials">
+        
+    </ul>
+
+    
+    
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#intalos-ai-bot-builder-help">Intalos AI Bot Builder Help</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#component-guides">Component Guides</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#support">Support</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="intalos-ai-bot-builder-help">Intalos AI Bot Builder Help</h1>
+<p>Welcome to the Intalos Bot Builder Help Center! This comprehensive guide will help you build powerful bots using our visual flow editor.</p>
+<h2 id="component-guides">Component Guides</h2>
+<h3 id="question-components">Question Components</h3>
+<p>Collect input and information from users:</p>
+<ul>
+<li><a href="question-text/"><strong>QuestionText</strong></a> - Free-form text input from users</li>
+<li><a href="question-buttons/"><strong>QuestionButtons</strong></a> - Button selection (up to 3 options)</li>
+<li><a href="question-list/"><strong>QuestionList</strong></a> - Dropdown selection (up to 10 options)</li>
+<li><a href="question-media/"><strong>QuestionMedia</strong></a> - Collect photos, videos, audio, and documents</li>
+</ul>
+<h3 id="communication-components">Communication Components</h3>
+<p>Send messages and content to users:</p>
+<ul>
+<li><a href="media/"><strong>Media</strong></a> - Send images, videos, audio, and documents</li>
+<li><a href="email/"><strong>Email</strong></a> - Send automated emails</li>
+</ul>
+<h3 id="logic-processing-components">Logic &amp; Processing Components</h3>
+<p>Perform calculations, validations, and custom operations:</p>
+<ul>
+<li><a href="formula/"><strong>Formula</strong></a> - Calculations, comparisons, and conditional routing</li>
+<li><a href="custom-code/"><strong>CustomCode</strong></a> - Custom Python code for advanced logic</li>
+</ul>
+<h3 id="ai-components">AI Components</h3>
+<p>Integrate artificial intelligence:</p>
+<ul>
+<li><a href="llm-conversation/"><strong>LLM Conversation</strong></a> - AI-powered conversations and natural language processing</li>
+</ul>
+<h3 id="integration-components">Integration Components</h3>
+<p>Connect to external services:</p>
+<ul>
+<li><a href="api-request/"><strong>APIRequest</strong></a> - Connect to external APIs and web services</li>
+<li><a href="google-sheets/"><strong>GoogleSheets</strong></a> - Read and write data to Google Sheets</li>
+<li><a href="google-drive/"><strong>GoogleDrive</strong></a> - Upload files to Google Drive</li>
+</ul>
+<hr />
+<h2 id="support">Support</h2>
+<p>Need help? We're here to assist you.</p>
+<p><strong>Email</strong>: contact@intalos.de</p>
+<hr />
+<p><em>Last updated: October 20, 2025</em></p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="javascripts/poppins.js"></script>
+
+<script src="search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

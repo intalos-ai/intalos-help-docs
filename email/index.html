@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Email - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "Email -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Email</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#email-component-user-guide">Email Component - User Guide</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-email">When to Use Email</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#configuration">Configuration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#email-fields">Email Fields</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-it-works">How It Works</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#use-cases-examples">Use Cases &amp; Examples</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#provider-setup">Provider Setup</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#error-handling">Error Handling</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#security-privacy">Security &amp; Privacy</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#advanced-tips">Advanced Tips</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-patterns">Common Patterns</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="email-component-user-guide">Email Component - User Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>Email</strong> component allows you to send automated emails during your bot conversations. Perfect for sending confirmations, notifications, reports, and any email communication triggered by user interactions.</p>
+<h2 id="when-to-use-email">When to Use Email</h2>
+<p>Ideal for scenarios like:
+- Order confirmations
+- Receipt delivery
+- Appointment notifications
+- Form submissions
+- Support ticket creation
+- Lead notifications to your team
+- Follow-up communications</p>
+<hr />
+<h2 id="configuration">Configuration</h2>
+<h3 id="email-provider">Email Provider</h3>
+<p>Choose how emails will be sent:</p>
+<h4 id="option-1-contactintalosde-managed-email-service">Option 1: contact@intalos.de (Managed Email Service)</h4>
+<ul>
+<li><strong>Best for</strong>: Users who want a simple, managed email solution</li>
+<li><strong>Requires</strong>: Pass Key from Intalos team</li>
+<li><strong>Setup</strong>:</li>
+<li>Select "contact@intalos.de" from provider dropdown</li>
+<li>A warning will appear: "Please contact contact@intalos.de for the Intalos AI email Pass Key"</li>
+<li>Contact contact@intalos.de to request your Pass Key</li>
+<li>Enter the Pass Key in the password field</li>
+</ul>
+<p><strong>Note</strong>: To use this email service, contact us at contact@intalos.de to receive your Pass Key.</p>
+<h4 id="option-2-postmark-self-managed">Option 2: Postmark (Self-Managed)</h4>
+<ul>
+<li><strong>Best for</strong>: Users who want full control and high deliverability</li>
+<li><strong>Requires</strong>: Postmark account and API key</li>
+<li><strong>Setup</strong>:</li>
+<li>Select "Postmark" from provider dropdown</li>
+<li>Enter your <strong>sender email address</strong></li>
+<li>Enter your <strong>Postmark API key</strong></li>
+<li>Verify sender email in Postmark dashboard</li>
+</ul>
+<p><strong>Get Postmark</strong>:
+- Sign up at postmarkapp.com
+- Verify your sender domain/email
+- Generate API token from settings
+- Add to component configuration</p>
+<hr />
+<h2 id="email-fields">Email Fields</h2>
+<h3 id="send-to-recipients">Send To (Recipients)</h3>
+<p>Specify who receives the email:</p>
+<p><strong>Single recipient</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>john@example.com
+</span></code></pre></div></p>
+<p><strong>Multiple recipients</strong> (comma-separated):
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>john@example.com, jane@example.com, support@company.com
+</span></code></pre></div></p>
+<p><strong>Using variables</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{userEmail}
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>{adminEmail}, {managerEmail}
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sales@company.com, {customerEmail}
+</span></code></pre></div></p>
+<p><strong>Pro Tip</strong>: Store email addresses in variables from previous components (QuestionText, APIRequest).</p>
+<h3 id="email-subject">Email Subject</h3>
+<p>The subject line of your email:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Order Confirmation - #{orderNumber}
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>New Support Ticket from {userName}
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Your Appointment on {appointmentDate}
+</span></code></pre></div>
+<p><strong>Best practices</strong>:
+- Keep under 60 characters for mobile visibility
+- Include relevant details
+- Use variables for personalization
+- Be clear and specific</p>
+<h3 id="email-message">Email Message</h3>
+<p>The main content of your email:</p>
+<p><strong>Rich text editor supports</strong>:
+- <strong>Bold</strong>, <em>italic</em>, underline text
+- Headings (H1, H2, H3)
+- Bullet lists and numbered lists
+- Variables: <code>{userName}</code>, <code>{orderDetails}</code>, etc.
+- Line breaks and paragraphs</p>
+<p><strong>Example message</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Hi {userName},
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Thank you for your order!
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>Order Details:
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>- Product: {productName}
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>- Quantity: {quantity}
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>- Total: ${totalAmount}
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>We&#39;ll send a confirmation when your order ships.
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>Best regards,
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>The Team
+</span></code></pre></div></p>
+<hr />
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="email-flow">Email Flow</h3>
+<ol>
+<li><strong>User</strong> completes action in bot (places order, submits form, etc.)</li>
+<li><strong>Email component</strong> triggers</li>
+<li><strong>Variables</strong> are replaced with actual values</li>
+<li><strong>Email</strong> sent via configured provider</li>
+<li><strong>Flow</strong> continues to next component</li>
+</ol>
+<h3 id="behind-the-scenes">Behind the Scenes</h3>
+<ol>
+<li>Email content compiled with variable substitution</li>
+<li>HTML formatted from rich text editor</li>
+<li>Sent via Postmark or Intalos SMTP</li>
+<li>Delivery tracked and logged</li>
+<li>Errors caught and routed if configured</li>
+</ol>
+<hr />
+<h2 id="use-cases-examples">Use Cases &amp; Examples</h2>
+<h3 id="1-order-confirmation">1. Order Confirmation</h3>
+<p><strong>Configuration</strong>:
+- Provider: Postmark
+- Send to: <code>{customerEmail}</code>
+- Subject: <code>Order Confirmation - #{orderNumber}</code>
+- Message:
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Hi {customerName},
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Your order has been confirmed!
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Order Number: {orderNumber}
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>Total: ${orderTotal}
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>Thank you for your purchase!
+</span></code></pre></div></p>
+<h3 id="2-lead-notification-to-team">2. Lead Notification to Team</h3>
+<p><strong>Configuration</strong>:
+- Provider: Postmark
+- Send to: <code>sales@company.com, manager@company.com</code>
+- Subject: <code>New Lead: {userName}</code>
+- Message:
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>New lead from WhatsApp bot:
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Name: {userName}
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>Email: {userEmail}
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Phone: {userPhone}
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>Interest: {productInterest}
+</span></code></pre></div></p>
+<h3 id="3-appointment-confirmation">3. Appointment Confirmation</h3>
+<p><strong>Configuration</strong>:
+- Provider: Postmark
+- Send to: <code>{customerEmail}</code>
+- Subject: <code>Appointment Confirmed - {appointmentDate}</code>
+- Message:
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Hello {customerName},
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Your appointment is confirmed:
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Date: {appointmentDate}
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>Time: {appointmentTime}
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>Location: {locationAddress}
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>See you then!
+</span></code></pre></div></p>
+<h3 id="4-support-ticket-created">4. Support Ticket Created</h3>
+<p><strong>Configuration</strong>:
+- Provider: Postmark
+- Send to: <code>{userEmail}, support@company.com</code>
+- Subject: <code>Support Ticket #{ticketNumber} Created</code>
+- Message:
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Ticket #{ticketNumber} has been created.
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Issue: {issueDescription}
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>Priority: {ticketPriority}
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>We&#39;ll respond within 24 hours.
+</span></code></pre></div></p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="email-content">Email Content</h3>
+<p><strong>DO</strong>:
+- Keep emails concise and focused
+- Use clear, professional language
+- Include all relevant information
+- Personalize with user variables
+- Provide next steps or actions</p>
+<p><strong>DON'T</strong>:
+- Send unnecessarily long emails
+- Include sensitive information in plain text
+- Use all caps or excessive formatting
+- Send generic, impersonal messages</p>
+<h3 id="subject-lines">Subject Lines</h3>
+<p><strong>DO</strong>:
+- Make them descriptive and specific
+- Keep under 60 characters
+- Include key information (order #, ticket #)
+- Use variables for personalization</p>
+<p><strong>DON'T</strong>:
+- Use vague subjects ("Update", "Notification")
+- Exceed 60 characters (may be cut off)
+- Use all caps or excessive punctuation
+- Be misleading or clickbait-y</p>
+<h3 id="recipients">Recipients</h3>
+<p><strong>DO</strong>:
+- Verify email addresses are valid
+- Use variables from user input
+- Test with real email addresses
+- Consider privacy and consent</p>
+<p><strong>DON'T</strong>:
+- Hardcode sensitive addresses in production
+- Send to unverified addresses
+- Include BCC recipients without consent
+- Send unsolicited emails</p>
+<hr />
+<h2 id="provider-setup">Provider Setup</h2>
+<h3 id="postmark-configuration">Postmark Configuration</h3>
+<p><strong>Steps</strong>:
+1. Create account at postmarkapp.com
+2. <strong>Verify sender email</strong>:
+   - Add your domain or email
+   - Complete verification process (DNS records or email confirmation)
+3. <strong>Generate API token</strong>:
+   - Go to Servers -&gt; API Tokens
+   - Create new token
+   - Copy the token
+4. <strong>Configure in component</strong>:
+   - Provider: Postmark
+   - Sender email: your-verified-email@yourdomain.com
+   - API Key: (paste your token)</p>
+<p><strong>Why Postmark?</strong>
+- High deliverability rates
+- Real-time delivery tracking
+- Bounce and spam handling
+- Detailed analytics
+- Reliable infrastructure</p>
+<h3 id="intalos-email-service">Intalos Email Service</h3>
+<p><strong>Steps</strong>:
+1. Select "contact@intalos.de" in the Email component
+2. You'll see a warning: "Please contact contact@intalos.de for the Intalos AI email Pass Key"
+3. Contact contact@intalos.de to request your Pass Key
+4. Enter the Pass Key in the component</p>
+<p><strong>About This Service</strong>:
+- Managed email service provided by Intalos
+- Pass Keys are provided on request
+- Simple setup - no need to configure external email providers
+- Suitable for users who prefer a managed solution</p>
+<hr />
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="error-output-port">Error Output Port</h3>
+<p>Route the conversation when email sending fails:</p>
+<ol>
+<li>Toggle <strong>"Error Output Port"</strong> to ON</li>
+<li>Connect the error arrow to your error handling flow</li>
+<li>Handle scenarios like:<ul>
+<li>Invalid recipient email</li>
+<li>API key errors</li>
+<li>Network failures</li>
+<li>Provider issues</li>
+</ul>
+</li>
+</ol>
+<h3 id="error-message-to-user">Error Message to User</h3>
+<p>Send a custom message when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Error Message to User"</strong> to ON</li>
+<li>Enter your message:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>We couldn&#39;t send the confirmation email. Please contact support.
+</span></code></pre></div></li>
+</ol>
+<h3 id="admin-email-notification">Admin Email Notification</h3>
+<p>Get notified when email sending fails:</p>
+<ol>
+<li>Toggle <strong>"Admin email when error"</strong> to ON</li>
+<li>Notifications sent to your registered admin email</li>
+<li>Includes error details for debugging</li>
+</ol>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="email-formatting">Email Formatting</h3>
+<ul>
+<li><strong>Content type</strong>: HTML</li>
+<li><strong>Encoding</strong>: UTF-8</li>
+<li><strong>Rich text</strong>: Supported via editor</li>
+<li><strong>Plain text fallback</strong>: Automatically generated</li>
+</ul>
+<h3 id="variable-substitution">Variable Substitution</h3>
+<p>Variables are replaced before sending:
+- Subject line variables
+- Message body variables
+- Recipient address variables
+- All <code>{variableName}</code> patterns replaced</p>
+<h3 id="delivery">Delivery</h3>
+<ul>
+<li><strong>Sending</strong>: Asynchronous (doesn't block bot flow)</li>
+<li><strong>Timeout</strong>: 30 seconds</li>
+<li><strong>Retries</strong>: Automatic for transient failures</li>
+<li><strong>Tracking</strong>: Delivery status logged</li>
+</ul>
+<h3 id="size-limits">Size Limits</h3>
+<ul>
+<li><strong>Subject</strong>: 255 characters recommended</li>
+<li><strong>Message body</strong>: No strict limit, but keep under 100 KB</li>
+<li><strong>Recipients</strong>: Up to 50 addresses per email</li>
+<li><strong>Attachments</strong>: Not currently supported</li>
+</ul>
+<hr />
+<h2 id="security-privacy">Security &amp; Privacy</h2>
+<h3 id="email-privacy">Email Privacy</h3>
+<p><strong>DO</strong>:
+- Only send emails to users who provided consent
+- Use secure API keys
+- Store API keys as environment variables
+- Follow data privacy regulations (GDPR, CCPA)</p>
+<p><strong>DON'T</strong>:
+- Share API keys in screenshots or documentation
+- Send emails without user consent
+- Include passwords or sensitive data in emails
+- Store API keys in version control</p>
+<h3 id="api-key-security">API Key Security</h3>
+<ul>
+<li><strong>Never share</strong> your Postmark API key</li>
+<li><strong>Regenerate keys</strong> if compromised</li>
+<li><strong>Use separate keys</strong> for testing and production</li>
+<li><strong>Monitor usage</strong> in Postmark dashboard</li>
+</ul>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-emails-not-sending">Issue: Emails not sending</h3>
+<p><strong>Check</strong>:
+- API key is correct and active
+- Sender email is verified in Postmark
+- Recipient emails are valid
+- No typos in email addresses</p>
+<h3 id="issue-emails-going-to-spam">Issue: Emails going to spam</h3>
+<p><strong>Solution</strong>:
+- Verify your sender domain in Postmark
+- Add SPF and DKIM records to your DNS
+- Use professional, clear email content
+- Avoid spam trigger words</p>
+<h3 id="issue-variables-not-replacing">Issue: Variables not replacing</h3>
+<p><strong>Check</strong>:
+- Variable names match exactly (case-sensitive)
+- Variables exist and have values
+- Syntax is correct: <code>{variableName}</code></p>
+<h3 id="issue-error-invalid-api-key">Issue: Error "Invalid API key"</h3>
+<p><strong>Solution</strong>:
+- Verify API key in Postmark dashboard
+- Check for extra spaces in key
+- Ensure key is active and not expired
+- Regenerate key if needed</p>
+<h3 id="issue-sender-email-not-verified">Issue: "Sender email not verified"</h3>
+<p><strong>Solution</strong>:
+- Complete email/domain verification in Postmark
+- Check verification status
+- Add DNS records if using domain verification</p>
+<hr />
+<h2 id="advanced-tips">Advanced Tips</h2>
+<h3 id="dynamic-recipients">Dynamic Recipients</h3>
+<p>Use APIRequest to fetch email addresses, then send:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>APIRequest (get customer email)
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>\--&gt; Store in {customerEmail}
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    \--&gt; Email component sends to {customerEmail}
+</span></code></pre></div></p>
+<h3 id="conditional-emails">Conditional Emails</h3>
+<p>Send different emails based on conditions:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Formula (check order size)
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>|-- Large orders -&gt; Email to {userEmail}, sales-manager@company.com
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>\-- Small orders -&gt; Email to {userEmail}
+</span></code></pre></div></p>
+<h3 id="email-with-data-collection">Email with Data Collection</h3>
+<p>Combine user input with email notifications:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>QuestionText (collect feedback)
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>\--&gt; Store in {userFeedback}
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    \--&gt; Email to support@company.com with {userFeedback}
+</span></code></pre></div></p>
+<hr />
+<h2 id="common-patterns">Common Patterns</h2>
+<h3 id="order-confirmation-flow">Order Confirmation Flow</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Process Order -&gt; Email (to customer) -&gt; Email (to fulfillment team)
+</span></code></pre></div>
+<h3 id="support-ticket-system">Support Ticket System</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Collect Issue -&gt; Create Ticket (APIRequest) -&gt; Email (to user + support team)
+</span></code></pre></div>
+<h3 id="lead-capture">Lead Capture</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Collect Info -&gt; Email (to sales team) -&gt; Confirmation message to user
+</span></code></pre></div>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p>Email: contact@intalos.de</p>
+<hr />
+<p><strong>Last Updated</strong>: October 20, 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

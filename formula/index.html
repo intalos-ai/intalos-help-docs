@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Formula - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "Formula -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Formula</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#formula-component-user-guide">Formula Component - User Guide</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-formula">When to Use Formula</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#calculation-modes">Calculation Modes</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#configuration">Configuration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-it-works">How It Works</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#use-cases-examples">Use Cases &amp; Examples</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#formula-syntax">Formula Syntax</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#available-functions-reference">Available Functions Reference</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#error-handling">Error Handling</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-patterns">Common Patterns</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#advanced-tips">Advanced Tips</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#comparison-with-other-components">Comparison with Other Components</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#examples-by-use-case">Examples by Use Case</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#error-handling_1">Error Handling</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details_1">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#security_1">Security</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="formula-component-user-guide">Formula Component - User Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>Formula</strong> component allows you to perform calculations, comparisons, and logical operations within your bot flow. Perfect for validating user input, calculating prices, routing based on conditions, and performing mathematical operations.</p>
+<h2 id="when-to-use-formula">When to Use Formula</h2>
+<p>Ideal for scenarios like:
+- Price calculations and discounts
+- Input validation (age, quantity, etc.)
+- Conditional routing based on values
+- Mathematical operations
+- Data comparisons
+- String operations</p>
+<hr />
+<h2 id="calculation-modes">Calculation Modes</h2>
+<p>The Formula component has three modes:</p>
+<h3 id="1-answer-mode">1. Answer Mode</h3>
+<p><strong>Purpose</strong>: Perform calculations and store the result</p>
+<p><strong>Use when</strong>:
+- You need to calculate a total, sum, or product
+- Converting data types (numbers to strings)
+- Performing arithmetic operations</p>
+<p><strong>Available functions</strong>:
+- <code>Sum(a, b)</code> - Add two numbers
+- <code>Multiply(a, b)</code> - Multiply two numbers
+- <code>ToString(a)</code> - Convert value to string</p>
+<p><strong>Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Sum(10, 20)          -&gt; Result: 30
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Multiply(5, 4)       -&gt; Result: 20
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Sum({quantity}, 5)   -&gt; Result: {quantity} + 5
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>ToString({orderId})  -&gt; Result: String version of orderId
+</span></code></pre></div></p>
+<h3 id="2-truefalse-mode">2. True/False Mode</h3>
+<p><strong>Purpose</strong>: Compare values and route based on result</p>
+<p><strong>Use when</strong>:
+- Validating user input
+- Checking conditions
+- Age verification
+- Value comparisons</p>
+<p><strong>Available functions</strong>:
+- <code>IsEqual(a, b)</code> - Checks if a equals b
+- <code>IsNotEqual(a, b)</code> - Checks if a does not equal b
+- <code>IsGreaterThan(a, b)</code> - Checks if a &gt; b
+- <code>IsLessThan(a, b)</code> - Checks if a &lt; b
+- <code>IsGreaterOrEqual(a, b)</code> - Checks if a &gt;= b
+- <code>IsLessOrEqual(a, b)</code> - Checks if a &lt;= b
+- <code>Contains(container, value)</code> - Checks if value exists in container</p>
+<p><strong>Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>IsEqual({userAge}, 18)              -&gt; True if age is 18
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>IsGreaterThan({orderTotal}, 100)    -&gt; True if total &gt; 100
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Contains({userEmail}, &quot;@&quot;)          -&gt; True if email has @
+</span></code></pre></div></p>
+<p><strong>Flow routing</strong>:
+- <strong>True port</strong> -&gt; Condition met
+- <strong>False port</strong> -&gt; Condition not met</p>
+<h3 id="3-custom-mode">3. Custom Mode</h3>
+<p><strong>Purpose</strong>: Calculate and route based on the result value</p>
+<p><strong>Use when</strong>:
+- You need to route to different paths based on calculation result
+- Multiple outcomes based on computed value
+- Complex decision trees</p>
+<p><strong>Available functions</strong>:
+- Same as Answer mode (Sum, Multiply, ToString)</p>
+<p><strong>How it works</strong>:
+1. Formula calculates result
+2. Result converted to string
+3. Flow routes to matching output port
+4. Default port used if no match</p>
+<p><strong>Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Formula: Sum({itemCount}, {bonusItems})
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Output ports:
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>- &quot;5&quot; -&gt; Small order flow
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>- &quot;10&quot; -&gt; Medium order flow
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>- &quot;15&quot; -&gt; Large order flow
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>- &quot;default&quot; -&gt; Standard flow
+</span></code></pre></div></p>
+<hr />
+<h2 id="configuration">Configuration</h2>
+<h3 id="store-result-in-variable">Store Result in Variable</h3>
+<p>Save the calculation result:</p>
+<ol>
+<li>
+<p>In <strong>"Store output in variable"</strong>, enter a variable name:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Example: calculatedTotal
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Example: validationResult
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Example: discountedPrice
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Use this variable later in your flow:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Your total is ${calculatedTotal}
+</span></code></pre></div></p>
+</li>
+</ol>
+<h3 id="select-calculation-mode">Select Calculation Mode</h3>
+<p>Choose from the dropdown:
+1. <strong>Answer</strong> - Store calculation result
+2. <strong>True/False</strong> - Route based on comparison
+3. <strong>Custom</strong> - Route based on result value</p>
+<h3 id="enter-formula">Enter Formula</h3>
+<p>Double-click the formula text in the component to edit:</p>
+<p><strong>Format</strong>: <code>FunctionName(argument1, argument2)</code></p>
+<p><strong>Using variables</strong>: <code>{variableName}</code></p>
+<p><strong>Examples</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Sum(10, 5)
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Multiply({price}, {quantity})
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>IsGreaterThan({userAge}, 18)
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Contains({userInput}, &quot;yes&quot;)
+</span></code></pre></div></p>
+<hr />
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="answer-mode-flow">Answer Mode Flow</h3>
+<ol>
+<li><strong>Formula executes</strong>: e.g., <code>Sum(10, 20)</code></li>
+<li><strong>Result calculated</strong>: 30</li>
+<li><strong>Stored in variable</strong>: <code>{calculatedTotal} = 30</code></li>
+<li><strong>Flow continues</strong> to next component</li>
+</ol>
+<h3 id="truefalse-mode-flow">True/False Mode Flow</h3>
+<ol>
+<li><strong>Formula executes</strong>: e.g., <code>IsGreaterThan({age}, 18)</code></li>
+<li><strong>Condition evaluated</strong>: True or False</li>
+<li><strong>Flow routes</strong>:</li>
+<li>True -&gt; Age verified path</li>
+<li>False -&gt; Age rejection path</li>
+</ol>
+<h3 id="custom-mode-flow">Custom Mode Flow</h3>
+<ol>
+<li><strong>Formula executes</strong>: e.g., <code>Sum({items}, 5)</code></li>
+<li><strong>Result calculated</strong>: 15</li>
+<li><strong>Result converted to string</strong>: "15"</li>
+<li><strong>Flow routes</strong> to output port labeled "15" (or default if no match)</li>
+</ol>
+<hr />
+<h2 id="use-cases-examples">Use Cases &amp; Examples</h2>
+<h3 id="1-calculate-order-total">1. Calculate Order Total</h3>
+<p><strong>Mode</strong>: Answer<br />
+<strong>Formula</strong>: <code>Sum({subtotal}, {shippingCost})</code><br />
+<strong>Variable</strong>: <code>orderTotal</code></p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Collect items -&gt; Calculate subtotal -&gt; Formula (add shipping) -&gt; Show total
+</span></code></pre></div></p>
+<h3 id="2-age-verification">2. Age Verification</h3>
+<p><strong>Mode</strong>: True/False<br />
+<strong>Formula</strong>: <code>IsGreaterOrEqual({userAge}, 18)</code></p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>QuestionText (ask age)
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>-&gt; Formula (check &gt;= 18)
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>   |-- True -&gt; Proceed with service
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>   \-- False -&gt; &quot;Sorry, must be 18+&quot;
+</span></code></pre></div></p>
+<h3 id="3-discount-calculator">3. Discount Calculator</h3>
+<p><strong>Mode</strong>: Answer<br />
+<strong>Formula</strong>: <code>Multiply({price}, 0.9)</code><br />
+<strong>Variable</strong>: <code>discountedPrice</code></p>
+<p><strong>Result</strong>: Applies 10% discount</p>
+<h3 id="4-email-validation">4. Email Validation</h3>
+<p><strong>Mode</strong>: True/False<br />
+<strong>Formula</strong>: <code>Contains({userEmail}, "@")</code></p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>QuestionText (email)
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>-&gt; Formula (check has @)
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>   |-- True -&gt; Valid email
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>   \-- False -&gt; &quot;Please enter valid email&quot;
+</span></code></pre></div></p>
+<h3 id="5-tiered-pricing">5. Tiered Pricing</h3>
+<p><strong>Mode</strong>: Custom<br />
+<strong>Formula</strong>: <code>ToString({quantity})</code></p>
+<p><strong>Output ports</strong>:
+- "1" -&gt; $10 per item
+- "5" -&gt; $9 per item
+- "10" -&gt; $8 per item
+- "default" -&gt; Quote required</p>
+<h3 id="6-input-validation-range">6. Input Validation Range</h3>
+<p><strong>Mode</strong>: True/False<br />
+<strong>Formula</strong>: <code>IsGreaterThan({quantity}, 0)</code></p>
+<p><strong>Combined with</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Formula 1: IsGreaterThan({quantity}, 0)
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Formula 2: IsLessThan({quantity}, 100)
+</span></code></pre></div></p>
+<hr />
+<h2 id="formula-syntax">Formula Syntax</h2>
+<h3 id="function-format">Function Format</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>FunctionName(argument1, argument2)
+</span></code></pre></div>
+<p><strong>Rules</strong>:
+- Function name is case-sensitive
+- Arguments separated by commas
+- No spaces in function name
+- Variables wrapped in curly braces</p>
+<h3 id="using-variables">Using Variables</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Sum({variable1}, {variable2})
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>IsEqual({userInput}, &quot;yes&quot;)
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Multiply({price}, {quantity})
+</span></code></pre></div>
+<p><strong>Variable values</strong>:
+- Must exist before Formula runs
+- Automatically converted to appropriate type
+- Numbers, strings, and booleans supported</p>
+<h3 id="allowed-values">Allowed Values</h3>
+<p><strong>Numbers</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Sum(10, 20)
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Multiply(5.5, 2)
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>IsGreaterThan(100, 50)
+</span></code></pre></div></p>
+<p><strong>Strings</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>IsEqual({userName}, &quot;John&quot;)
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Contains({userInput}, &quot;yes&quot;)
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>ToString(12345)
+</span></code></pre></div></p>
+<p><strong>Variables</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Sum({var1}, {var2})
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>IsEqual({userChoice}, {expectedValue})
+</span></code></pre></div></p>
+<hr />
+<h2 id="available-functions-reference">Available Functions Reference</h2>
+<h3 id="mathematical-functions-answer-custom-modes">Mathematical Functions (Answer &amp; Custom modes)</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Arguments</th>
+<th>Returns</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Sum(a, b)</code></td>
+<td>2 numbers</td>
+<td>Number</td>
+<td><code>Sum(10, 5)</code> -&gt; 15</td>
+</tr>
+<tr>
+<td><code>Multiply(a, b)</code></td>
+<td>2 numbers</td>
+<td>Number</td>
+<td><code>Multiply(3, 4)</code> -&gt; 12</td>
+</tr>
+<tr>
+<td><code>ToString(a)</code></td>
+<td>Any value</td>
+<td>String</td>
+<td><code>ToString(123)</code> -&gt; "123"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comparison-functions-truefalse-mode">Comparison Functions (True/False mode)</h3>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Arguments</th>
+<th>Returns</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>IsEqual(a, b)</code></td>
+<td>2 values</td>
+<td>Boolean</td>
+<td><code>IsEqual(5, 5)</code> -&gt; True</td>
+</tr>
+<tr>
+<td><code>IsNotEqual(a, b)</code></td>
+<td>2 values</td>
+<td>Boolean</td>
+<td><code>IsNotEqual(5, 3)</code> -&gt; True</td>
+</tr>
+<tr>
+<td><code>IsGreaterThan(a, b)</code></td>
+<td>2 numbers</td>
+<td>Boolean</td>
+<td><code>IsGreaterThan(10, 5)</code> -&gt; True</td>
+</tr>
+<tr>
+<td><code>IsLessThan(a, b)</code></td>
+<td>2 numbers</td>
+<td>Boolean</td>
+<td><code>IsLessThan(5, 10)</code> -&gt; True</td>
+</tr>
+<tr>
+<td><code>IsGreaterOrEqual(a, b)</code></td>
+<td>2 numbers</td>
+<td>Boolean</td>
+<td><code>IsGreaterOrEqual(5, 5)</code> -&gt; True</td>
+</tr>
+<tr>
+<td><code>IsLessOrEqual(a, b)</code></td>
+<td>2 numbers</td>
+<td>Boolean</td>
+<td><code>IsLessOrEqual(3, 5)</code> -&gt; True</td>
+</tr>
+<tr>
+<td><code>Contains(container, value)</code></td>
+<td>String, String</td>
+<td>Boolean</td>
+<td><code>Contains("hello", "ell")</code> -&gt; True</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="formula-design">Formula Design</h3>
+<p><strong>DO</strong>:
+- Keep formulas simple and focused
+- Use descriptive variable names
+- Test with different input values
+- Document complex formulas</p>
+<p><strong>DON'T</strong>:
+- Create overly complex calculations
+- Nest functions (not supported)
+- Use undefined variables
+- Perform calculations that could cause errors (divide by zero)</p>
+<h3 id="variable-usage">Variable Usage</h3>
+<p><strong>DO</strong>:
+- Ensure variables exist before using in formulas
+- Use appropriate data types (numbers for math)
+- Validate user input before calculations
+- Handle edge cases (empty values, zero, negatives)</p>
+<p><strong>DON'T</strong>:
+- Assume variables have values
+- Mix incompatible types without conversion
+- Use variables that might be undefined</p>
+<h3 id="routing-logic">Routing Logic</h3>
+<p><strong>DO</strong>:
+- Use True/False mode for binary decisions
+- Use Custom mode for multiple outcomes
+- Provide default paths for unmatched results
+- Test all possible routes</p>
+<p><strong>DON'T</strong>:
+- Create unreachable paths
+- Forget to connect all output ports
+- Create circular logic loops</p>
+<hr />
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="error-output-port">Error Output Port</h3>
+<p>Route the conversation when formula fails:</p>
+<ol>
+<li>Toggle <strong>"Error Output Port"</strong> to ON</li>
+<li>Connect the error arrow to your error handling flow</li>
+<li>Handle scenarios like:<ul>
+<li>Invalid formula syntax</li>
+<li>Undefined variables</li>
+<li>Type mismatches</li>
+<li>Calculation errors</li>
+</ul>
+</li>
+</ol>
+<h3 id="error-message-to-user">Error Message to User</h3>
+<p>Send a custom message when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Error Message to User"</strong> to ON</li>
+<li>Enter your message:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Sorry, we couldn&#39;t process that. Please try again.
+</span></code></pre></div></li>
+</ol>
+<h3 id="admin-email-notification">Admin Email Notification</h3>
+<p>Get notified when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Admin email when error"</strong> to ON</li>
+<li>Notifications sent to your registered admin email</li>
+<li>Includes error details and formula</li>
+</ol>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="execution">Execution</h3>
+<ul>
+<li><strong>Processing</strong>: Synchronous (immediate)</li>
+<li><strong>Variables</strong>: Replaced before calculation</li>
+<li><strong>Type conversion</strong>: Automatic where possible</li>
+<li><strong>Error handling</strong>: Catches exceptions and routes to error port</li>
+</ul>
+<h3 id="security">Security</h3>
+<ul>
+<li><strong>Sandboxed execution</strong>: Only allowed functions can run</li>
+<li><strong>No arbitrary code</strong>: AST parsing prevents injection</li>
+<li><strong>Function whitelist</strong>: Only pre-defined functions available</li>
+<li><strong>Safe evaluation</strong>: No eval() or exec() used</li>
+</ul>
+<h3 id="limitations">Limitations</h3>
+<ul>
+<li><strong>No nested functions</strong>: <code>Sum(Multiply(2, 3), 5)</code> not supported</li>
+<li><strong>Two arguments max</strong>: Functions limited to 2 parameters</li>
+<li><strong>No variables in function names</strong>: Function name must be literal</li>
+<li><strong>Constants only after substitution</strong>: Variables resolved to constants before evaluation</li>
+</ul>
+<hr />
+<h2 id="common-patterns">Common Patterns</h2>
+<h3 id="multi-step-validation">Multi-Step Validation</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>QuestionText (age)
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>-&gt; Formula (IsGreaterOrEqual({age}, 18))
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>   |-- True -&gt; Formula (IsLessThan({age}, 65))
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>   |         |-- True -&gt; Eligible
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>   |         \-- False -&gt; Senior category
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>   \-- False -&gt; &quot;Must be 18+&quot;
+</span></code></pre></div>
+<h3 id="dynamic-pricing">Dynamic Pricing</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Select quantity
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>-&gt; Formula (Multiply({quantity}, {pricePerItem}))
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>   -&gt; Store in {subtotal}
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>      -&gt; Formula (Sum({subtotal}, {shippingFee}))
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>         -&gt; Store in {total}
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>            -&gt; Show total
+</span></code></pre></div>
+<h3 id="input-range-validation">Input Range Validation</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>QuestionText (enter number)
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>-&gt; Formula (IsGreaterThan({number}, 0))
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>   |-- True -&gt; Formula (IsLessThan({number}, 100))
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>   |         |-- True -&gt; Valid range
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>   |         \-- False -&gt; &quot;Too high&quot;
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>   \-- False -&gt; &quot;Must be positive&quot;
+</span></code></pre></div>
+<h3 id="conditional-flow-routing">Conditional Flow Routing</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Calculate score
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>-&gt; Formula Custom (Sum({quiz1}, {quiz2}))
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>   |-- &quot;10&quot; -&gt; Perfect score flow
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>   |-- &quot;8&quot; -&gt; High score flow
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>   |-- &quot;5&quot; -&gt; Medium score flow
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>   \-- default -&gt; Low score flow
+</span></code></pre></div>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-formula-syntax-error">Issue: Formula syntax error</h3>
+<p><strong>Check</strong>:
+- Function name is spelled correctly (case-sensitive)
+- Parentheses are balanced
+- Arguments are separated by comma
+- No spaces in function name</p>
+<p><strong>Good</strong>: <code>Sum(10, 5)</code><br />
+<strong>Bad</strong>: <code>sum(10,5)</code>, <code>Sum (10, 5)</code>, <code>Sum(10 5)</code></p>
+<h3 id="issue-variables-not-found">Issue: Variables not found</h3>
+<p><strong>Check</strong>:
+- Variable name matches exactly (case-sensitive)
+- Variable was created in previous component
+- Variable has a value
+- Syntax: <code>{variableName}</code> with curly braces</p>
+<h3 id="issue-wrong-result-type">Issue: Wrong result type</h3>
+<p><strong>Solution</strong>:
+- Use <code>ToString()</code> to convert numbers to strings
+- Ensure variables are the right type for the operation
+- Check that comparison functions get comparable values</p>
+<h3 id="issue-custom-mode-routing-fails">Issue: Custom mode routing fails</h3>
+<p><strong>Check</strong>:
+- Output port labels match possible results exactly
+- Default port is connected
+- Result is converted to string for matching
+- Test with all possible values</p>
+<h3 id="issue-calculation-returns-error">Issue: Calculation returns error</h3>
+<p><strong>Check</strong>:
+- Arguments are valid numbers (for math functions)
+- No division by zero scenarios
+- Variables are defined and not empty
+- Function arguments are correct type</p>
+<hr />
+<h2 id="advanced-tips">Advanced Tips</h2>
+<h3 id="chaining-formulas">Chaining Formulas</h3>
+<p>Perform complex calculations by chaining multiple Formula components:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Formula 1: Sum({price}, {tax})
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>  -&gt; Store in {priceWithTax}
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>     -&gt; Formula 2: Multiply({priceWithTax}, {quantity})
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>        -&gt; Store in {totalCost}
+</span></code></pre></div>
+<h3 id="validation-patterns">Validation Patterns</h3>
+<p><strong>Email validation</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Contains({email}, &quot;@&quot;)
+</span></code></pre></div></p>
+<p><strong>Numeric range</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>IsGreaterOrEqual({value}, {min}) AND IsLessOrEqual({value}, {max})
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>(Use two Formula components)
+</span></code></pre></div></p>
+<p><strong>String matching</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>IsEqual({userResponse}, &quot;yes&quot;)
+</span></code></pre></div></p>
+<h3 id="dynamic-calculations">Dynamic Calculations</h3>
+<p>Use variables from previous components:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>APIRequest (get price from API)
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>-&gt; Store in {apiPrice}
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>   -&gt; Formula (Multiply({apiPrice}, {quantity}))
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>      -&gt; Store in {total}
+</span></code></pre></div></p>
+<hr />
+<h2 id="comparison-with-other-components">Comparison with Other Components</h2>
+<h3 id="formula-vs-customcode">Formula vs CustomCode</h3>
+<p><strong>Use Formula when</strong>:
+- Simple calculations needed
+- Standard operations (Sum, Multiply, comparisons)
+- Want visual, no-code solution
+- Need basic validation</p>
+<p><strong>Use CustomCode when</strong>:
+- Complex logic required
+- Need advanced Python operations
+- Custom algorithms
+- Multiple operations in one component</p>
+<h3 id="formula-vs-apirequest">Formula vs APIRequest</h3>
+<p><strong>Use Formula when</strong>:
+- Calculations can be done locally
+- No external data needed
+- Immediate results required</p>
+<p><strong>Use APIRequest when</strong>:
+- Need to fetch external data
+- Complex calculations better on server
+- Need third-party validation</p>
+<hr />
+<h2 id="examples-by-use-case">Examples by Use Case</h2>
+<h3 id="price-calculation">Price Calculation</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Quantity: 5
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>Price per item: $10
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>Formula: Multiply(10, {quantity})
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>Variable: totalPrice
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>Result: $50
+</span></code></pre></div>
+<h3 id="age-gate">Age Gate</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>User enters age: 25
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>Formula: IsGreaterOrEqual({userAge}, 21)
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>Routes to:
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>|-- True -&gt; Show alcohol products
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>\-- False -&gt; Show non-alcohol products
+</span></code></pre></div>
+<h3 id="discount-tier">Discount Tier</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Order total: $250
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>Formula Custom: ToString({orderTotal})
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>Routes:
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>|-- &quot;100&quot; -&gt; 5% discount
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>|-- &quot;200&quot; -&gt; 10% discount
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>|-- &quot;500&quot; -&gt; 20% discount
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>\-- default -&gt; No discount
+</span></code></pre></div>
+<h3 id="input-validation">Input Validation</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>User enters quantity: 150
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>Formula: IsLessThan({quantity}, 100)
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>Routes to:
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>|-- True -&gt; Process order
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>\-- False -&gt; &quot;Maximum 99 items per order&quot;
+</span></code></pre></div>
+<hr />
+<h2 id="error-handling_1">Error Handling</h2>
+<h3 id="error-output-port_1">Error Output Port</h3>
+<p>Route the conversation when formula fails:</p>
+<ol>
+<li>Toggle <strong>"Error Output Port"</strong> to ON</li>
+<li>Connect the error arrow to your error handling flow</li>
+<li>Handle scenarios like:<ul>
+<li>Invalid formula syntax</li>
+<li>Undefined variables</li>
+<li>Type errors</li>
+<li>Calculation failures</li>
+</ul>
+</li>
+</ol>
+<h3 id="error-message-to-user_1">Error Message to User</h3>
+<p>Send a custom message when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Error Message to User"</strong> to ON</li>
+<li>Enter your message:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Sorry, we couldn&#39;t process that value. Please try again.
+</span></code></pre></div></li>
+</ol>
+<h3 id="admin-email-notification_1">Admin Email Notification</h3>
+<p>Get notified when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Admin email when error"</strong> to ON</li>
+<li>Notifications sent to your registered admin email</li>
+<li>Includes error details and formula</li>
+</ol>
+<hr />
+<h2 id="technical-details_1">Technical Details</h2>
+<h3 id="formula-execution">Formula Execution</h3>
+<ul>
+<li><strong>Parser</strong>: Abstract Syntax Tree (AST)</li>
+<li><strong>Safety</strong>: Sandboxed execution</li>
+<li><strong>Variable replacement</strong>: Before evaluation</li>
+<li><strong>Type handling</strong>: Automatic conversion where possible</li>
+</ul>
+<h3 id="supported-data-types">Supported Data Types</h3>
+<p><strong>Numbers</strong>:
+- Integers: <code>10</code>, <code>100</code>, <code>{quantity}</code>
+- Decimals: <code>10.5</code>, <code>{price}</code>
+- Negative: <code>-5</code>, <code>{discount}</code></p>
+<p><strong>Strings</strong>:
+- Text: <code>"hello"</code>, <code>{userName}</code>
+- Empty: <code>""</code>
+- With variables: <code>{userInput}</code></p>
+<p><strong>Booleans</strong>:
+- True/False results from comparisons
+- Stored as boolean values</p>
+<h3 id="limitations_1">Limitations</h3>
+<ul>
+<li><strong>Two arguments maximum</strong> per function</li>
+<li><strong>No nested functions</strong>: Can't do <code>Sum(Multiply(2, 3), 5)</code></li>
+<li><strong>No custom functions</strong>: Only predefined functions allowed</li>
+<li><strong>No loops or conditionals</strong>: Use separate components for complex logic</li>
+</ul>
+<hr />
+<h2 id="security_1">Security</h2>
+<h3 id="safe-execution">Safe Execution</h3>
+<p>The Formula component:
+- Uses AST parsing (not eval())
+- Whitelisted functions only
+- No arbitrary code execution
+- Sandboxed environment</p>
+<h3 id="whats-not-allowed">What's NOT Allowed</h3>
+<ul>
+<li>Custom function definitions</li>
+<li>Import statements</li>
+<li>File system access</li>
+<li>Network requests</li>
+<li>Variable assignments (except output variable)</li>
+</ul>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p>Email: contact@intalos.de</p>
+<hr />
+<p><strong>Last Updated</strong>: October 20, 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

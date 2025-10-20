@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>APIRequest - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "APIRequest -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">APIRequest</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#apirequest-component-user-guide">APIRequest Component - User Guide</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-apirequest">When to Use APIRequest</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#configuration">Configuration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#testing-your-api-call">Testing Your API Call</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#response-routing">Response Routing</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#storing-api-responses">Storing API Responses</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#error-handling">Error Handling</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#variable-reference-guide">Variable Reference Guide</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-use-cases">Common Use Cases</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#important-notes">Important Notes</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="apirequest-component-user-guide">APIRequest Component - User Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>APIRequest</strong> component allows you to connect your WhatsApp bot to external APIs and web services. Use it to fetch data from your CRM, validate information, send data to third-party services, or integrate with any HTTP-based API.</p>
+<h2 id="when-to-use-apirequest">When to Use APIRequest</h2>
+<p>Perfect for scenarios like:
+- Fetching user data from your CRM or database
+- Validating customer information with external services
+- Sending collected data to third-party platforms
+- Synchronizing data between systems
+- Routing conversations based on API responses</p>
+<hr />
+<h2 id="configuration">Configuration</h2>
+<h3 id="adding-query-parameters">Adding Query Parameters</h3>
+<p>Query parameters are added to the end of your URL (e.g., <code>?search=test&amp;limit=10</code>)</p>
+<ol>
+<li>Toggle <strong>"Send Params"</strong> to ON</li>
+<li>Click <strong>"Add Parameter"</strong></li>
+<li>Enter the parameter name (Key) and value</li>
+<li>Repeat for multiple parameters</li>
+</ol>
+<p><strong>Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Key: search        Value: {searchTerm}
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Key: limit         Value: 10
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Key: includeEmail  Value: true
+</span></code></pre></div></p>
+<p><strong>Variables in Parameters</strong>: Use <code>{{variableName}}</code> syntax:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Key: userId    Value: {{customerID}}
+</span></code></pre></div></p>
+<h3 id="custom-headers">Custom Headers</h3>
+<p>Headers are used for authentication and content type specification.</p>
+<ol>
+<li>Toggle <strong>"Customize Headers"</strong> to ON</li>
+<li>Click <strong>"Add Header"</strong></li>
+<li>Enter header name and value</li>
+</ol>
+<p><strong>Common Examples</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Key: Authorization    Value: Bearer YOUR_API_KEY
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Key: Content-Type     Value: application/json
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Key: X-API-Key        Value: {apiKey}
+</span></code></pre></div></p>
+<h3 id="request-body-postput">Request Body (POST/PUT)</h3>
+<p>Send data in the request body for POST and PUT requests.</p>
+<ol>
+<li>Toggle <strong>"Customize Body"</strong> to ON</li>
+<li>Enter your JSON data in the editor</li>
+</ol>
+<p><strong>Example</strong>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{userName}}&quot;</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{userEmail}}&quot;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{userPhone}}&quot;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Body Variables</strong>: Use <code>{{variableName}}</code> syntax for variables in the body.</p>
+<hr />
+<h2 id="testing-your-api-call">Testing Your API Call</h2>
+<p>Before deploying, test your API request:</p>
+<ol>
+<li>Toggle <strong>"Add test values"</strong> to ON</li>
+<li>Add test values for any variables:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Variable: {userName}    Test Value: John Doe
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Variable: {userEmail}   Test Value: john@example.com
+</span></code></pre></div></li>
+<li>Click <strong>"Test the request"</strong> button</li>
+<li>Review the response in the popup modal</li>
+</ol>
+<p>A successful test shows:
+- Status code (e.g., 200)
+- Response headers
+- Response body</p>
+<hr />
+<h2 id="response-routing">Response Routing</h2>
+<p>Route your conversation flow based on API response status codes.</p>
+<ol>
+<li>Toggle <strong>"Response Routing"</strong> to ON</li>
+<li>Connect output arrows from your component:</li>
+<li>Label each arrow with a status code (<code>200</code>, <code>404</code>, <code>500</code>, etc.)</li>
+<li>Add a "default" arrow for unlisted status codes</li>
+</ol>
+<p><strong>Example Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>APIRequest -&gt; 200 -&gt; Success Message
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>          -&gt; 404 -&gt; &quot;User not found&quot; Message
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>          -&gt; default -&gt; Error Handling
+</span></code></pre></div></p>
+<hr />
+<h2 id="storing-api-responses">Storing API Responses</h2>
+<p>Save API responses in variables to use later in your flow.</p>
+<ol>
+<li>Scroll to <strong>"Store output in variable"</strong></li>
+<li>Type a variable name or select an existing one
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Example: apiResponse
+</span></code></pre></div></li>
+</ol>
+<p><strong>Access response data in later components</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Status Code: {apiResponse.status_code}
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Response Text: {apiResponse.text}
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>JSON Data: {apiResponse.json.fieldName}
+</span></code></pre></div></p>
+<hr />
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="error-output-port">Error Output Port</h3>
+<p>When enabled, creates a separate path for errors:</p>
+<ol>
+<li>Toggle <strong>"Error Output Port"</strong> to ON</li>
+<li>Connect the error arrow (marked with warning icon) to error handling components</li>
+</ol>
+<h3 id="error-message-to-user">Error Message to User</h3>
+<p>Send a custom message when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Error Message to User"</strong> to ON</li>
+<li>Enter your message:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>We&#39;re having trouble connecting to our system. Please try again later.
+</span></code></pre></div></li>
+</ol>
+<p><strong>Dynamic Error Messages</strong>: Use variables in error messages:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Sorry {userName}, we couldn&#39;t process your request. Error: {errorDetails}
+</span></code></pre></div></p>
+<h3 id="admin-email-notification">Admin Email Notification</h3>
+<p>Get notified when API errors occur:</p>
+<ol>
+<li>Toggle <strong>"Send Error Admin Email"</strong> to ON</li>
+<li>Errors will be sent to your registered admin email</li>
+</ol>
+<hr />
+<h2 id="variable-reference-guide">Variable Reference Guide</h2>
+<h3 id="using-variables-in-urls">Using Variables in URLs</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Syntax: {variableName}
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Example: https://api.example.com/users/{userId}/orders/{orderId}
+</span></code></pre></div>
+<h3 id="using-variables-in-parameters">Using Variables in Parameters</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Syntax: {{variableName}}
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Example: 
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  Key: search    Value: {{searchTerm}}
+</span></code></pre></div>
+<h3 id="using-variables-in-headers">Using Variables in Headers</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Syntax: {variableName}
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Example:
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  Key: Authorization    Value: Bearer {apiToken}
+</span></code></pre></div>
+<h3 id="using-variables-in-body">Using Variables in Body</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Syntax: {{variableName}}
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Example:
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>{
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  &quot;user&quot;: &quot;{{userName}}&quot;,
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  &quot;action&quot;: &quot;{{userAction}}&quot;
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>}
+</span></code></pre></div>
+<hr />
+<h2 id="common-use-cases">Common Use Cases</h2>
+<h3 id="1-fetch-user-profile-from-crm">1. Fetch User Profile from CRM</h3>
+<p><strong>Configuration</strong>:
+- Method: <code>GET</code>
+- URL: <code>https://your-crm.com/api/users/{phoneNumber}</code>
+- Store in: <code>userProfile</code></p>
+<p><strong>Usage in next component</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Welcome back, {userProfile.json.firstName}!
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Your account status: {userProfile.json.status}
+</span></code></pre></div></p>
+<h3 id="2-validate-email-address">2. Validate Email Address</h3>
+<p><strong>Configuration</strong>:
+- Method: <code>POST</code>
+- URL: <code>https://api.emailvalidation.com/validate</code>
+- Body:
+  <div class="language-json highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{userEmail}}&quot;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="p">}</span>
+</span></code></pre></div>
+- Response Routing: ON
+  - 200 -&gt; "Email is valid"
+  - 400 -&gt; "Invalid email format"</p>
+<h3 id="3-create-support-ticket">3. Create Support Ticket</h3>
+<p><strong>Configuration</strong>:
+- Method: <code>POST</code>
+- URL: <code>https://your-helpdesk.com/api/tickets</code>
+- Headers:
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Authorization: Bearer YOUR_API_KEY
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Content-Type: application/json
+</span></code></pre></div>
+- Body:
+  <div class="language-json highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&quot;subject&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ticketSubject}}&quot;</span><span class="p">,</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ticketDescription}}&quot;</span><span class="p">,</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">&quot;customer_phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{userPhone}}&quot;</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="4-update-customer-preferences">4. Update Customer Preferences</h3>
+<p><strong>Configuration</strong>:
+- Method: <code>PUT</code>
+- URL: <code>https://api.yourservice.com/customers/{customerId}/preferences</code>
+- Body:
+  <div class="language-json highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">&quot;newsletter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{{</span><span class="err">subscribeNewsle</span><span class="kc">tter</span><span class="p">}},</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nt">&quot;notifications&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{{</span><span class="err">e</span><span class="kc">na</span><span class="err">bleNo</span><span class="kc">t</span><span class="err">i</span><span class="kc">f</span><span class="err">ica</span><span class="kc">t</span><span class="err">io</span><span class="kc">ns</span><span class="p">}}</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="security">Security</h3>
+<p><strong>DO</strong>:
+- Store API keys in environment variables
+- Use HTTPS endpoints only
+- Implement proper authentication headers
+- Test with non-production data first</p>
+<p><strong>DON'T</strong>:
+- Hardcode sensitive credentials in the component
+- Use HTTP (non-secure) for sensitive data
+- Skip error handling</p>
+<h3 id="performance">Performance</h3>
+<p><strong>DO</strong>:
+- Keep API calls efficient and targeted
+- Use response routing to handle failures gracefully
+- Set appropriate timeout expectations
+- Store frequently used data in variables</p>
+<p><strong>DON'T</strong>:
+- Make unnecessary API calls in loops
+- Fetch large datasets without pagination
+- Ignore rate limits</p>
+<h3 id="user-experience">User Experience</h3>
+<p><strong>DO</strong>:
+- Provide clear error messages
+- Show loading indicators (in error messages)
+- Handle all possible response codes
+- Test thoroughly before deployment</p>
+<p><strong>DON'T</strong>:
+- Leave users hanging without feedback
+- Show technical error messages to users
+- Assume APIs will always work</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-variable-not-found-error">Issue: "Variable not found" error</h3>
+<p><strong>Solution</strong>: Make sure the variable exists before the APIRequest component:
+1. Check if the variable is set in a previous component
+2. Verify variable name spelling matches exactly
+3. Use the test values feature to simulate the variable</p>
+<h3 id="issue-api-request-fails-with-401403">Issue: API request fails with 401/403</h3>
+<p><strong>Solution</strong>: Authentication problem:
+1. Check your API key is correct
+2. Verify the Authorization header format
+3. Ensure the API key has proper permissions
+4. Check if the API requires additional headers</p>
+<h3 id="issue-request-timeout">Issue: Request timeout</h3>
+<p><strong>Solution</strong>: The API is taking too long (30-second limit):
+1. Optimize the API endpoint on your server
+2. Reduce the amount of data being transferred
+3. Consider using webhooks instead for long operations</p>
+<h3 id="issue-variables-not-being-replaced">Issue: Variables not being replaced</h3>
+<p><strong>Solution</strong>: Check variable syntax:
+- URLs: Use <code>{variableName}</code>
+- Parameters: Use <code>{{variableName}}</code>
+- Body: Use <code>{{variableName}}</code>
+- Ensure no extra spaces in variable names</p>
+<h3 id="issue-json-parsing-error-in-body">Issue: JSON parsing error in body</h3>
+<p><strong>Solution</strong>: Invalid JSON format:
+1. Validate your JSON using an online validator
+2. Check for missing commas or quotes
+3. Ensure proper quote escaping
+4. Test without variables first, then add them</p>
+<hr />
+<h2 id="important-notes">Important Notes</h2>
+<h3 id="api-endpoint-whitelisting">API Endpoint Whitelisting</h3>
+<p><strong>Important</strong>: If your API has firewall restrictions, you must whitelist our backend server:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Hostname to whitelist: https://magic.intalos.de
+</span></code></pre></div>
+<p>Contact your IT team to add this to your API's allowed origins.</p>
+<h3 id="response-format">Response Format</h3>
+<p>The API response is stored with this structure:
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="s2">&quot;status_code&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="s2">&quot;headers&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span><span class="s2">&quot;text&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;raw response text&quot;</span><span class="p">,</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">  </span><span class="s2">&quot;json&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// Only if response is JSON</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="timeout-limits">Timeout Limits</h3>
+<ul>
+<li><strong>Maximum timeout</strong>: 30 seconds</li>
+<li>Requests taking longer will fail with a timeout error</li>
+<li>For long-running operations, consider using webhooks</li>
+</ul>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p>Email: contact@intalos.de</p>
+<hr />
+<p><strong>Last Updated</strong>: October 20, 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>CustomCode - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "CustomCode -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">CustomCode</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#customcode-component-user-guide">CustomCode Component - User Guide</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-customcode">When to Use CustomCode</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#configuration">Configuration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#accessing-variables">Accessing Variables</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#available-built-in-functions">Available Built-in Functions</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#use-cases-examples">Use Cases &amp; Examples</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#flow-routing">Flow Routing</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#error-handling">Error Handling</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#security-limitations">Security &amp; Limitations</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#advanced-examples">Advanced Examples</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#debugging-tips">Debugging Tips</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices_1">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-patterns">Common Patterns</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#error-handling_1">Error Handling</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-not-to-use-customcode">When NOT to Use CustomCode</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="customcode-component-user-guide">CustomCode Component - User Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>CustomCode</strong> component allows you to write custom Python code to perform advanced operations, complex validations, data transformations, and custom logic that goes beyond the built-in components.</p>
+<h2 id="when-to-use-customcode">When to Use CustomCode</h2>
+<p>Ideal for scenarios like:
+- Complex data validation and formatting
+- Advanced string manipulation
+- Custom business logic
+- Multi-step calculations
+- Data transformations
+- Pattern matching and extraction
+- Custom algorithms</p>
+<hr />
+<h2 id="configuration">Configuration</h2>
+<h3 id="writing-your-code">Writing Your Code</h3>
+<p>Click on the CustomCode component to open the code editor.</p>
+<p><strong>Required structure</strong>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="c1"># Your code here</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="c1"># Access variables</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">user_name</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userName&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">user_age</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;userAge&#39;</span><span class="p">]</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="c1"># Your logic</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">some_calculation</span><span class="p">()</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="c1"># Update variables (optional)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;newVariable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="c1"># Return your result</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="k">return</span> <span class="n">result</span>
+</span></code></pre></div></p>
+<p><strong>Key points</strong>:
+- Must define <code>__custom_fn__(variables)</code>
+- Receives <code>variables</code> dictionary as parameter
+- Can read and modify variables
+- Must return a value</p>
+<h3 id="store-result-in-variable">Store Result in Variable</h3>
+<p>Save the return value:</p>
+<ol>
+<li>
+<p>In <strong>"Store output in variable"</strong>, enter a variable name:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Example: processedData
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Example: validationResult
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Example: formattedOutput
+</span></code></pre></div></p>
+</li>
+<li>
+<p>The value returned by <code>__custom_fn__</code> will be stored in this variable</p>
+</li>
+</ol>
+<hr />
+<h2 id="accessing-variables">Accessing Variables</h2>
+<h3 id="reading-variables">Reading Variables</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="c1"># Method 1: Safe access with default</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userName&#39;</span><span class="p">,</span> <span class="s1">&#39;Guest&#39;</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="c1"># Method 2: Direct access (raises error if missing)</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">email</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;userEmail&#39;</span><span class="p">]</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="c1"># Method 3: Check if exists</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="k">if</span> <span class="s1">&#39;userAge&#39;</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>        <span class="n">age</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;userAge&#39;</span><span class="p">]</span>
+</span></code></pre></div>
+<p><strong>Hint</strong>: Use <code>variables['variable_name']</code> or <code>variables.get('variable_name', 'default_value')</code> to access variables in your code.</p>
+<h3 id="updating-variables">Updating Variables</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="c1"># Update existing variable</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;userName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;John Doe&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="c1"># Create new variable</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;processedEmail&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="c1"># Update multiple variables</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;firstName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;John&quot;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;lastName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Doe&quot;</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="k">return</span> <span class="s2">&quot;Success&quot;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="available-built-in-functions">Available Built-in Functions</h2>
+<p>Your code has access to these safe Python built-ins:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int(x)</code></td>
+<td>Convert to integer</td>
+<td><code>int("123")</code> -&gt; 123</td>
+</tr>
+<tr>
+<td><code>float(x)</code></td>
+<td>Convert to decimal</td>
+<td><code>float("10.5")</code> -&gt; 10.5</td>
+</tr>
+<tr>
+<td><code>str(x)</code></td>
+<td>Convert to string</td>
+<td><code>str(123)</code> -&gt; "123"</td>
+</tr>
+<tr>
+<td><code>len(x)</code></td>
+<td>Get length</td>
+<td><code>len("hello")</code> -&gt; 5</td>
+</tr>
+<tr>
+<td><code>min(a, b, ...)</code></td>
+<td>Find minimum</td>
+<td><code>min(5, 10, 3)</code> -&gt; 3</td>
+</tr>
+<tr>
+<td><code>max(a, b, ...)</code></td>
+<td>Find maximum</td>
+<td><code>max(5, 10, 3)</code> -&gt; 10</td>
+</tr>
+<tr>
+<td><code>sum(list)</code></td>
+<td>Sum numbers</td>
+<td><code>sum([1, 2, 3])</code> -&gt; 6</td>
+</tr>
+<tr>
+<td><code>bool(x)</code></td>
+<td>Convert to boolean</td>
+<td><code>bool("text")</code> -&gt; True</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: No imports allowed, no file access, no network requests.</p>
+<hr />
+<h2 id="use-cases-examples">Use Cases &amp; Examples</h2>
+<h3 id="1-email-validation">1. Email Validation</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">email</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userEmail&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="c1"># Check if email has @ and .</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">has_at</span> <span class="o">=</span> <span class="s1">&#39;@&#39;</span> <span class="ow">in</span> <span class="n">email</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>    <span class="n">has_dot</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">email</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="n">is_valid</span> <span class="o">=</span> <span class="n">has_at</span> <span class="ow">and</span> <span class="n">has_dot</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">email</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="k">if</span> <span class="n">is_valid</span><span class="p">:</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>        <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;emailValidated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>        <span class="k">return</span> <span class="s2">&quot;valid&quot;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>        <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;emailValidated&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>        <span class="k">return</span> <span class="s2">&quot;invalid&quot;</span>
+</span></code></pre></div>
+<p><strong>Output routing</strong>:
+- Return "valid" -&gt; Email valid path
+- Return "invalid" -&gt; Error message path</p>
+<h3 id="2-name-formatting">2. Name Formatting</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">full_name</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userName&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="c1"># Split into first and last name</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">parts</span> <span class="o">=</span> <span class="n">full_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">first_name</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">last_name</span> <span class="o">=</span> <span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="c1"># Store separately</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;firstName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">first_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;lastName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">last_name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="c1"># Create formatted version</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="n">formatted</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="k">return</span> <span class="n">formatted</span>
+</span></code></pre></div>
+<h3 id="3-price-calculation-with-tax">3. Price Calculation with Tax</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">subtotal</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;subtotal&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">tax_rate</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;taxRate&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="c1"># Calculate tax</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="n">tax_amount</span> <span class="o">=</span> <span class="n">subtotal</span> <span class="o">*</span> <span class="n">tax_rate</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="n">total</span> <span class="o">=</span> <span class="n">subtotal</span> <span class="o">+</span> <span class="n">tax_amount</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>    <span class="c1"># Store results</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;taxAmount&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">tax_amount</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;orderTotal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="4-phone-number-formatting">4. Phone Number Formatting</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">phone</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userPhone&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="c1"># Remove all non-digits</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">digits</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">phone</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isdigit</span><span class="p">())</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="c1"># Format as (XXX) XXX-XXXX</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">digits</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>        <span class="n">formatted</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">digits</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">) </span><span class="si">{</span><span class="n">digits</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">digits</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>        <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;formattedPhone&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formatted</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>        <span class="k">return</span> <span class="n">formatted</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>        <span class="k">return</span> <span class="s2">&quot;invalid&quot;</span>
+</span></code></pre></div>
+<h3 id="5-age-category-calculation">5. Age Category Calculation</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userAge&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="n">category</span> <span class="o">=</span> <span class="s2">&quot;minor&quot;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">:</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>        <span class="n">category</span> <span class="o">=</span> <span class="s2">&quot;adult&quot;</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        <span class="n">category</span> <span class="o">=</span> <span class="s2">&quot;senior&quot;</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;ageCategory&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">category</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="k">return</span> <span class="n">category</span>
+</span></code></pre></div>
+<p><strong>Output routing</strong>:
+- "minor" -&gt; Minor flow
+- "adult" -&gt; Adult flow
+- "senior" -&gt; Senior flow</p>
+<h3 id="6-text-analysis">6. Text Analysis</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">user_text</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userFeedback&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="c1"># Analyze text</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">word_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_text</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">char_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_text</span><span class="p">)</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="n">has_positive</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">word</span> <span class="ow">in</span> <span class="n">user_text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;good&#39;</span><span class="p">,</span> <span class="s1">&#39;great&#39;</span><span class="p">,</span> <span class="s1">&#39;excellent&#39;</span><span class="p">,</span> <span class="s1">&#39;happy&#39;</span><span class="p">])</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="c1"># Store analysis</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;wordCount&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">word_count</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;charCount&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">char_count</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;sentiment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;positive&#39;</span> <span class="k">if</span> <span class="n">has_positive</span> <span class="k">else</span> <span class="s1">&#39;neutral&#39;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    <span class="k">return</span> <span class="n">word_count</span>
+</span></code></pre></div>
+<hr />
+<h2 id="flow-routing">Flow Routing</h2>
+<h3 id="successerror-routing">Success/Error Routing</h3>
+<p>Every CustomCode component has two output paths:</p>
+<ol>
+<li><strong>Success port</strong> (green):</li>
+<li>Used when code executes without errors</li>
+<li>
+<p>Return value can be used for further routing</p>
+</li>
+<li>
+<p><strong>Error port</strong> (red, if enabled):</p>
+</li>
+<li>Used when code raises an exception</li>
+<li>Catches syntax errors, runtime errors</li>
+<li>Routes to error handling flow</li>
+</ol>
+<h3 id="custom-return-value-routing">Custom Return Value Routing</h3>
+<p>The value you return determines the flow:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="n">score</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;testScore&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>        <span class="k">return</span> <span class="s2">&quot;excellent&quot;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>        <span class="k">return</span> <span class="s2">&quot;good&quot;</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>        <span class="k">return</span> <span class="s2">&quot;pass&quot;</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>        <span class="k">return</span> <span class="s2">&quot;fail&quot;</span>
+</span></code></pre></div>
+<p>Then connect outputs:
+- "excellent" -&gt; High achiever path
+- "good" -&gt; Good performance path
+- "pass" -&gt; Standard path
+- "fail" -&gt; Retry path</p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="code-quality">Code Quality</h3>
+<p><strong>DO</strong>:
+- Write clear, readable code
+- Add comments for complex logic
+- Handle edge cases (empty values, None)
+- Use try-except for risky operations
+- Test thoroughly before publishing</p>
+<p><strong>DON'T</strong>:
+- Write overly complex code in one component
+- Ignore error handling
+- Assume variables exist without checking
+- Use Python features not in allowed list</p>
+<h3 id="variable-access">Variable Access</h3>
+<p><strong>DO</strong>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Safe with default</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">name</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userName&#39;</span><span class="p">,</span> <span class="s1">&#39;Guest&#39;</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Check before access</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">if</span> <span class="s1">&#39;userAge&#39;</span> <span class="ow">in</span> <span class="n">variables</span><span class="p">:</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="n">age</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;userAge&#39;</span><span class="p">]</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># Type conversion with safety</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userAge&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</span></code></pre></div></p>
+<p><strong>DON'T</strong>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Risky - may raise KeyError</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">name</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;userName&#39;</span><span class="p">]</span>  <span class="c1"># If userName doesn&#39;t exist</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># Unsafe conversion</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;userAge&#39;</span><span class="p">])</span>  <span class="c1"># If userAge is not a number</span>
+</span></code></pre></div></p>
+<h3 id="performance">Performance</h3>
+<p><strong>DO</strong>:
+- Keep code execution fast (&lt; 100ms)
+- Avoid complex loops over large data
+- Use efficient algorithms
+- Return quickly</p>
+<p><strong>DON'T</strong>:
+- Create infinite loops
+- Process large datasets
+- Perform slow operations
+- Block execution</p>
+<hr />
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="error-output-port">Error Output Port</h3>
+<p>Route the conversation when code fails:</p>
+<ol>
+<li>Toggle <strong>"Error Output Port"</strong> to ON</li>
+<li>Connect the error arrow to your error handling flow</li>
+<li>Handle scenarios like:<ul>
+<li>Syntax errors in code</li>
+<li>Runtime exceptions</li>
+<li>Type errors</li>
+<li>Division by zero</li>
+<li>Missing variables</li>
+</ul>
+</li>
+</ol>
+<h3 id="error-message-to-user">Error Message to User</h3>
+<p>Send a custom message when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Error Message to User"</strong> to ON</li>
+<li>Enter your message:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Sorry, we encountered an issue processing your request.
+</span></code></pre></div></li>
+</ol>
+<h3 id="admin-email-notification">Admin Email Notification</h3>
+<p>Get notified when code fails:</p>
+<ol>
+<li>Toggle <strong>"Admin email when error"</strong> to ON</li>
+<li>Notifications sent to your registered admin email</li>
+<li>Includes full traceback for debugging</li>
+</ol>
+<hr />
+<h2 id="security-limitations">Security &amp; Limitations</h2>
+<h3 id="whats-allowed">What's Allowed</h3>
+<ul>
+<li><strong>Basic Python syntax</strong>: if/else, for loops, functions</li>
+<li><strong>Safe built-ins</strong>: int, float, str, len, min, max, sum, bool</li>
+<li><strong>String operations</strong>: split, join, upper, lower, strip, etc.</li>
+<li><strong>List operations</strong>: append, index, slice</li>
+<li><strong>Dictionary operations</strong>: get, set, keys, values</li>
+</ul>
+<h3 id="whats-not-allowed">What's NOT Allowed</h3>
+<ul>
+<li><strong>Imports</strong>: No import statements</li>
+<li><strong>File operations</strong>: No file read/write</li>
+<li><strong>Network</strong>: No HTTP requests or socket operations</li>
+<li><strong>System calls</strong>: No os, sys, subprocess</li>
+<li><strong>Dangerous functions</strong>: No eval, exec (except internally), compile</li>
+<li><strong>External libraries</strong>: No numpy, pandas, requests, etc.</li>
+</ul>
+<h3 id="sandboxed-environment">Sandboxed Environment</h3>
+<ul>
+<li>Code runs in restricted environment</li>
+<li>Limited built-in functions only</li>
+<li>No access to file system</li>
+<li>No network access</li>
+<li>Protects against malicious code</li>
+</ul>
+<hr />
+<h2 id="advanced-examples">Advanced Examples</h2>
+<h3 id="complex-validation">Complex Validation</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="n">email</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userEmail&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="n">phone</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userPhone&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="c1"># Validate email</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="n">email_valid</span> <span class="o">=</span> <span class="s1">&#39;@&#39;</span> <span class="ow">in</span> <span class="n">email</span> <span class="ow">and</span> <span class="s1">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">email</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">email</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>    <span class="c1"># Validate phone (10 digits)</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    <span class="n">phone_digits</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">phone</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isdigit</span><span class="p">())</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    <span class="n">phone_valid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">phone_digits</span><span class="p">)</span> <span class="o">==</span> <span class="mi">10</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    <span class="c1"># Store validation results</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;emailValid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">email_valid</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;phoneValid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phone_valid</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>    <span class="c1"># Overall validation</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>    <span class="k">if</span> <span class="n">email_valid</span> <span class="ow">and</span> <span class="n">phone_valid</span><span class="p">:</span>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>        <span class="k">return</span> <span class="s2">&quot;valid&quot;</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>    <span class="k">elif</span> <span class="ow">not</span> <span class="n">email_valid</span><span class="p">:</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>        <span class="k">return</span> <span class="s2">&quot;invalid_email&quot;</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>        <span class="k">return</span> <span class="s2">&quot;invalid_phone&quot;</span>
+</span></code></pre></div>
+<h3 id="data-aggregation">Data Aggregation</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="c1"># Collect all cart items</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="n">item1_qty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;item1Qty&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="n">item2_qty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;item2Qty&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="n">item3_qty</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;item3Qty&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    <span class="c1"># Calculate totals</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>    <span class="n">total_items</span> <span class="o">=</span> <span class="n">item1_qty</span> <span class="o">+</span> <span class="n">item2_qty</span> <span class="o">+</span> <span class="n">item3_qty</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>    <span class="c1"># Calculate costs</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>    <span class="n">item1_cost</span> <span class="o">=</span> <span class="n">item1_qty</span> <span class="o">*</span> <span class="mf">10.00</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>    <span class="n">item2_cost</span> <span class="o">=</span> <span class="n">item2_qty</span> <span class="o">*</span> <span class="mf">15.00</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>    <span class="n">item3_cost</span> <span class="o">=</span> <span class="n">item3_qty</span> <span class="o">*</span> <span class="mf">20.00</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>    <span class="n">subtotal</span> <span class="o">=</span> <span class="n">item1_cost</span> <span class="o">+</span> <span class="n">item2_cost</span> <span class="o">+</span> <span class="n">item3_cost</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>    <span class="c1"># Store results</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;totalItems&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">total_items</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;subtotal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">subtotal</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>    <span class="k">return</span> <span class="n">total_items</span>
+</span></code></pre></div>
+<h3 id="text-processing">Text Processing</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="n">user_input</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userMessage&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>    <span class="c1"># Clean and normalize</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>    <span class="n">cleaned</span> <span class="o">=</span> <span class="n">user_input</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>    <span class="c1"># Extract keywords</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>    <span class="n">keywords</span> <span class="o">=</span> <span class="n">cleaned</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>    <span class="c1"># Categorize</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">word</span> <span class="ow">in</span> <span class="n">keywords</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;urgent&#39;</span><span class="p">,</span> <span class="s1">&#39;emergency&#39;</span><span class="p">,</span> <span class="s1">&#39;asap&#39;</span><span class="p">]):</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>        <span class="n">priority</span> <span class="o">=</span> <span class="s1">&#39;high&#39;</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>    <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="n">word</span> <span class="ow">in</span> <span class="n">keywords</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;question&#39;</span><span class="p">,</span> <span class="s1">&#39;help&#39;</span><span class="p">,</span> <span class="s1">&#39;info&#39;</span><span class="p">]):</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>        <span class="n">priority</span> <span class="o">=</span> <span class="s1">&#39;medium&#39;</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>        <span class="n">priority</span> <span class="o">=</span> <span class="s1">&#39;low&#39;</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;messagePriority&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">priority</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;keywordCount&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">keywords</span><span class="p">)</span>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>    <span class="k">return</span> <span class="n">priority</span>
+</span></code></pre></div>
+<hr />
+<h2 id="debugging-tips">Debugging Tips</h2>
+<h3 id="testing-your-code">Testing Your Code</h3>
+<ol>
+<li><strong>Start simple</strong>: Test with basic code first</li>
+<li><strong>Add logging</strong>: Use return values to debug</li>
+<li><strong>Test edge cases</strong>: Empty values, None, zeros</li>
+<li><strong>Error routing</strong>: Connect error port to see failures</li>
+</ol>
+<h3 id="common-errors">Common Errors</h3>
+<p><strong>Error</strong>: <code>KeyError: 'variableName'</code>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Fix: Use .get() with default</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">value</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;variableName&#39;</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p><strong>Error</strong>: <code>ValueError: invalid literal for int()</code>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Fix: Validate before converting</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">value</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>    <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
+</span></code></pre></div></p>
+<p><strong>Error</strong>: <code>NameError: name 'something' is not defined</code>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Fix: All variables must be accessed via variables dict</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="c1"># Wrong: x = userName</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="c1"># Right: x = variables[&#39;userName&#39;]</span>
+</span></code></pre></div></p>
+<h3 id="print-debugging">Print Debugging</h3>
+<p>While <code>print()</code> is not available, you can debug by:
+- Storing intermediate values in variables
+- Returning debug information
+- Using error messages to trace execution</p>
+<hr />
+<h2 id="best-practices_1">Best Practices</h2>
+<h3 id="code-structure">Code Structure</h3>
+<p><strong>DO</strong>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="c1"># Get inputs with defaults</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="n">value1</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;var1&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>    <span class="n">value2</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;var2&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>    <span class="c1"># Validate</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>    <span class="k">if</span> <span class="n">value1</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">value2</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>        <span class="k">return</span> <span class="s2">&quot;error&quot;</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>    <span class="c1"># Calculate</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">value1</span> <span class="o">+</span> <span class="n">value2</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>    <span class="c1"># Store</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;result&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>    <span class="c1"># Return</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>    <span class="k">return</span> <span class="n">result</span>
+</span></code></pre></div></p>
+<p><strong>DON'T</strong>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    <span class="c1"># No error handling</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;var1&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;var2&#39;</span><span class="p">]</span>  <span class="c1"># May crash</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    <span class="k">return</span> <span class="n">result</span>
+</span></code></pre></div></p>
+<h3 id="variable-handling">Variable Handling</h3>
+<p><strong>DO</strong>:
+- Use <code>.get()</code> with defaults for optional variables
+- Validate variable types before operations
+- Handle None and empty values
+- Use descriptive variable names</p>
+<p><strong>DON'T</strong>:
+- Assume variables exist
+- Skip type checking
+- Use cryptic variable names
+- Modify variables carelessly</p>
+<h3 id="error-prevention">Error Prevention</h3>
+<p><strong>DO</strong>:
+- Add validation checks
+- Handle edge cases
+- Use try-except for risky operations
+- Test with various inputs</p>
+<p><strong>DON'T</strong>:
+- Ignore potential errors
+- Use operations that might fail
+- Skip input validation</p>
+<hr />
+<h2 id="common-patterns">Common Patterns</h2>
+<h3 id="input-validation-pattern">Input Validation Pattern</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>    <span class="n">user_input</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userInput&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>    <span class="c1"># Validation logic</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>    <span class="n">is_valid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">user_input</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;isValid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_valid</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>    <span class="k">return</span> <span class="s2">&quot;valid&quot;</span> <span class="k">if</span> <span class="n">is_valid</span> <span class="k">else</span> <span class="s2">&quot;invalid&quot;</span>
+</span></code></pre></div>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>QuestionText -&gt; CustomCode (validate)
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>                |-- &quot;valid&quot; -&gt; Continue
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>                \-- &quot;invalid&quot; -&gt; Error message -&gt; Ask again
+</span></code></pre></div></p>
+<h3 id="data-transformation-pattern">Data Transformation Pattern</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>    <span class="n">raw_data</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rawInput&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>    <span class="c1"># Transform</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>    <span class="n">cleaned</span> <span class="o">=</span> <span class="n">raw_data</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>    <span class="n">formatted</span> <span class="o">=</span> <span class="n">cleaned</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>    <span class="c1"># Store</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;cleanedData&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">formatted</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>    <span class="k">return</span> <span class="n">formatted</span>
+</span></code></pre></div>
+<h3 id="multi-field-validation-pattern">Multi-Field Validation Pattern</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    <span class="n">name</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userName&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    <span class="n">email</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userEmail&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    <span class="n">phone</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;userPhone&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>    <span class="c1"># Validate each</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>    <span class="n">name_valid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>    <span class="n">email_valid</span> <span class="o">=</span> <span class="s1">&#39;@&#39;</span> <span class="ow">in</span> <span class="n">email</span> <span class="ow">and</span> <span class="s1">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">email</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>    <span class="n">phone_valid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">phone</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">10</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>    <span class="c1"># Store individual results</span>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;nameValid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">name_valid</span>
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;emailValid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">email_valid</span>
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>    <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;phoneValid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phone_valid</span>
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>    <span class="c1"># Overall result</span>
+</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>    <span class="k">if</span> <span class="n">name_valid</span> <span class="ow">and</span> <span class="n">email_valid</span> <span class="ow">and</span> <span class="n">phone_valid</span><span class="p">:</span>
+</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>        <span class="k">return</span> <span class="s2">&quot;all_valid&quot;</span>
+</span><span id="__span-25-19"><a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-25-20"><a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a>        <span class="k">return</span> <span class="s2">&quot;validation_failed&quot;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="error-handling_1">Error Handling</h2>
+<h3 id="error-output-port_1">Error Output Port</h3>
+<p>Route the conversation when code fails:</p>
+<ol>
+<li>Toggle <strong>"Error Output Port"</strong> to ON</li>
+<li>Connect the error arrow to your error handling flow</li>
+<li>Handle scenarios like:<ul>
+<li>Syntax errors in Python code</li>
+<li>Runtime exceptions</li>
+<li>Type conversion errors</li>
+<li>Logic errors</li>
+</ul>
+</li>
+</ol>
+<h3 id="error-message-to-user_1">Error Message to User</h3>
+<p>Send a custom message when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Error Message to User"</strong> to ON</li>
+<li>Enter your message:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Sorry, we encountered an issue. Please contact support.
+</span></code></pre></div></li>
+</ol>
+<p><strong>Note</strong>: Don't reveal technical error details to users.</p>
+<h3 id="admin-email-notification_1">Admin Email Notification</h3>
+<p>Get notified when code fails:</p>
+<ol>
+<li>Toggle <strong>"Admin email when error"</strong> to ON</li>
+<li>Notifications include:</li>
+<li>Full error traceback</li>
+<li>Variable values</li>
+<li>Component ID</li>
+<li>Timestamp</li>
+</ol>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="execution-environment">Execution Environment</h3>
+<ul>
+<li><strong>Python version</strong>: 3.12+</li>
+<li><strong>Execution</strong>: Synchronous</li>
+<li><strong>Timeout</strong>: 5 seconds max</li>
+<li><strong>Memory</strong>: Limited to prevent abuse</li>
+<li><strong>Safety</strong>: Sandboxed execution</li>
+</ul>
+<h3 id="function-requirements">Function Requirements</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>    <span class="c1"># Required signature</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>    <span class="c1"># Must accept &#39;variables&#39; parameter</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>    <span class="c1"># Must return a value</span>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>    <span class="k">pass</span>
+</span></code></pre></div>
+<p><strong>Required</strong>:
+- Function must be named <code>__custom_fn__</code>
+- Must accept one parameter: <code>variables</code>
+- Must return a value (any type)</p>
+<p><strong>Optional</strong>:
+- Can modify variables dictionary
+- Can perform multiple operations
+- Can have multiple return statements</p>
+<h3 id="allowed-operations">Allowed Operations</h3>
+<p><strong>Supported</strong>:
+- Arithmetic: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code>, <code>**</code>
+- Comparison: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>
+- Logical: <code>and</code>, <code>or</code>, <code>not</code>
+- String methods: <code>.upper()</code>, <code>.lower()</code>, <code>.split()</code>, <code>.join()</code>, etc.
+- List operations: <code>append</code>, <code>extend</code>, slicing
+- Dictionary operations: <code>get</code>, <code>set</code>, <code>keys</code>, <code>values</code></p>
+<p><strong>Not supported</strong>:
+- Imports
+- Lambda functions
+- Generators
+- Decorators
+- Classes (beyond basic usage)</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-must-define-custom_fnvariables">Issue: "must define <strong>custom_fn</strong>(variables)"</h3>
+<p><strong>Solution</strong>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1"># Correct structure</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">__custom_fn__</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>    <span class="k">return</span> <span class="s2">&quot;result&quot;</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="c1"># Wrong - different function name</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">my_function</span><span class="p">(</span><span class="n">variables</span><span class="p">):</span>  <span class="c1"># Won&#39;t work</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>    <span class="k">return</span> <span class="s2">&quot;result&quot;</span>
+</span></code></pre></div></p>
+<h3 id="issue-variable-not-found-error">Issue: "Variable not found" error</h3>
+<p><strong>Solution</strong>:
+Use <code>.get()</code> with defaults:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1"># Safe</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="n">value</span> <span class="o">=</span> <span class="n">variables</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;varName&#39;</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span><span class="p">)</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="c1"># Unsafe - crashes if varName doesn&#39;t exist</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="n">value</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="s1">&#39;varName&#39;</span><span class="p">]</span>
+</span></code></pre></div></p>
+<h3 id="issue-code-execution-times-out">Issue: Code execution times out</h3>
+<p><strong>Check</strong>:
+- No infinite loops
+- Loops are bounded
+- Operations complete quickly
+- No heavy computations</p>
+<h3 id="issue-return-value-not-routing-correctly">Issue: Return value not routing correctly</h3>
+<p><strong>Check</strong>:
+- Return value matches output port label exactly
+- Return value is converted to string for routing
+- All possible return values have connected ports
+- Default port is connected</p>
+<h3 id="issue-variables-not-updating">Issue: Variables not updating</h3>
+<p><strong>Check</strong>:
+- You're modifying <code>variables</code> dict correctly
+- Variable names are valid
+- Changes are made before return statement
+- No syntax errors in assignment</p>
+<hr />
+<h2 id="when-not-to-use-customcode">When NOT to Use CustomCode</h2>
+<p><strong>Consider alternatives when</strong>:</p>
+<ul>
+<li><strong>Simple calculations</strong>: Use Formula component instead</li>
+<li><strong>API calls</strong>: Use APIRequest component instead</li>
+<li><strong>Text manipulation</strong>: Use Formula with ToString</li>
+<li><strong>Comparisons</strong>: Use Formula True/False mode</li>
+<li><strong>Email sending</strong>: Use Email component instead</li>
+</ul>
+<p>CustomCode is powerful but should be used when built-in components can't handle your needs.</p>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p>Email: contact@intalos.de</p>
+<hr />
+<p><strong>Last Updated</strong>: October 20, 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>
