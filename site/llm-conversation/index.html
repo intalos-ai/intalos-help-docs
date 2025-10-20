@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>LLM Conversation - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "LLM Conversation -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">LLM Conversation</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#llm-conversation-component-user-guide">LLM Conversation Component - User Guide</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-llm-conversation">When to Use LLM Conversation</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#component-modes">Component Modes</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#configuration">Configuration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#conversation-mode-settings">Conversation Mode Settings</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#processing-mode-settings">Processing Mode Settings</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#store-ai-response">Store AI Response</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-it-works">How It Works</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#use-cases-examples">Use Cases &amp; Examples</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#token-usage-costs">Token Usage &amp; Costs</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#error-handling">Error Handling</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#testing">Testing</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#security-privacy">Security &amp; Privacy</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-patterns">Common Patterns</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#advanced-tips">Advanced Tips</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="llm-conversation-component-user-guide">LLM Conversation Component - User Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>LLM Conversation</strong> component integrates AI-powered conversations into your bot using Large Language Models (LLMs). Create intelligent, context-aware responses, build conversational AI experiences, and add natural language processing to your flows.</p>
+<h2 id="when-to-use-llm-conversation">When to Use LLM Conversation</h2>
+<p>Ideal for scenarios like:
+- AI-powered customer support
+- Natural language Q&amp;A
+- Content generation
+- Text analysis and summarization
+- Conversational interfaces
+- Intelligent recommendations
+- Dynamic response generation</p>
+<hr />
+<h2 id="component-modes">Component Modes</h2>
+<h3 id="conversation-mode">Conversation Mode</h3>
+<p><strong>Purpose</strong>: Multi-turn conversations with memory</p>
+<p><strong>Use when</strong>:
+- Building chatbots with ongoing dialogue
+- Context from previous messages matters
+- Users ask follow-up questions
+- Maintaining conversation history</p>
+<p><strong>Features</strong>:
+- Conversation history tracking
+- Context preservation across messages
+- Memory of previous exchanges
+- Natural back-and-forth dialogue</p>
+<p><strong>Example flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>User: &quot;What&#39;s the weather?&quot;
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>AI: &quot;I can help with that. Which city?&quot;
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>User: &quot;New York&quot;
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>AI: &quot;Let me check New York weather for you...&quot;
+</span></code></pre></div></p>
+<h3 id="processing-mode">Processing Mode</h3>
+<p><strong>Purpose</strong>: Single prompt-response operations</p>
+<p><strong>Use when</strong>:
+- One-off text processing
+- Data analysis tasks
+- Content generation
+- Translation
+- Summarization
+- No conversation history needed</p>
+<p><strong>Features</strong>:
+- No history tracking
+- Faster processing
+- Lower token usage
+- Stateless operation</p>
+<p><strong>Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Input: User&#39;s long text
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Process: Summarize the text
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Output: Brief summary
+</span></code></pre></div></p>
+<hr />
+<h2 id="configuration">Configuration</h2>
+<h3 id="ai-provider-model">AI Provider &amp; Model</h3>
+<h4 id="select-provider">Select Provider</h4>
+<p>Currently supported:
+- <strong>Google Gemini</strong> - Fast, cost-effective, multilingual</p>
+<h4 id="select-model">Select Model</h4>
+<p><strong>Google Gemini models</strong>:
+- <code>gemini-pro</code> - Best for text
+- <code>gemini-1.5-flash</code> - Fastest, most cost-effective
+- <code>gemini-1.5-pro</code> - Most capable</p>
+<h3 id="api-configuration">API Configuration</h3>
+<h4 id="get-api-key">Get API Key</h4>
+<p><strong>Google Gemini</strong>:
+1. Visit: https://makersuite.google.com/app/apikey
+2. Create new API key
+3. Copy the key
+4. Paste into component</p>
+<h4 id="configure-in-component">Configure in Component</h4>
+<ol>
+<li><strong>Provider</strong>: Select "Google Gemini"</li>
+<li><strong>Model</strong>: Choose your model</li>
+<li><strong>API Token</strong>: Paste your API key</li>
+<li>Click "Apply Changes"</li>
+</ol>
+<h3 id="system-prompt">System Prompt</h3>
+<p>Define the AI's role and behavior:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>You are a helpful customer service assistant for Acme Corp. 
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>You are friendly, professional, and concise.
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Always end responses with a question to keep the conversation going.
+</span></code></pre></div>
+<p><strong>Best practices</strong>:
+- Be specific about role and tone
+- Set clear boundaries
+- Define response style
+- Include do's and don'ts</p>
+<p><strong>Examples</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>You are a technical support expert. Provide clear, step-by-step solutions.
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>You are a friendly sales assistant. Be enthusiastic but not pushy.
+</span></code></pre></div>
+<h3 id="context-optional">Context (Optional)</h3>
+<p>Additional context for every request:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Customer Name: {userName}
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Account Type: {accountType}
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Previous Orders: {orderHistory}
+</span></code></pre></div>
+<p><strong>Use for</strong>:
+- Providing user-specific information
+- Adding business context
+- Including relevant data
+- Personalizing responses</p>
+<hr />
+<h2 id="conversation-mode-settings">Conversation Mode Settings</h2>
+<h3 id="enable-history">Enable History</h3>
+<p>Track conversation across multiple messages:</p>
+<ol>
+<li>Toggle <strong>"Enable History"</strong> to ON</li>
+<li>In <strong>"History storage variable"</strong>, enter variable name:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Example: chatHistory
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Example: conversationMemory
+</span></code></pre></div></li>
+</ol>
+<p><strong>How it works</strong>:
+- Stores last 5 message pairs (user + AI)
+- Maintains context across exchanges
+- Automatically managed
+- Saved in specified variable</p>
+<h3 id="without-history">Without History</h3>
+<p>When disabled:
+- Each message treated independently
+- No memory of previous exchanges
+- Lower token usage
+- Faster responses</p>
+<hr />
+<h2 id="processing-mode-settings">Processing Mode Settings</h2>
+<p>Use LLM for one-time processing tasks:</p>
+<ol>
+<li><strong>Mode</strong>: Select "Processing"</li>
+<li><strong>Prompt variable</strong>: Enter variable containing the text to process
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Example: textToSummarize
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Example: contentToAnalyze
+</span></code></pre></div></li>
+</ol>
+<p><strong>Use cases</strong>:
+- Summarize user's long response
+- Translate text
+- Extract information
+- Analyze sentiment
+- Generate content</p>
+<hr />
+<h2 id="store-ai-response">Store AI Response</h2>
+<p>Save the AI's response:</p>
+<ol>
+<li>
+<p>In <strong>"Store output in variable"</strong>, enter variable name:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Example: aiResponse
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Example: generatedContent
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Example: summaryText
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Use the response later:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>The AI said: {aiResponse}
+</span></code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="conversation-mode-flow">Conversation Mode Flow</h3>
+<ol>
+<li><strong>User sends message</strong>: "What are your business hours?"</li>
+<li><strong>LLM receives</strong>:</li>
+<li>System prompt</li>
+<li>Context</li>
+<li>Conversation history (if enabled)</li>
+<li>User message</li>
+<li><strong>AI processes</strong> and generates response</li>
+<li><strong>Response stored</strong> in variable</li>
+<li><strong>History updated</strong> with user + AI messages</li>
+<li><strong>Flow continues</strong> to next component</li>
+</ol>
+<h3 id="processing-mode-flow">Processing Mode Flow</h3>
+<ol>
+<li><strong>Text collected</strong> in previous component</li>
+<li><strong>LLM receives</strong>:</li>
+<li>System prompt</li>
+<li>Context</li>
+<li>Text to process</li>
+<li><strong>AI processes</strong> the text</li>
+<li><strong>Result stored</strong> in output variable</li>
+<li><strong>Flow continues</strong></li>
+</ol>
+<hr />
+<h2 id="use-cases-examples">Use Cases &amp; Examples</h2>
+<h3 id="1-customer-support-chatbot">1. Customer Support Chatbot</h3>
+<p><strong>Mode</strong>: Conversation<br />
+<strong>System Prompt</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>You are a customer support agent for TechStore.
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Help customers with product questions, order tracking, and returns.
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Be friendly and professional. If you don&#39;t know something, offer to connect them with a human agent.
+</span></code></pre></div></p>
+<p><strong>Context</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Customer: {userName}
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Order History: {orderHistory}
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Account Since: {accountCreated}
+</span></code></pre></div></p>
+<p><strong>History</strong>: Enabled<br />
+<strong>Output Variable</strong>: <code>aiResponse</code></p>
+<h3 id="2-text-summarization">2. Text Summarization</h3>
+<p><strong>Mode</strong>: Processing<br />
+<strong>System Prompt</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Summarize the following text in 2-3 sentences. Keep it concise and factual.
+</span></code></pre></div></p>
+<p><strong>Prompt Variable</strong>: <code>userFeedback</code><br />
+<strong>Output Variable</strong>: <code>feedbackSummary</code></p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Collect feedback (QuestionText)
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>-&gt; Store in {userFeedback}
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>   -&gt; LLM (summarize)
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>      -&gt; Email summary to team
+</span></code></pre></div></p>
+<h3 id="3-product-recommendations">3. Product Recommendations</h3>
+<p><strong>Mode</strong>: Conversation<br />
+<strong>System Prompt</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>You are a product recommendation assistant. 
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Ask questions to understand customer needs, then recommend products from our catalog.
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Be consultative and helpful.
+</span></code></pre></div></p>
+<p><strong>Context</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Available Products: {productCatalog}
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Customer Budget: {budget}
+</span></code></pre></div></p>
+<h3 id="4-faq-bot">4. FAQ Bot</h3>
+<p><strong>Mode</strong>: Conversation<br />
+<strong>System Prompt</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>You are an FAQ assistant for Acme Services.
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Answer questions about our services, pricing, and policies.
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>Use the provided knowledge base. If question is outside scope, politely redirect to human support.
+</span></code></pre></div></p>
+<p><strong>Context</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Knowledge Base: {faqContent}
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Business Hours: Mon-Fri 9AM-5PM EST
+</span></code></pre></div></p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="system-prompt-design">System Prompt Design</h3>
+<p><strong>DO</strong>:
+- Be specific about role and expertise
+- Set clear boundaries
+- Define tone and style
+- Include response guidelines
+- Specify what to do when unsure</p>
+<p><strong>DON'T</strong>:
+- Leave prompt too vague
+- Make unrealistic claims
+- Ignore potential edge cases
+- Forget to set tone</p>
+<h3 id="context-management">Context Management</h3>
+<p><strong>DO</strong>:
+- Include relevant user information
+- Add business-specific data
+- Keep context focused and concise
+- Update context with new information</p>
+<p><strong>DON'T</strong>:
+- Include irrelevant information
+- Make context too long (increases costs)
+- Include sensitive data unnecessarily</p>
+<h3 id="history-management">History Management</h3>
+<p><strong>DO</strong>:
+- Enable history for conversations
+- Use descriptive variable names
+- Monitor history growth
+- Disable for processing tasks</p>
+<p><strong>DON'T</strong>:
+- Enable history when not needed (costs more)
+- Share history between different conversations
+- Store excessively long histories</p>
+<hr />
+<h2 id="token-usage-costs">Token Usage &amp; Costs</h2>
+<h3 id="understanding-tokens">Understanding Tokens</h3>
+<ul>
+<li><strong>Tokens</strong>: Words or word pieces used in AI processing</li>
+<li><strong>You pay for</strong>: Input tokens + output tokens</li>
+<li><strong>History multiplies cost</strong>: More history = more tokens</li>
+</ul>
+<h3 id="optimizing-costs">Optimizing Costs</h3>
+<p><strong>Reduce costs by</strong>:
+- Using processing mode when history not needed
+- Limiting history to last 5 exchanges
+- Keeping system prompts concise
+- Trimming AI output
+- Choosing efficient models (gemini-1.5-flash)</p>
+<h3 id="model-selection">Model Selection</h3>
+<p><strong>gemini-1.5-flash</strong>:
+- Fastest
+- Most cost-effective
+- Good for most use cases</p>
+<p><strong>gemini-1.5-pro</strong>:
+- Most capable
+- Better for complex tasks
+- Higher cost</p>
+<p><strong>gemini-pro</strong>:
+- Balanced option
+- Good for conversations</p>
+<hr />
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="error-output-port">Error Output Port</h3>
+<p>Route the conversation when AI fails:</p>
+<ol>
+<li>Toggle <strong>"Error Output Port"</strong> to ON</li>
+<li>Connect the error arrow to your error handling flow</li>
+<li>Handle scenarios like:<ul>
+<li>API key invalid or expired</li>
+<li>Network connection issues</li>
+<li>Model not available</li>
+<li>Token limit exceeded</li>
+<li>Content policy violations</li>
+</ul>
+</li>
+</ol>
+<h3 id="error-message-to-user">Error Message to User</h3>
+<p>Send a custom message when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Error Message to User"</strong> to ON</li>
+<li>Enter your message:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Sorry, our AI assistant is temporarily unavailable. Please try again or contact support.
+</span></code></pre></div></li>
+</ol>
+<h3 id="admin-email-notification">Admin Email Notification</h3>
+<p>Get notified when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Admin email when error"</strong> to ON</li>
+<li>Notifications sent to your registered admin email</li>
+<li>Includes error details and conversation context</li>
+</ol>
+<hr />
+<h2 id="testing">Testing</h2>
+<h3 id="test-your-configuration">Test Your Configuration</h3>
+<ol>
+<li>Click <strong>"Test LLM"</strong> button in the component inspector</li>
+<li>Enter a test question</li>
+<li>Click <strong>"Send Test"</strong></li>
+<li>Review AI response</li>
+<li>Verify tone, accuracy, and format</li>
+</ol>
+<p><strong>Test scenarios</strong>:
+- Typical user questions
+- Edge cases
+- Follow-up questions (if history enabled)
+- Unclear or ambiguous inputs</p>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="request-format">Request Format</h3>
+<p><strong>Conversation mode</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Messages sent to AI:
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>[
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>  {role: &quot;user&quot;, parts: [&quot;Previous user message&quot;]},
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  {role: &quot;model&quot;, parts: [&quot;Previous AI response&quot;]},
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>  {role: &quot;user&quot;, parts: [&quot;Current user message&quot;]}
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>]
+</span></code></pre></div></p>
+<p><strong>Processing mode</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Single prompt from variable
+</span></code></pre></div></p>
+<h3 id="history-storage">History Storage</h3>
+<p><strong>Format</strong>: JSON array
+<div class="language-json highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">[</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;parts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;User message 1&quot;</span><span class="p">]},</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;model&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;parts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AI response 1&quot;</span><span class="p">]},</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;parts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;User message 2&quot;</span><span class="p">]},</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;model&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;parts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;AI response 2&quot;</span><span class="p">]}</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="p">]</span>
+</span></code></pre></div></p>
+<p><strong>Limit</strong>: Last 5 message pairs (10 total messages)</p>
+<h3 id="response-processing">Response Processing</h3>
+<ul>
+<li><strong>Whitespace trimming</strong>: Enabled by default</li>
+<li><strong>Character limit</strong>: WhatsApp 1024 char limit applied</li>
+<li><strong>Format</strong>: Plain text (HTML stripped)</li>
+<li><strong>Encoding</strong>: UTF-8</li>
+</ul>
+<hr />
+<h2 id="security-privacy">Security &amp; Privacy</h2>
+<h3 id="api-key-security">API Key Security</h3>
+<p><strong>DO</strong>:
+- Keep API keys confidential
+- Regenerate if exposed
+- Use separate keys for test/production
+- Monitor usage in provider dashboard</p>
+<p><strong>DON'T</strong>:
+- Share API keys
+- Commit keys to version control
+- Screenshot keys
+- Reuse keys across projects</p>
+<h3 id="user-privacy">User Privacy</h3>
+<p><strong>DO</strong>:
+- Inform users they're talking to AI
+- Follow data privacy regulations
+- Clear sensitive data from history
+- Secure conversation logs</p>
+<p><strong>DON'T</strong>:
+- Store sensitive personal information in history
+- Share user conversations
+- Train models on private data without consent</p>
+<hr />
+<h2 id="common-patterns">Common Patterns</h2>
+<h3 id="conversational-support-bot">Conversational Support Bot</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Start
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>-&gt; LLM Conversation (mode: conversation, history: ON)
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>   -&gt; User asks questions
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>      -&gt; AI responds with context
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>         -&gt; Loop back for more questions
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>            -&gt; &quot;Done&quot; button -&gt; End
+</span></code></pre></div>
+<h3 id="text-analysis-pipeline">Text Analysis Pipeline</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>QuestionText (collect feedback)
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>-&gt; LLM (mode: processing, summarize)
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>   -&gt; Store summary
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>      -&gt; LLM (mode: processing, sentiment analysis)
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>         -&gt; Store sentiment
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>            -&gt; Route based on sentiment
+</span></code></pre></div>
+<h3 id="hybrid-bot">Hybrid Bot</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Menu (QuestionButtons)
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>|-- &quot;Talk to AI&quot; -&gt; LLM Conversation (history: ON)
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>|-- &quot;Quick FAQ&quot; -&gt; Predefined responses
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>\-- &quot;Human Agent&quot; -&gt; Transfer to support
+</span></code></pre></div>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-authentication-error">Issue: "Authentication Error"</h3>
+<p><strong>Solution</strong>:
+- Verify API key is correct
+- Check key hasn't expired
+- Ensure key has proper permissions
+- Regenerate key if needed</p>
+<h3 id="issue-responses-are-too-generic">Issue: Responses are too generic</h3>
+<p><strong>Solution</strong>:
+- Improve system prompt specificity
+- Add more context
+- Use more capable model
+- Include examples in system prompt</p>
+<h3 id="issue-ai-hallucinates-information">Issue: AI hallucinates information</h3>
+<p><strong>Solution</strong>:
+- Add "stick to facts" in system prompt
+- Provide reference information in context
+- Instruct AI to say "I don't know" when uncertain
+- Review and refine system prompt</p>
+<h3 id="issue-high-costs">Issue: High costs</h3>
+<p><strong>Solution</strong>:
+- Disable history if not needed
+- Use processing mode for one-off tasks
+- Switch to gemini-1.5-flash model
+- Shorten system prompts and context
+- Limit conversation length</p>
+<h3 id="issue-slow-responses">Issue: Slow responses</h3>
+<p><strong>Solution</strong>:
+- Use faster model (gemini-1.5-flash)
+- Reduce history length
+- Minimize context size
+- Check network connection</p>
+<hr />
+<h2 id="advanced-tips">Advanced Tips</h2>
+<h3 id="dynamic-system-prompts">Dynamic System Prompts</h3>
+<p>Include variables in your system prompt:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>You are a {businessType} assistant helping with {serviceCategory} inquiries.
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>Customer tier: {customerTier}
+</span></code></pre></div></p>
+<h3 id="structured-outputs">Structured Outputs</h3>
+<p>Train AI to return structured data:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>System Prompt: &quot;Return responses in format: CATEGORY: xxx, PRIORITY: xxx, ACTION: xxx&quot;
+</span></code></pre></div></p>
+<p>Then parse the response with CustomCode.</p>
+<h3 id="fallback-pattern">Fallback Pattern</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>LLM Conversation
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>|-- Success -&gt; Check if AI answered satisfactorily
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>│            |-- Yes -&gt; Continue
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>│            \-- No -&gt; Transfer to human
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>\-- Error -&gt; Fallback message
+</span></code></pre></div>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p>Email: contact@intalos.de</p>
+<hr />
+<p><strong>Last Updated</strong>: October 20, 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

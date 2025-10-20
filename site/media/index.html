@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Media - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "Media -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Media</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#media-component-user-guide">Media Component - User Guide</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-media">When to Use Media</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#input-modes">Input Modes</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#supported-file-types-sizes">Supported File Types &amp; Sizes</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#error-handling">Error Handling</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-use-cases">Common Use Cases</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#important-notes">Important Notes</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#tips-for-success">Tips for Success</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="media-component-user-guide">Media Component - User Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>Media</strong> component allows you to send images, videos, audio files, and PDF documents to your WhatsApp bot users. Perfect for sharing promotional content, documents, tutorials, and multimedia experiences.</p>
+<h2 id="when-to-use-media">When to Use Media</h2>
+<p>Ideal for scenarios like:
+- Sending product images or catalogs
+- Sharing PDF documents (invoices, contracts, guides)
+- Delivering video tutorials or demonstrations
+- Sending audio messages or voice recordings
+- Sharing promotional graphics or infographics</p>
+<hr />
+<h2 id="input-modes">Input Modes</h2>
+<h3 id="static-mode">Static Mode</h3>
+<p><strong>Best for</strong>: Files that don't change, promotional content, standard documents</p>
+<p><strong>How it works</strong>:
+1. Upload your file once during bot setup
+2. File is stored securely on our servers
+3. Same file is sent to all users</p>
+<p><strong>Example Use Cases</strong>:
+- Company logo
+- Product catalog PDF
+- Welcome video
+- Terms and conditions document</p>
+<p><strong>Maximum Upload Size</strong>: 5 MB</p>
+<p><strong>Note</strong>: While the upload interface has a 5 MB limit for all file types, you can use Dynamic Mode with URLs to send larger files (up to WhatsApp's limits: 16 MB for videos/audio, 100 MB for PDFs).</p>
+<hr />
+<h3 id="dynamic-mode">Dynamic Mode</h3>
+<p><strong>Best for</strong>: Personalized content, variable media, externally hosted files</p>
+<p><strong>How it works</strong>:
+1. Provide a URL that points to the file
+2. URL can contain variables for personalization
+3. File is fetched when needed and sent to user</p>
+<p><strong>Supported URL Types</strong>:</p>
+<ol>
+<li>
+<p><strong>Public URLs</strong>:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://yourwebsite.com/files/document.pdf
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>https://cdn.example.com/images/photo.jpg
+</span></code></pre></div></p>
+</li>
+<li>
+<p><strong>Variables</strong>:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{userProfilePicture}
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>{invoiceURL}
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>{productImage}
+</span></code></pre></div></p>
+</li>
+</ol>
+<p><strong>Example with Variables</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>https://yourapi.com/invoices/{invoiceID}.pdf
+</span></code></pre></div></p>
+<p><strong>Pro Tip</strong>: Use variables from previous components (like APIRequest) to send personalized media.</p>
+<hr />
+<h2 id="supported-file-types-sizes">Supported File Types &amp; Sizes</h2>
+<h3 id="images">Images</h3>
+<ul>
+<li><strong>Formats</strong>: JPEG (.jpg), PNG (.png), GIF (.gif)</li>
+<li><strong>Maximum Size</strong>: 5 MB</li>
+<li><strong>Best for</strong>: Photos, graphics, infographics</li>
+</ul>
+<h3 id="videos">Videos</h3>
+<ul>
+<li><strong>Formats</strong>: MP4 (.mp4), QuickTime (.mov)</li>
+<li><strong>Maximum Size</strong>: 16 MB</li>
+<li><strong>Best for</strong>: Tutorials, demos, promotional videos</li>
+<li><strong>Note</strong>: WhatsApp may compress videos</li>
+</ul>
+<h3 id="audio">Audio</h3>
+<ul>
+<li><strong>Formats</strong>: MP3 (.mp3), WAV (.wav), OGG (.ogg), Opus, WebM</li>
+<li><strong>Maximum Size</strong>: 16 MB</li>
+<li><strong>Best for</strong>: Voice messages, audio guides, music</li>
+</ul>
+<h3 id="documents">Documents</h3>
+<ul>
+<li><strong>Formats</strong>: PDF only (.pdf)</li>
+<li><strong>Maximum Size</strong>: 100 MB</li>
+<li><strong>Best for</strong>: Invoices, contracts, reports, guides</li>
+<li><strong>Note</strong>: Other document types (Word, Excel) are not supported by WhatsApp</li>
+</ul>
+<hr />
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="error-output-port">Error Output Port</h3>
+<p>Route the conversation when media sending fails:</p>
+<ol>
+<li>Toggle <strong>"Error Output Port"</strong> to ON</li>
+<li>Connect the error arrow to your error handling flow</li>
+<li>Handle scenarios like:<ul>
+<li>File not found</li>
+<li>File too large</li>
+<li>Invalid file type</li>
+<li>Network errors</li>
+</ul>
+</li>
+</ol>
+<h3 id="error-message-to-user">Error Message to User</h3>
+<p>Send a friendly message when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Error Message to User"</strong> to ON</li>
+<li>Enter your message:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Sorry, we couldn&#39;t send that file. Please try again or contact support.
+</span></code></pre></div></li>
+</ol>
+<p><strong>Dynamic Error Messages</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Hi {userName}, we&#39;re having trouble sending your {mediaType}. Please try again.
+</span></code></pre></div></p>
+<h3 id="admin-email-notification">Admin Email Notification</h3>
+<p>Get notified when media sending fails:</p>
+<ol>
+<li>Toggle <strong>"Send Error Admin Email"</strong> to ON</li>
+<li>Receive error details via email for troubleshooting</li>
+</ol>
+<hr />
+<h2 id="common-use-cases">Common Use Cases</h2>
+<h3 id="1-send-product-image">1. Send Product Image</h3>
+<p><strong>Scenario</strong>: Show product photo from your catalog</p>
+<p><strong>Configuration</strong>:
+- Media Type: <code>Image</code>
+- Input Mode: <code>Dynamic</code>
+- Media Source: <code>{productImageURL}</code></p>
+<p><strong>Setup</strong>:
+1. Use APIRequest to fetch product data
+2. Store image URL in variable: <code>productImageURL</code>
+3. Media component sends the image</p>
+<hr />
+<h3 id="2-share-invoice-pdf">2. Share Invoice PDF</h3>
+<p><strong>Scenario</strong>: Send personalized invoice after purchase</p>
+<p><strong>Configuration</strong>:
+- Media Type: <code>Document (pdf)</code>
+- Input Mode: <code>Dynamic</code>
+- Media Source: <code>invoices/{orderID}.pdf</code></p>
+<p><strong>Setup</strong>:
+1. Generate invoice on your server
+2. Store in S3 as: <code>invoices/ORDER123.pdf</code>
+3. Use order ID variable in Media component</p>
+<hr />
+<h3 id="3-send-welcome-video">3. Send Welcome Video</h3>
+<p><strong>Scenario</strong>: Onboarding video for new users</p>
+<p><strong>Configuration</strong>:
+- Media Type: <code>Video</code>
+- Input Mode: <code>Static</code>
+- Upload: <code>welcome_video.mp4</code> (under 16 MB)</p>
+<p><strong>Setup</strong>:
+1. Upload video once during bot setup
+2. Add to your welcome flow
+3. Same video sent to all new users</p>
+<hr />
+<h3 id="4-audio-tutorial">4. Audio Tutorial</h3>
+<p><strong>Scenario</strong>: Voice instructions in multiple languages</p>
+<p><strong>Configuration</strong>:
+- Media Type: <code>Audio</code>
+- Input Mode: <code>Dynamic</code>
+- Media Source: <code>tutorials/{userLanguage}/instructions.mp3</code></p>
+<p><strong>Setup</strong>:
+1. Store audio files organized by language
+2. Use language variable to select correct file
+3. Personalized audio for each user</p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="file-optimization">File Optimization</h3>
+<p><strong>DO</strong>:
+- Compress images before uploading (use tools like TinyPNG)
+- Keep videos under 10 MB for faster delivery
+- Optimize PDFs (remove unnecessary elements)
+- Use appropriate resolution (WhatsApp on mobile)
+- Test files on mobile devices before deployment</p>
+<p><strong>DON'T</strong>:
+- Upload unnecessarily large files
+- Use exotic file formats
+- Assume all users have fast internet</p>
+<h3 id="content-strategy">Content Strategy</h3>
+<p><strong>DO</strong>:
+- Use relevant, high-quality media
+- Ensure images have good contrast for mobile screens
+- Add text alternative in message before media
+- Keep videos short and engaging (under 1 minute ideal)
+- Provide context in text before sending media</p>
+<p><strong>DON'T</strong>:
+- Send media without explanation
+- Overload users with too many files
+- Send low-quality or pixelated images</p>
+<h3 id="url-management">URL Management</h3>
+<p><strong>DO</strong>:
+- Use HTTPS URLs for security
+- Verify URLs are publicly accessible (if using public URLs)
+- Keep URL structure consistent
+- Use CDN for better performance
+- Check URLs regularly for availability</p>
+<p><strong>DON'T</strong>:
+- Use HTTP (non-secure) URLs
+- Use URLs that require authentication (for public URLs)
+- Use temporary URLs that might expire
+- Hardcode URLs that might change</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-file-too-large-error">Issue: "File too large" error</h3>
+<p><strong>Solution</strong>: File exceeds size limits
+1. Check the size limits for your media type:
+   - Images: 5 MB
+   - Videos/Audio: 16 MB
+   - PDFs: 100 MB
+2. Compress or optimize the file
+3. For videos, reduce resolution or length</p>
+<h3 id="issue-file-type-not-supported">Issue: "File type not supported"</h3>
+<p><strong>Solution</strong>: Wrong file format
+1. Verify file extension matches allowed formats
+2. Convert file to supported format
+3. Check MIME type matches file extension</p>
+<h3 id="issue-file-not-found-dynamic-mode">Issue: "File not found" (Dynamic mode)</h3>
+<p><strong>Solution</strong>: URL or S3 key is incorrect
+1. Verify the URL is publicly accessible
+2. Check S3 key path is correct
+3. Ensure variables contain valid values
+4. Test URL in browser first</p>
+<h3 id="issue-media-not-displaying-properly">Issue: Media not displaying properly</h3>
+<p><strong>Solution</strong>: Format or encoding issue
+1. Use standard formats (JPEG for images, MP4 for video)
+2. Check file isn't corrupted
+3. Test file on WhatsApp manually first
+4. Re-export/convert file with different settings</p>
+<h3 id="issue-access-denied-s3-files">Issue: "Access denied" (S3 files)</h3>
+<p><strong>Solution</strong>: Permission problem
+1. Verify S3 bucket permissions
+2. Check AWS credentials are configured
+3. Ensure file exists in specified location
+4. Confirm S3 key path is correct</p>
+<h3 id="issue-slow-media-delivery">Issue: Slow media delivery</h3>
+<p><strong>Solution</strong>: File too large or slow hosting
+1. Optimize file size
+2. Use CDN for better performance
+3. Consider compressing images
+4. Check your hosting server speed</p>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="file-validation">File Validation</h3>
+<p>The Media component automatically validates:
+- <strong>File size</strong>: Checked against WhatsApp limits
+- <strong>MIME type</strong>: Verified to match expected format
+- <strong>File extension</strong>: Checked for consistency
+- <strong>Accessibility</strong>: URL tested before sending (dynamic mode)</p>
+<h3 id="delivery-process">Delivery Process</h3>
+<p><strong>Static Mode</strong>:
+1. File uploaded to secure storage
+2. URL generated when needed
+3. Sent via WhatsApp Cloud API</p>
+<p><strong>Dynamic Mode</strong>:
+1. URL or S3 key provided
+2. File accessibility verified
+3. Presigned URL generated (if S3)
+4. Sent via WhatsApp Cloud API</p>
+<h3 id="security">Security</h3>
+<ul>
+<li><strong>Private S3 files</strong>: Presigned URLs expire after 1 hour</li>
+<li><strong>Upload security</strong>: Files scanned and validated</li>
+<li><strong>HTTPS only</strong>: All URLs must use secure protocol</li>
+</ul>
+<hr />
+<h2 id="important-notes">Important Notes</h2>
+<h3 id="whatsapp-limitations">WhatsApp Limitations</h3>
+<p><strong>Be aware</strong>:
+- WhatsApp may compress images and videos
+- Maximum file sizes are enforced by WhatsApp
+- Only PDF documents are supported (no Word, Excel)
+- Audio files might be transcoded
+- GIFs are supported but may lose animation quality</p>
+<h3 id="file-persistence">File Persistence</h3>
+<ul>
+<li><strong>Static files</strong>: Stored permanently on our servers</li>
+<li><strong>Dynamic URLs</strong>: Must remain accessible when bot runs</li>
+<li><strong>S3 presigned URLs</strong>: Generated fresh each time (1-hour expiry)</li>
+</ul>
+<h3 id="cost-considerations">Cost Considerations</h3>
+<ul>
+<li>Static file storage counts towards your storage quota</li>
+<li>Large files consume more bandwidth</li>
+<li>Consider user data costs when sending large files</li>
+</ul>
+<hr />
+<h2 id="tips-for-success">Tips for Success</h2>
+<ol>
+<li><strong>Test First</strong>: Always test media sending in a development bot before production</li>
+<li><strong>Mobile-First</strong>: Optimize for mobile viewing (most WhatsApp users)</li>
+<li><strong>Fast Loading</strong>: Keep files reasonably sized for quick delivery</li>
+<li><strong>Fallback Plan</strong>: Use error handling for graceful failures</li>
+<li><strong>User Context</strong>: Send media at the right time in conversation flow</li>
+</ol>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p>Email: contact@intalos.de</p>
+<hr />
+<p><strong>Last Updated</strong>: October 20, 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

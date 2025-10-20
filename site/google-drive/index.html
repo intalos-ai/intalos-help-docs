@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>GoogleDrive - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "GoogleDrive -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">GoogleDrive</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#googledrive-component-user-guide">GoogleDrive Component - User Guide</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-googledrive">When to Use GoogleDrive</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#setup-requirements">Setup Requirements</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#configuration">Configuration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#image-safety-check-optional">Image Safety Check (Optional)</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-it-works">How It Works</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#use-cases-examples">Use Cases &amp; Examples</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#integration-patterns">Integration Patterns</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#error-handling">Error Handling</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#google-cloud-vision-api">Google Cloud Vision API</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#security-privacy">Security &amp; Privacy</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#advanced-patterns">Advanced Patterns</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-patterns">Common Patterns</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="googledrive-component-user-guide">GoogleDrive Component - User Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>GoogleDrive</strong> component allows you to upload files received from users directly to your Google Drive. Perfect for storing user-submitted photos, documents, and files in an organized, cloud-based location.</p>
+<h2 id="when-to-use-googledrive">When to Use GoogleDrive</h2>
+<p>Ideal for scenarios like:
+- Archiving user-submitted documents
+- Storing product photos from customers
+- Organizing form attachments
+- Backing up important files
+- Creating searchable file repositories
+- Integrating with Google Workspace workflows</p>
+<hr />
+<h2 id="setup-requirements">Setup Requirements</h2>
+<h3 id="before-you-start">Before You Start</h3>
+<ol>
+<li><strong>Google Account</strong>: You need a Google account with Google Drive access</li>
+<li><strong>Google Drive Folder</strong>: Create a folder where files will be uploaded</li>
+<li><strong>Authorization</strong>: Grant Intalos access to your Google Drive</li>
+<li><strong>QuestionMedia Component</strong>: Must be placed before GoogleDrive to receive files</li>
+</ol>
+<hr />
+<h2 id="configuration">Configuration</h2>
+<h3 id="step-1-connect-google-account">Step 1: Connect Google Account</h3>
+<ol>
+<li>Click <strong>"Login with Google"</strong> in the component</li>
+<li>Authorize Intalos AI Bot Builder</li>
+<li>Grant permissions to access Google Drive</li>
+<li>Select your Google account</li>
+</ol>
+<h3 id="step-2-select-upload-folder">Step 2: Select Upload Folder</h3>
+<ol>
+<li>Click <strong>"Select Folder"</strong> button</li>
+<li>Browse your Google Drive folders</li>
+<li>Select destination folder for uploads</li>
+<li>Component saves folder selection</li>
+</ol>
+<h3 id="step-3-configure-file-storage">Step 3: Configure File Storage</h3>
+<h4 id="store-file-url">Store File URL</h4>
+<p>The Google Drive file URL will be saved to a variable:</p>
+<ol>
+<li>
+<p>In <strong>"Store file URL in variable"</strong>, enter variable name:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Example: uploadedFileUrl
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Example: documentLink
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Example: userPhotoUrl
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Use this URL later to:</p>
+</li>
+<li>Send to your team via Email</li>
+<li>Store in database via APIRequest</li>
+<li>Display to users</li>
+<li>Reference in other systems</li>
+</ol>
+<hr />
+<h2 id="image-safety-check-optional">Image Safety Check (Optional)</h2>
+<p>Automatically validate uploaded images for inappropriate content using Google Cloud Vision API.</p>
+<h3 id="when-to-enable">When to Enable</h3>
+<p><strong>Use when</strong>:
+- Accepting user-generated images
+- Public-facing applications
+- Community guidelines enforcement
+- Content moderation required
+- Child-safe applications</p>
+<p><strong>Skip when</strong>:
+- Only accepting documents
+- Trusted user base
+- Internal applications
+- Cost is a concern</p>
+<h3 id="setup">Setup</h3>
+<ol>
+<li>Toggle <strong>"Enable Image Safety Check"</strong> to ON</li>
+<li>Get API key from Google Cloud Console:</li>
+<li>Visit: https://console.cloud.google.com/</li>
+<li>Enable Cloud Vision API</li>
+<li>Create API key</li>
+<li>Copy the key</li>
+<li>Paste API key in component</li>
+<li>Click "Apply Changes"</li>
+</ol>
+<h3 id="what-it-checks">What It Checks</h3>
+<p>The system checks for:
+- Adult content
+- Violence
+- Racy/suggestive content
+- Medical/graphic images
+- Spoofed/manipulated content</p>
+<h3 id="what-happens">What Happens</h3>
+<p><strong>Image passes</strong>:
+- File uploaded to Google Drive
+- URL stored in variable
+- Flow continues</p>
+<p><strong>Image fails</strong>:
+- File NOT uploaded
+- User notified (customizable message)
+- Flow routes to error port
+- Admin notified (if enabled)</p>
+<hr />
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="upload-process">Upload Process</h3>
+<ol>
+<li><strong>User sends file</strong> via WhatsApp (in QuestionMedia component)</li>
+<li><strong>File received</strong> by bot</li>
+<li><strong>Safety check</strong> (if enabled and file is image)</li>
+<li><strong>Upload to Drive</strong> in selected folder</li>
+<li><strong>URL generated</strong> and stored in variable</li>
+<li><strong>Flow continues</strong> to next component</li>
+</ol>
+<h3 id="file-organization">File Organization</h3>
+<p><strong>In your Google Drive</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Selected Folder/
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>|--─ user_file_1.pdf
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>|--─ user_photo_2.jpg
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>|--─ document_3.pdf
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>\--─ ... (all uploaded files)
+</span></code></pre></div></p>
+<p><strong>File naming</strong>:
+- Original filename preserved
+- Duplicate names handled automatically
+- Organized by upload date</p>
+<hr />
+<h2 id="use-cases-examples">Use Cases &amp; Examples</h2>
+<h3 id="1-document-collection">1. Document Collection</h3>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>QuestionMedia (collect PDF)
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>-&gt; GoogleDrive (upload to &quot;Customer Documents&quot; folder)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   -&gt; Store URL in {documentUrl}
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>      -&gt; Email (send {documentUrl} to team)
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>         -&gt; Confirmation to user
+</span></code></pre></div></p>
+<h3 id="2-id-verification">2. ID Verification</h3>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>QuestionMedia (collect ID photo)
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>-&gt; GoogleDrive (with safety check)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>   |-- Success -&gt; Upload to &quot;ID Verifications&quot; folder
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>   │            -&gt; Store in {idPhotoUrl}
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>   │               -&gt; APIRequest (send to verification service)
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>   \-- Safety check failed -&gt; &quot;Please upload a clear photo of your ID&quot;
+</span></code></pre></div></p>
+<h3 id="3-product-photo-collection">3. Product Photo Collection</h3>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>QuestionMedia (collect product photo)
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>-&gt; GoogleDrive (with safety check, upload to &quot;Product Photos&quot;)
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>   -&gt; Store in {productPhotoUrl}
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>      -&gt; GoogleSheets (insert row with {productPhotoUrl})
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>         -&gt; &quot;Thank you! Photo received.&quot;
+</span></code></pre></div></p>
+<h3 id="4-support-ticket-attachments">4. Support Ticket Attachments</h3>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>QuestionMedia (collect screenshot)
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>-&gt; GoogleDrive (upload to &quot;Support Attachments/{ticketId}&quot;)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>   -&gt; Store in {attachmentUrl}
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>      -&gt; Email (notify support with {attachmentUrl})
+</span></code></pre></div></p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="folder-organization">Folder Organization</h3>
+<p><strong>DO</strong>:
+- Create dedicated folders for different file types
+- Use descriptive folder names
+- Organize by date or category
+- Keep folder structure simple</p>
+<p><strong>DON'T</strong>:
+- Upload all files to root Drive
+- Use complex nested structures
+- Mix different file types in one folder
+- Create too many sub-folders</p>
+<h3 id="safety-checks">Safety Checks</h3>
+<p><strong>DO</strong>:
+- Enable for user-generated content
+- Set up error handling
+- Inform users about content policies
+- Test with various images</p>
+<p><strong>DON'T</strong>:
+- Skip safety checks for public apps
+- Enable for non-image files (unnecessary cost)
+- Forget to handle rejection scenarios</p>
+<h3 id="variable-usage">Variable Usage</h3>
+<p><strong>DO</strong>:
+- Store URLs in descriptive variables
+- Use URLs in subsequent components
+- Test URL access
+- Consider URL expiration policies</p>
+<p><strong>DON'T</strong>:
+- Forget to store URLs
+- Use generic variable names
+- Assume URLs are permanent</p>
+<hr />
+<h2 id="integration-patterns">Integration Patterns</h2>
+<h3 id="questionmedia-googledrive">QuestionMedia + GoogleDrive</h3>
+<p><strong>Standard pattern</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>QuestionMedia (collect file from user)
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>-&gt; GoogleDrive (upload to Drive folder)
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>   -&gt; Success -&gt; File uploaded
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>   -&gt; Error -&gt; Upload failed
+</span></code></pre></div></p>
+<h3 id="with-notification">With Notification</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>QuestionMedia
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>-&gt; GoogleDrive
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>   -&gt; Email (notify team with file URL)
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>      -&gt; Confirmation message to user
+</span></code></pre></div>
+<h3 id="with-database-storage">With Database Storage</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>QuestionMedia
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>-&gt; GoogleDrive
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>   -&gt; APIRequest (save {fileUrl} to database)
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>      -&gt; GoogleSheets (log submission)
+</span></code></pre></div>
+<hr />
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="error-output-port">Error Output Port</h3>
+<p>Route the conversation when upload fails:</p>
+<ol>
+<li>Toggle <strong>"Error Output Port"</strong> to ON</li>
+<li>Connect the error arrow to your error handling flow</li>
+<li>Handle scenarios like:<ul>
+<li>Authentication failures</li>
+<li>Permission denied</li>
+<li>Folder not found</li>
+<li>Safety check failures</li>
+<li>Network errors</li>
+<li>Quota exceeded</li>
+</ul>
+</li>
+</ol>
+<h3 id="error-message-to-user">Error Message to User</h3>
+<p>Send a custom message when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Error Message to User"</strong> to ON</li>
+<li>Enter your message:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Sorry, we couldn&#39;t upload your file. Please try again or contact support.
+</span></code></pre></div></li>
+</ol>
+<p><strong>For safety check failures</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Your image didn&#39;t pass our content guidelines. Please upload an appropriate image.
+</span></code></pre></div></p>
+<h3 id="admin-email-notification">Admin Email Notification</h3>
+<p>Get notified when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Admin email when error"</strong> to ON</li>
+<li>Notifications include:</li>
+<li>Error type</li>
+<li>File information</li>
+<li>User details</li>
+<li>Timestamp</li>
+</ol>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="file-upload">File Upload</h3>
+<ul>
+<li><strong>Method</strong>: Google Drive API v3</li>
+<li><strong>Authentication</strong>: OAuth 2.0</li>
+<li><strong>Transfer</strong>: Direct upload to Drive</li>
+<li><strong>Processing</strong>: Asynchronous</li>
+<li><strong>Timeout</strong>: 60 seconds</li>
+</ul>
+<h3 id="supported-file-types">Supported File Types</h3>
+<p><strong>All types supported by QuestionMedia</strong>:
+- Images (JPEG, PNG, GIF)
+- Videos (MP4, MOV)
+- Audio (MP3, WAV, OGG, Opus, WebM)
+- Documents (PDF)</p>
+<h3 id="file-size-limits">File Size Limits</h3>
+<p>Limits are the same as QuestionMedia:
+- Images: 10 MB
+- Videos: 10 MB
+- Audio: 10 MB
+- PDFs: 2 MB</p>
+<h3 id="permissions-required">Permissions Required</h3>
+<p>Google Drive authorization needs:
+- <strong>drive.file</strong>: Create and access files created by the app
+- <strong>drive.readonly</strong> (for folder browsing): Read file metadata</p>
+<hr />
+<h2 id="google-cloud-vision-api">Google Cloud Vision API</h2>
+<h3 id="safety-check-details">Safety Check Details</h3>
+<p><strong>Categories checked</strong>:
+| Category | Allowed Levels | Blocks |
+|----------|---------------|---------|
+| Adult | VERY_UNLIKELY, UNLIKELY, POSSIBLE | LIKELY, VERY_LIKELY |
+| Violence | VERY_UNLIKELY, UNLIKELY, POSSIBLE | LIKELY, VERY_LIKELY |
+| Racy | VERY_UNLIKELY, UNLIKELY | POSSIBLE, LIKELY, VERY_LIKELY |
+| Medical | VERY_UNLIKELY, UNLIKELY, POSSIBLE | LIKELY, VERY_LIKELY |
+| Spoof | All allowed | None |</p>
+<h3 id="api-costs">API Costs</h3>
+<ul>
+<li><strong>Per image</strong>: ~$1.50 per 1,000 images</li>
+<li><strong>First 1,000</strong>: Free per month</li>
+<li><strong>Billing</strong>: Through Google Cloud account</li>
+</ul>
+<h3 id="setup-vision-api">Setup Vision API</h3>
+<ol>
+<li>Visit Google Cloud Console</li>
+<li>Enable Cloud Vision API</li>
+<li>Create API key (or use service account)</li>
+<li>Copy key to component</li>
+<li>Monitor usage in console</li>
+</ol>
+<hr />
+<h2 id="security-privacy">Security &amp; Privacy</h2>
+<h3 id="access-control">Access Control</h3>
+<p><strong>DO</strong>:
+- Use dedicated folder for bot uploads
+- Set appropriate folder permissions
+- Regularly audit uploaded files
+- Remove unnecessary files periodically</p>
+<p><strong>DON'T</strong>:
+- Upload to shared/public folders
+- Give unlimited access
+- Store sensitive data without encryption
+- Mix user files with system files</p>
+<h3 id="file-privacy">File Privacy</h3>
+<ul>
+<li><strong>Folder permissions</strong>: Control in Google Drive</li>
+<li><strong>File visibility</strong>: Inherited from folder</li>
+<li><strong>Sharing</strong>: Manage per file or folder</li>
+<li><strong>URLs</strong>: Google Drive URLs are private by default</li>
+</ul>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-authentication-failed">Issue: "Authentication failed"</h3>
+<p><strong>Check</strong>:
+- Google account is still authorized
+- OAuth token hasn't expired
+- Permissions weren't revoked</p>
+<p><strong>Solution</strong>:
+- Re-authorize Google account
+- Click "Login with Google" again
+- Check account has Drive access</p>
+<h3 id="issue-permission-denied">Issue: "Permission denied"</h3>
+<p><strong>Check</strong>:
+- You have write access to selected folder
+- Folder still exists
+- Folder wasn't deleted or moved</p>
+<p><strong>Solution</strong>:
+- Verify folder permissions
+- Re-select folder
+- Create new folder if needed</p>
+<h3 id="issue-safety-check-failed">Issue: "Safety check failed"</h3>
+<p><strong>Check</strong>:
+- API key is valid
+- Cloud Vision API is enabled
+- Billing is set up in Google Cloud
+- Image actually violates policies</p>
+<p><strong>Solution</strong>:
+- Verify API key
+- Enable Cloud Vision API
+- Check billing status
+- Review image content</p>
+<h3 id="issue-files-not-appearing-in-drive">Issue: Files not appearing in Drive</h3>
+<p><strong>Check</strong>:
+- Folder ID is correct
+- Upload actually succeeded
+- You're looking in the right folder
+- Refresh Google Drive view</p>
+<p><strong>Solution</strong>:
+- Check flow execution logs
+- Verify success path was taken
+- Re-select folder in component</p>
+<h3 id="issue-quota-exceeded">Issue: "Quota exceeded"</h3>
+<p><strong>Cause</strong>:
+- Google Drive storage full
+- API rate limit reached</p>
+<p><strong>Solution</strong>:
+- Free up Drive storage
+- Wait for rate limit reset (usually 1 minute)
+- Upgrade Drive storage if needed</p>
+<hr />
+<h2 id="advanced-patterns">Advanced Patterns</h2>
+<h3 id="organized-file-structure">Organized File Structure</h3>
+<p>Create dynamic folder structure:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Main Folder/
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>|--─ 2025-01-15/
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>│   |--─ user_file_1.pdf
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>│   \--─ user_file_2.jpg
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>\--─ 2025-01-16/
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    \--─ user_file_3.pdf
+</span></code></pre></div></p>
+<p>(Requires CustomCode or APIRequest to create date folders)</p>
+<h3 id="file-processing-pipeline">File Processing Pipeline</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>QuestionMedia (collect image)
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>-&gt; GoogleDrive (upload, safety check)
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>   -&gt; Success -&gt; GoogleSheets (log file URL)
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>              -&gt; Email (notify team)
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>                 -&gt; Confirmation to user
+</span></code></pre></div>
+<h3 id="multi-file-collection">Multi-File Collection</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>QuestionMedia (file 1) -&gt; GoogleDrive (upload)
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>-&gt; QuestionMedia (file 2) -&gt; GoogleDrive (upload)
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>   -&gt; QuestionMedia (file 3) -&gt; GoogleDrive (upload)
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>      -&gt; All files collected confirmation
+</span></code></pre></div>
+<hr />
+<h2 id="common-patterns">Common Patterns</h2>
+<h3 id="document-submission">Document Submission</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Collect user info
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>-&gt; QuestionMedia (collect document)
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>   -&gt; GoogleDrive (upload to &quot;Submissions&quot;)
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>      -&gt; GoogleSheets (log submission with {fileUrl})
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>         -&gt; Email (notify admin)
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>            -&gt; &quot;Thank you, received!&quot;
+</span></code></pre></div>
+<h3 id="photo-album">Photo Album</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>QuestionMedia (collect photo)
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>-&gt; GoogleDrive (upload to &quot;User Photos&quot;, safety check ON)
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>   -&gt; Success -&gt; &quot;Photo added to album!&quot;
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>   -&gt; Safety fail -&gt; &quot;Please upload appropriate image&quot;
+</span></code></pre></div>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p>Email: contact@intalos.de</p>
+<hr />
+<p><strong>Last Updated</strong>: October 20, 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

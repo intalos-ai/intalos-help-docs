@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>QuestionMedia - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "QuestionMedia -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">QuestionMedia</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#questionmedia-component-user-guide">QuestionMedia Component - User Guide</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-questionmedia">When to Use QuestionMedia</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-it-works">How It Works</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#file-size-limits">File Size Limits</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#image-safety-check-optional">Image Safety Check (Optional)</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#advanced-configuration">Advanced Configuration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#storage-modes">Storage Modes</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#accessing-uploaded-files">Accessing Uploaded Files</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-use-cases">Common Use Cases</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#cost-considerations">Cost Considerations</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#compliance-privacy">Compliance &amp; Privacy</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#tips-for-success">Tips for Success</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="questionmedia-component-user-guide">QuestionMedia Component - User Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>QuestionMedia</strong> component allows you to receive and process media files uploaded by your users via WhatsApp. Perfect for collecting photos, documents, voice messages, and videos from your customers.</p>
+<h2 id="when-to-use-questionmedia">When to Use QuestionMedia</h2>
+<p>Ideal for scenarios like:
+- Collecting product photos or damage reports
+- Receiving signed documents or forms
+- Getting voice messages from customers
+- ID verification and document submission
+- Property photos for real estate
+- Service request images</p>
+<hr />
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="user-experience">User Experience</h3>
+<ol>
+<li><strong>Bot asks</strong>: "Please upload your invoice"</li>
+<li><strong>User</strong>: Taps attachment icon in WhatsApp</li>
+<li><strong>User</strong>: Selects and sends the file</li>
+<li><strong>QuestionMedia</strong>: Receives and processes the file</li>
+<li><strong>Result</strong>: File is validated, saved, and URL stored in variable</li>
+</ol>
+<h3 id="behind-the-scenes">Behind the Scenes</h3>
+<ol>
+<li>File is downloaded from WhatsApp</li>
+<li>Type and size are validated</li>
+<li>Image safety check (optional, for images)</li>
+<li>File uploaded to secure cloud storage</li>
+<li>S3 key (file location) stored in your variable</li>
+</ol>
+<hr />
+<h2 id="file-size-limits">File Size Limits</h2>
+<p><strong>Important size restrictions</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Media Type</th>
+<th>Maximum Size</th>
+<th>Why?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Images</strong></td>
+<td>10 MB</td>
+<td>WhatsApp resizes large images</td>
+</tr>
+<tr>
+<td><strong>Videos</strong></td>
+<td>10 MB</td>
+<td>Faster processing</td>
+</tr>
+<tr>
+<td><strong>Audio</strong></td>
+<td>10 MB</td>
+<td>Voice notes are typically small</td>
+</tr>
+<tr>
+<td><strong>PDFs</strong></td>
+<td>2 MB</td>
+<td>Quick processing response</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: These limits ensure fast processing and quick responses to users. WhatsApp requires bot responses within 200ms.</p>
+<h3 id="what-happens-if-file-is-too-large">What happens if file is too large?</h3>
+<ul>
+<li>User receives an error message</li>
+<li>Flow can branch to "error" path</li>
+<li>You can guide user to compress or resize</li>
+</ul>
+<p><strong>Need larger files?</strong> Contact us at contact@intalos.de to discuss your use case.</p>
+<hr />
+<h2 id="image-safety-check-optional">Image Safety Check (Optional)</h2>
+<h3 id="what-is-it">What is it?</h3>
+<p>Uses Google Cloud Vision API to automatically detect inappropriate content in uploaded images.</p>
+<h3 id="when-to-use-it">When to use it?</h3>
+<ul>
+<li>User-generated content platforms</li>
+<li>Public-facing submissions</li>
+<li>Apps with community guidelines</li>
+<li>Child-safe applications</li>
+</ul>
+<h3 id="how-to-enable">How to enable?</h3>
+<ol>
+<li>Toggle <strong>"Enable Image Safety Check"</strong> to ON</li>
+<li>Enter your <strong>Google Cloud Vision API Key</strong></li>
+<li>Get an API key: <a href="https://console.cloud.google.com/">Google Cloud Console</a></li>
+</ol>
+<h3 id="what-does-it-check">What does it check?</h3>
+<p>The system checks for:
+- Adult content
+- Violence
+- Racy/suggestive content
+- Medical/graphic images
+- Spoofed/manipulated content</p>
+<h3 id="what-happens-if-image-fails">What happens if image fails?</h3>
+<ul>
+<li>Image is rejected</li>
+<li>User receives a notification</li>
+<li>File is NOT saved</li>
+<li>Flow branches to error path</li>
+</ul>
+<p><strong>Example message</strong>: "Image safety check alert - Image rejected due to adult content"</p>
+<hr />
+<h2 id="advanced-configuration">Advanced Configuration</h2>
+<h3 id="error-handling">Error Handling</h3>
+<h4 id="error-output-port">Error Output Port</h4>
+<ol>
+<li>Toggle <strong>"Error Output Port"</strong> to ON</li>
+<li>Connect the error arrow to your error handling flow</li>
+<li>Handle scenarios:<ul>
+<li>File too large</li>
+<li>Wrong file type</li>
+<li>Safety check failed</li>
+<li>Network errors</li>
+</ul>
+</li>
+</ol>
+<h4 id="custom-error-message">Custom Error Message</h4>
+<ol>
+<li>Toggle <strong>"Error Message to User"</strong> to ON</li>
+<li>Enter friendly message:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Sorry, we couldn&#39;t process that file. Please try sending:
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>- A different file
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>- A smaller file (under 10 MB)
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>- A PDF document
+</span></code></pre></div></li>
+</ol>
+<h4 id="admin-email-notification">Admin Email Notification</h4>
+<ol>
+<li>Toggle <strong>"Send Error Admin Email"</strong> to ON</li>
+<li>Get notified when errors occur</li>
+<li>Review and troubleshoot issues</li>
+</ol>
+<hr />
+<h2 id="storage-modes">Storage Modes</h2>
+<p>QuestionMedia offers two storage options for uploaded files:</p>
+<h3 id="temporary-storage">Temporary Storage</h3>
+<p><strong>Purpose</strong>: Short-term file handling when you're sending the file to another system</p>
+<p><strong>How it works</strong>:
+- Files stored on Intalos AI servers
+- <strong>Publicly accessible</strong> via URL (no authentication required)
+- <strong>Automatically deleted after 24 hours</strong>
+- Does NOT count toward your storage quota
+- Free to use</p>
+<p><strong>Best for</strong>:
+- Sending files to external APIs or services
+- Files that will be stored elsewhere (AWS S3, your database, etc.)
+- One-time processing or verification
+- When you don't need long-term storage</p>
+<p><strong>Example use case</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>User uploads invoice PDF
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>-&gt; Temporary storage (publicly accessible)
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>   -&gt; APIRequest sends file to your accounting system
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>      -&gt; File deleted after 24 hours
+</span></code></pre></div></p>
+<h3 id="permanent-storage">Permanent Storage</h3>
+<p><strong>Purpose</strong>: Long-term file storage within Intalos AI for use in your bot flows</p>
+<p><strong>How it works</strong>:
+- Files stored in private Intalos AI storage
+- <strong>Private</strong> (authentication required for access)
+- <strong>Stored indefinitely</strong> until you delete them
+- Counts toward your storage quota
+- Can be accessed by bot components later</p>
+<p><strong>Best for</strong>:
+- Files you need to keep and reference in flows
+- Building file libraries or archives
+- Files used across multiple bot executions
+- Long-term record keeping</p>
+<p><strong>Example use case</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>User uploads profile photo
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>-&gt; Permanent storage (private)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   -&gt; Used in future bot interactions
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>   -&gt; Referenced in customer profile
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>   -&gt; Kept indefinitely
+</span></code></pre></div></p>
+<h3 id="choosing-the-right-mode">Choosing the Right Mode</h3>
+<p><strong>Use Temporary when</strong>:
+- Forwarding files to external systems
+- Files are processed and discarded
+- External system stores the file permanently
+- You want to avoid storage costs</p>
+<p><strong>Use Permanent when</strong>:
+- Files are part of your bot's data
+- You'll reference the file in future flows
+- Building a file repository
+- Compliance or record-keeping requirements</p>
+<hr />
+<h2 id="accessing-uploaded-files">Accessing Uploaded Files</h2>
+<h3 id="file-url-format">File URL Format</h3>
+<p>After upload, the variable contains the S3 key:</p>
+<p><strong>Temporary</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>uploads/question_media/temporary/bot_66_comp_xyz_a1b2c3d4.pdf
+</span></code></pre></div></p>
+<p><strong>Permanent</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uploads/question_media/permanent/bot_66_comp_xyz_a1b2c3d4.pdf
+</span></code></pre></div></p>
+<h3 id="using-the-file">Using the File</h3>
+<h4 id="1-send-to-your-api">1. Send to Your API</h4>
+<p>Use APIRequest component:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;customer_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{customerID}}&quot;</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;document_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{uploadedDocument}}&quot;</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&quot;document_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;invoice&quot;</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h4 id="2-email-to-team">2. Email to Team</h4>
+<p>Use Email component:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>New document uploaded by {customerName}
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>File location: {uploadedDocument}
+</span></code></pre></div></p>
+<h4 id="3-store-in-googlesheets">3. Store in GoogleSheets</h4>
+<p>Log file reference in a spreadsheet for tracking</p>
+<hr />
+<h2 id="common-use-cases">Common Use Cases</h2>
+<h3 id="1-id-verification">1. ID Verification</h3>
+<p><strong>Scenario</strong>: Verify customer identity with ID card photo</p>
+<p><strong>Configuration</strong>:
+- Media Type: <code>Image</code>
+- Storage Mode: <code>Temporary</code> (deleted after 24 hours)
+- Image Safety Check: <code>ON</code> (prevent inappropriate images)
+- Store in: <code>idCardImage</code></p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Bot: &quot;Please upload a photo of your ID card&quot;
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>-&gt;
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>QuestionMedia receives image
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>-&gt;
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Safety check validates content
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>-&gt;
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>APIRequest sends to verification service
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>-&gt;
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>Bot: &quot;Thank you! Your ID is being verified&quot;
+</span></code></pre></div></p>
+<hr />
+<h3 id="2-document-submission">2. Document Submission</h3>
+<p><strong>Scenario</strong>: Collect signed contract from customer</p>
+<p><strong>Configuration</strong>:
+- Media Type: <code>Document (pdf)</code>
+- Storage Mode: <code>Permanent</code>
+- Store in: <code>signedContract</code></p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Bot: &quot;Please upload your signed contract&quot;
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>-&gt;
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>QuestionMedia receives PDF
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>-&gt;
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>File validated (PDF, under 2 MB)
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>-&gt;
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>APIRequest stores in CRM
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>-&gt;
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>Email sent to legal team
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>-&gt;
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>Bot: &quot;Contract received! We&#39;ll review and contact you.&quot;
+</span></code></pre></div></p>
+<hr />
+<h3 id="3-property-damage-report">3. Property Damage Report</h3>
+<p><strong>Scenario</strong>: Insurance claim with damage photos</p>
+<p><strong>Configuration</strong>:
+- Media Type: <code>Image</code>
+- Storage Mode: <code>Permanent</code>
+- Store in: <code>damagePhoto1</code></p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Bot: &quot;Please send photos of the damage (up to 3 photos)&quot;
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>-&gt; QuestionMedia (Photo 1)
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>-&gt; QuestionMedia (Photo 2)
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>-&gt; QuestionMedia (Photo 3)
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>-&gt; APIRequest creates claim with all photos
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>-&gt; Bot: &quot;Claim submitted! Reference: {claimNumber}&quot;
+</span></code></pre></div></p>
+<hr />
+<h3 id="4-voice-feedback">4. Voice Feedback</h3>
+<p><strong>Scenario</strong>: Customer voice feedback/complaints</p>
+<p><strong>Configuration</strong>:
+- Media Type: <code>Audio</code>
+- Storage Mode: <code>Permanent</code>
+- Store in: <code>voiceFeedback</code></p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Bot: &quot;Please record your feedback (voice note)&quot;
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>-&gt;
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>QuestionMedia receives audio
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>-&gt;
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>File stored in feedback database
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>-&gt;
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>Email notification to customer service
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>-&gt;
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>Bot: &quot;Thank you for your feedback!&quot;
+</span></code></pre></div></p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="user-communication">User Communication</h3>
+<p><strong>DO</strong>:
+- Clearly tell users what type of file to send
+- Specify file size limits upfront
+- Provide examples of good submissions
+- Explain what you'll do with their file
+- Confirm receipt immediately</p>
+<p><strong>Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Bot: &quot;Please upload a clear photo of your receipt&quot;
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>     Requirements:
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>     • JPEG or PNG format
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>     • Under 10 MB
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>     • All text clearly visible
+</span></code></pre></div></p>
+<p><strong>DON'T</strong>:
+- Assume users know what format to use
+- Leave users wondering if upload succeeded
+- Use technical error messages
+- Ask for multiple files without clear instructions</p>
+<h3 id="file-management">File Management</h3>
+<p><strong>DO</strong>:
+- Use temporary storage for sensitive documents
+- Use permanent storage for records you need to keep
+- Clean up old temporary files regularly (automatic after 24 hours)
+- Track file uploads in your database
+- Implement file retention policies</p>
+<p><strong>DON'T</strong>:
+- Store everything permanently (costs)
+- Keep sensitive data longer than needed
+- Forget to handle file deletion requests
+- Mix temporary and permanent use cases</p>
+<h3 id="security-privacy">Security &amp; Privacy</h3>
+<p><strong>DO</strong>:
+- Use image safety check for user-generated content
+- Inform users about data retention policies
+- Encrypt sensitive documents
+- Limit access to uploaded files
+- Comply with GDPR/data protection laws</p>
+<p><strong>DON'T</strong>:
+- Store sensitive personal data without consent
+- Share user files publicly
+- Keep files indefinitely without reason
+- Skip safety checks for public platforms</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-file-too-large-error">Issue: "File too large" error</h3>
+<p><strong>User receives</strong>: "Media size limit breached"</p>
+<p><strong>Solutions</strong>:
+1. Ask user to compress the image/video
+2. Guide user to resize photo on their phone
+3. For PDFs, ask to remove images or reduce quality
+4. Consider upgrading limits (contact support)</p>
+<p><strong>Prevention</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Bot: &quot;Please upload a photo (max 10 MB). 
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>     Tip: Use your camera app&#39;s &#39;Share &gt; Resize&#39; option if the file is too large.&quot;
+</span></code></pre></div></p>
+<hr />
+<h3 id="issue-wrong-file-type-uploaded">Issue: Wrong file type uploaded</h3>
+<p><strong>User uploads</strong>: Word document instead of PDF</p>
+<p><strong>Solutions</strong>:
+1. Clear error message explaining required format
+2. Provide conversion instructions
+3. Link to online PDF converter
+4. Allow retry</p>
+<p><strong>Example response</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Bot: &quot;Please upload a PDF file. 
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>     If you have a Word document, you can:
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>     1. Open the document
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>     2. Select &#39;Save As&#39;
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>     3. Choose &#39;PDF&#39; format
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>     Then send it again.&quot;
+</span></code></pre></div></p>
+<hr />
+<h3 id="issue-image-safety-check-fails">Issue: Image safety check fails</h3>
+<p><strong>Reason</strong>: Image contains flagged content</p>
+<p><strong>Solutions</strong>:
+1. Ask user to upload different image
+2. Explain why image was rejected (tactfully)
+3. Provide guidelines for acceptable images</p>
+<p><strong>Example response</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Bot: &quot;We couldn&#39;t process that image. Please upload a clear photo of the item/document without any other content.&quot;
+</span></code></pre></div></p>
+<hr />
+<h3 id="issue-user-confused-about-what-to-upload">Issue: User confused about what to upload</h3>
+<p><strong>Prevention</strong>: Crystal clear instructions</p>
+<p><strong>Good examples</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>**Bad**: &quot;Send document&quot;
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>**Good**: &quot;Please upload a PDF copy of your signed contract&quot;
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>**Bad**: &quot;Upload image&quot;
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>**Good**: &quot;Please send a clear photo of the product with the serial number visible&quot;
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>**Bad**: &quot;Voice note&quot;
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>**Good**: &quot;Please record a voice message (up to 1 minute) describing the issue&quot;
+</span></code></pre></div></p>
+<hr />
+<h3 id="issue-files-not-accessible-later">Issue: Files not accessible later</h3>
+<p><strong>Reason</strong>: S3 key incorrect or file deleted</p>
+<p><strong>Solutions</strong>:
+1. Verify S3 key is stored correctly in variable
+2. Check storage mode (temporary files are deleted after 24 hours)
+3. Ensure your backend has S3 access permissions
+4. Use presigned URLs for temporary public access</p>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="file-processing-flow">File Processing Flow</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>1. User sends file via WhatsApp
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>   -&gt;
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>2. WhatsApp generates media ID
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>   -&gt;
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>3. Bot retrieves file from WhatsApp servers
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>   -&gt;
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>4. File validated (type, size, MIME)
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>   -&gt;
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>5. Optional: Google Vision safety check (images)
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>   -&gt;
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>6. File uploaded to private S3 bucket
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>   -&gt;
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>7. S3 key stored in variable
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>   -&gt;
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>8. Flow continues
+</span></code></pre></div>
+<h3 id="file-storage-structure">File Storage Structure</h3>
+<p><strong>Temporary files</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>uploads/question_media/temporary/{botId}_{componentId}_{uuid}.{ext}
+</span></code></pre></div>
+Deleted automatically after 24 hours.</p>
+<p><strong>Permanent files</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>uploads/question_media/permanent/{botId}_{componentId}_{uuid}.{ext}
+</span></code></pre></div>
+Stored indefinitely (counts toward quota).</p>
+<h3 id="supported-mime-types">Supported MIME Types</h3>
+<p><strong>Images</strong>:
+- <code>image/jpeg</code>
+- <code>image/png</code>
+- <code>image/gif</code></p>
+<p><strong>Videos</strong>:
+- <code>video/mp4</code>
+- <code>video/quicktime</code></p>
+<p><strong>Audio</strong>:
+- <code>audio/mpeg</code> (MP3)
+- <code>audio/wav</code>
+- <code>audio/ogg</code>
+- <code>audio/opus</code>
+- <code>audio/webm</code></p>
+<p><strong>Documents</strong>:
+- <code>application/pdf</code> only</p>
+<h3 id="security-features">Security Features</h3>
+<ul>
+<li>Files stored in private S3 bucket (not publicly accessible)</li>
+<li>Unique UUIDs prevent file name collisions</li>
+<li>MIME type validation prevents file type spoofing</li>
+<li>Size limits prevent abuse</li>
+<li>Optional content safety checks</li>
+<li>Automatic cleanup of temporary files</li>
+</ul>
+<hr />
+<h2 id="cost-considerations">Cost Considerations</h2>
+<h3 id="storage-costs">Storage Costs</h3>
+<ul>
+<li><strong>Temporary storage</strong>: Free (deleted after 24 hours)</li>
+<li><strong>Permanent storage</strong>: Counts toward your storage quota</li>
+<li><strong>Quota tracking</strong>: Monitor in your dashboard</li>
+</ul>
+<h3 id="bandwidth-costs">Bandwidth Costs</h3>
+<ul>
+<li>Downloads from WhatsApp: No charge to you</li>
+<li>Uploads to S3: Included in platform costs</li>
+<li>Large file uploads: More processing time</li>
+</ul>
+<h3 id="api-costs">API Costs</h3>
+<ul>
+<li><strong>Google Vision API</strong>: Separate billing by Google</li>
+<li>First 1,000 images/month: Free</li>
+<li>After: Pay per image</li>
+<li><a href="https://cloud.google.com/vision/pricing">Pricing details</a></li>
+</ul>
+<hr />
+<h2 id="compliance-privacy">Compliance &amp; Privacy</h2>
+<h3 id="gdpr-considerations">GDPR Considerations</h3>
+<ul>
+<li>✅ Users have right to request file deletion</li>
+<li>✅ Inform users about data retention</li>
+<li>✅ Implement data retention policies</li>
+<li>✅ Provide data export capabilities</li>
+</ul>
+<h3 id="data-retention">Data Retention</h3>
+<p><strong>Recommendations</strong>:
+- <strong>ID verification</strong>: Temporary storage (auto-delete 24 hours)
+- <strong>Contracts</strong>: Permanent storage (legal requirement)
+- <strong>Support tickets</strong>: 90-day retention, then delete
+- <strong>General submissions</strong>: Based on your privacy policy</p>
+<hr />
+<h2 id="tips-for-success">Tips for Success</h2>
+<ol>
+<li><strong>Clear Instructions</strong>: Tell users exactly what to upload</li>
+<li><strong>Visual Examples</strong>: In your bot flow, show example of good upload</li>
+<li><strong>Immediate Feedback</strong>: Confirm receipt and next steps</li>
+<li><strong>Error Recovery</strong>: Allow users to retry easily</li>
+<li><strong>Privacy First</strong>: Use appropriate storage duration</li>
+<li><strong>Test Thoroughly</strong>: Upload different file types and sizes during testing</li>
+</ol>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p>Email: contact@intalos.de</p>
+<hr />
+<p><strong>Last Updated</strong>: October 20, 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

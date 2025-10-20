@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>QuestionText - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "QuestionText -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">QuestionText</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#questiontext-component-user-guide">QuestionText Component - User Guide</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-questiontext">When to Use QuestionText</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#configuration">Configuration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-it-works">How It Works</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#use-cases-examples">Use Cases &amp; Examples</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-patterns">Common Patterns</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="questiontext-component-user-guide">QuestionText Component - User Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>QuestionText</strong> component allows you to ask users open-ended questions and collect their text responses. Perfect for gathering names, addresses, descriptions, feedback, and any other free-form text input.</p>
+<h2 id="when-to-use-questiontext">When to Use QuestionText</h2>
+<p>Ideal for scenarios like:
+- Collecting user names or contact information
+- Asking for addresses or locations
+- Gathering feedback or comments
+- Getting detailed descriptions
+- Open-ended survey questions
+- Custom text input requirements</p>
+<hr />
+<h2 id="configuration">Configuration</h2>
+<h3 id="store-user-response">Store User Response</h3>
+<p>The text entered by the user can be saved to a variable for later use:</p>
+<ol>
+<li>
+<p>In <strong>"Store output in variable"</strong>, enter a variable name:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Example: userName
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Example: userAddress
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Example: feedbackText
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Use this variable later in your flow:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Thank you {userName} for your feedback!
+</span></code></pre></div></p>
+</li>
+</ol>
+<h3 id="auto-transition-mode">Auto Transition Mode</h3>
+<p>Toggle <strong>"Auto transition"</strong> to ON when you want to:
+- Display a message without waiting for user input
+- Automatically move to the next step
+- Show information or instructions</p>
+<p>When enabled:
+- No user input is collected
+- Flow immediately transitions to next component
+- Variable storage is disabled
+- Use for informational messages</p>
+<h3 id="navigation-buttons">Navigation Buttons</h3>
+<p>Add quick navigation options for better user experience:</p>
+<h4 id="go-back-button">Go Back Button</h4>
+<ol>
+<li>Toggle <strong>"Go Back"</strong> to ON</li>
+<li>Customize label (max 20 characters):
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Default: &quot;Go Back&quot;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Custom: &quot;Previous Step&quot;
+</span></code></pre></div></li>
+<li>Allows users to return to previous step</li>
+</ol>
+<h4 id="go-on-button">Go On Button</h4>
+<ol>
+<li>Toggle <strong>"Go On"</strong> to ON</li>
+<li>Customize label (max 20 characters):
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Default: &quot;Go On&quot;
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Custom: &quot;Continue&quot;
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Custom: &quot;Next&quot;
+</span></code></pre></div></li>
+<li>Allows users to proceed without typing</li>
+</ol>
+<p><strong>Note</strong>: Navigation buttons are only available when auto-transition is OFF.</p>
+<h3 id="add-image">Add Image</h3>
+<p>Enhance your question with a visual element:</p>
+<ol>
+<li>Click <strong>"Add Image"</strong></li>
+<li>Upload an image (max 5 MB)</li>
+<li>Image appears above your question text</li>
+<li>Helps provide context or visual instructions</li>
+</ol>
+<p><strong>Good for</strong>:
+- Showing examples
+- Visual instructions
+- Product images
+- Reference materials</p>
+<hr />
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="user-experience">User Experience</h3>
+<ol>
+<li><strong>Bot asks</strong>: "What is your name?"</li>
+<li><strong>User</strong>: Types their response</li>
+<li><strong>QuestionText</strong>: Captures and stores the response</li>
+<li><strong>Result</strong>: Text stored in your variable for later use</li>
+</ol>
+<h3 id="message-length-limits">Message Length Limits</h3>
+<ul>
+<li><strong>WhatsApp limit</strong>: 1024 characters for outgoing messages</li>
+<li><strong>User input</strong>: No limit on incoming text length</li>
+<li>Messages exceeding 1024 characters will be automatically truncated with "..."</li>
+</ul>
+<hr />
+<h2 id="use-cases-examples">Use Cases &amp; Examples</h2>
+<h3 id="1-name-collection">1. Name Collection</h3>
+<p><strong>Configuration</strong>:
+- Message: "What is your full name?"
+- Variable: <code>userName</code>
+- Go On: OFF</p>
+<p><strong>User flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Bot: What is your full name?
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>User: John Smith
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>-&gt; Stored in {userName}
+</span></code></pre></div></p>
+<h3 id="2-address-collection">2. Address Collection</h3>
+<p><strong>Configuration</strong>:
+- Message: "Please enter your delivery address"
+- Variable: <code>deliveryAddress</code>
+- Go On: OFF</p>
+<h3 id="3-feedback-collection">3. Feedback Collection</h3>
+<p><strong>Configuration</strong>:
+- Message: "How was your experience with our service?"
+- Variable: <code>userFeedback</code>
+- Go On: ON ("Skip")</p>
+<p>Allows users to skip if they don't want to provide feedback.</p>
+<h3 id="4-information-display-auto-transition">4. Information Display (Auto-Transition)</h3>
+<p><strong>Configuration</strong>:
+- Message: "Thank you! Processing your request..."
+- Auto transition: ON
+- Variable: (disabled)</p>
+<p>Simply displays the message and moves on automatically.</p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="message-clarity">Message Clarity</h3>
+<p><strong>DO</strong>:
+- Ask clear, specific questions
+- Use simple language
+- Provide examples when helpful
+- Explain what format you need</p>
+<p><strong>DON'T</strong>:
+- Ask vague or ambiguous questions
+- Use technical jargon
+- Assume users know what to enter</p>
+<h3 id="examples">Examples</h3>
+<p><strong>Good</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&quot;Please enter your email address (example: john@example.com)&quot;
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&quot;What is your phone number? (10 digits, no spaces)&quot;
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>&quot;Describe the issue in a few sentences&quot;
+</span></code></pre></div></p>
+<p><strong>Bad</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>&quot;Enter details&quot;
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>&quot;Provide information&quot;
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>&quot;Input data&quot;
+</span></code></pre></div></p>
+<h3 id="variable-naming">Variable Naming</h3>
+<p><strong>DO</strong>:
+- Use descriptive variable names (<code>userName</code>, <code>customerEmail</code>)
+- Use camelCase for consistency
+- Keep names concise but meaningful</p>
+<p><strong>DON'T</strong>:
+- Use generic names (<code>var1</code>, <code>temp</code>, <code>x</code>)
+- Include spaces or special characters
+- Use reserved keywords</p>
+<h3 id="navigation-buttons_1">Navigation Buttons</h3>
+<p><strong>DO</strong>:
+- Use "Go Back" for returning to previous steps
+- Use "Go On" or "Skip" for optional questions
+- Keep button labels under 20 characters
+- Use clear, action-oriented labels</p>
+<p><strong>DON'T</strong>:
+- Use long descriptive labels (they'll be truncated)
+- Leave labels empty
+- Use confusing button text</p>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="input-validation">Input Validation</h3>
+<p>The QuestionText component:
+- Accepts any text input from users
+- No automatic validation (use Formula or CustomCode for validation)
+- Stores raw user input in the variable
+- Trims whitespace from responses</p>
+<h3 id="whatsapp-limitations">WhatsApp Limitations</h3>
+<ul>
+<li><strong>Outgoing message limit</strong>: 1024 characters</li>
+<li><strong>User input</strong>: No character limit</li>
+<li><strong>Button labels</strong>: Maximum 20 characters</li>
+<li><strong>Variable names</strong>: Must be valid identifiers</li>
+</ul>
+<h3 id="variable-storage">Variable Storage</h3>
+<p>User responses are stored as:
+- <strong>Type</strong>: String
+- <strong>Encoding</strong>: UTF-8
+- <strong>Whitespace</strong>: Leading/trailing whitespace removed
+- <strong>Empty responses</strong>: Stored as empty string</p>
+<hr />
+<h2 id="common-patterns">Common Patterns</h2>
+<h3 id="sequential-questions">Sequential Questions</h3>
+<p>Use multiple QuestionText components in sequence:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>QuestionText (name) -&gt; QuestionText (email) -&gt; QuestionText (phone)
+</span></code></pre></div></p>
+<h3 id="optional-questions-with-skip">Optional Questions with Skip</h3>
+<p>Enable "Go On" button for optional questions:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Message: &quot;Any additional comments? (Optional)&quot;
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Go On: &quot;Skip&quot;
+</span></code></pre></div></p>
+<h3 id="confirmation-flow">Confirmation Flow</h3>
+<p>Collect input, then confirm:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>QuestionText (collect) -&gt; Text (confirm: &quot;You entered: {userInput}&quot;)
+</span></code></pre></div></p>
+<h3 id="validation-pattern">Validation Pattern</h3>
+<p>Collect input, validate, retry if invalid:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>QuestionText -&gt; Formula (validate) -&gt; (valid) Success
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>                                   -&gt; (invalid) Error message -&gt; back to QuestionText
+</span></code></pre></div></p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-users-send-wrong-format">Issue: Users send wrong format</h3>
+<p><strong>Solution</strong>: Provide clear examples and format instructions in your question</p>
+<h3 id="issue-variable-not-storing">Issue: Variable not storing</h3>
+<p><strong>Check</strong>:
+- Variable name is properly configured
+- Auto-transition is OFF
+- Component is properly connected in flow</p>
+<h3 id="issue-message-too-long">Issue: Message too long</h3>
+<p><strong>Solution</strong>: 
+- Keep questions concise
+- Split long messages into multiple Text components
+- Use variables to reduce repetition</p>
+<h3 id="issue-navigation-buttons-not-working">Issue: Navigation buttons not working</h3>
+<p><strong>Check</strong>:
+- Auto-transition is OFF
+- Flow has valid previous/next states
+- Button labels are under 20 characters</p>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p>Email: contact@intalos.de</p>
+<hr />
+<p><strong>Last Updated</strong>: October 20, 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

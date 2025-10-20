@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>GoogleSheets - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "GoogleSheets -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">GoogleSheets</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#googlesheets-component-user-guide">GoogleSheets Component - User Guide</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-googlesheets">When to Use GoogleSheets</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#setup-requirements">Setup Requirements</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#quick-setup">Quick Setup</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#actions-explained">Actions Explained</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#column-variable-mapping">Column-Variable Mapping</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#use-cases-examples">Use Cases &amp; Examples</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#flow-routing">Flow Routing</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#error-handling">Error Handling</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#security-privacy">Security &amp; Privacy</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#advanced-patterns">Advanced Patterns</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="googlesheets-component-user-guide">GoogleSheets Component - User Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>GoogleSheets</strong> component allows you to read from and write to Google Sheets spreadsheets directly from your bot. Perfect for storing form submissions, updating inventory, reading product catalogs, and managing data in spreadsheets.</p>
+<h2 id="when-to-use-googlesheets">When to Use GoogleSheets</h2>
+<p>Ideal for scenarios like:
+- Storing form responses in spreadsheets
+- Updating inventory or availability
+- Reading product information
+- Managing customer data
+- Recording orders or bookings
+- Syncing data between bot and sheets
+- Creating simple databases</p>
+<hr />
+<h2 id="setup-requirements">Setup Requirements</h2>
+<h3 id="before-you-start">Before You Start</h3>
+<ol>
+<li><strong>Google Account</strong>: You need a Google account with access to Google Sheets</li>
+<li><strong>Google Drive Access</strong>: Authorize Intalos to access your Google Drive</li>
+<li><strong>Spreadsheet</strong>: Create or have access to a Google Sheets file</li>
+<li><strong>Column Headers</strong>: First row must contain column headers</li>
+</ol>
+<hr />
+<h2 id="quick-setup">Quick Setup</h2>
+<h3 id="step-1-connect-google-account">Step 1: Connect Google Account</h3>
+<ol>
+<li>Click <strong>"Login with Google"</strong> in the component</li>
+<li>Authorize Intalos AI Bot Builder</li>
+<li>Select your Google account</li>
+<li>Grant permissions to access Google Sheets</li>
+</ol>
+<h3 id="step-2-select-spreadsheet">Step 2: Select Spreadsheet</h3>
+<ol>
+<li>Click <strong>"Select Spreadsheet"</strong> button</li>
+<li>Browse your Google Drive</li>
+<li>Select the spreadsheet you want to use</li>
+<li>Component loads the sheet names and headers</li>
+</ol>
+<h3 id="step-3-choose-sheet">Step 3: Choose Sheet</h3>
+<ol>
+<li>From the <strong>"Sheet"</strong> dropdown, select which sheet (tab) to use</li>
+<li>Headers from first row are automatically loaded</li>
+</ol>
+<h3 id="step-4-select-action">Step 4: Select Action</h3>
+<p>Choose what you want to do:
+- <strong>Insert a row</strong> - Add new data
+- <strong>Update a row</strong> - Modify existing data
+- <strong>Use data from sheet</strong> - Read existing data
+- <strong>Delete a row</strong> - Remove data</p>
+<hr />
+<h2 id="actions-explained">Actions Explained</h2>
+<h3 id="1-insert-a-row">1. Insert a Row</h3>
+<p><strong>Purpose</strong>: Add new data to the bottom of your sheet</p>
+<p><strong>Configuration</strong>:
+1. Select <strong>"Insert a row"</strong>
+2. Map sheet columns to bot variables:
+   - Column: "Customer Name" -&gt; Variable: <code>{userName}</code>
+   - Column: "Email" -&gt; Variable: <code>{userEmail}</code>
+   - Column: "Order Total" -&gt; Variable: <code>{orderTotal}</code></p>
+<p><strong>How it works</strong>:
+- New row appended to sheet
+- Variables inserted into specified columns
+- Empty columns left blank
+- No duplicate checking</p>
+<p><strong>Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Spreadsheet columns: Name | Email | Phone | Date
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Bot variables: {userName} | {userEmail} | {userPhone} | {currentDate}
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Result: New row with customer data added
+</span></code></pre></div></p>
+<h3 id="2-update-a-row">2. Update a Row</h3>
+<p><strong>Purpose</strong>: Find and update existing data in a row</p>
+<p><strong>Configuration</strong>:
+1. Select <strong>"Update a row"</strong>
+2. <strong>Reference column</strong>: Column to search (e.g., "Email")
+3. <strong>Reference value</strong>: Variable to match (e.g., <code>{userEmail}</code>)
+4. <strong>Update columns</strong>: Which columns to update
+   - Column: "Status" -&gt; Variable: <code>{newStatus}</code>
+   - Column: "Last Contact" -&gt; Variable: <code>{currentDate}</code></p>
+<p><strong>How it works</strong>:
+- Searches for row where reference column matches reference value
+- Updates specified columns in that row
+- If multiple matches, updates first match
+- If no match, routes to "not found" port</p>
+<p><strong>Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Find row where Email = {userEmail}
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Update Status column to {newStatus}
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Update Last Contact to {currentDate}
+</span></code></pre></div></p>
+<h3 id="3-use-data-from-sheet">3. Use Data from Sheet</h3>
+<p><strong>Purpose</strong>: Read data from an existing row</p>
+<p><strong>Configuration</strong>:
+1. Select <strong>"Use data from sheet"</strong>
+2. <strong>Reference column</strong>: Column to search
+3. <strong>Reference value</strong>: Variable to match
+4. <strong>Data columns</strong>: Which columns to read
+   - Column: "Product Price" -&gt; Store in: <code>{productPrice}</code>
+   - Column: "Stock Status" -&gt; Store in: <code>{stockStatus}</code></p>
+<p><strong>How it works</strong>:
+- Searches for row where reference column matches reference value
+- Reads specified columns from that row
+- Stores values in bot variables
+- If no match, routes to "not found" port</p>
+<p><strong>Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Find row where Product ID = {selectedProduct}
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Read Price column -&gt; store in {productPrice}
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Read Stock column -&gt; store in {stockLevel}
+</span></code></pre></div></p>
+<h3 id="4-delete-a-row">4. Delete a Row</h3>
+<p><strong>Purpose</strong>: Remove a row from the sheet</p>
+<p><strong>Configuration</strong>:
+1. Select <strong>"Delete a row"</strong>
+2. <strong>Reference column</strong>: Column to search
+3. <strong>Reference value</strong>: Variable to match</p>
+<p><strong>How it works</strong>:
+- Searches for row where reference column matches reference value
+- Deletes entire row
+- Shifts remaining rows up
+- If no match, routes to "not found" port</p>
+<p><strong>Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Find row where Order ID = {cancelledOrder}
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Delete the entire row
+</span></code></pre></div></p>
+<hr />
+<h2 id="column-variable-mapping">Column-Variable Mapping</h2>
+<h3 id="how-mapping-works">How Mapping Works</h3>
+<p>For each action, you map spreadsheet columns to bot variables:</p>
+<p><strong>Insert a row</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Sheet Column    -&gt;    Bot Variable
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>&quot;Name&quot;          -&gt;    {userName}
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>&quot;Email&quot;         -&gt;    {userEmail}
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>&quot;Phone&quot;         -&gt;    {userPhone}
+</span></code></pre></div></p>
+<p><strong>Update a row</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Find by:  &quot;Email&quot; = {userEmail}
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Update:   &quot;Status&quot; -&gt; {orderStatus}
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Update:   &quot;Notes&quot; -&gt; {orderNotes}
+</span></code></pre></div></p>
+<p><strong>Use data from sheet</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Find by:  &quot;Product ID&quot; = {productId}
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Read:     &quot;Price&quot; -&gt; {productPrice}
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Read:     &quot;Stock&quot; -&gt; {stockQuantity}
+</span></code></pre></div></p>
+<h3 id="reference-column">Reference Column</h3>
+<p>For update, read, and delete actions:</p>
+<p><strong>Reference column</strong>: Which column to search in
+<strong>Reference value</strong>: What value to look for</p>
+<p>Think of it as: "Find the row where [Reference Column] equals [Reference Value]"</p>
+<hr />
+<h2 id="use-cases-examples">Use Cases &amp; Examples</h2>
+<h3 id="1-store-form-submissions">1. Store Form Submissions</h3>
+<p><strong>Action</strong>: Insert a row<br />
+<strong>Spreadsheet</strong>: Contact Form Responses<br />
+<strong>Columns</strong>: Name, Email, Phone, Message, Date</p>
+<p><strong>Configuration</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Name -&gt; {userName}
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Email -&gt; {userEmail}
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Phone -&gt; {userPhone}
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Message -&gt; {userMessage}
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Date -&gt; {currentDate}
+</span></code></pre></div></p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Collect name -&gt; Collect email -&gt; Collect phone -&gt; Collect message
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>-&gt; GoogleSheets (insert row)
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>   -&gt; Confirmation message
+</span></code></pre></div></p>
+<h3 id="2-update-order-status">2. Update Order Status</h3>
+<p><strong>Action</strong>: Update a row<br />
+<strong>Spreadsheet</strong>: Orders Database<br />
+<strong>Reference</strong>: Order ID</p>
+<p><strong>Configuration</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Find by: Order ID = {orderId}
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Update: Status -&gt; &quot;Confirmed&quot;
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>Update: Updated At -&gt; {currentTimestamp}
+</span></code></pre></div></p>
+<h3 id="3-product-catalog-lookup">3. Product Catalog Lookup</h3>
+<p><strong>Action</strong>: Use data from sheet<br />
+<strong>Spreadsheet</strong>: Product Catalog<br />
+<strong>Reference</strong>: Product ID</p>
+<p><strong>Configuration</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Find by: Product ID = {selectedProduct}
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Read: Price -&gt; {productPrice}
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>Read: Description -&gt; {productDescription}
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Read: Stock -&gt; {stockLevel}
+</span></code></pre></div></p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>User selects product
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>-&gt; GoogleSheets (read product data)
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>   |-- Found -&gt; Show product details
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>   \-- Not found -&gt; &quot;Product unavailable&quot;
+</span></code></pre></div></p>
+<h3 id="4-cancel-booking">4. Cancel Booking</h3>
+<p><strong>Action</strong>: Delete a row<br />
+<strong>Spreadsheet</strong>: Bookings<br />
+<strong>Reference</strong>: Booking ID</p>
+<p><strong>Configuration</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Find by: Booking ID = {bookingId}
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Delete row
+</span></code></pre></div></p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="spreadsheet-structure">Spreadsheet Structure</h3>
+<p><strong>DO</strong>:
+- Use clear, descriptive column headers
+- Keep first row as headers only
+- Use consistent data formats
+- Avoid special characters in headers
+- Keep sheet organized and clean</p>
+<p><strong>DON'T</strong>:
+- Use merged cells in header row
+- Leave header row empty
+- Use duplicate column names
+- Include formulas in header row</p>
+<h3 id="data-management">Data Management</h3>
+<p><strong>DO</strong>:
+- Validate data before inserting
+- Use reference columns wisely (unique IDs)
+- Handle "not found" scenarios
+- Test with sample data first
+- Back up important spreadsheets</p>
+<p><strong>DON'T</strong>:
+- Insert duplicate records without checking
+- Use non-unique reference columns
+- Skip error handling
+- Modify production data during testing</p>
+<h3 id="variable-mapping">Variable Mapping</h3>
+<p><strong>DO</strong>:
+- Map all required columns
+- Use appropriate variable names
+- Validate data types match
+- Test mappings thoroughly</p>
+<p><strong>DON'T</strong>:
+- Leave required columns unmapped
+- Use undefined variables
+- Mix up column names
+- Skip testing</p>
+<hr />
+<h2 id="flow-routing">Flow Routing</h2>
+<h3 id="standard-flow">Standard Flow</h3>
+<p>All actions have:
+- <strong>Success port</strong> -&gt; Action completed successfully
+- <strong>Error port</strong> -&gt; Something went wrong</p>
+<h3 id="actions-with-not-found-port">Actions with "Not Found" Port</h3>
+<p>Update, Read, and Delete actions have additional routing:
+- <strong>Success port</strong> -&gt; Row found and processed
+- <strong>Not found port</strong> -&gt; Reference value not found in sheet
+- <strong>Error port</strong> -&gt; System error</p>
+<p><strong>Example routing</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>GoogleSheets (Update row)
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>|-- Success -&gt; &quot;Order updated successfully&quot;
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>|-- Not found -&gt; &quot;Order not found. Please check your order ID&quot;
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>\-- Error -&gt; &quot;System error. Please try again&quot;
+</span></code></pre></div></p>
+<hr />
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="error-output-port">Error Output Port</h3>
+<p>Route the conversation when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Error Output Port"</strong> to ON</li>
+<li>Connect the error arrow to your error handling flow</li>
+<li>Handle scenarios like:<ul>
+<li>Authentication failures</li>
+<li>Permission denied</li>
+<li>Sheet not found</li>
+<li>Invalid column names</li>
+<li>Network errors</li>
+</ul>
+</li>
+</ol>
+<h3 id="not-found-output-port">Not Found Output Port</h3>
+<p>For actions that search for rows (Update, Read, Delete):</p>
+<ol>
+<li>Automatically enabled for these actions</li>
+<li>Connect the "not found" arrow to handle missing data</li>
+<li>Provide helpful user feedback</li>
+</ol>
+<p><strong>Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Not found -&gt; &quot;We couldn&#39;t find that order. Please check your order number and try again.&quot;
+</span></code></pre></div></p>
+<h3 id="error-message-to-user">Error Message to User</h3>
+<p>Send a custom message when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Error Message to User"</strong> to ON</li>
+<li>Enter your message:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Sorry, we couldn&#39;t access the database. Please try again later.
+</span></code></pre></div></li>
+</ol>
+<h3 id="admin-email-notification">Admin Email Notification</h3>
+<p>Get notified when errors occur:</p>
+<ol>
+<li>Toggle <strong>"Admin email when error"</strong> to ON</li>
+<li>Notifications include error details</li>
+</ol>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="authentication">Authentication</h3>
+<ul>
+<li><strong>OAuth 2.0</strong>: Secure Google authentication</li>
+<li><strong>Token refresh</strong>: Automatic token renewal</li>
+<li><strong>Permissions</strong>: Read/write access to Google Sheets</li>
+<li><strong>Scope</strong>: Limited to Sheets API only</li>
+</ul>
+<h3 id="api-limits">API Limits</h3>
+<p>Google Sheets API has limits:
+- <strong>Read requests</strong>: 300 per minute per project
+- <strong>Write requests</strong>: 300 per minute per project
+- <strong>Cells</strong>: 10 million cells per spreadsheet</p>
+<p><strong>Best practices</strong>:
+- Don't update sheets on every message
+- Batch operations when possible
+- Monitor usage in Google Cloud Console</p>
+<h3 id="data-types">Data Types</h3>
+<p><strong>Supported</strong>:
+- Text/strings
+- Numbers
+- Dates (as text)
+- Booleans (as text: "true"/"false")</p>
+<p><strong>Not supported</strong>:
+- Images
+- File attachments
+- Formulas (can read formula results as values)</p>
+<h3 id="row-operations">Row Operations</h3>
+<p><strong>Insert</strong>:
+- Appends to bottom of sheet
+- Skips empty rows
+- Adds data to next available row</p>
+<p><strong>Update/Read/Delete</strong>:
+- Searches from top to bottom
+- Matches first occurrence
+- Case-sensitive matching
+- Exact match required</p>
+<hr />
+<h2 id="security-privacy">Security &amp; Privacy</h2>
+<h3 id="data-security">Data Security</h3>
+<p><strong>DO</strong>:
+- Only grant access to necessary sheets
+- Use separate spreadsheets for sensitive data
+- Regularly audit access permissions
+- Revoke access when no longer needed</p>
+<p><strong>DON'T</strong>:
+- Share spreadsheets with sensitive data publicly
+- Store passwords or API keys in sheets
+- Grant unnecessary permissions</p>
+<h3 id="access-control">Access Control</h3>
+<ul>
+<li><strong>View permissions</strong>: Control in Google Sheets</li>
+<li><strong>Edit permissions</strong>: Required for insert/update/delete</li>
+<li><strong>Sharing</strong>: Manage in Google Drive</li>
+<li><strong>Revoke access</strong>: Available in Google account settings</li>
+</ul>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-authentication-failed">Issue: "Authentication failed"</h3>
+<p><strong>Check</strong>:
+- Google account is still authorized
+- Re-authorize if needed
+- Refresh token hasn't expired
+- Account has access to the spreadsheet</p>
+<p><strong>Solution</strong>:
+- Click "Login with Google" again
+- Re-select your account
+- Re-authorize permissions</p>
+<h3 id="issue-permission-denied">Issue: "Permission denied"</h3>
+<p><strong>Check</strong>:
+- You have edit access to the spreadsheet
+- Spreadsheet isn't in read-only mode
+- Sheet isn't protected</p>
+<p><strong>Solution</strong>:
+- Check sharing settings in Google Sheets
+- Request edit access from owner
+- Remove sheet protection if applicable</p>
+<h3 id="issue-row-not-found">Issue: "Row not found"</h3>
+<p><strong>Check</strong>:
+- Reference column name is correct
+- Reference value matches exactly (case-sensitive)
+- Row actually exists in sheet
+- No extra spaces in reference value</p>
+<p><strong>Solution</strong>:
+- Verify column name in spreadsheet
+- Check variable value matches sheet data
+- Use CustomCode to trim/clean reference values</p>
+<h3 id="issue-column-not-found">Issue: "Column not found"</h3>
+<p><strong>Check</strong>:
+- Column name matches header exactly
+- No typos in column name
+- Header row is row 1
+- Sheet has been selected</p>
+<p><strong>Solution</strong>:
+- Refresh component configuration
+- Re-select spreadsheet
+- Verify column names in sheet
+- Check for hidden columns</p>
+<h3 id="issue-data-not-inserting">Issue: Data not inserting</h3>
+<p><strong>Check</strong>:
+- Variables have values
+- Column mapping is correct
+- Sheet isn't full (10M cell limit)
+- No formula errors in sheet</p>
+<p><strong>Solution</strong>:
+- Test with static values first
+- Verify variables exist and have data
+- Check sheet for errors</p>
+<hr />
+<h2 id="advanced-patterns">Advanced Patterns</h2>
+<h3 id="lookup-and-insert-pattern">Lookup and Insert Pattern</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>QuestionText (email)
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>-&gt; GoogleSheets (Check if email exists)
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>   |-- Found -&gt; &quot;Welcome back!&quot;
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>   \-- Not found -&gt; Collect more info
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>                   -&gt; GoogleSheets (Insert new customer)
+</span></code></pre></div>
+<h3 id="update-with-validation">Update with Validation</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Collect order ID
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>-&gt; GoogleSheets (Use data from sheet)
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>   |-- Found -&gt; Show order details
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>   │          -&gt; Confirm cancellation
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>   │             -&gt; GoogleSheets (Update status)
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>   \-- Not found -&gt; &quot;Invalid order ID&quot;
+</span></code></pre></div>
+<h3 id="multi-sheet-operations">Multi-Sheet Operations</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>GoogleSheets (Insert to Orders sheet)
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>-&gt; GoogleSheets (Update Inventory sheet)
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>   -&gt; GoogleSheets (Insert to Notifications sheet)
+</span></code></pre></div>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p>Email: contact@intalos.de</p>
+<hr />
+<p><strong>Last Updated</strong>: October 20, 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

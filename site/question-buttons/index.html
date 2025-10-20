@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>QuestionButtons - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "QuestionButtons -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">QuestionButtons</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#questionbuttons-component-user-guide">QuestionButtons Component - User Guide</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-questionbuttons">When to Use QuestionButtons</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#configuration">Configuration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-it-works">How It Works</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#use-cases-examples">Use Cases &amp; Examples</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#button-routing">Button Routing</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-patterns">Common Patterns</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#comparison-with-other-components">Comparison with Other Components</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="questionbuttons-component-user-guide">QuestionButtons Component - User Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>QuestionButtons</strong> component allows users to make quick selections by tapping on interactive buttons. Perfect for yes/no questions, multiple choice options, menu selections, and any scenario where you want to guide users with predefined choices.</p>
+<h2 id="when-to-use-questionbuttons">When to Use QuestionButtons</h2>
+<p>Ideal for scenarios like:
+- Yes/No questions
+- Multiple choice selections
+- Menu options (up to 3 choices)
+- Quick confirmations
+- Simple decision points
+- Service or product selection</p>
+<hr />
+<h2 id="configuration">Configuration</h2>
+<h3 id="adding-buttons">Adding Buttons</h3>
+<p>Each QuestionButtons component can have <strong>up to 3 buttons</strong>:</p>
+<ol>
+<li><strong>Edit button labels</strong>: Double-click on the button text in the component</li>
+<li><strong>Maximum 20 characters</strong> per button label</li>
+<li><strong>Connect arrows</strong>: Each button can lead to a different flow path</li>
+<li><strong>Use variables</strong>: Button labels support dynamic variables</li>
+</ol>
+<p><strong>Example Labels</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&quot;Yes&quot;
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&quot;No&quot;
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>&quot;Maybe Later&quot;
+</span></code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&quot;Small&quot;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&quot;Medium&quot;
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>&quot;Large&quot;
+</span></code></pre></div>
+<h3 id="button-label-variables">Button Label Variables</h3>
+<p>Use dynamic text in your button labels:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&quot;Option A&quot;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&quot;Option B ({price})&quot;
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&quot;Select {productName}&quot;
+</span></code></pre></div>
+<p><strong>Note</strong>: Labels are automatically truncated to 20 characters if too long.</p>
+<h3 id="store-user-selection">Store User Selection</h3>
+<p>Save which button the user clicked:</p>
+<ol>
+<li>
+<p>In <strong>"Store output in variable"</strong>, enter a variable name:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Example: userChoice
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Example: productSize
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Example: confirmationResponse
+</span></code></pre></div></p>
+</li>
+<li>
+<p>The variable will store the <strong>button label text</strong> that was clicked</p>
+</li>
+</ol>
+<h3 id="add-image">Add Image</h3>
+<p>Enhance your question with a visual header:</p>
+<ol>
+<li>Click <strong>"Add Image"</strong></li>
+<li>Upload an image (max 5 MB)</li>
+<li>Image appears above your question and buttons</li>
+<li>Helps provide visual context</li>
+</ol>
+<hr />
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="user-experience">User Experience</h3>
+<ol>
+<li><strong>Bot sends</strong>: Question text with buttons below</li>
+<li><strong>User</strong>: Taps one of the buttons</li>
+<li><strong>QuestionButtons</strong>: Captures which button was clicked</li>
+<li><strong>Flow</strong>: Routes to the path connected to that button</li>
+<li><strong>Result</strong>: Button label stored in your variable</li>
+</ol>
+<h3 id="whatsapp-display">WhatsApp Display</h3>
+<p>Buttons appear as:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>+---------------------+
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>|  Your Question Text  |
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>+---------------------+
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>|  [  Button One  ]   |
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>|  [  Button Two  ]   |
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>|  [ Button Three ]   |
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>+---------------------+
+</span></code></pre></div></p>
+<hr />
+<h2 id="use-cases-examples">Use Cases &amp; Examples</h2>
+<h3 id="1-yesno-question">1. Yes/No Question</h3>
+<p><strong>Configuration</strong>:
+- Message: "Would you like to receive our newsletter?"
+- Button 1: "Yes, sign me up"
+- Button 2: "No, thanks"
+- Variable: <code>newsletterChoice</code></p>
+<p><strong>Flow routing</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>&quot;Yes&quot; button -&gt; Newsletter signup flow
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&quot;No&quot; button -&gt; Main menu
+</span></code></pre></div></p>
+<h3 id="2-product-size-selection">2. Product Size Selection</h3>
+<p><strong>Configuration</strong>:
+- Message: "What size would you like?"
+- Button 1: "Small"
+- Button 2: "Medium"
+- Button 3: "Large"
+- Variable: <code>productSize</code></p>
+<h3 id="3-customer-service-menu">3. Customer Service Menu</h3>
+<p><strong>Configuration</strong>:
+- Message: "How can we help you today?"
+- Button 1: "Track Order"
+- Button 2: "Make Return"
+- Button 3: "Contact Support"
+- Variable: <code>serviceChoice</code></p>
+<p><strong>Each button</strong> routes to a different service flow.</p>
+<h3 id="4-confirmation-dialog">4. Confirmation Dialog</h3>
+<p><strong>Configuration</strong>:
+- Message: "Are you sure you want to proceed with this order?"
+- Button 1: "Yes, confirm"
+- Button 2: "Cancel"
+- Variable: <code>orderConfirmation</code></p>
+<hr />
+<h2 id="button-routing">Button Routing</h2>
+<h3 id="connecting-button-outputs">Connecting Button Outputs</h3>
+<p>Each button creates its own output port:</p>
+<ol>
+<li><strong>Add buttons</strong> to your component (they appear as output arrows)</li>
+<li><strong>Connect each button</strong> to its destination:</li>
+<li>Drag from button's output port</li>
+<li>Connect to next component</li>
+<li><strong>Label the connection</strong> with the button index (0, 1, 2)</li>
+</ol>
+<h3 id="button-order">Button Order</h3>
+<p>Buttons appear top to bottom in the order they're defined:
+- First button (index 0) = Top
+- Second button (index 1) = Middle
+- Third button (index 2) = Bottom</p>
+<h3 id="dynamic-routing">Dynamic Routing</h3>
+<p>You can route users to different paths based on their selection:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>QuestionButtons
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>|-- Button 1 -&gt; Path A
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>|-- Button 2 -&gt; Path B
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>\-- Button 3 -&gt; Path C
+</span></code></pre></div>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="button-design">Button Design</h3>
+<p><strong>DO</strong>:
+- Use clear, action-oriented labels
+- Keep labels concise (under 15 characters ideal)
+- Make options mutually exclusive
+- Order buttons logically (e.g., Yes before No)</p>
+<p><strong>DON'T</strong>:
+- Use vague labels ("Option 1", "Click here")
+- Exceed 20 characters (will be truncated)
+- Use empty labels
+- Create similar-sounding options</p>
+<h3 id="question-clarity">Question Clarity</h3>
+<p><strong>DO</strong>:
+- Ask one question at a time
+- Provide clear context
+- Use simple language
+- Match button labels to the question</p>
+<p><strong>DON'T</strong>:
+- Ask multiple questions in one component
+- Use complex or technical language
+- Leave questions ambiguous</p>
+<h3 id="number-of-buttons">Number of Buttons</h3>
+<p><strong>DO</strong>:
+- Use 2 buttons for binary choices (Yes/No)
+- Use 3 buttons for multiple options
+- Consider QuestionList for more than 3 options</p>
+<p><strong>DON'T</strong>:
+- Try to add more than 3 buttons (use QuestionList instead)
+- Use buttons when text input is more appropriate</p>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="button-limitations">Button Limitations</h3>
+<ul>
+<li><strong>Maximum buttons</strong>: 3</li>
+<li><strong>Maximum label length</strong>: 20 characters</li>
+<li><strong>Minimum buttons</strong>: 1</li>
+<li><strong>Label truncation</strong>: Automatic if over 20 characters</li>
+</ul>
+<h3 id="variable-storage">Variable Storage</h3>
+<p>When a user clicks a button:
+- <strong>Variable stores</strong>: The button label text (as clicked)
+- <strong>Type</strong>: String
+- <strong>Variables resolved</strong>: If button has {variables}, the resolved value is stored</p>
+<h3 id="whatsapp-message-format">WhatsApp Message Format</h3>
+<p>Buttons are sent as:
+- <strong>Message type</strong>: Interactive button message
+- <strong>Header</strong>: Optional image
+- <strong>Body</strong>: Your question text (max 1024 characters)
+- <strong>Buttons</strong>: Up to 3 reply buttons
+- <strong>Footer</strong>: Empty (reserved for future use)</p>
+<hr />
+<h2 id="common-patterns">Common Patterns</h2>
+<h3 id="binary-decision">Binary Decision</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>QuestionButtons (2 buttons)
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>|-- &quot;Yes&quot; -&gt; Success flow
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>\-- &quot;No&quot; -&gt; Alternative flow
+</span></code></pre></div>
+<h3 id="service-menu">Service Menu</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>QuestionButtons (3 options)
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>|-- &quot;Option A&quot; -&gt; Service A flow
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>|-- &quot;Option B&quot; -&gt; Service B flow
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>\-- &quot;Option C&quot; -&gt; Service C flow
+</span></code></pre></div>
+<h3 id="confirmation-loop">Confirmation Loop</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Show Details -&gt; QuestionButtons (&quot;Confirm&quot; / &quot;Edit&quot;)
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>                |-- &quot;Confirm&quot; -&gt; Process
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>                \-- &quot;Edit&quot; -&gt; Go back to edit
+</span></code></pre></div>
+<h3 id="progressive-options">Progressive Options</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Main Menu (QuestionButtons) -&gt; Sub Menu (QuestionButtons) -&gt; Action
+</span></code></pre></div>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-buttons-not-appearing">Issue: Buttons not appearing</h3>
+<p><strong>Check</strong>:
+- Button labels are not empty
+- Message text is configured
+- Component is properly connected in flow</p>
+<h3 id="issue-button-leads-to-wrong-destination">Issue: Button leads to wrong destination</h3>
+<p><strong>Solution</strong>:
+- Verify arrow connections in the visual editor
+- Check that the correct button port is connected
+- Test the flow to confirm routing</p>
+<h3 id="issue-button-text-truncated">Issue: Button text truncated</h3>
+<p><strong>Solution</strong>:
+- Keep labels under 20 characters
+- Use abbreviations if needed
+- Rephrase for brevity</p>
+<h3 id="issue-variable-not-storing">Issue: Variable not storing</h3>
+<p><strong>Check</strong>:
+- Variable name is properly configured
+- User actually clicked a button
+- Variable name is valid (no spaces or special characters)</p>
+<hr />
+<h2 id="comparison-with-other-components">Comparison with Other Components</h2>
+<h3 id="when-to-use-buttons-vs-list">When to Use Buttons vs List</h3>
+<p><strong>Use QuestionButtons when</strong>:
+- You have 2-3 options
+- Options are simple choices
+- You want maximum visibility</p>
+<p><strong>Use QuestionList when</strong>:
+- You have 4-10 options
+- Options are longer descriptions
+- You want to save screen space</p>
+<h3 id="when-to-use-buttons-vs-text">When to Use Buttons vs Text</h3>
+<p><strong>Use QuestionButtons when</strong>:
+- You want to constrain user choices
+- Options are predefined
+- You need structured data</p>
+<p><strong>Use QuestionText when</strong>:
+- You need open-ended responses
+- Input varies by user
+- No predefined options exist</p>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p>Email: contact@intalos.de</p>
+<hr />
+<p><strong>Last Updated</strong>: October 20, 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

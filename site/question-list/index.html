@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>QuestionList - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=assets/landing-favicon.png>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "QuestionList -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">QuestionList</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#questionlist-component-user-guide">QuestionList Component - User Guide</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-questionlist">When to Use QuestionList</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#configuration">Configuration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-it-works">How It Works</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#use-cases-examples">Use Cases &amp; Examples</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#list-routing">List Routing</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-patterns">Common Patterns</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#comparison-with-other-components">Comparison with Other Components</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#advanced-tips">Advanced Tips</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="questionlist-component-user-guide">QuestionList Component - User Guide</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>QuestionList</strong> component allows users to select from a dropdown list of options. Perfect for when you have 4-10 choices and want a compact, organized selection interface.</p>
+<h2 id="when-to-use-questionlist">When to Use QuestionList</h2>
+<p>Ideal for scenarios like:
+- Product category selection
+- Country or city selection
+- Service type selection
+- Time slot selection
+- Department routing
+- Multi-option menus (4-10 choices)</p>
+<hr />
+<h2 id="configuration">Configuration</h2>
+<h3 id="adding-list-options">Adding List Options</h3>
+<p>Each QuestionList component can have <strong>up to 10 options</strong>:</p>
+<ol>
+<li><strong>Edit option labels</strong>: Double-click on the option text in the component</li>
+<li><strong>Maximum 20 characters</strong> per option label</li>
+<li><strong>Connect arrows</strong>: Each option can lead to a different flow path</li>
+<li><strong>Use variables</strong>: Option labels support dynamic variables</li>
+</ol>
+<p><strong>Example Options</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&quot;Electronics&quot;
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&quot;Clothing&quot;
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>&quot;Home &amp; Garden&quot;
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>&quot;Sports Equipment&quot;
+</span></code></pre></div></p>
+<h3 id="option-label-variables">Option Label Variables</h3>
+<p>Use dynamic text in your option labels:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&quot;Product A ({priceA})&quot;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&quot;Service: {serviceName}&quot;
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>&quot;Option {optionNumber}&quot;
+</span></code></pre></div>
+<p><strong>Note</strong>: Labels are automatically truncated to 20 characters if too long.</p>
+<h3 id="store-user-selection">Store User Selection</h3>
+<p>Save which option the user selected:</p>
+<ol>
+<li>
+<p>In <strong>"Store output in variable"</strong>, enter a variable name:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Example: selectedCategory
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Example: chosenService
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Example: userSelection
+</span></code></pre></div></p>
+</li>
+<li>
+<p>The variable will store the <strong>option label text</strong> that was selected</p>
+</li>
+</ol>
+<h3 id="add-image">Add Image</h3>
+<p>Enhance your question with a visual header:</p>
+<ol>
+<li>Click <strong>"Add Image"</strong></li>
+<li>Upload an image (max 5 MB)</li>
+<li>Image appears above your question and list</li>
+<li>Helps provide visual context</li>
+</ol>
+<hr />
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="user-experience">User Experience</h3>
+<ol>
+<li><strong>Bot sends</strong>: Question text with a "Select an option" button</li>
+<li><strong>User</strong>: Taps the button to open the dropdown list</li>
+<li><strong>User</strong>: Scrolls and selects an option</li>
+<li><strong>QuestionList</strong>: Captures which option was selected</li>
+<li><strong>Flow</strong>: Routes to the path connected to that option</li>
+<li><strong>Result</strong>: Option label stored in your variable</li>
+</ol>
+<h3 id="whatsapp-display">WhatsApp Display</h3>
+<p>List appears as:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>+----------------------+
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>|  Your Question Text   |
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>|                       |
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>| [ Select an option v ]|
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>+----------------------+
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>When tapped:
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>+----------------------+
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>| [x] Option 1         |
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>| [ ] Option 2         |
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>| [ ] Option 3         |
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>| [ ] Option 4         |
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>| [ ] Option 5         |
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>+----------------------+
+</span></code></pre></div></p>
+<hr />
+<h2 id="use-cases-examples">Use Cases &amp; Examples</h2>
+<h3 id="1-product-category-selection">1. Product Category Selection</h3>
+<p><strong>Configuration</strong>:
+- Message: "Which category are you interested in?"
+- Options:
+  - "Electronics"
+  - "Clothing"
+  - "Home &amp; Garden"
+  - "Sports"
+  - "Books"
+- Variable: <code>selectedCategory</code></p>
+<p><strong>Flow routing</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Each option -&gt; Different product catalog flow
+</span></code></pre></div></p>
+<h3 id="2-support-department-routing">2. Support Department Routing</h3>
+<p><strong>Configuration</strong>:
+- Message: "Which department would you like to contact?"
+- Options:
+  - "Sales"
+  - "Technical Support"
+  - "Billing"
+  - "Returns"
+  - "General Inquiry"
+- Variable: <code>department</code></p>
+<h3 id="3-time-slot-selection">3. Time Slot Selection</h3>
+<p><strong>Configuration</strong>:
+- Message: "Select your preferred appointment time:"
+- Options:
+  - "9:00 AM - 10:00 AM"
+  - "10:00 AM - 11:00 AM"
+  - "11:00 AM - 12:00 PM"
+  - "1:00 PM - 2:00 PM"
+  - "2:00 PM - 3:00 PM"
+- Variable: <code>appointmentTime</code></p>
+<h3 id="4-country-selection">4. Country Selection</h3>
+<p><strong>Configuration</strong>:
+- Message: "Which country are you from?"
+- Options:
+  - "United States"
+  - "United Kingdom"
+  - "Canada"
+  - "Australia"
+  - "Other"
+- Variable: <code>userCountry</code></p>
+<hr />
+<h2 id="list-routing">List Routing</h2>
+<h3 id="connecting-option-outputs">Connecting Option Outputs</h3>
+<p>Each option creates its own output port:</p>
+<ol>
+<li><strong>Add options</strong> to your component (they appear as output arrows)</li>
+<li><strong>Connect each option</strong> to its destination:</li>
+<li>Drag from option's output port</li>
+<li>Connect to next component</li>
+<li><strong>Label the connection</strong> with the option index (0, 1, 2, ...)</li>
+</ol>
+<h3 id="option-order">Option Order</h3>
+<p>Options appear in the dropdown in the order they're defined:
+- First option (index 0) = Top of list
+- Last option = Bottom of list</p>
+<h3 id="default-option-routing">Default Option Routing</h3>
+<p>You can also add a default path that catches any unhandled selections.</p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="option-design">Option Design</h3>
+<p><strong>DO</strong>:
+- Use clear, descriptive labels
+- Keep labels concise (under 15 characters ideal)
+- Make options mutually exclusive
+- Order options logically (alphabetically or by importance)</p>
+<p><strong>DON'T</strong>:
+- Use vague labels ("Option 1", "Choice A")
+- Exceed 20 characters (will be truncated)
+- Use empty labels
+- Create duplicate or similar options</p>
+<h3 id="question-clarity">Question Clarity</h3>
+<p><strong>DO</strong>:
+- Ask clear, specific questions
+- Provide context for the selection
+- Use intro text if needed
+- Group related options</p>
+<p><strong>DON'T</strong>:
+- Ask multiple questions in one component
+- Use technical jargon
+- Assume users understand options</p>
+<h3 id="number-of-options">Number of Options</h3>
+<p><strong>DO</strong>:
+- Use 4-10 options for optimal user experience
+- Consider grouping options into categories
+- Order by frequency of use or importance</p>
+<p><strong>DON'T</strong>:
+- Use lists for only 2-3 options (use QuestionButtons instead)
+- Exceed 10 options (consider breaking into multiple lists)
+- Create unnecessarily long lists</p>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="list-limitations">List Limitations</h3>
+<ul>
+<li><strong>Maximum options</strong>: 10</li>
+<li><strong>Minimum options</strong>: 1</li>
+<li><strong>Maximum label length</strong>: 20 characters</li>
+<li><strong>Button text</strong>: "Select an option" (fixed)</li>
+<li><strong>Section title</strong>: "Section1" (fixed)</li>
+</ul>
+<h3 id="variable-storage">Variable Storage</h3>
+<p>When a user selects an option:
+- <strong>Variable stores</strong>: The option label text (as displayed)
+- <strong>Type</strong>: String<br />
+- <strong>Variables resolved</strong>: If option has {variables}, the resolved value is stored</p>
+<h3 id="whatsapp-message-format">WhatsApp Message Format</h3>
+<p>Lists are sent as:
+- <strong>Message type</strong>: Interactive list message
+- <strong>Header</strong>: Optional image
+- <strong>Body</strong>: Your question text (max 1024 characters)
+- <strong>Button</strong>: "Select an option" text
+- <strong>Options</strong>: Up to 10 items in one section</p>
+<hr />
+<h2 id="common-patterns">Common Patterns</h2>
+<h3 id="category-subcategory">Category -&gt; Subcategory</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>QuestionList (Main categories)
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>\--&gt; QuestionList (Subcategories)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    \--&gt; Show products
+</span></code></pre></div>
+<h3 id="location-selection">Location Selection</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>QuestionList (Country)
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>\--&gt; QuestionList (City)
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    \--&gt; QuestionList (Store location)
+</span></code></pre></div>
+<h3 id="preference-collection">Preference Collection</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>QuestionList (Industry)
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>\--&gt; QuestionList (Company size)
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    \--&gt; QuestionList (Budget range)
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        \--&gt; Personalized recommendations
+</span></code></pre></div>
+<hr />
+<h2 id="comparison-with-other-components">Comparison with Other Components</h2>
+<h3 id="questionlist-vs-questionbuttons">QuestionList vs QuestionButtons</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>QuestionButtons</th>
+<th>QuestionList</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Max options</strong></td>
+<td>3</td>
+<td>10</td>
+</tr>
+<tr>
+<td><strong>Display</strong></td>
+<td>All visible</td>
+<td>Dropdown</td>
+</tr>
+<tr>
+<td><strong>Best for</strong></td>
+<td>2-3 simple choices</td>
+<td>4-10 organized options</td>
+</tr>
+<tr>
+<td><strong>Screen space</strong></td>
+<td>More space</td>
+<td>Compact</td>
+</tr>
+<tr>
+<td><strong>User action</strong></td>
+<td>One tap</td>
+<td>Two taps (open + select)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Use QuestionButtons when</strong>:
+- You have 2-3 options
+- Options are simple
+- You want maximum visibility</p>
+<p><strong>Use QuestionList when</strong>:
+- You have 4-10 options
+- You want to save screen space
+- Options need more context</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-list-not-appearing">Issue: List not appearing</h3>
+<p><strong>Check</strong>:
+- Option labels are not empty
+- Message text is configured
+- Component is properly connected in flow
+- At least one option is defined</p>
+<h3 id="issue-option-leads-to-wrong-destination">Issue: Option leads to wrong destination</h3>
+<p><strong>Solution</strong>:
+- Verify arrow connections in the visual editor
+- Check that the correct option port is connected
+- Test the flow to confirm routing</p>
+<h3 id="issue-option-text-truncated">Issue: Option text truncated</h3>
+<p><strong>Solution</strong>:
+- Keep labels under 20 characters
+- Use abbreviations if needed
+- Rephrase for brevity
+- Consider breaking into sub-menus</p>
+<h3 id="issue-variable-not-storing">Issue: Variable not storing</h3>
+<p><strong>Check</strong>:
+- Variable name is properly configured
+- User actually selected an option
+- Variable name is valid (no spaces or special characters)</p>
+<h3 id="issue-too-many-options-needed">Issue: Too many options needed</h3>
+<p><strong>Solution</strong>:
+- Break into multiple cascading lists (Category -&gt; Subcategory)
+- Group related options
+- Consider using QuestionText with validation instead</p>
+<hr />
+<h2 id="advanced-tips">Advanced Tips</h2>
+<h3 id="dynamic-option-labels">Dynamic Option Labels</h3>
+<p>Use variables to personalize options:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>&quot;Plan A ({planAPrice})&quot;
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>&quot;Plan B ({planBPrice})&quot;
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>&quot;Plan C ({planCPrice})&quot;
+</span></code></pre></div></p>
+<h3 id="conditional-list-content">Conditional List Content</h3>
+<p>Use different QuestionList components based on previous answers:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>User type -&gt; Business QuestionList
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>          -&gt; Personal QuestionList
+</span></code></pre></div></p>
+<h3 id="list-chaining">List Chaining</h3>
+<p>Create drill-down experiences:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Region List -&gt; Country List -&gt; City List -&gt; Location confirmation
+</span></code></pre></div></p>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p>Email: contact@intalos.de</p>
+<hr />
+<p><strong>Last Updated</strong>: October 20, 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+site_name: Intalos AI Bot Builder Help
+site_description: Comprehensive guide for building bots with Intalos AI
+site_url: https://help.intalos.de
+repo_url: https://github.com/intalos-ai/django-react-intalos
+repo_name: Intalos Bot Builder
+
+# Configuration
+theme:
+  name: landing
+
+# Extra JavaScript for font loading - this will load everything
+extra_javascript:
+  - javascripts/poppins.js
+
+# Social links and other extras
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/your-org/your-repo
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/your-handle
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/company/your-company
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+
+# Markdown extensions
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tilde
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: false
+
+# Configuration
+docs_dir: help
+
+# Navigation
+nav:
+  - Home: index.md
+  - Question Components:
+    - QuestionText: question-text.md
+    - QuestionButtons: question-buttons.md
+    - QuestionList: question-list.md
+    - QuestionMedia: question-media.md
+  - Communication:
+    - Media: media.md
+    - Email: email.md
+  - Logic & Processing:
+    - Formula: formula.md
+    - CustomCode: custom-code.md
+  - AI Components:
+    - LLM Conversation: llm-conversation.md
+  - Integrations:
+    - APIRequest: api-request.md
+    - GoogleSheets: google-sheets.md
+    - GoogleDrive: google-drive.md
