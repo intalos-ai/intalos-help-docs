@@ -123,8 +123,10 @@
     </style>
     <link rel="icon" type="image/x-icon" href=images/favicon.ico>
     <link href="../css/style.css" rel="stylesheet">
-    <link href="../css/responsivity.css" rel="stylesheet">  
+    <link href="../css/responsivity.css" rel="stylesheet">
+    <link href="../stylesheets/custom.css" rel="stylesheet">  
     <script src="../javascripts/poppins.js"></script>  
+    <script src="../javascripts/add-icons.js"></script>  
     <script src="../search/main.js"></script>
     <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
     <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
@@ -161,7 +163,7 @@
 <ul>
 
 <li class="nav-item">
-<a href="#llm-conversation-component-user-guide">LLM Conversation Component - User Guide</a>
+<a href="#llm-conversation">LLM Conversation</a>
     
     <ul>
     
@@ -286,7 +288,7 @@
 </ul>
 
 </nav>
-    <h1 id="llm-conversation-component-user-guide">LLM Conversation Component - User Guide</h1>
+    <h1 id="llm-conversation"><img src="../images/icons/llm-conversation.svg" width="32" height="32" style="vertical-align: middle; margin-right: 8px;"> LLM Conversation</h1>
 <h2 id="overview">Overview</h2>
 <p>The <strong>LLM Conversation</strong> component integrates AI-powered conversations into your bot using Large Language Models (LLMs). Create intelligent, context-aware responses, build conversational AI experiences, and add natural language processing to your flows.</p>
 <h2 id="when-to-use-llm-conversation">When to Use LLM Conversation</h2>
@@ -355,7 +357,7 @@
 2. Create new API key
 3. Copy the key
 4. Paste into component</p>
-<h4 id="configure-in-component">Configure in Component</h4>
+<h4 id="configure-in">Configure in</h4>
 <ol>
 <li><strong>Provider</strong>: Select "Google Gemini"</li>
 <li><strong>Model</strong>: Choose your model</li>
@@ -364,7 +366,7 @@
 </ol>
 <h3 id="system-prompt">System Prompt</h3>
 <p>Define the AI's role and behavior:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>You are a helpful customer service assistant for Acme Corp. 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>You are a helpful customer service assistant for Acme Corp.
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>You are friendly, professional, and concise.
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Always end responses with a question to keep the conversation going.
 </span></code></pre></div>
@@ -473,7 +475,7 @@
 <hr />
 <h2 id="use-cases-examples">Use Cases &amp; Examples</h2>
 <h3 id="1-customer-support-chatbot">1. Customer Support Chatbot</h3>
-<p><strong>Mode</strong>: Conversation<br />
+<p><strong>Mode</strong>: Conversation 
 <strong>System Prompt</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>You are a customer support agent for TechStore.
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Help customers with product questions, order tracking, and returns.
@@ -484,14 +486,14 @@
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Order History: {orderHistory}
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Account Since: {accountCreated}
 </span></code></pre></div></p>
-<p><strong>History</strong>: Enabled<br />
+<p><strong>History</strong>: Enabled 
 <strong>Output Variable</strong>: <code>aiResponse</code></p>
 <h3 id="2-text-summarization">2. Text Summarization</h3>
-<p><strong>Mode</strong>: Processing<br />
+<p><strong>Mode</strong>: Processing 
 <strong>System Prompt</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Summarize the following text in 2-3 sentences. Keep it concise and factual.
 </span></code></pre></div></p>
-<p><strong>Prompt Variable</strong>: <code>userFeedback</code><br />
+<p><strong>Prompt Variable</strong>: <code>userFeedback</code> 
 <strong>Output Variable</strong>: <code>feedbackSummary</code></p>
 <p><strong>Flow</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Collect feedback (QuestionText)
@@ -500,9 +502,9 @@
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>      -&gt; Email summary to team
 </span></code></pre></div></p>
 <h3 id="3-product-recommendations">3. Product Recommendations</h3>
-<p><strong>Mode</strong>: Conversation<br />
+<p><strong>Mode</strong>: Conversation 
 <strong>System Prompt</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>You are a product recommendation assistant. 
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>You are a product recommendation assistant.
 </span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Ask questions to understand customer needs, then recommend products from our catalog.
 </span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Be consultative and helpful.
 </span></code></pre></div></p>
@@ -511,7 +513,7 @@
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Customer Budget: {budget}
 </span></code></pre></div></p>
 <h3 id="4-faq-bot">4. FAQ Bot</h3>
-<p><strong>Mode</strong>: Conversation<br />
+<p><strong>Mode</strong>: Conversation 
 <strong>System Prompt</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>You are an FAQ assistant for Acme Services.
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Answer questions about our services, pricing, and policies.
@@ -789,6 +791,8 @@
 
 
 <script src="../javascripts/poppins.js"></script>
+
+<script src="../javascripts/add-icons.js"></script>
 
 <script src="../search/main.js"></script>
 
