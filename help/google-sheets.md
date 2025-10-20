@@ -1,4 +1,4 @@
-# GoogleSheets Component - User Guide
+# GoogleSheets Component
 
 ## Overview
 
@@ -201,8 +201,8 @@ Think of it as: "Find the row where [Reference Column] equals [Reference Value]"
 
 ### 1. Store Form Submissions
 
-**Action**: Insert a row  
-**Spreadsheet**: Contact Form Responses  
+**Action**: Insert a row 
+**Spreadsheet**: Contact Form Responses 
 **Columns**: Name, Email, Phone, Message, Date
 
 **Configuration**:
@@ -223,8 +223,8 @@ Collect name -> Collect email -> Collect phone -> Collect message
 
 ### 2. Update Order Status
 
-**Action**: Update a row  
-**Spreadsheet**: Orders Database  
+**Action**: Update a row 
+**Spreadsheet**: Orders Database 
 **Reference**: Order ID
 
 **Configuration**:
@@ -236,8 +236,8 @@ Update: Updated At -> {currentTimestamp}
 
 ### 3. Product Catalog Lookup
 
-**Action**: Use data from sheet  
-**Spreadsheet**: Product Catalog  
+**Action**: Use data from sheet 
+**Spreadsheet**: Product Catalog 
 **Reference**: Product ID
 
 **Configuration**:
@@ -258,8 +258,8 @@ User selects product
 
 ### 4. Cancel Booking
 
-**Action**: Delete a row  
-**Spreadsheet**: Bookings  
+**Action**: Delete a row 
+**Spreadsheet**: Bookings 
 **Reference**: Booking ID
 
 **Configuration**:

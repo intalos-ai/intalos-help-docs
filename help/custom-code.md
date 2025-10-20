@@ -1,4 +1,4 @@
-# CustomCode Component - User Guide
+# CustomCode Component
 
 ## Overview
 
@@ -27,17 +27,17 @@ Click on the CustomCode component to open the code editor.
 ```python
 def __custom_fn__(variables):
     # Your code here
-    
+   
     # Access variables
     user_name = variables.get('userName', '')
     user_age = variables['userAge']
-    
+   
     # Your logic
     result = some_calculation()
-    
+   
     # Update variables (optional)
     variables['newVariable'] = result
-    
+   
     # Return your result
     return result
 ```
@@ -71,10 +71,10 @@ Save the return value:
 def __custom_fn__(variables):
     # Method 1: Safe access with default
     name = variables.get('userName', 'Guest')
-    
+   
     # Method 2: Direct access (raises error if missing)
     email = variables['userEmail']
-    
+   
     # Method 3: Check if exists
     if 'userAge' in variables:
         age = variables['userAge']
@@ -88,14 +88,14 @@ def __custom_fn__(variables):
 def __custom_fn__(variables):
     # Update existing variable
     variables['userName'] = "John Doe"
-    
+   
     # Create new variable
     variables['processedEmail'] = email.lower()
-    
+   
     # Update multiple variables
     variables['firstName'] = "John"
     variables['lastName'] = "Doe"
-    
+   
     return "Success"
 ```
 
@@ -127,12 +127,12 @@ Your code has access to these safe Python built-ins:
 ```python
 def __custom_fn__(variables):
     email = variables.get('userEmail', '')
-    
+   
     # Check if email has @ and .
     has_at = '@' in email
     has_dot = '.' in email
     is_valid = has_at and has_dot and len(email) > 5
-    
+   
     if is_valid:
         variables['emailValidated'] = True
         return "valid"
@@ -150,19 +150,19 @@ def __custom_fn__(variables):
 ```python
 def __custom_fn__(variables):
     full_name = variables.get('userName', '')
-    
+   
     # Split into first and last name
     parts = full_name.split(' ', 1)
     first_name = parts[0] if len(parts) > 0 else ''
     last_name = parts[1] if len(parts) > 1 else ''
-    
+   
     # Store separately
     variables['firstName'] = first_name.capitalize()
     variables['lastName'] = last_name.capitalize()
-    
+   
     # Create formatted version
     formatted = f"{first_name.upper()} {last_name.upper()}"
-    
+   
     return formatted
 ```
 
@@ -172,15 +172,15 @@ def __custom_fn__(variables):
 def __custom_fn__(variables):
     subtotal = float(variables.get('subtotal', 0))
     tax_rate = float(variables.get('taxRate', 0.1))
-    
+   
     # Calculate tax
     tax_amount = subtotal * tax_rate
     total = subtotal + tax_amount
-    
+   
     # Store results
     variables['taxAmount'] = round(tax_amount, 2)
     variables['orderTotal'] = round(total, 2)
-    
+   
     return round(total, 2)
 ```
 
@@ -189,10 +189,10 @@ def __custom_fn__(variables):
 ```python
 def __custom_fn__(variables):
     phone = variables.get('userPhone', '')
-    
+   
     # Remove all non-digits
     digits = ''.join(c for c in phone if c.isdigit())
-    
+   
     # Format as (XXX) XXX-XXXX
     if len(digits) == 10:
         formatted = f"({digits[0:3]}) {digits[3:6]}-{digits[6:10]}"
@@ -207,14 +207,14 @@ def __custom_fn__(variables):
 ```python
 def __custom_fn__(variables):
     age = int(variables.get('userAge', 0))
-    
+   
     if age < 18:
         category = "minor"
     elif age < 65:
         category = "adult"
     else:
         category = "senior"
-    
+   
     variables['ageCategory'] = category
     return category
 ```
@@ -229,17 +229,17 @@ def __custom_fn__(variables):
 ```python
 def __custom_fn__(variables):
     user_text = variables.get('userFeedback', '')
-    
+   
     # Analyze text
     word_count = len(user_text.split())
     char_count = len(user_text)
     has_positive = any(word in user_text.lower() for word in ['good', 'great', 'excellent', 'happy'])
-    
+   
     # Store analysis
     variables['wordCount'] = word_count
     variables['charCount'] = char_count
     variables['sentiment'] = 'positive' if has_positive else 'neutral'
-    
+   
     return word_count
 ```
 
@@ -254,7 +254,7 @@ Every CustomCode component has two output paths:
 1. **Success port** (green):
    - Used when code executes without errors
    - Return value can be used for further routing
-   
+  
 2. **Error port** (red, if enabled):
    - Used when code raises an exception
    - Catches syntax errors, runtime errors
@@ -267,7 +267,7 @@ The value you return determines the flow:
 ```python
 def __custom_fn__(variables):
     score = int(variables.get('testScore', 0))
-    
+   
     if score >= 90:
         return "excellent"
     elif score >= 70:
@@ -415,18 +415,18 @@ Get notified when code fails:
 def __custom_fn__(variables):
     email = variables.get('userEmail', '')
     phone = variables.get('userPhone', '')
-    
+   
     # Validate email
     email_valid = '@' in email and '.' in email and len(email) > 5
-    
+   
     # Validate phone (10 digits)
     phone_digits = ''.join(c for c in phone if c.isdigit())
     phone_valid = len(phone_digits) == 10
-    
+   
     # Store validation results
     variables['emailValid'] = email_valid
     variables['phoneValid'] = phone_valid
-    
+   
     # Overall validation
     if email_valid and phone_valid:
         return "valid"
@@ -444,21 +444,21 @@ def __custom_fn__(variables):
     item1_qty = int(variables.get('item1Qty', 0))
     item2_qty = int(variables.get('item2Qty', 0))
     item3_qty = int(variables.get('item3Qty', 0))
-    
+   
     # Calculate totals
     total_items = item1_qty + item2_qty + item3_qty
-    
+   
     # Calculate costs
     item1_cost = item1_qty * 10.00
     item2_cost = item2_qty * 15.00
     item3_cost = item3_qty * 20.00
-    
+   
     subtotal = item1_cost + item2_cost + item3_cost
-    
+   
     # Store results
     variables['totalItems'] = total_items
     variables['subtotal'] = round(subtotal, 2)
-    
+   
     return total_items
 ```
 
@@ -467,13 +467,13 @@ def __custom_fn__(variables):
 ```python
 def __custom_fn__(variables):
     user_input = variables.get('userMessage', '')
-    
+   
     # Clean and normalize
     cleaned = user_input.strip().lower()
-    
+   
     # Extract keywords
     keywords = cleaned.split()
-    
+   
     # Categorize
     if any(word in keywords for word in ['urgent', 'emergency', 'asap']):
         priority = 'high'
@@ -481,10 +481,10 @@ def __custom_fn__(variables):
         priority = 'medium'
     else:
         priority = 'low'
-    
+   
     variables['messagePriority'] = priority
     variables['keywordCount'] = len(keywords)
-    
+   
     return priority
 ```
 
@@ -543,17 +543,17 @@ def __custom_fn__(variables):
     # Get inputs with defaults
     value1 = variables.get('var1', 0)
     value2 = variables.get('var2', 0)
-    
+   
     # Validate
     if value1 < 0 or value2 < 0:
         return "error"
-    
+   
     # Calculate
     result = value1 + value2
-    
+   
     # Store
     variables['result'] = result
-    
+   
     # Return
     return result
 ```
@@ -602,12 +602,12 @@ def __custom_fn__(variables):
 ```python
 def __custom_fn__(variables):
     user_input = variables.get('userInput', '')
-    
+   
     # Validation logic
     is_valid = len(user_input) >= 3 and user_input.isalnum()
-    
+   
     variables['isValid'] = is_valid
-    
+   
     return "valid" if is_valid else "invalid"
 ```
 
@@ -623,14 +623,14 @@ QuestionText -> CustomCode (validate)
 ```python
 def __custom_fn__(variables):
     raw_data = variables.get('rawInput', '')
-    
+   
     # Transform
     cleaned = raw_data.strip().upper()
     formatted = cleaned.replace(' ', '_')
-    
+   
     # Store
     variables['cleanedData'] = formatted
-    
+   
     return formatted
 ```
 
@@ -641,17 +641,17 @@ def __custom_fn__(variables):
     name = variables.get('userName', '')
     email = variables.get('userEmail', '')
     phone = variables.get('userPhone', '')
-    
+   
     # Validate each
     name_valid = len(name) >= 2
     email_valid = '@' in email and '.' in email
     phone_valid = len(phone) >= 10
-    
+   
     # Store individual results
     variables['nameValid'] = name_valid
     variables['emailValid'] = email_valid
     variables['phoneValid'] = phone_valid
-    
+   
     # Overall result
     if name_valid and email_valid and phone_valid:
         return "all_valid"

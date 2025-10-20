@@ -1,4 +1,4 @@
-# Formula Component - User Guide
+# Formula Component
 
 ## Overview
 
@@ -176,8 +176,8 @@ Contains({userInput}, "yes")
 
 ### 1. Calculate Order Total
 
-**Mode**: Answer  
-**Formula**: `Sum({subtotal}, {shippingCost})`  
+**Mode**: Answer 
+**Formula**: `Sum({subtotal}, {shippingCost})` 
 **Variable**: `orderTotal`
 
 **Flow**:
@@ -187,7 +187,7 @@ Collect items -> Calculate subtotal -> Formula (add shipping) -> Show total
 
 ### 2. Age Verification
 
-**Mode**: True/False  
+**Mode**: True/False 
 **Formula**: `IsGreaterOrEqual({userAge}, 18)`
 
 **Flow**:
@@ -200,15 +200,15 @@ QuestionText (ask age)
 
 ### 3. Discount Calculator
 
-**Mode**: Answer  
-**Formula**: `Multiply({price}, 0.9)`  
+**Mode**: Answer 
+**Formula**: `Multiply({price}, 0.9)` 
 **Variable**: `discountedPrice`
 
 **Result**: Applies 10% discount
 
 ### 4. Email Validation
 
-**Mode**: True/False  
+**Mode**: True/False 
 **Formula**: `Contains({userEmail}, "@")`
 
 **Flow**:
@@ -221,7 +221,7 @@ QuestionText (email)
 
 ### 5. Tiered Pricing
 
-**Mode**: Custom  
+**Mode**: Custom 
 **Formula**: `ToString({quantity})`
 
 **Output ports**:
@@ -232,7 +232,7 @@ QuestionText (email)
 
 ### 6. Input Validation Range
 
-**Mode**: True/False  
+**Mode**: True/False 
 **Formula**: `IsGreaterThan({quantity}, 0)`
 
 **Combined with**:
@@ -479,7 +479,7 @@ Calculate score
 - Arguments are separated by comma
 - No spaces in function name
 
-**Good**: `Sum(10, 5)`  
+**Good**: `Sum(10, 5)` 
 **Bad**: `sum(10,5)`, `Sum (10, 5)`, `Sum(10 5)`
 
 ### Issue: Variables not found

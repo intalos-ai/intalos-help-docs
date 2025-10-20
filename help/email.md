@@ -1,4 +1,4 @@
-# Email Component - User Guide
+# Email Component
 
 ## Overview
 
@@ -153,12 +153,12 @@ The Team
 - Message:
   ```
   Hi {customerName},
-  
+ 
   Your order has been confirmed!
-  
+ 
   Order Number: {orderNumber}
   Total: ${orderTotal}
-  
+ 
   Thank you for your purchase!
   ```
 
@@ -171,7 +171,7 @@ The Team
 - Message:
   ```
   New lead from WhatsApp bot:
-  
+ 
   Name: {userName}
   Email: {userEmail}
   Phone: {userPhone}
@@ -187,13 +187,13 @@ The Team
 - Message:
   ```
   Hello {customerName},
-  
+ 
   Your appointment is confirmed:
-  
+ 
   Date: {appointmentDate}
   Time: {appointmentTime}
   Location: {locationAddress}
-  
+ 
   See you then!
   ```
 
@@ -206,10 +206,10 @@ The Team
 - Message:
   ```
   Ticket #{ticketNumber} has been created.
-  
+ 
   Issue: {issueDescription}
   Priority: {ticketPriority}
-  
+ 
   We'll respond within 24 hours.
   ```
 

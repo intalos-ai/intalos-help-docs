@@ -1,4 +1,4 @@
-# QuestionText Component - User Guide
+# QuestionText Component
 
 ## Overview
 
@@ -283,7 +283,7 @@ QuestionText -> Formula (validate) -> (valid) Success
 
 ### Issue: Message too long
 
-**Solution**: 
+**Solution**:
 - Keep questions concise
 - Split long messages into multiple Text components
 - Use variables to reduce repetition

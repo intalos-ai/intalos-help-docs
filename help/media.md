@@ -1,4 +1,4 @@
-# Media Component - User Guide
+# Media Component
 
 ## Overview
 

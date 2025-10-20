@@ -1,4 +1,4 @@
-# LLM Conversation Component - User Guide
+# <img src="../images/icons/llm-conversation.svg" width="32" height="32" style="vertical-align: middle; margin-right: 8px;"> LLM Conversation
 
 ## Overview
 
@@ -96,7 +96,7 @@ Currently supported:
 3. Copy the key
 4. Paste into component
 
-#### Configure in Component
+#### Configure in
 
 1. **Provider**: Select "Google Gemini"
 2. **Model**: Choose your model
@@ -108,7 +108,7 @@ Currently supported:
 Define the AI's role and behavior:
 
 ```
-You are a helpful customer service assistant for Acme Corp. 
+You are a helpful customer service assistant for Acme Corp.
 You are friendly, professional, and concise.
 Always end responses with a question to keep the conversation going.
 ```
@@ -245,7 +245,7 @@ Save the AI's response:
 
 ### 1. Customer Support Chatbot
 
-**Mode**: Conversation  
+**Mode**: Conversation 
 **System Prompt**:
 ```
 You are a customer support agent for TechStore.
@@ -260,18 +260,18 @@ Order History: {orderHistory}
 Account Since: {accountCreated}
 ```
 
-**History**: Enabled  
+**History**: Enabled 
 **Output Variable**: `aiResponse`
 
 ### 2. Text Summarization
 
-**Mode**: Processing  
+**Mode**: Processing 
 **System Prompt**:
 ```
 Summarize the following text in 2-3 sentences. Keep it concise and factual.
 ```
 
-**Prompt Variable**: `userFeedback`  
+**Prompt Variable**: `userFeedback` 
 **Output Variable**: `feedbackSummary`
 
 **Flow**:
@@ -284,10 +284,10 @@ Collect feedback (QuestionText)
 
 ### 3. Product Recommendations
 
-**Mode**: Conversation  
+**Mode**: Conversation 
 **System Prompt**:
 ```
-You are a product recommendation assistant. 
+You are a product recommendation assistant.
 Ask questions to understand customer needs, then recommend products from our catalog.
 Be consultative and helpful.
 ```
@@ -300,7 +300,7 @@ Customer Budget: {budget}
 
 ### 4. FAQ Bot
 
-**Mode**: Conversation  
+**Mode**: Conversation 
 **System Prompt**:
 ```
 You are an FAQ assistant for Acme Services.

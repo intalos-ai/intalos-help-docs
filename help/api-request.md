@@ -1,4 +1,4 @@
-# APIRequest Component - User Guide
+# APIRequest Component
 
 ## Overview
 
@@ -174,7 +174,7 @@ Example: https://api.example.com/users/{userId}/orders/{orderId}
 ### Using Variables in Parameters
 ```
 Syntax: {{variableName}}
-Example: 
+Example:
   Key: search    Value: {{searchTerm}}
 ```
 

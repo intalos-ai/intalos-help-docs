@@ -1,4 +1,4 @@
-# QuestionButtons Component - User Guide
+# QuestionButtons Component
 
 ## Overview
 

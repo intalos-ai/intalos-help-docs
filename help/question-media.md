@@ -1,4 +1,4 @@
-# QuestionMedia Component - User Guide
+# QuestionMedia Component
 
 ## Overview
 
@@ -409,7 +409,7 @@ Bot: "Please upload a clear photo of your receipt"
 
 **Prevention**:
 ```
-Bot: "Please upload a photo (max 10 MB). 
+Bot: "Please upload a photo (max 10 MB).
      Tip: Use your camera app's 'Share > Resize' option if the file is too large."
 ```
 
@@ -427,7 +427,7 @@ Bot: "Please upload a photo (max 10 MB).
 
 **Example response**:
 ```
-Bot: "Please upload a PDF file. 
+Bot: "Please upload a PDF file.
      If you have a Word document, you can:
      1. Open the document
      2. Select 'Save As'

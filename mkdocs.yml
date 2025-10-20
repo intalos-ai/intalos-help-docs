@@ -9,9 +9,14 @@ theme:
   name: landing
   favicon: images/favicon.ico
 
-# Extra JavaScript for font loading - this will load everything
+# Extra CSS for custom styling
+extra_css:
+  - stylesheets/custom.css
+
+# Extra JavaScript for font loading and icons
 extra_javascript:
   - javascripts/poppins.js
+  - javascripts/add-icons.js
 
 # Social links and other extras
 extra:

@@ -1,4 +1,4 @@
-# GoogleDrive Component - User Guide
+# GoogleDrive Component
 
 ## Overview
 

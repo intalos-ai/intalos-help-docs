@@ -1,4 +1,4 @@
-# QuestionList Component - User Guide
+# QuestionList Component
 
 ## Overview
 
@@ -242,7 +242,7 @@ You can also add a default path that catches any unhandled selections.
 
 When a user selects an option:
 - **Variable stores**: The option label text (as displayed)
-- **Type**: String  
+- **Type**: String 
 - **Variables resolved**: If option has {variables}, the resolved value is stored
 
 ### WhatsApp Message Format
