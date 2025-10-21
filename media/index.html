@@ -293,11 +293,28 @@
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>{productImage}
 </span></code></pre></div></p>
 </li>
+<li>
+<p><strong>Array Variables</strong> (Multiple Files):
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{uploadedPhotos}
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>{damageImages}
+</span></code></pre></div></p>
+</li>
 </ol>
 <p><strong>Example with Variables</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>https://yourapi.com/invoices/{invoiceID}.pdf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>https://yourapi.com/invoices/{invoiceID}.pdf
 </span></code></pre></div></p>
 <p><strong>Pro Tip</strong>: Use variables from previous components (like APIRequest) to send personalized media.</p>
+<h3 id="sending-multiple-files">Sending Multiple Files</h3>
+<p>The Media component can send multiple files sequentially if your variable contains an <strong>array of URLs</strong>:</p>
+<p><strong>How it works</strong>:
+- <strong>Single URL</strong>: <code>{invoiceURL}</code> -&gt; Sends one file
+- <strong>Array of URLs</strong>: <code>{uploadedPhotos}</code> -&gt; Sends all files in order</p>
+<p><strong>Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>If {damagePhotos} = [&quot;photo1.jpg&quot;, &quot;photo2.jpg&quot;, &quot;photo3.jpg&quot;]
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>-&gt; Media component sends all 3 photos sequentially
+</span></code></pre></div></p>
+<p><strong>Invalid URLs</strong>: If some URLs in the array are invalid, they are <strong>skipped</strong> and valid ones are sent.</p>
+<p><strong>Use Case</strong>: Perfect for sending files collected by QuestionMedia component (which stores multiple files as arrays).</p>
 <hr />
 <h2 id="supported-file-types-sizes">Supported File Types &amp; Sizes</h2>
 <h3 id="images">Images</h3>
@@ -346,11 +363,11 @@
 <ol>
 <li>Toggle <strong>"Error Message to User"</strong> to ON</li>
 <li>Enter your message:
-   <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Sorry, we couldn&#39;t send that file. Please try again or contact support.
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Sorry, we couldn&#39;t send that file. Please try again or contact support.
 </span></code></pre></div></li>
 </ol>
 <p><strong>Dynamic Error Messages</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Hi {userName}, we&#39;re having trouble sending your {mediaType}. Please try again.
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Hi {userName}, we&#39;re having trouble sending your {mediaType}. Please try again.
 </span></code></pre></div></p>
 <h3 id="admin-email-notification">Admin Email Notification</h3>
 <p>Get notified when media sending fails:</p>
@@ -403,6 +420,23 @@
 1. Store audio files organized by language
 2. Use language variable to select correct file
 3. Personalized audio for each user</p>
+<hr />
+<h3 id="5-send-multiple-photos-from-questionmedia">5. Send Multiple Photos (from QuestionMedia)</h3>
+<p><strong>Scenario</strong>: Return uploaded damage photos to user or send to insurance API</p>
+<p><strong>Configuration</strong>:
+- Media Type: <code>Image</code>
+- Input Mode: <code>Dynamic</code>
+- Media Source: <code>{damagePhotos}</code></p>
+<p><strong>Setup</strong>:
+1. Use QuestionMedia to collect multiple photos (max 3)
+2. Variable <code>{damagePhotos}</code> contains array: <code>["photo1.jpg", "photo2.jpg", "photo3.jpg"]</code>
+3. Media component sends all photos sequentially</p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>QuestionMedia: &quot;Send up to 3 damage photos&quot;
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>-&gt; Stores: {damagePhotos} = [&quot;url1&quot;, &quot;url2&quot;, &quot;url3&quot;]
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>   -&gt; Media: Sends all 3 photos back to user
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>   -&gt; APIRequest: Uploads URLs to insurance system
+</span></code></pre></div></p>
 <hr />
 <h2 id="best-practices">Best Practices</h2>
 <h3 id="file-optimization">File Optimization</h3>

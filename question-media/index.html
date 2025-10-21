@@ -446,11 +446,13 @@
 - <strong>Automatically deleted after 24 hours</strong>
 - Does NOT count toward your storage quota
 - Free to use</p>
+<p><strong>Privacy</strong>: Files are <strong>publicly accessible</strong>. Anyone with the URL can view the file. Use for non-sensitive data only.</p>
 <p><strong>Best for</strong>:
 - Sending files to external APIs or services
 - Files that will be stored elsewhere (AWS S3, your database, etc.)
 - One-time processing or verification
-- When you don't need long-term storage</p>
+- When you don't need long-term storage
+- Files you'll send back to users via Media component</p>
 <p><strong>Example use case</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>User uploads invoice PDF
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>-&gt; Temporary storage (publicly accessible)
@@ -465,11 +467,13 @@
 - <strong>Stored indefinitely</strong> until you delete them
 - Counts toward your storage quota
 - Can be accessed by bot components later</p>
+<p><strong>Privacy</strong>: Files are <strong>private and secure</strong>. Only your bot components (Media, APIRequest, Email) can access them with proper authentication. Use for sensitive documents.</p>
 <p><strong>Best for</strong>:
 - Files you need to keep and reference in flows
 - Building file libraries or archives
 - Files used across multiple bot executions
-- Long-term record keeping</p>
+- Long-term record keeping
+- Sensitive documents requiring privacy</p>
 <p><strong>Example use case</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>User uploads profile photo
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>-&gt; Permanent storage (private)
@@ -499,6 +503,9 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>uploads/question_media/permanent/bot_66_comp_xyz_a1b2c3d4.pdf
 </span></code></pre></div></p>
 <h3 id="using-the-file">Using the File</h3>
+<p><strong>Important</strong>: 
+- <strong>Temporary files</strong>: Publicly accessible via URL - can be used anywhere
+- <strong>Permanent files</strong>: Private - can only be accessed through bot components (Media, APIRequest, Email)</p>
 <h4 id="1-send-to-your-api">1. Send to Your API</h4>
 <p>Use APIRequest component:
 <div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
@@ -507,12 +514,17 @@
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;document_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;invoice&quot;</span>
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
 </span></code></pre></div></p>
-<h4 id="2-email-to-team">2. Email to Team</h4>
+<h4 id="2-send-to-user-media-component">2. Send to User (Media component)</h4>
+<p>Use Media component to send file back to user:
+- Set Media Source to: <code>{uploadedDocument}</code>
+- Works for both temporary and permanent files
+- Bot components have authentication to access permanent files</p>
+<h4 id="3-email-to-team">3. Email to Team</h4>
 <p>Use Email component:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>New document uploaded by {customerName}
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>File location: {uploadedDocument}
 </span></code></pre></div></p>
-<h4 id="3-store-in-googlesheets">3. Store in GoogleSheets</h4>
+<h4 id="4-store-in-googlesheets">4. Store in GoogleSheets</h4>
 <p>Log file reference in a spreadsheet for tracking</p>
 <hr />
 <h2 id="common-use-cases">Common Use Cases</h2>
