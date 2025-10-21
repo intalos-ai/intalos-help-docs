@@ -187,6 +187,12 @@
     
     
     <li class="nav-subitem">
+    <a href="#multiple-files">Multiple Files</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
     <a href="#file-size-limits">File Size Limits</a>
     </li>
     
@@ -273,6 +279,7 @@
     <h1 id="questionmedia-component">QuestionMedia Component</h1>
 <h2 id="overview">Overview</h2>
 <p>The <strong>QuestionMedia</strong> component allows you to receive and process media files uploaded by your users via WhatsApp. Perfect for collecting photos, documents, voice messages, and videos from your customers.</p>
+<p><strong>📸 Multiple Files</strong>: Users can send multiple files at once, and they'll be stored as an array in your variable.</p>
 <h2 id="when-to-use-questionmedia">When to Use QuestionMedia</h2>
 <p>Ideal for scenarios like:
 - Collecting product photos or damage reports
@@ -287,9 +294,9 @@
 <ol>
 <li><strong>Bot asks</strong>: "Please upload your invoice"</li>
 <li><strong>User</strong>: Taps attachment icon in WhatsApp</li>
-<li><strong>User</strong>: Selects and sends the file</li>
-<li><strong>QuestionMedia</strong>: Receives and processes the file</li>
-<li><strong>Result</strong>: File is validated, saved, and URL stored in variable</li>
+<li><strong>User</strong>: Selects and sends one or multiple files</li>
+<li><strong>QuestionMedia</strong>: Receives and processes all files simultaneously</li>
+<li><strong>Result</strong>: Files are validated, saved, and URL(s) stored in variable</li>
 </ol>
 <h3 id="behind-the-scenes">Behind the Scenes</h3>
 <ol>
@@ -299,6 +306,23 @@
 <li>File uploaded to secure cloud storage</li>
 <li>S3 key (file location) stored in your variable</li>
 </ol>
+<hr />
+<h2 id="multiple-files">Multiple Files</h2>
+<h3 id="how-it-works_1">How It Works</h3>
+<p>Users can send multiple files simultaneously from WhatsApp:</p>
+<p><strong>Variable storage:</strong>
+- <strong>1 file</strong> → String: <code>"uploads/.../photo.jpg"</code>
+- <strong>2+ files</strong> → Array: <code>["uploads/.../photo1.jpg", "uploads/.../photo2.jpg"]</code></p>
+<p><strong>Maximum Media Items setting:</strong>
+- Limit how many files to collect (1-10)
+- Default: 1 file
+- User sends 5, max is 3 → First 3 stored</p>
+<p><strong>Important</strong>: If any file fails validation (size, type, safety check), ALL files are rejected and the user must retry.</p>
+<p><strong>Example:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>User sends: 3 photos (2 valid, 1 too large)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Result: &quot;1 of 3 items failed: Media size limit breached. Please try again.&quot;
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Action: User must resend ALL 3 photos
+</span></code></pre></div></p>
 <hr />
 <h2 id="file-size-limits">File Size Limits</h2>
 <p><strong>Important size restrictions</strong>:</p>
@@ -335,11 +359,14 @@
 </table>
 <p><strong>Note</strong>: These limits ensure fast processing and quick responses to users. WhatsApp requires bot responses within 200ms.</p>
 <h3 id="what-happens-if-file-is-too-large">What happens if file is too large?</h3>
-<ul>
-<li>User receives an error message</li>
-<li>Flow can branch to "error" path</li>
-<li>You can guide user to compress or resize</li>
-</ul>
+<p><strong>Single file upload:</strong>
+- User receives an error message
+- Flow can branch to "error" path
+- User can retry with smaller file</p>
+<p><strong>Multiple file upload:</strong>
+- <strong>All files are rejected</strong> (all-or-nothing validation)
+- User receives: "1 of 3 items failed: Media size limit breached. Please try again."
+- User must resend ALL files (including the valid ones)</p>
 <p><strong>Need larger files?</strong> Contact us at contact@intalos.de to discuss your use case.</p>
 <hr />
 <h2 id="image-safety-check-optional">Image Safety Check (Optional)</h2>
@@ -366,13 +393,17 @@
 - Medical/graphic images
 - Spoofed/manipulated content</p>
 <h3 id="what-happens-if-image-fails">What happens if image fails?</h3>
-<ul>
-<li>Image is rejected</li>
-<li>User receives a notification</li>
-<li>File is NOT saved</li>
-<li>Flow branches to error path</li>
-</ul>
-<p><strong>Example message</strong>: "Image safety check alert - Image rejected due to adult content"</p>
+<p><strong>Single image:</strong>
+- Image is rejected
+- User receives a notification
+- File is NOT saved
+- Flow branches to error path</p>
+<p><strong>Multiple images:</strong>
+- ALL images are rejected (all-or-nothing validation)
+- User sees: "1 of 3 items failed: Image safety check alert. Please try again."
+- NO files are saved
+- User must resend all images</p>
+<p><strong>Example message</strong>: "1 of 3 items failed: Image safety check alert - Image rejected due to adult content. Please try again."</p>
 <hr />
 <h2 id="advanced-configuration">Advanced Configuration</h2>
 <h3 id="error-handling">Error Handling</h3>
@@ -392,10 +423,10 @@
 <ol>
 <li>Toggle <strong>"Error Message to User"</strong> to ON</li>
 <li>Enter friendly message:
-   <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Sorry, we couldn&#39;t process that file. Please try sending:
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>- A different file
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>- A smaller file (under 10 MB)
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>- A PDF document
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Sorry, we couldn&#39;t process that file. Please try sending:
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>- A different file
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>- A smaller file (under 10 MB)
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>- A PDF document
 </span></code></pre></div></li>
 </ol>
 <h4 id="admin-email-notification">Admin Email Notification</h4>
@@ -421,10 +452,10 @@
 - One-time processing or verification
 - When you don't need long-term storage</p>
 <p><strong>Example use case</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>User uploads invoice PDF
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>-&gt; Temporary storage (publicly accessible)
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>   -&gt; APIRequest sends file to your accounting system
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>      -&gt; File deleted after 24 hours
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>User uploads invoice PDF
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>-&gt; Temporary storage (publicly accessible)
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   -&gt; APIRequest sends file to your accounting system
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>      -&gt; File deleted after 24 hours
 </span></code></pre></div></p>
 <h3 id="permanent-storage">Permanent Storage</h3>
 <p><strong>Purpose</strong>: Long-term file storage within Intalos AI for use in your bot flows</p>
@@ -440,11 +471,11 @@
 - Files used across multiple bot executions
 - Long-term record keeping</p>
 <p><strong>Example use case</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>User uploads profile photo
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>-&gt; Permanent storage (private)
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   -&gt; Used in future bot interactions
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>   -&gt; Referenced in customer profile
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>   -&gt; Kept indefinitely
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>User uploads profile photo
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>-&gt; Permanent storage (private)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>   -&gt; Used in future bot interactions
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>   -&gt; Referenced in customer profile
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>   -&gt; Kept indefinitely
 </span></code></pre></div></p>
 <h3 id="choosing-the-right-mode">Choosing the Right Mode</h3>
 <p><strong>Use Temporary when</strong>:
@@ -462,24 +493,24 @@
 <h3 id="file-url-format">File URL Format</h3>
 <p>After upload, the variable contains the S3 key:</p>
 <p><strong>Temporary</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>uploads/question_media/temporary/bot_66_comp_xyz_a1b2c3d4.pdf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uploads/question_media/temporary/bot_66_comp_xyz_a1b2c3d4.pdf
 </span></code></pre></div></p>
 <p><strong>Permanent</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uploads/question_media/permanent/bot_66_comp_xyz_a1b2c3d4.pdf
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>uploads/question_media/permanent/bot_66_comp_xyz_a1b2c3d4.pdf
 </span></code></pre></div></p>
 <h3 id="using-the-file">Using the File</h3>
 <h4 id="1-send-to-your-api">1. Send to Your API</h4>
 <p>Use APIRequest component:
-<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;customer_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{customerID}}&quot;</span><span class="p">,</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;document_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{uploadedDocument}}&quot;</span><span class="p">,</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&quot;document_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;invoice&quot;</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}</span>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;customer_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{customerID}}&quot;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;document_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{uploadedDocument}}&quot;</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;document_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;invoice&quot;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
 </span></code></pre></div></p>
 <h4 id="2-email-to-team">2. Email to Team</h4>
 <p>Use Email component:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>New document uploaded by {customerName}
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>File location: {uploadedDocument}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>New document uploaded by {customerName}
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>File location: {uploadedDocument}
 </span></code></pre></div></p>
 <h4 id="3-store-in-googlesheets">3. Store in GoogleSheets</h4>
 <p>Log file reference in a spreadsheet for tracking</p>
@@ -493,15 +524,15 @@
 - Image Safety Check: <code>ON</code> (prevent inappropriate images)
 - Store in: <code>idCardImage</code></p>
 <p><strong>Flow</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Bot: &quot;Please upload a photo of your ID card&quot;
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>-&gt;
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>QuestionMedia receives image
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>-&gt;
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Safety check validates content
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>-&gt;
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>APIRequest sends to verification service
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>-&gt;
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>Bot: &quot;Thank you! Your ID is being verified&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Bot: &quot;Please upload a photo of your ID card&quot;
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>-&gt;
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>QuestionMedia receives image
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>-&gt;
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Safety check validates content
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>-&gt;
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>APIRequest sends to verification service
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>-&gt;
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>Bot: &quot;Thank you! Your ID is being verified&quot;
 </span></code></pre></div></p>
 <hr />
 <h3 id="2-document-submission">2. Document Submission</h3>
@@ -511,32 +542,32 @@
 - Storage Mode: <code>Permanent</code>
 - Store in: <code>signedContract</code></p>
 <p><strong>Flow</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Bot: &quot;Please upload your signed contract&quot;
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>-&gt;
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>QuestionMedia receives PDF
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>-&gt;
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>File validated (PDF, under 2 MB)
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>-&gt;
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>APIRequest stores in CRM
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>-&gt;
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>Email sent to legal team
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>-&gt;
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>Bot: &quot;Contract received! We&#39;ll review and contact you.&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Bot: &quot;Please upload your signed contract&quot;
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>-&gt;
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>QuestionMedia receives PDF
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>-&gt;
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>File validated (PDF, under 2 MB)
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>-&gt;
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>APIRequest stores in CRM
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>-&gt;
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>Email sent to legal team
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>-&gt;
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>Bot: &quot;Contract received! We&#39;ll review and contact you.&quot;
 </span></code></pre></div></p>
 <hr />
-<h3 id="3-property-damage-report">3. Property Damage Report</h3>
+<h3 id="3-property-damage-report-multiple-photos">3. Property Damage Report (Multiple Photos)</h3>
 <p><strong>Scenario</strong>: Insurance claim with damage photos</p>
 <p><strong>Configuration</strong>:
 - Media Type: <code>Image</code>
+- Maximum Media Items: <code>3</code>
 - Storage Mode: <code>Permanent</code>
-- Store in: <code>damagePhoto1</code></p>
+- Store in: <code>damagePhotos</code></p>
 <p><strong>Flow</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Bot: &quot;Please send photos of the damage (up to 3 photos)&quot;
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>-&gt; QuestionMedia (Photo 1)
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>-&gt; QuestionMedia (Photo 2)
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>-&gt; QuestionMedia (Photo 3)
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>-&gt; APIRequest creates claim with all photos
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>-&gt; Bot: &quot;Claim submitted! Reference: {claimNumber}&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Bot: &quot;Please send up to 3 photos of the damage (you can send them all at once)&quot;
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>-&gt; QuestionMedia collects all photos
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>-&gt; Variable: [&quot;photo1.jpg&quot;, &quot;photo2.jpg&quot;, &quot;photo3.jpg&quot;]
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>-&gt; APIRequest creates claim
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>-&gt; Bot: &quot;Claim submitted! Reference: {claimNumber}&quot;
 </span></code></pre></div></p>
 <hr />
 <h3 id="4-voice-feedback">4. Voice Feedback</h3>
@@ -546,15 +577,15 @@
 - Storage Mode: <code>Permanent</code>
 - Store in: <code>voiceFeedback</code></p>
 <p><strong>Flow</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Bot: &quot;Please record your feedback (voice note)&quot;
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>-&gt;
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>QuestionMedia receives audio
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>-&gt;
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>File stored in feedback database
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>-&gt;
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>Email notification to customer service
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>-&gt;
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>Bot: &quot;Thank you for your feedback!&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Bot: &quot;Please record your feedback (voice note)&quot;
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>-&gt;
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>QuestionMedia receives audio
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>-&gt;
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>File stored in feedback database
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>-&gt;
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>Email notification to customer service
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>-&gt;
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>Bot: &quot;Thank you for your feedback!&quot;
 </span></code></pre></div></p>
 <hr />
 <h2 id="best-practices">Best Practices</h2>
@@ -566,11 +597,11 @@
 - Explain what you'll do with their file
 - Confirm receipt immediately</p>
 <p><strong>Example</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Bot: &quot;Please upload a clear photo of your receipt&quot;
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>     Requirements:
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>     • JPEG or PNG format
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>     • Under 10 MB
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>     • All text clearly visible
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Bot: &quot;Please upload a clear photo of your receipt&quot;
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>     Requirements:
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>     • JPEG or PNG format
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>     • Under 10 MB
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>     • All text clearly visible
 </span></code></pre></div></p>
 <p><strong>DON'T</strong>:
 - Assume users know what format to use
@@ -611,9 +642,14 @@
 3. For PDFs, ask to remove images or reduce quality
 4. Consider upgrading limits (contact support)</p>
 <p><strong>Prevention</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Bot: &quot;Please upload a photo (max 10 MB).
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>     Tip: Use your camera app&#39;s &#39;Share &gt; Resize&#39; option if the file is too large.&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Bot: &quot;Please upload a photo (max 10 MB).
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>     Tip: Use your camera app&#39;s &#39;Share &gt; Resize&#39; option if the file is too large.&quot;
 </span></code></pre></div></p>
+<hr />
+<h3 id="issue-multiple-files-rejected">Issue: Multiple files rejected</h3>
+<p><strong>Message</strong>: "1 of 3 items failed: Media size limit breached"</p>
+<p><strong>Why</strong>: One file failed validation, so all files were rejected</p>
+<p><strong>Solution</strong>: Check that ALL files meet requirements, then resend all files</p>
 <hr />
 <h3 id="issue-wrong-file-type-uploaded">Issue: Wrong file type uploaded</h3>
 <p><strong>User uploads</strong>: Word document instead of PDF</p>
@@ -623,12 +659,12 @@
 3. Link to online PDF converter
 4. Allow retry</p>
 <p><strong>Example response</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Bot: &quot;Please upload a PDF file.
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>     If you have a Word document, you can:
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>     1. Open the document
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>     2. Select &#39;Save As&#39;
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>     3. Choose &#39;PDF&#39; format
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>     Then send it again.&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Bot: &quot;Please upload a PDF file.
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>     If you have a Word document, you can:
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>     1. Open the document
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>     2. Select &#39;Save As&#39;
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>     3. Choose &#39;PDF&#39; format
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>     Then send it again.&quot;
 </span></code></pre></div></p>
 <hr />
 <h3 id="issue-image-safety-check-fails">Issue: Image safety check fails</h3>
@@ -638,20 +674,20 @@
 2. Explain why image was rejected (tactfully)
 3. Provide guidelines for acceptable images</p>
 <p><strong>Example response</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Bot: &quot;We couldn&#39;t process that image. Please upload a clear photo of the item/document without any other content.&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Bot: &quot;We couldn&#39;t process that image. Please upload a clear photo of the item/document without any other content.&quot;
 </span></code></pre></div></p>
 <hr />
 <h3 id="issue-user-confused-about-what-to-upload">Issue: User confused about what to upload</h3>
 <p><strong>Prevention</strong>: Crystal clear instructions</p>
 <p><strong>Good examples</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>**Bad**: &quot;Send document&quot;
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>**Good**: &quot;Please upload a PDF copy of your signed contract&quot;
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>**Bad**: &quot;Upload image&quot;
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>**Good**: &quot;Please send a clear photo of the product with the serial number visible&quot;
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>**Bad**: &quot;Voice note&quot;
-</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>**Good**: &quot;Please record a voice message (up to 1 minute) describing the issue&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>**Bad**: &quot;Send document&quot;
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>**Good**: &quot;Please upload a PDF copy of your signed contract&quot;
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>**Bad**: &quot;Upload image&quot;
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>**Good**: &quot;Please send a clear photo of the product with the serial number visible&quot;
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>**Bad**: &quot;Voice note&quot;
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>**Good**: &quot;Please record a voice message (up to 1 minute) describing the issue&quot;
 </span></code></pre></div></p>
 <hr />
 <h3 id="issue-files-not-accessible-later">Issue: Files not accessible later</h3>
@@ -664,29 +700,29 @@
 <hr />
 <h2 id="technical-details">Technical Details</h2>
 <h3 id="file-processing-flow">File Processing Flow</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>1. User sends file via WhatsApp
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>   -&gt;
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>2. WhatsApp generates media ID
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>   -&gt;
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>3. Bot retrieves file from WhatsApp servers
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>   -&gt;
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>4. File validated (type, size, MIME)
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>   -&gt;
-</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>5. Optional: Google Vision safety check (images)
-</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>   -&gt;
-</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>6. File uploaded to private S3 bucket
-</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>   -&gt;
-</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>7. S3 key stored in variable
-</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>   -&gt;
-</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>8. Flow continues
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>1. User sends file via WhatsApp
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>   -&gt;
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>2. WhatsApp generates media ID
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>   -&gt;
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>3. Bot retrieves file from WhatsApp servers
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>   -&gt;
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>4. File validated (type, size, MIME)
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>   -&gt;
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>5. Optional: Google Vision safety check (images)
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>   -&gt;
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>6. File uploaded to private S3 bucket
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>   -&gt;
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>7. S3 key stored in variable
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>   -&gt;
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>8. Flow continues
 </span></code></pre></div>
 <h3 id="file-storage-structure">File Storage Structure</h3>
 <p><strong>Temporary files</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>uploads/question_media/temporary/{botId}_{componentId}_{uuid}.{ext}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>uploads/question_media/temporary/{botId}_{componentId}_{uuid}.{ext}
 </span></code></pre></div>
 Deleted automatically after 24 hours.</p>
 <p><strong>Permanent files</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>uploads/question_media/permanent/{botId}_{componentId}_{uuid}.{ext}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>uploads/question_media/permanent/{botId}_{componentId}_{uuid}.{ext}
 </span></code></pre></div>
 Stored indefinitely (counts toward quota).</p>
 <h3 id="supported-mime-types">Supported MIME Types</h3>
