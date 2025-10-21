@@ -123,8 +123,10 @@
     </style>
     <link rel="icon" type="image/x-icon" href=images/favicon.ico>
     <link href="../css/style.css" rel="stylesheet">
-    <link href="../css/responsivity.css" rel="stylesheet">  
+    <link href="../css/responsivity.css" rel="stylesheet">
+    <link href="../stylesheets/custom.css" rel="stylesheet">  
     <script src="../javascripts/poppins.js"></script>  
+    <script src="../javascripts/add-icons.js"></script>  
     <script src="../search/main.js"></script>
     <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
     <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
@@ -161,7 +163,7 @@
 <ul>
 
 <li class="nav-item">
-<a href="#formula-component-user-guide">Formula Component - User Guide</a>
+<a href="#formula-component">Formula Component</a>
     
     <ul>
     
@@ -292,7 +294,7 @@
 </ul>
 
 </nav>
-    <h1 id="formula-component-user-guide">Formula Component - User Guide</h1>
+    <h1 id="formula-component">Formula Component</h1>
 <h2 id="overview">Overview</h2>
 <p>The <strong>Formula</strong> component allows you to perform calculations, comparisons, and logical operations within your bot flow. Perfect for validating user input, calculating prices, routing based on conditions, and performing mathematical operations.</p>
 <h2 id="when-to-use-formula">When to Use Formula</h2>
@@ -427,14 +429,14 @@
 <hr />
 <h2 id="use-cases-examples">Use Cases &amp; Examples</h2>
 <h3 id="1-calculate-order-total">1. Calculate Order Total</h3>
-<p><strong>Mode</strong>: Answer<br />
-<strong>Formula</strong>: <code>Sum({subtotal}, {shippingCost})</code><br />
+<p><strong>Mode</strong>: Answer 
+<strong>Formula</strong>: <code>Sum({subtotal}, {shippingCost})</code> 
 <strong>Variable</strong>: <code>orderTotal</code></p>
 <p><strong>Flow</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Collect items -&gt; Calculate subtotal -&gt; Formula (add shipping) -&gt; Show total
 </span></code></pre></div></p>
 <h3 id="2-age-verification">2. Age Verification</h3>
-<p><strong>Mode</strong>: True/False<br />
+<p><strong>Mode</strong>: True/False 
 <strong>Formula</strong>: <code>IsGreaterOrEqual({userAge}, 18)</code></p>
 <p><strong>Flow</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>QuestionText (ask age)
@@ -443,12 +445,12 @@
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>   \-- False -&gt; &quot;Sorry, must be 18+&quot;
 </span></code></pre></div></p>
 <h3 id="3-discount-calculator">3. Discount Calculator</h3>
-<p><strong>Mode</strong>: Answer<br />
-<strong>Formula</strong>: <code>Multiply({price}, 0.9)</code><br />
+<p><strong>Mode</strong>: Answer 
+<strong>Formula</strong>: <code>Multiply({price}, 0.9)</code> 
 <strong>Variable</strong>: <code>discountedPrice</code></p>
 <p><strong>Result</strong>: Applies 10% discount</p>
 <h3 id="4-email-validation">4. Email Validation</h3>
-<p><strong>Mode</strong>: True/False<br />
+<p><strong>Mode</strong>: True/False 
 <strong>Formula</strong>: <code>Contains({userEmail}, "@")</code></p>
 <p><strong>Flow</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>QuestionText (email)
@@ -457,7 +459,7 @@
 </span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>   \-- False -&gt; &quot;Please enter valid email&quot;
 </span></code></pre></div></p>
 <h3 id="5-tiered-pricing">5. Tiered Pricing</h3>
-<p><strong>Mode</strong>: Custom<br />
+<p><strong>Mode</strong>: Custom 
 <strong>Formula</strong>: <code>ToString({quantity})</code></p>
 <p><strong>Output ports</strong>:
 - "1" -&gt; $10 per item
@@ -465,7 +467,7 @@
 - "10" -&gt; $8 per item
 - "default" -&gt; Quote required</p>
 <h3 id="6-input-validation-range">6. Input Validation Range</h3>
-<p><strong>Mode</strong>: True/False<br />
+<p><strong>Mode</strong>: True/False 
 <strong>Formula</strong>: <code>IsGreaterThan({quantity}, 0)</code></p>
 <p><strong>Combined with</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Formula 1: IsGreaterThan({quantity}, 0)
@@ -721,7 +723,7 @@
 - Parentheses are balanced
 - Arguments are separated by comma
 - No spaces in function name</p>
-<p><strong>Good</strong>: <code>Sum(10, 5)</code><br />
+<p><strong>Good</strong>: <code>Sum(10, 5)</code> 
 <strong>Bad</strong>: <code>sum(10,5)</code>, <code>Sum (10, 5)</code>, <code>Sum(10 5)</code></p>
 <h3 id="issue-variables-not-found">Issue: Variables not found</h3>
 <p><strong>Check</strong>:
@@ -936,6 +938,8 @@
 
 
 <script src="../javascripts/poppins.js"></script>
+
+<script src="../javascripts/add-icons.js"></script>
 
 <script src="../search/main.js"></script>
 

@@ -4,6 +4,8 @@
 
 The **QuestionMedia** component allows you to receive and process media files uploaded by your users via WhatsApp. Perfect for collecting photos, documents, voice messages, and videos from your customers.
 
+**📸 Multiple Files**: Users can send multiple files at once, and they'll be stored as an array in your variable.
+
 ## When to Use QuestionMedia
 
 Ideal for scenarios like:
@@ -22,9 +24,9 @@ Ideal for scenarios like:
 
 1. **Bot asks**: "Please upload your invoice"
 2. **User**: Taps attachment icon in WhatsApp
-3. **User**: Selects and sends the file
-4. **QuestionMedia**: Receives and processes the file
-5. **Result**: File is validated, saved, and URL stored in variable
+3. **User**: Selects and sends one or multiple files
+4. **QuestionMedia**: Receives and processes all files simultaneously
+5. **Result**: Files are validated, saved, and URL(s) stored in variable
 
 ### Behind the Scenes
 
@@ -33,6 +35,32 @@ Ideal for scenarios like:
 3. Image safety check (optional, for images)
 4. File uploaded to secure cloud storage
 5. S3 key (file location) stored in your variable
+
+---
+
+## Multiple Files
+
+### How It Works
+
+Users can send multiple files simultaneously from WhatsApp:
+
+**Variable storage:**
+- **1 file** → String: `"uploads/.../photo.jpg"`
+- **2+ files** → Array: `["uploads/.../photo1.jpg", "uploads/.../photo2.jpg"]`
+
+**Maximum Media Items setting:**
+- Limit how many files to collect (1-10)
+- Default: 1 file
+- User sends 5, max is 3 → First 3 stored
+
+**Important**: If any file fails validation (size, type, safety check), ALL files are rejected and the user must retry.
+
+**Example:**
+```
+User sends: 3 photos (2 valid, 1 too large)
+Result: "1 of 3 items failed: Media size limit breached. Please try again."
+Action: User must resend ALL 3 photos
+```
 
 ---
 
@@ -51,9 +79,15 @@ Ideal for scenarios like:
 
 ### What happens if file is too large?
 
+**Single file upload:**
 - User receives an error message
 - Flow can branch to "error" path
-- You can guide user to compress or resize
+- User can retry with smaller file
+
+**Multiple file upload:**
+- **All files are rejected** (all-or-nothing validation)
+- User receives: "1 of 3 items failed: Media size limit breached. Please try again."
+- User must resend ALL files (including the valid ones)
 
 **Need larger files?** Contact us at contact@intalos.de to discuss your use case.
 
@@ -89,12 +123,19 @@ The system checks for:
 
 ### What happens if image fails?
 
+**Single image:**
 - Image is rejected
 - User receives a notification
 - File is NOT saved
 - Flow branches to error path
 
-**Example message**: "Image safety check alert - Image rejected due to adult content"
+**Multiple images:**
+- ALL images are rejected (all-or-nothing validation)
+- User sees: "1 of 3 items failed: Image safety check alert. Please try again."
+- NO files are saved
+- User must resend all images
+
+**Example message**: "1 of 3 items failed: Image safety check alert - Image rejected due to adult content. Please try again."
 
 ---
 
@@ -292,22 +333,22 @@ Bot: "Contract received! We'll review and contact you."
 
 ---
 
-### 3. Property Damage Report
+### 3. Property Damage Report (Multiple Photos)
 
 **Scenario**: Insurance claim with damage photos
 
 **Configuration**:
 - Media Type: `Image`
+- Maximum Media Items: `3`
 - Storage Mode: `Permanent`
-- Store in: `damagePhoto1`
+- Store in: `damagePhotos`
 
 **Flow**:
 ```
-Bot: "Please send photos of the damage (up to 3 photos)"
--> QuestionMedia (Photo 1)
--> QuestionMedia (Photo 2)
--> QuestionMedia (Photo 3)
--> APIRequest creates claim with all photos
+Bot: "Please send up to 3 photos of the damage (you can send them all at once)"
+-> QuestionMedia collects all photos
+-> Variable: ["photo1.jpg", "photo2.jpg", "photo3.jpg"]
+-> APIRequest creates claim
 -> Bot: "Claim submitted! Reference: {claimNumber}"
 ```
 
@@ -412,6 +453,16 @@ Bot: "Please upload a clear photo of your receipt"
 Bot: "Please upload a photo (max 10 MB).
      Tip: Use your camera app's 'Share > Resize' option if the file is too large."
 ```
+
+---
+
+### Issue: Multiple files rejected
+
+**Message**: "1 of 3 items failed: Media size limit breached"
+
+**Why**: One file failed validation, so all files were rejected
+
+**Solution**: Check that ALL files meet requirements, then resend all files
 
 ---
 
