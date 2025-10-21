@@ -45,13 +45,13 @@ Ideal for scenarios like:
 Users can send multiple files simultaneously from WhatsApp:
 
 **Variable storage:**
-- **1 file** → String: `"uploads/.../photo.jpg"`
-- **2+ files** → Array: `["uploads/.../photo1.jpg", "uploads/.../photo2.jpg"]`
+- **1 file** -> String: `"uploads/.../photo.jpg"`
+- **2+ files** -> Array: `["uploads/.../photo1.jpg", "uploads/.../photo2.jpg"]`
 
 **Maximum Media Items setting:**
 - Limit how many files to collect (1-10)
 - Default: 1 file
-- User sends 5, max is 3 → First 3 stored
+- User sends 5, max is 3 -> First 3 stored
 
 **Important**: If any file fails validation (size, type, safety check), ALL files are rejected and the user must retry.
 
