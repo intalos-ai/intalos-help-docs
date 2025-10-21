@@ -184,11 +184,14 @@ QuestionMedia offers two storage options for uploaded files:
 - Does NOT count toward your storage quota
 - Free to use
 
+**Privacy**: Files are **publicly accessible**. Anyone with the URL can view the file. Use for non-sensitive data only.
+
 **Best for**:
 - Sending files to external APIs or services
 - Files that will be stored elsewhere (AWS S3, your database, etc.)
 - One-time processing or verification
 - When you don't need long-term storage
+- Files you'll send back to users via Media component
 
 **Example use case**:
 ```
@@ -209,11 +212,14 @@ User uploads invoice PDF
 - Counts toward your storage quota
 - Can be accessed by bot components later
 
+**Privacy**: Files are **private and secure**. Only your bot components (Media, APIRequest, Email) can access them with proper authentication. Use for sensitive documents.
+
 **Best for**:
 - Files you need to keep and reference in flows
 - Building file libraries or archives
 - Files used across multiple bot executions
 - Long-term record keeping
+- Sensitive documents requiring privacy
 
 **Example use case**:
 ```
@@ -258,6 +264,10 @@ uploads/question_media/permanent/bot_66_comp_xyz_a1b2c3d4.pdf
 
 ### Using the File
 
+**Important**: 
+- **Temporary files**: Publicly accessible via URL - can be used anywhere
+- **Permanent files**: Private - can only be accessed through bot components (Media, APIRequest, Email)
+
 #### 1. Send to Your API
 Use APIRequest component:
 ```json
@@ -268,14 +278,20 @@ Use APIRequest component:
 }
 ```
 
-#### 2. Email to Team
+#### 2. Send to User (Media component)
+Use Media component to send file back to user:
+- Set Media Source to: `{uploadedDocument}`
+- Works for both temporary and permanent files
+- Bot components have authentication to access permanent files
+
+#### 3. Email to Team
 Use Email component:
 ```
 New document uploaded by {customerName}
 File location: {uploadedDocument}
 ```
 
-#### 3. Store in GoogleSheets
+#### 4. Store in GoogleSheets
 Log file reference in a spreadsheet for tracking
 
 ---

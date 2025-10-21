@@ -311,12 +311,12 @@
 <h3 id="how-it-works_1">How It Works</h3>
 <p>Users can send multiple files simultaneously from WhatsApp:</p>
 <p><strong>Variable storage:</strong>
-- <strong>1 file</strong> → String: <code>"uploads/.../photo.jpg"</code>
-- <strong>2+ files</strong> → Array: <code>["uploads/.../photo1.jpg", "uploads/.../photo2.jpg"]</code></p>
+- <strong>1 file</strong> -&gt; String: <code>"uploads/.../photo.jpg"</code>
+- <strong>2+ files</strong> -&gt; Array: <code>["uploads/.../photo1.jpg", "uploads/.../photo2.jpg"]</code></p>
 <p><strong>Maximum Media Items setting:</strong>
 - Limit how many files to collect (1-10)
 - Default: 1 file
-- User sends 5, max is 3 → First 3 stored</p>
+- User sends 5, max is 3 -&gt; First 3 stored</p>
 <p><strong>Important</strong>: If any file fails validation (size, type, safety check), ALL files are rejected and the user must retry.</p>
 <p><strong>Example:</strong>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>User sends: 3 photos (2 valid, 1 too large)

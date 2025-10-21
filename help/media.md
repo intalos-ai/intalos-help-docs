@@ -62,12 +62,36 @@ Ideal for scenarios like:
    {productImage}
    ```
 
+3. **Array Variables** (Multiple Files):
+   ```
+   {uploadedPhotos}
+   {damageImages}
+   ```
+
 **Example with Variables**:
 ```
 https://yourapi.com/invoices/{invoiceID}.pdf
 ```
 
 **Pro Tip**: Use variables from previous components (like APIRequest) to send personalized media.
+
+### Sending Multiple Files
+
+The Media component can send multiple files sequentially if your variable contains an **array of URLs**:
+
+**How it works**:
+- **Single URL**: `{invoiceURL}` -> Sends one file
+- **Array of URLs**: `{uploadedPhotos}` -> Sends all files in order
+
+**Example**:
+```
+If {damagePhotos} = ["photo1.jpg", "photo2.jpg", "photo3.jpg"]
+-> Media component sends all 3 photos sequentially
+```
+
+**Invalid URLs**: If some URLs in the array are invalid, they are **skipped** and valid ones are sent.
+
+**Use Case**: Perfect for sending files collected by QuestionMedia component (which stores multiple files as arrays).
 
 ---
 
@@ -198,6 +222,30 @@ Get notified when media sending fails:
 1. Store audio files organized by language
 2. Use language variable to select correct file
 3. Personalized audio for each user
+
+---
+
+### 5. Send Multiple Photos (from QuestionMedia)
+
+**Scenario**: Return uploaded damage photos to user or send to insurance API
+
+**Configuration**:
+- Media Type: `Image`
+- Input Mode: `Dynamic`
+- Media Source: `{damagePhotos}`
+
+**Setup**:
+1. Use QuestionMedia to collect multiple photos (max 3)
+2. Variable `{damagePhotos}` contains array: `["photo1.jpg", "photo2.jpg", "photo3.jpg"]`
+3. Media component sends all photos sequentially
+
+**Flow**:
+```
+QuestionMedia: "Send up to 3 damage photos"
+-> Stores: {damagePhotos} = ["url1", "url2", "url3"]
+   -> Media: Sends all 3 photos back to user
+   -> APIRequest: Uploads URLs to insurance system
+```
 
 ---
 
