@@ -2,34 +2,10 @@
 <html>
 
 <head>
-
     <title>QuestionList - Intalos AI Bot Builder Help</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
     <style>
-      /* load heading font */
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
-
-      /* load body font */
-      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
-      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
-      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
-      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
-
-      /* load mono font */
-      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
-      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
-      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
-      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
-
-      /* load emoji font */
-      @font-face {
-        font-family: "Noto Color Emoji";
-        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
-        font-weight: 400;
-      }
-  
+      /* Use system fonts instead of external Google Fonts */
       :root {
         /* colors */
         --primary: #05b2dc;
@@ -54,10 +30,10 @@
         --crust-text: var(--text);
         --overlay-text: var(--hltext);
         --footer-text: var(--hltext);
-        /* fonts */
-        --heading: Poppins, Noto Color Emoji;
-        --body: Noto Sans, Noto Color Emoji;
-        --mono: JetBrains Mono, Noto Color Emoji;
+        /* fonts - using system fonts instead of external fonts */
+        --heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        --mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
         font-family: var(--body); 
       }
       /* dark mode */
@@ -120,6 +96,9 @@
       footer#footer a:hover {
         color: #ef3e36;
       }
+      nav#toc {
+        margin-left: calc(-100% - 3rem - 2rem);
+      }
     </style>
     <link rel="icon" type="image/x-icon" href=images/favicon.ico>
     <link href="../css/style.css" rel="stylesheet">
@@ -127,11 +106,7 @@
     <link href="../stylesheets/custom.css" rel="stylesheet">  
     <script src="../javascripts/system-fonts.js"></script>  
     <script src="../javascripts/add-icons.js"></script>  
-    <script src="../javascripts/remove-altmetric.js"></script>  
     <script src="../search/main.js"></script>
-    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
-    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
-    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
     <script>
       function on_share() {
         navigator.share({
@@ -597,8 +572,6 @@
 <script src="../javascripts/system-fonts.js"></script>
 
 <script src="../javascripts/add-icons.js"></script>
-
-<script src="../javascripts/remove-altmetric.js"></script>
 
 <script src="../search/main.js"></script>
 

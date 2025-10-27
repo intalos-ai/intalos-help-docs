@@ -1,6 +1,6 @@
 site_name: Intalos AI Bot Builder Help
 site_description: Comprehensive guide for building bots with Intalos AI
-site_url: http://127.0.0.1:8002
+site_url: https://help.intalos.de
 repo_url: https://github.com/intalos-ai/django-react-intalos
 repo_name: Intalos Bot Builder
 

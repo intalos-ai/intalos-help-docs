@@ -1,4 +1,4 @@
-// Nuclear option - Override everything with system fonts (Poppins-like)
+// System fonts override - NO external loading
 (function() {
     console.log('🎨 System font override script starting...');
     
@@ -15,7 +15,7 @@
         const style = document.createElement('style');
         style.id = 'poppins-nuclear-override';
         style.textContent = `
-            /* Override CSS variables with system fonts similar to Poppins */
+            /* Override CSS variables with system fonts */
             :root {
                 --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
                 --heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
@@ -174,7 +174,7 @@
             document.body.style.setProperty('font-family', fontStack, 'important');
         }
         
-        console.log('✅ System font styles applied to html and body');
+        console.log('✅ Inline styles applied to html and body');
     }
     
     // Function to replace the header logo
