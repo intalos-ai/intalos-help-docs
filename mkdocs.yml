@@ -33,10 +33,8 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/company/your-company
 
-# Plugins
-plugins:
-  - search:
-      lang: en
+# Plugins - search disabled to prevent base_url security issues
+plugins: []
 
 # Markdown extensions
 markdown_extensions:

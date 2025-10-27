@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>http://127.0.0.1:8002/</loc>
+         <loc>https://help.intalos.de/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/api-request/</loc>
+         <loc>https://help.intalos.de/api-request/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/custom-code/</loc>
+         <loc>https://help.intalos.de/custom-code/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/email/</loc>
+         <loc>https://help.intalos.de/email/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/formula/</loc>
+         <loc>https://help.intalos.de/formula/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/google-drive/</loc>
+         <loc>https://help.intalos.de/google-drive/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/google-sheets/</loc>
+         <loc>https://help.intalos.de/google-sheets/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/llm-conversation/</loc>
+         <loc>https://help.intalos.de/llm-conversation/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/media/</loc>
+         <loc>https://help.intalos.de/media/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/question-buttons/</loc>
+         <loc>https://help.intalos.de/question-buttons/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/question-list/</loc>
+         <loc>https://help.intalos.de/question-list/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/question-media/</loc>
+         <loc>https://help.intalos.de/question-media/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/question-text/</loc>
+         <loc>https://help.intalos.de/question-text/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
     <url>
-         <loc>http://127.0.0.1:8002/tuya-integration/</loc>
+         <loc>https://help.intalos.de/tuya-integration/</loc>
          <lastmod>2025-10-27</lastmod>
     </url>
 </urlset>
