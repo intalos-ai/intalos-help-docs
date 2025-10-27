@@ -1,256 +1,2134 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <title>GoogleDrive - Intalos AI Bot Builder Help</title>
-    <style>
-      /* Use system fonts instead of external Google Fonts */
-      :root {
-        /* colors */
-        --primary: #05b2dc;
-        --secondary: #ef9B0f;
-        --tertiary: #ef3e36;
-        /* shades */
-        --base: #ffffff;
-        --mantle: #f5f4f5;
-        --crust: #d4d2d5;
-        --overlay: #aBaBaE;
-        --footer: #000000cc;
-        /* text */
-        --text: #343233;
-        --hltext: #ffffff;
-        color: var(--text);
-        /* background-specific text */
-        --primary-text: var(--hltext);
-        --secondary-text: var(--hltext);
-        --tertiary-text: var(--hltext);
-        --base-text: var(--text);
-        --mantle-text: var(--text);
-        --crust-text: var(--text);
-        --overlay-text: var(--hltext);
-        --footer-text: var(--hltext);
-        /* fonts - using system fonts instead of external fonts */
-        --heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-        --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-        --mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
-        font-family: var(--body); 
-      }
-      /* dark mode */
-      @media (prefers-color-scheme: dark) {
-        :root {
-          /* colors */
-          --primary: #05b2dc;
-          --secondary: #ef9B0f;
-          --tertiary: #ef3e36;
-          /* shades */
-          --base: #343233;
-          --mantle: #373536;
-          --crust: #3E3C3D;
-          --overlay: #646461;
-          --footer: #00000022;
-          /* text */
-          --text: #ffffff;
-          --hltext: #343233;
-          color: var(--text);
-          /* background-specific text */
-          --primary-text: var(--text);
-          --secondary-text: var(--text);
-          --tertiary-text: var(--text);
-          --base-text: var(--text);
-          --mantle-text: var(--text);
-          --crust-text: var(--text);
-          --overlay-text: var(--hltext);
-          --footer-text: var(--text);
-        }
-      }
-      /* style settings */
-      header#header {
-        grid-template-columns: 8rem auto 8rem;
-      }
-      body#background {
-        background: fixed center/cover var(--base);
-        
-        
-      }
-      #background-gradient {
-        background: linear-gradient(
-          45deg, 
-          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
-        );
-      }
-      content#content {
-        padding: 0 3rem;
-        background: color-mix(in srgb, var(--base) 0%, transparent);
-        border-left: none;
-        border-right: none;
-      }
-      #avatar {
-        
-        border-radius: 1rem;
-        
-      }
-      footer#footer a {
-        color: #ef9B0f;
-      }
-      footer#footer a:hover {
-        color: #ef3e36;
-      }
-      nav#toc {
-        margin-left: calc(-100% - 3rem - 2rem);
-      }
-    </style>
-    <link rel="icon" type="image/x-icon" href=images/favicon.ico>
-    <link href="../css/style.css" rel="stylesheet">
-    <link href="../css/responsivity.css" rel="stylesheet">
-    <link href="../stylesheets/custom.css" rel="stylesheet">  
-    <script src="../javascripts/system-fonts.js"></script>  
-    <script src="../javascripts/add-icons.js"></script>
-    <script>
-      function on_share() {
-        navigator.share({
-          url: document.URL,
-          title: "GoogleDrive -Intalos AI Bot Builder Help",
-        });
-      }
-    </script>
-</head>
 
-<body id="background">
-  <div id="background-gradient"></div>
-  <content id="content">
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Comprehensive guide for building bots with Intalos AI">
+      
+      
+      
+        <link rel="canonical" href="https://help.intalos.de/google-drive/">
+      
+      
+        <link rel="prev" href="../google-sheets/">
+      
+      
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>GoogleDrive - Intalos AI Bot Builder Help</title>
+      
+    
+    
+
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+<link rel="stylesheet" type="text/css" href="../css/fonts.css" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+
+<script type="text/javascript">
+    if ( window !== window.parent ) {
+        // The page is in an iframe
+        window.addEventListener("DOMContentLoaded", function externalLinks() {
+            var anchors = document.getElementsByTagName("a");
+            for (var i = 0; i < anchors.length; i++) {
+                    if (anchors[i].hostname !== window.location.hostname) {
+                        anchors[i].setAttribute("target", "_blank");
+                        anchors[i].setAttribute("rel", "noopener");
+                    }
+                    // Handle 'Open in SWAN' badges in the parent JupyterLab window
+                    if (anchors[i].hostname == 'cern.ch' && anchors[i].pathname == '/swanserver/cgi-bin/go') {
+                        const projectUrl = new URLSearchParams(anchors[i].search).get('projurl');
+                        if (projectUrl) {
+                                anchors[i].onclick = () => {
+                                window.parent.postMessage(projectUrl,'*');
+                                //  Skip redirecting the iframe page to the link 
+                                return false;
+                            }
+                        }
+                    }
+            }
+        }); 
+    }
+</script>
+
+  </head>
   
-<a id="share-btn" onclick="on_share()">
-  <i class="fa fa-share-alt" alt="🔗"></i>
-</a>
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#googledrive-component" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
   
-  <header id="article-header">
-    <a href=.. id="return-home">
-        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Intalos AI Bot Builder Help" class="md-header__button md-logo" aria-label="Intalos AI Bot Builder Help" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
     </a>
-    <h1 id="title">GoogleDrive</h1>
-</header>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Intalos AI Bot Builder Help
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GoogleDrive
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
   
-  <main id="page">
-    <nav class="vertical" id="toc">
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/intalos-ai/django-react-intalos" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Intalos Bot Builder
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
-<ul>
 
-<li class="nav-item">
-<a href="#googledrive-component">GoogleDrive Component</a>
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Intalos AI Bot Builder Help" class="md-nav__button md-logo" aria-label="Intalos AI Bot Builder Help" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    Intalos AI Bot Builder Help
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/intalos-ai/django-react-intalos" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
     
-    <ul>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Intalos Bot Builder
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
     
-    <li class="nav-subitem">
-    <a href="#overview">Overview</a>
+  </span>
+  
+
+      </a>
     </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
-    <li class="nav-subitem">
-    <a href="#when-to-use-googledrive">When to Use GoogleDrive</a>
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Question Components
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Question Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../question-text/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    QuestionText
+    
+  </span>
+  
+
+      </a>
     </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../question-buttons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    QuestionButtons
     
-    
-    
-    <li class="nav-subitem">
-    <a href="#setup-requirements">Setup Requirements</a>
+  </span>
+  
+
+      </a>
     </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../question-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    QuestionList
     
-    
-    
-    <li class="nav-subitem">
-    <a href="#configuration">Configuration</a>
+  </span>
+  
+
+      </a>
     </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../question-media/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    QuestionMedia
     
-    
-    
-    <li class="nav-subitem">
-    <a href="#image-safety-check-optional">Image Safety Check (Optional)</a>
+  </span>
+  
+
+      </a>
     </li>
-    
-    
-    
-    <li class="nav-subitem">
-    <a href="#how-it-works">How It Works</a>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
-    <li class="nav-subitem">
-    <a href="#use-cases-examples">Use Cases &amp; Examples</a>
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Communication
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Communication
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../media/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Media
+    
+  </span>
+  
+
+      </a>
     </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Email
     
-    
-    
-    <li class="nav-subitem">
-    <a href="#best-practices">Best Practices</a>
+  </span>
+  
+
+      </a>
     </li>
-    
-    
-    
-    <li class="nav-subitem">
-    <a href="#integration-patterns">Integration Patterns</a>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
-    <li class="nav-subitem">
-    <a href="#error-handling">Error Handling</a>
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Logic & Processing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Logic & Processing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../formula/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Formula
+    
+  </span>
+  
+
+      </a>
     </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CustomCode
     
-    
-    
-    <li class="nav-subitem">
-    <a href="#technical-details">Technical Details</a>
+  </span>
+  
+
+      </a>
     </li>
-    
-    
-    
-    <li class="nav-subitem">
-    <a href="#google-cloud-vision-api">Google Cloud Vision API</a>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
-    <li class="nav-subitem">
-    <a href="#security-privacy">Security &amp; Privacy</a>
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI Components
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            AI Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llm-conversation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LLM Conversation
+    
+  </span>
+  
+
+      </a>
     </li>
-    
-    
-    
-    <li class="nav-subitem">
-    <a href="#troubleshooting">Troubleshooting</a>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
     
     
     
-    <li class="nav-subitem">
-    <a href="#advanced-patterns">Advanced Patterns</a>
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integrations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Integrations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    APIRequest
+    
+  </span>
+  
+
+      </a>
     </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tuya-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tuya IoT Integration
     
-    
-    
-    <li class="nav-subitem">
-    <a href="#common-patterns">Common Patterns</a>
+  </span>
+  
+
+      </a>
     </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-sheets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GoogleSheets
     
-    
-    
-    <li class="nav-subitem">
-    <a href="#need-help">Need Help?</a>
+  </span>
+  
+
+      </a>
     </li>
+  
+
+              
+            
+              
+                
+  
+  
     
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    GoogleDrive
     
-    </ul>
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    GoogleDrive
     
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
 </li>
-
-</ul>
-
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-googledrive" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use GoogleDrive
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before You Start
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-connect-google-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Connect Google Account
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-select-upload-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Select Upload Folder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-file-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Configure File Storage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Configure File Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#store-file-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Store File URL
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-safety-check-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image Safety Check (Optional)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Image Safety Check (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Enable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      What It Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Happens
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upload-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Organization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases &amp; Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases &amp; Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-document-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Document Collection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-id-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. ID Verification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-product-photo-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Product Photo Collection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-support-ticket-attachments" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Support Ticket Attachments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#folder-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Folder Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safety-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Safety Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#questionmedia-googledrive" class="md-nav__link">
+    <span class="md-ellipsis">
+      QuestionMedia + GoogleDrive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      With Notification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-database-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      With Database Storage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-output-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Output Port
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-message-to-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Message to User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-email-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admin Email Notification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Upload
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-file-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported File Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-size-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Size Limits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissions Required
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-cloud-vision-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Cloud Vision API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Google Cloud Vision API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#safety-check-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Safety Check Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Costs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-vision-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Vision API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security &amp; Privacy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security &amp; Privacy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Privacy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-authentication-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: "Authentication failed"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-permission-denied" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: "Permission denied"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-safety-check-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: "Safety check failed"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-files-not-appearing-in-drive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Files not appearing in Drive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-quota-exceeded" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: "Quota exceeded"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organized-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organized File Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-processing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Processing Pipeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-file-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-File Collection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#document-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Submission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#photo-album" class="md-nav__link">
+    <span class="md-ellipsis">
+      Photo Album
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#need-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Need Help?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
-    <h1 id="googledrive-component">GoogleDrive Component</h1>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-googledrive" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Use GoogleDrive
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before You Start
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-connect-google-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Connect Google Account
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-select-upload-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Select Upload Folder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-configure-file-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Configure File Storage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Configure File Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#store-file-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Store File URL
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-safety-check-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image Safety Check (Optional)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Image Safety Check (Optional)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-enable" class="md-nav__link">
+    <span class="md-ellipsis">
+      When to Enable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      What It Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-happens" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Happens
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How It Works">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#upload-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      Upload Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Organization
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Cases &amp; Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use Cases &amp; Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-document-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Document Collection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-id-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. ID Verification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-product-photo-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Product Photo Collection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-support-ticket-attachments" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Support Ticket Attachments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#folder-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Folder Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#safety-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Safety Checks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variable Usage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#questionmedia-googledrive" class="md-nav__link">
+    <span class="md-ellipsis">
+      QuestionMedia + GoogleDrive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      With Notification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-database-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      With Database Storage
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-output-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Output Port
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-message-to-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Message to User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-email-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admin Email Notification
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#file-upload" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Upload
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-file-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported File Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-size-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Size Limits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permissions-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permissions Required
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-cloud-vision-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Cloud Vision API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Google Cloud Vision API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#safety-check-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Safety Check Details
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Costs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-vision-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup Vision API
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security &amp; Privacy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security &amp; Privacy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-privacy" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Privacy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-authentication-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: "Authentication failed"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-permission-denied" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: "Permission denied"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-safety-check-failed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: "Safety check failed"
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-files-not-appearing-in-drive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: Files not appearing in Drive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-quota-exceeded" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue: "Quota exceeded"
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Advanced Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organized-file-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organized File Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-processing-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Processing Pipeline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-file-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-File Collection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Patterns
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#document-submission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document Submission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#photo-album" class="md-nav__link">
+    <span class="md-ellipsis">
+      Photo Album
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#need-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      Need Help?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="googledrive-component">GoogleDrive Component</h1>
 <h2 id="overview">Overview</h2>
 <p>The <strong>GoogleDrive</strong> component allows you to upload files received from users directly to your Google Drive. Perfect for storing user-submitted photos, documents, and files in an organized, cloud-based location.</p>
 <h2 id="when-to-use-googledrive">When to Use GoogleDrive</h2>
@@ -663,36 +2541,65 @@
 <p>Email: contact@intalos.de</p>
 <hr />
 <p><strong>Last Updated</strong>: October 20, 2025</p>
-    <nav id="page-controls">
-      <a href="#content" id="return-top">
-        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
-      </a>
-    </nav>
-  </main>
-  </content>
-  <footer id="footer">
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class=" text">
+    <p>SWAN © Copyright CERN 2016-2025. All rights reserved.</p>
+    <ul>
+        <li><a target="_blank" href="https://cern.ch/swan/">Home</a></li>
+        <li><a target="_blank" href="https://cern.ch/swan-community/">Community</a></li>
+        <li><a target="_blank" href="https://cern.service-now.com/service-portal/?id=functional_element&name=swan">Support</a></li>
+        <li><a target="_blank" href="https://github.com/swan-cern">Github</a></li>
+    </ul>
+    <p class="poweredby">Powered by <strong><a href="https://www.mkdocs.org">MkDocs</a></strong> and <strong><a href="https://squidfunk.github.io/mkdocs-material/"> Material for MkDocs</a></strong></p>
+</div>
+<div class="md-layout-grid--align-right logo">
+    <img src="../images/logo_cern.png" alt="CERN">
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
-
-<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="../javascripts/system-fonts.js"></script>
-
-<script src="../javascripts/add-icons.js"></script>
-
-  </footer>
-</body>
-
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../search/main.js"></script>
+      
+    
+  </body>
 </html>
