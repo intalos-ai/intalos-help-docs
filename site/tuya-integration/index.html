@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Tuya IoT Integration - Intalos AI Bot Builder Help</title>
+    <style>
+      /* load heading font */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@700');
+
+      /* load body font */
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=Noto Sans:ital,wght@700');
+
+      /* load mono font */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@400');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:wght@700');
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains Mono:ital,wght@700');
+
+      /* load emoji font */
+      @font-face {
+        font-family: "Noto Color Emoji";
+        src: url('../assets/fonts/emoji/NotoColorEmoji-Regular.ttf');
+        font-weight: 400;
+      }
+  
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts */
+        --heading: Poppins, Noto Color Emoji;
+        --body: Noto Sans, Noto Color Emoji;
+        --mono: JetBrains Mono, Noto Color Emoji;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=images/favicon.ico>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">
+    <link href="../stylesheets/custom.css" rel="stylesheet">  
+    <script src="../javascripts/poppins.js"></script>  
+    <script src="../javascripts/add-icons.js"></script>  
+    <script src="../search/main.js"></script>
+    <script src="https://kit.fontawesome.com/b57355f8ac.js" crossorigin="anonymous"></script>
+    <script id="altmetric-embed-js" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/altmetric_badges-e7ba41a192efc3e63f5d48f8a1916dec4b1b49c01075bc7b39481408957b3b28.js"></script>
+    <link id="altmetric-embed-css" rel="stylesheet" type="text/css" href="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed-59614f5c46b49b21eeef3bb28c4fb38d1e7069e8d014752fcb66e84942556802.css">
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "Tuya IoT Integration -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Tuya IoT Integration</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#tuya-iot-integration">Tuya IoT Integration</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-tuya-integration">When to Use Tuya Integration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#setup-configuration">Setup &amp; Configuration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#using-tuya-integration-with-api-request">Using Tuya Integration with API Request</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-use-cases">Common Use Cases</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#device-management">Device Management</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#error-handling">Error Handling</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#api-reference">API Reference</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#important-notes">Important Notes</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="tuya-iot-integration">Tuya IoT Integration</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>Tuya IoT Integration</strong> allows you to control smart devices (lights, switches, sensors, etc.) from your WhatsApp bot using the Tuya Smart Life platform. Each bot can have its own Tuya account integration, enabling multiple users to control their own smart devices independently.</p>
+<h2 id="when-to-use-tuya-integration">When to Use Tuya Integration</h2>
+<p>Perfect for scenarios like:
+- Controlling smart lights based on user preferences
+- Managing home automation through WhatsApp
+- Creating smart device status checkers
+- Building voice-controlled device management
+- Automating device responses to user messages</p>
+<hr />
+<h2 id="setup-configuration">Setup &amp; Configuration</h2>
+<h3 id="1-enable-tuya-integration">1. Enable Tuya Integration</h3>
+<ol>
+<li>Go to <strong>Bot Settings</strong> -&gt; <strong>IoT Integration</strong> tab</li>
+<li>Toggle <strong>"Enable Tuya Integration"</strong> to ON</li>
+<li>Enter your Tuya Smart Life credentials:</li>
+<li><strong>Username</strong>: Your Tuya Smart Life account email</li>
+<li><strong>Password</strong>: Your Tuya Smart Life account password</li>
+<li><strong>Country Code</strong>: Select your country (e.g., +27 for South Africa)</li>
+</ol>
+<h3 id="2-get-your-tuya-credentials">2. Get Your Tuya Credentials</h3>
+<p><strong>Creating a Tuya Smart Life Account</strong>:
+1. Download the "Smart Life" app from your app store
+2. Create an account using your email address
+3. Add your smart devices to the app
+4. Use the same email and password in your bot settings</p>
+<p><strong>Supported Countries</strong>:
+- South Africa (+27)
+- United States (+1)
+- United Kingdom (+44)
+- Germany (+49)
+- France (+33)
+- Italy (+39)
+- Spain (+34)
+- Australia (+61)
+- China (+86)
+- Japan (+81)
+- South Korea (+82)</p>
+<hr />
+<h2 id="using-tuya-integration-with-api-request">Using Tuya Integration with API Request</h2>
+<h3 id="getting-your-devices">Getting Your Devices</h3>
+<p><strong>Step 1</strong>: Add an <strong>API Request</strong> component to your bot flow</p>
+<p><strong>Step 2</strong>: Configure the API Request:
+- <strong>Method</strong>: <code>GET</code>
+- <strong>URL</strong>: <code>https://magic.intalos.de/api/tuya/devices/?bot_id={{botId}}</code>
+- <strong>Store in variable</strong>: <code>myDevices</code></p>
+<p><strong>Step 3</strong>: Use the device data in your next component:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Your available devices:
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>{myDevices.json.devices[0].name} - {myDevices.json.devices[0].type}
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>{myDevices.json.devices[1].name} - {myDevices.json.devices[1].type}
+</span></code></pre></div></p>
+<h3 id="controlling-devices">Controlling Devices</h3>
+<p><strong>Step 1</strong>: Add an <strong>API Request</strong> component</p>
+<p><strong>Step 2</strong>: Configure the API Request:
+- <strong>Method</strong>: <code>POST</code>
+- <strong>URL</strong>: <code>https://magic.intalos.de/api/tuya/devices/switch/</code>
+- <strong>Body</strong>:
+  <div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{deviceId}}&quot;</span><span class="p">,</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{action}}&quot;</span><span class="p">,</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;bot_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{botId}}&quot;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">}</span>
+</span></code></pre></div>
+- <strong>Store in variable</strong>: <code>deviceResponse</code></p>
+<p><strong>Step 3</strong>: Handle the response:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>{deviceResponse.json.message}
+</span></code></pre></div></p>
+<hr />
+<h2 id="common-use-cases">Common Use Cases</h2>
+<h3 id="1-turn-onoff-smart-lights">1. Turn On/Off Smart Lights</h3>
+<p><strong>Configuration</strong>:
+- <strong>Method</strong>: <code>POST</code>
+- <strong>URL</strong>: <code>https://magic.intalos.de/api/tuya/devices/switch/</code>
+- <strong>Body</strong>:
+  <div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{lightDeviceId}}&quot;</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{lightAction}}&quot;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;bot_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{botId}}&quot;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Usage in conversation</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>User: &quot;Turn on the living room lights&quot;
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Bot: &quot;Turning on the living room lights...&quot;
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>API Request: action = &quot;on&quot;
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Bot: &quot;[SUCCESS] Living room lights are now on!&quot;
+</span></code></pre></div></p>
+<h3 id="2-check-device-status">2. Check Device Status</h3>
+<p><strong>Configuration</strong>:
+- <strong>Method</strong>: <code>GET</code>
+- <strong>URL</strong>: <code>https://magic.intalos.de/api/tuya/devices/?bot_id={{botId}}</code>
+- <strong>Store in</strong>: <code>deviceStatus</code></p>
+<p><strong>Usage</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Bot: &quot;Checking your devices...&quot;
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>API Request: Gets all devices
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Bot: &quot;[DEVICES] Your devices status:
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>- Living Room Light: {deviceStatus.json.devices[0].online ? &#39;Online&#39; : &#39;Offline&#39;}
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>- Bedroom Switch: {deviceStatus.json.devices[1].online ? &#39;Online&#39; : &#39;Offline&#39;}&quot;
+</span></code></pre></div></p>
+<h3 id="3-smart-home-automation">3. Smart Home Automation</h3>
+<p><strong>Configuration</strong>:
+- <strong>Method</strong>: <code>POST</code>
+- <strong>URL</strong>: <code>https://magic.intalos.de/api/tuya/devices/switch/</code>
+- <strong>Body</strong>:
+  <div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{selectedDevice}}&quot;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{userChoice}}&quot;</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">&quot;bot_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{botId}}&quot;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Flow Example</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Bot: &quot;What would you like to control?&quot;
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>User: &quot;Turn off all lights&quot;
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Bot: &quot;Turning off all lights...&quot;
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>API Request: Loop through all light devices
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Bot: &quot;[SUCCESS] All lights have been turned off!&quot;
+</span></code></pre></div></p>
+<hr />
+<h2 id="device-management">Device Management</h2>
+<h3 id="finding-device-ids">Finding Device IDs</h3>
+<ol>
+<li><strong>Get all devices</strong> using the devices API endpoint</li>
+<li><strong>Look for the <code>id</code> field</strong> in the response</li>
+<li><strong>Use the device name</strong> to identify which device you want to control</li>
+</ol>
+<p><strong>Example Response</strong>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">&quot;devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bf1234567890abcdef&quot;</span><span class="p">,</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Living Room Light&quot;</span><span class="p">,</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;light&quot;</span><span class="p">,</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">      </span><span class="nt">&quot;online&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cd9876543210fedcba&quot;</span><span class="p">,</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bedroom Switch&quot;</span><span class="p">,</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;switch&quot;</span><span class="p">,</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">      </span><span class="nt">&quot;online&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="device-types">Device Types</h3>
+<p>Common Tuya device types include:
+- <strong>Light</strong>: Smart bulbs, LED strips
+- <strong>Switch</strong>: Smart switches, outlets
+- <strong>Sensor</strong>: Motion sensors, temperature sensors
+- <strong>Camera</strong>: Security cameras
+- <strong>Thermostat</strong>: Temperature controllers
+- <strong>Fan</strong>: Smart fans
+- <strong>Lock</strong>: Smart door locks</p>
+<hr />
+<h2 id="error-handling">Error Handling</h2>
+<h3 id="device-offline-error">Device Offline Error</h3>
+<p>When a device is offline, you'll receive:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Device bf1234567890abcdef is offline and cannot be controlled&quot;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Handle this in your bot</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Bot: &quot;I tried to control your device, but it appears to be offline. 
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Please check that the device is connected to your WiFi network.&quot;
+</span></code></pre></div></p>
+<h3 id="authentication-error">Authentication Error</h3>
+<p>If Tuya credentials are incorrect:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tuya credentials not configured for bot 123&quot;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Solution</strong>: Check your bot settings and ensure Tuya integration is properly configured.</p>
+<h3 id="device-not-found-error">Device Not Found Error</h3>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Device invalid-device-id not found&quot;</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Solution</strong>: Verify the device ID exists in your device list.</p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="security">Security</h3>
+<p><strong>DO</strong>:
+- Keep your Tuya credentials secure
+- Use HTTPS endpoints only (already enforced)
+- Test with non-critical devices first
+- Monitor device access logs</p>
+<p><strong>DON'T</strong>:
+- Share your Tuya credentials
+- Control critical safety devices without proper testing
+- Skip error handling for device operations</p>
+<h3 id="performance">Performance</h3>
+<p><strong>DO</strong>:
+- Cache device lists when possible
+- Handle offline devices gracefully
+- Use response routing for different outcomes
+- Test device responses before deployment</p>
+<p><strong>DON'T</strong>:
+- Make too many rapid device control requests
+- Ignore device offline status
+- Assume devices will always respond immediately</p>
+<h3 id="user-experience">User Experience</h3>
+<p><strong>DO</strong>:
+- Provide clear feedback on device status
+- Handle offline devices with helpful messages
+- Use device names instead of technical IDs in conversations
+- Test all device interactions thoroughly</p>
+<p><strong>DON'T</strong>:
+- Leave users wondering if their command worked
+- Show technical error messages to users
+- Assume all devices are always online</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-tuya-integration-not-enabled-error">Issue: "Tuya integration not enabled" error</h3>
+<p><strong>Solution</strong>: Enable Tuya integration in bot settings:
+1. Go to Bot Settings -&gt; IoT Integration
+2. Toggle "Enable Tuya Integration" to ON
+3. Enter your Tuya credentials
+4. Save settings</p>
+<h3 id="issue-tuya-credentials-not-configured-error">Issue: "Tuya credentials not configured" error</h3>
+<p><strong>Solution</strong>: Check your credentials:
+1. Verify your Tuya Smart Life email and password
+2. Ensure the country code matches your account region
+3. Test your credentials in the Smart Life app first</p>
+<h3 id="issue-device-appears-offline">Issue: Device appears offline</h3>
+<p><strong>Solution</strong>: Check device connectivity:
+1. Verify the device is connected to WiFi
+2. Check the Smart Life app to confirm device status
+3. Try controlling the device from the app first
+4. Wait a few minutes and try again</p>
+<h3 id="issue-device-not-responding-to-commands">Issue: Device not responding to commands</h3>
+<p><strong>Solution</strong>: Device may be busy or offline:
+1. Check if the device is online in the Smart Life app
+2. Try the command again after a few seconds
+3. Verify the device ID is correct
+4. Check if the device supports the requested action</p>
+<h3 id="issue-this-endpoint-is-only-accessible-from-internal-requests-error">Issue: "This endpoint is only accessible from internal requests" error</h3>
+<p><strong>Solution</strong>: This is a security feature. The Tuya endpoints are only accessible from:
+- The Intalos platform itself
+- Internal server requests
+- Production server (magic.intalos.de)</p>
+<p>This error should not occur in normal bot operation.</p>
+<hr />
+<h2 id="api-reference">API Reference</h2>
+<h3 id="get-devices">Get Devices</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>GET https://magic.intalos.de/api/tuya/devices/?bot_id={botId}
+</span></code></pre></div>
+<p><strong>Response</strong>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nt">&quot;devices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;device_id&quot;</span><span class="p">,</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Device Name&quot;</span><span class="p">,</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;device_type&quot;</span><span class="p">,</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">      </span><span class="nt">&quot;online&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">  </span><span class="p">],</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">  </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">  </span><span class="nt">&quot;bot_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bot_id&quot;</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="control-device">Control Device</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>POST https://magic.intalos.de/api/tuya/devices/switch/
+</span></code></pre></div>
+<p><strong>Request Body</strong>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;device_id&quot;</span><span class="p">,</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on|off&quot;</span><span class="p">,</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="nt">&quot;bot_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bot_id&quot;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Response</strong>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;device_id&quot;</span><span class="p">,</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Device device_id turned on successfully&quot;</span><span class="p">,</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span><span class="nt">&quot;bot_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bot_id&quot;</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<hr />
+<h2 id="important-notes">Important Notes</h2>
+<h3 id="session-management">Session Management</h3>
+<ul>
+<li>Tuya API sessions last 180 seconds</li>
+<li>The system automatically manages session renewal</li>
+<li>No manual session management required</li>
+</ul>
+<h3 id="rate-limits">Rate Limits</h3>
+<ul>
+<li>Maximum 10 network requests per execution</li>
+<li>Built-in rate limiting prevents API abuse</li>
+<li>Requests are automatically throttled</li>
+</ul>
+<h3 id="security_1">Security</h3>
+<ul>
+<li>All Tuya endpoints are IP-restricted</li>
+<li>Only accessible from Intalos platform</li>
+<li>Credentials are stored securely per bot</li>
+</ul>
+<h3 id="device-compatibility">Device Compatibility</h3>
+<ul>
+<li>Works with all Tuya Smart Life compatible devices</li>
+<li>Supports lights, switches, sensors, and more</li>
+<li>Device must be added to your Smart Life account first</li>
+</ul>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p><strong>Email</strong>: contact@intalos.de</p>
+<p><strong>Common Issues</strong>:
+- Device setup problems: Check Smart Life app
+- Credential issues: Verify email/password
+- Device offline: Check WiFi connection
+- API errors: Contact support with bot ID</p>
+<hr />
+<p><strong>Last Updated</strong>: October 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/poppins.js"></script>
+
+<script src="../javascripts/add-icons.js"></script>
+
+<script src="../search/main.js"></script>
+
+  </footer>
+</body>
+
+</html>

@@ -2,54 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://help.intalos.de/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://help.intalos.de/api-request/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://help.intalos.de/custom-code/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://help.intalos.de/email/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://help.intalos.de/formula/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://help.intalos.de/google-drive/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://help.intalos.de/google-sheets/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://help.intalos.de/llm-conversation/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://help.intalos.de/media/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://help.intalos.de/question-buttons/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://help.intalos.de/question-list/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://help.intalos.de/question-media/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
     </url>
     <url>
          <loc>https://help.intalos.de/question-text/</loc>
-         <lastmod>2025-10-21</lastmod>
+         <lastmod>2025-10-27</lastmod>
+    </url>
+    <url>
+         <loc>https://help.intalos.de/tuya-integration/</loc>
+         <lastmod>2025-10-27</lastmod>
     </url>
 </urlset>

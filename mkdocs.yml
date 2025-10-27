@@ -8,15 +8,19 @@ repo_name: Intalos Bot Builder
 theme:
   name: landing
   favicon: images/favicon.ico
+  # Disable Altmetric to prevent mixed content issues
+  features:
+    - no_altmetric
 
 # Extra CSS for custom styling
 extra_css:
   - stylesheets/custom.css
 
-# Extra JavaScript for font loading and icons
+# Extra JavaScript for system fonts, icons, and Altmetric removal
 extra_javascript:
-  - javascripts/poppins.js
+  - javascripts/system-fonts.js
   - javascripts/add-icons.js
+  - javascripts/remove-altmetric.js
 
 # Social links and other extras
 extra:
