@@ -6,35 +6,30 @@ repo_name: Intalos Bot Builder
 
 # Configuration
 theme:
-  name: landing
+  name: swan
   favicon: images/favicon.ico
-  custom_dir: overrides
-  # Override fonts to use system fonts instead of external Google Fonts
-  heading_font: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif"
-  body_font: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif"
-  mono_font: "'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace"
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
-# Extra CSS for custom styling
-extra_css:
-  - stylesheets/custom.css
-
-# Extra JavaScript for system fonts and icons
-extra_javascript:
-  - javascripts/system-fonts.js
-  - javascripts/add-icons.js
-
-# Social links and other extras
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/your-org/your-repo
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/your-handle
-    - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/company/your-company
-
-# Plugins - search disabled to prevent base_url security issues
-plugins: []
+# Plugins
+plugins:
+  - search:
+      lang: en
 
 # Markdown extensions
 markdown_extensions:
