@@ -1,0 +1,125 @@
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
+    <style>
+      /* Use system fonts instead of external Google Fonts */
+      :root {
+        /* colors */
+        --primary: {{config.theme.primary_color}};
+        --secondary: {{config.theme.secondary_color}};
+        --tertiary: {{config.theme.tertiary_color}};
+        /* shades */
+        --base: {{config.theme.base_color}};
+        --mantle: {{config.theme.mantle_color}};
+        --crust: {{config.theme.crust_color}};
+        --overlay: {{config.theme.overlay_color}};
+        --footer: #000000cc;
+        /* text */
+        --text: {{config.theme.text_color}};
+        --hltext: {{config.theme.hltext_color}};
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: {{config.theme.primary_text_color}};
+        --secondary-text: {{config.theme.secondary_text_color}};
+        --tertiary-text: {{config.theme.tertiary_text_color}};
+        --base-text: {{config.theme.base_text_color}};
+        --mantle-text: {{config.theme.mantle_text_color}};
+        --crust-text: {{config.theme.crust_text_color}};
+        --overlay-text: {{config.theme.overlay_text_color}};
+        --footer-text: var(--hltext);
+        /* fonts - using system fonts instead of external fonts */
+        --heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        --mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: {{config.theme.primary_color_dark}};
+          --secondary: {{config.theme.secondary_color_dark}};
+          --tertiary: {{config.theme.tertiary_color_dark}};
+          /* shades */
+          --base: {{config.theme.base_color_dark}};
+          --mantle: {{config.theme.mantle_color_dark}};
+          --crust: {{config.theme.crust_color_dark}};
+          --overlay: {{config.theme.overlay_color_dark}};
+          --footer: #00000022;
+          /* text */
+          --text: {{config.theme.text_color_dark}};
+          --hltext: {{config.theme.hltext_color_dark}};
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: {{config.theme.primary_text_color_dark}};
+          --secondary-text: {{config.theme.secondary_text_color_dark}};
+          --tertiary-text: {{config.theme.tertiary_text_color_dark}};
+          --base-text: {{config.theme.base_text_color_dark}};
+          --mantle-text: {{config.theme.mantle_text_color_dark}};
+          --crust-text: {{config.theme.crust_text_color_dark}};
+          --overlay-text: {{config.theme.overlay_text_color_dark}};
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: {{ config.theme.avatar_size }} auto {{ config.theme.avatar_size }};
+      }
+      body#background {
+        background: {{config.theme.background}};
+        {% if config.theme.background_color|length %}
+        background-color: {{config.theme.background_color}};
+        {% endif %}
+        {% if config.theme.background_image|length %}
+        background-image: url({{config.theme.background_image}});
+        {% endif %}
+      }
+      #background-gradient {
+        background: linear-gradient(
+          {{ config.theme.background_gradient_angle }}deg, 
+          {{ config.theme.background_gradient_colors|join(", ") }}
+        );
+      }
+      content#content {
+        padding: 0 {{ config.theme.content_box_padding }};
+        background: color-mix(in srgb, var(--base) {{config.theme.content_box_opacity}}, transparent);
+        border-left: {{ config.theme.border_left }};
+        border-right: {{ config.theme.border_right }};
+      }
+      #avatar {
+        {% if config.theme.round_avatar %}
+        border-radius: 50%;
+        {% else %}
+        border-radius: 1rem;
+        {% endif %}
+      }
+      footer#footer a {
+        color: {{config.theme.secondary_color_dark}};
+      }
+      footer#footer a:hover {
+        color: {{config.theme.tertiary_color_dark}};
+      }
+      nav#toc {
+        margin-left: calc(-100% - {{config.theme.content_box_padding}} - 2rem);
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href={{ config.theme.favicon }}>
+    <link href="{{ 'css/style.css' | url }}" rel="stylesheet">
+    <link href="{{ 'css/responsivity.css' | url }}" rel="stylesheet">
+    {%- for path in config.extra_css %}
+    <link href="{{ path | url }}" rel="stylesheet">
+    {%- endfor %}
+    {%- for script in config.extra_javascript %}
+    {%- if script.path %}  {# Detected MkDocs 1.5+ which has `script.path` and `script_tag` #}
+    {{ script | script_tag }}
+    {%- else %}  {# Fallback - examine the file name directly #}
+    <script src="{{ script | url }}"{% if script.endswith(".mjs") %} type="module"{% endif %}></script>
+    {%- endif %}
+    {%- endfor %}
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "{%- if page.title %}{{page.title}} - {%- endif %}{{config.site_name}}",
+        });
+      }
+    </script>
