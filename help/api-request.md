@@ -12,6 +12,8 @@ Perfect for scenarios like:
 - Sending collected data to third-party platforms
 - Synchronizing data between systems
 - Routing conversations based on API responses
+- Controlling IoT devices (Tuya smart home integration)
+- Integrating with internal Intalos services
 
 ---
 
@@ -75,21 +77,43 @@ Send data in the request body for POST and PUT requests.
 
 ## Testing Your API Call
 
-Before deploying, test your API request:
+Before deploying, test your API request to ensure it works correctly:
 
-1. Toggle **"Add test values"** to ON
-2. Add test values for any variables:
+### Step-by-Step Testing Process
+
+1. **Enable Test Mode**: Toggle **"Add test values"** to ON
+2. **Add Test Values**: Enter test values for any variables in your request:
    ```
    Variable: {userName}    Test Value: John Doe
    Variable: {userEmail}   Test Value: john@example.com
+   Variable: {deviceId}    Test Value: bf1234567890abcdef
    ```
-3. Click **"Test the request"** button
-4. Review the response in the popup modal
+3. **Execute Test**: Click **"Test the request"** button
+4. **Review Results**: Check the response in the popup modal
+
+### What You'll See in Test Results
 
 A successful test shows:
-- Status code (e.g., 200)
-- Response headers
-- Response body
+- **Status Code** (e.g., 200, 404, 500)
+- **Response Headers** (content-type, server info, etc.)
+- **Response Body** (the actual data returned)
+- **Request Details** (URL, method, headers sent)
+
+### Test Modal Features
+
+The test modal includes multiple tabs:
+- **Response**: Shows the API response data
+- **Headers**: Displays request and response headers
+- **Raw**: Shows the raw response text
+- **Curl**: Displays the exact curl command that would be executed
+
+### Why Testing is Important
+
+- **Validate Configuration**: Ensure your API endpoint is correct
+- **Check Authentication**: Verify API keys and headers work
+- **Test Variables**: Confirm variable replacement works properly
+- **Debug Issues**: Identify problems before users encounter them
+- **Verify Response Format**: Ensure the API returns expected data structure
 
 ---
 
@@ -127,6 +151,16 @@ Status Code: {apiResponse.status_code}
 Response Text: {apiResponse.text}
 JSON Data: {apiResponse.json.fieldName}
 ```
+
+### Store Curl Command for Debugging
+
+You can also store the actual curl command that was executed for debugging purposes:
+
+1. Scroll to **"Store curl command in variable"**
+2. Type a variable name (e.g., `curlCommand`)
+3. The variable will contain the exact curl command that was executed
+
+**Use case**: Debugging API issues by seeing the exact command that was sent to the server.
 
 ---
 
@@ -257,7 +291,27 @@ Your account status: {userProfile.json.status}
     "newsletter": {{subscribeNewsletter}},
     "notifications": {{enableNotifications}}
   }
+### 5. Control IoT Devices (Tuya Integration)
+
+**Configuration**:
+- Method: `POST`
+- URL: `https://magic.intalos.de/api/tuya/devices/switch/`
+- Body:
+  ```json
+  {
+    "device_id": "{{deviceId}}",
+    "action": "{{deviceAction}}",
+    "bot_id": "{{botId}}"
+  }
   ```
+- Store in: `deviceResponse`
+
+**Usage in next component**:
+```
+{deviceResponse.json.message}
+```
+
+**Note**: Requires Tuya integration to be enabled in Bot Settings -> IoT Integration.
 
 ---
 
@@ -347,13 +401,15 @@ Your account status: {userProfile.json.status}
 
 ### API Endpoint Whitelisting
 
-**Important**: If your API has firewall restrictions, you must whitelist our backend server:
+**External APIs**: If your API has firewall restrictions, you must whitelist our backend server:
 
 ```
 Hostname to whitelist: https://magic.intalos.de
 ```
 
 Contact your IT team to add this to your API's allowed origins.
+
+**Internal Intalos APIs**: Some endpoints (like Tuya IoT integration) are internal and don't require external whitelisting. These are automatically accessible from within the Intalos platform.
 
 ### Response Format
 
@@ -381,6 +437,6 @@ Email: contact@intalos.de
 
 ---
 
-**Last Updated**: October 20, 2025
+**Last Updated**: October 2025
 
 

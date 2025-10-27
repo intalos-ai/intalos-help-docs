@@ -33,6 +33,7 @@ Integrate artificial intelligence:
 Connect to external services:
 
 - [**APIRequest**](api-request.md) - Connect to external APIs and web services
+- [**Tuya IoT Integration**](tuya-integration.md) - Control smart devices and home automation
 - [**GoogleSheets**](google-sheets.md) - Read and write data to Google Sheets
 - [**GoogleDrive**](google-drive.md) - Upload files to Google Drive
 
@@ -46,4 +47,4 @@ Need help? We're here to assist you.
 
 ---
 
-*Last updated: October 20, 2025*
+*Last updated: January 2025*

@@ -97,5 +97,6 @@ nav:
     - LLM Conversation: llm-conversation.md
   - Integrations:
     - APIRequest: api-request.md
+    - Tuya IoT Integration: tuya-integration.md
     - GoogleSheets: google-sheets.md
     - GoogleDrive: google-drive.md
