@@ -23,6 +23,7 @@ Perform calculations, validations, and custom operations:
 
 - [**Formula**](formula.md) - Calculations, comparisons, and conditional routing
 - [**CustomCode**](custom-code.md) - Custom Python code for advanced logic
+- [**Time Delay**](time-delay.md) - Pause the bot flow for a specified duration
 
 ### AI Components
 Integrate artificial intelligence:
@@ -33,9 +34,14 @@ Integrate artificial intelligence:
 Connect to external services:
 
 - [**APIRequest**](api-request.md) - Connect to external APIs and web services
-- [**Tuya IoT Integration**](tuya-integration.md) - Control smart devices and home automation
 - [**GoogleSheets**](google-sheets.md) - Read and write data to Google Sheets
 - [**GoogleDrive**](google-drive.md) - Upload files to Google Drive
+
+### Bot Settings
+Configure bot-wide integrations and features:
+
+- [**Bot Settings Overview**](bot-settings.md) - Configure integrations and bot-wide features
+- [**Tuya IoT Integration**](tuya-integration.md) - Control smart devices and home automation
 
 ---
 

@@ -1,6 +1,6 @@
 site_name: Intalos AI Bot Builder Help
 site_description: Comprehensive guide for building bots with Intalos AI
-site_url: http://127.0.0.1:8002
+site_url: https://help.intalos.de
 repo_url: https://github.com/intalos-ai/django-react-intalos
 repo_name: Intalos Bot Builder
 
@@ -9,6 +9,10 @@ theme:
   name: landing
   favicon: images/favicon.ico
   custom_dir: overrides
+  # Override fonts to use system fonts instead of external Google Fonts
+  heading_font: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif"
+  body_font: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif"
+  mono_font: "'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace"
 
 # Extra CSS for custom styling
 extra_css:
@@ -28,6 +32,10 @@ extra:
       link: https://twitter.com/your-handle
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/company/your-company
+
+  meta:
+    - name: Content-Security-Policy
+      content: "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"
 
 # Plugins - search disabled to prevent base_url security issues
 plugins: []
@@ -92,10 +100,13 @@ nav:
   - Logic & Processing:
     - Formula: formula.md
     - CustomCode: custom-code.md
+    - Time Delay: time-delay.md
   - AI Components:
     - LLM Conversation: llm-conversation.md
   - Integrations:
     - APIRequest: api-request.md
-    - Tuya IoT Integration: tuya-integration.md
     - GoogleSheets: google-sheets.md
     - GoogleDrive: google-drive.md
+  - Bot Settings:
+    - Bot Settings Overview: bot-settings.md
+    - Tuya IoT Integration: tuya-integration.md

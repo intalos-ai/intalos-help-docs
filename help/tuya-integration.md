@@ -228,6 +228,35 @@ If Tuya credentials are incorrect:
 
 **Solution**: Check your bot settings and ensure Tuya integration is properly configured.
 
+### Rate Limit / Cooldown Error (429)
+
+When authentication is attempted too soon after a previous attempt:
+```json
+{
+  "success": false,
+  "error": "Too many authentication attempts. Please try again later.",
+  "retry_after_seconds": 120
+}
+```
+
+**What this means**: The Tuya API requires a 180-second cooldown between login attempts. Your bot tried to authenticate too soon after a previous attempt.
+
+**How to handle**:
+1. **Use response routing** in your API Request component to catch 429 errors
+2. **Wait for the cooldown period** (check `retry_after_seconds` in the response)
+3. **Retry the request** after the cooldown period expires
+4. **Implement retry logic** in your bot flow using Formula or CustomCode components
+
+**Example Bot Flow**:
+```
+APIRequest (control device) 
+  → Response: 429 error?
+  → Time Delay (wait for retry_after_seconds)
+  → APIRequest (retry device control)
+```
+
+**Prevention**: The system automatically reuses authenticated sessions. Only re-authentication triggers the cooldown.
+
 ### Device Not Found Error
 
 ```json
@@ -314,6 +343,20 @@ If Tuya credentials are incorrect:
 3. Verify the device ID is correct
 4. Check if the device supports the requested action
 
+### Issue: "Too many authentication attempts" (429 error)
+
+**Solution**: You've hit the authentication cooldown:
+1. **Wait 180 seconds** before retrying authentication
+2. The system automatically reuses existing sessions - only new logins trigger cooldown
+3. **Check `retry_after_seconds`** in the error response to know exactly when to retry
+4. **Implement retry logic** in your bot flow to handle this gracefully
+5. **Use response routing** in your API Request component to route 429 errors to a delay/retry flow
+
+**Prevention Tips**:
+- The system automatically manages session reuse
+- Cooldown only applies when a new login is needed
+- Normal device control operations don't trigger cooldown (they reuse existing sessions)
+
 ### Issue: "This endpoint is only accessible from internal requests" error
 
 **Solution**: This is a security feature. The Tuya endpoints are only accessible from:
@@ -363,7 +406,7 @@ POST https://magic.intalos.de/api/tuya/devices/switch/
 }
 ```
 
-**Response**:
+**Response (Success)**:
 ```json
 {
   "success": true,
@@ -374,19 +417,48 @@ POST https://magic.intalos.de/api/tuya/devices/switch/
 }
 ```
 
+**Response (Rate Limit / Cooldown - 429)**:
+```json
+{
+  "success": false,
+  "error": "Too many authentication attempts. Please try again later.",
+  "retry_after_seconds": 120
+}
+```
+
+**Response (Service Unavailable - 503)**:
+```json
+{
+  "success": false,
+  "error": "Authentication failed",
+  "bot_id": "bot_id"
+}
+```
+
 ---
 
 ## Important Notes
 
-### Session Management
-- Tuya API sessions last 180 seconds
+### Session Management & Cooldown Protection
+- Tuya API sessions last 180 seconds (3 minutes)
 - The system automatically manages session renewal
-- No manual session management required
+- **Cooldown Protection**: After a login attempt, you must wait 180 seconds before attempting to login again
+- If you try to authenticate within the cooldown period, the API will return a `429 Too Many Requests` response with `retry_after_seconds`
+- This prevents rate limiting issues with the Tuya API
+- The system automatically reuses authenticated sessions when available
+- Only new authentication attempts trigger the cooldown - normal device operations reuse existing sessions
+
+**How Cooldown Works**:
+- When your bot attempts to control a device, the system checks if authentication is needed
+- If a recent login attempt was made (within 180 seconds), the system will return a 429 error
+- The error response includes `retry_after_seconds` indicating how long to wait
+- Your bot can handle this error and retry after the cooldown period
 
 ### Rate Limits
 - Maximum 10 network requests per execution
 - Built-in rate limiting prevents API abuse
 - Requests are automatically throttled
+- Authentication cooldown: 180 seconds between login attempts
 
 ### Security
 - All Tuya endpoints are IP-restricted

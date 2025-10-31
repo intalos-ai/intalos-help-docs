@@ -3,6 +3,104 @@
 /* Import Poppins font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+/* Force dark mode - always use dark theme colors */
+:root {
+  /* colors - using dark theme colors by default */
+  --primary: #00d4aa;
+  --secondary: #00b4d8;
+  --tertiary: #7209b7;
+  /* shades */
+  --base: #1a1a1a;
+  --mantle: #2a2a2a;
+  --crust: #3a3a3a;
+  --overlay: #4a4a4a;
+  --footer: #00000022;
+  /* text */
+  --text: #ffffff;
+  --hltext: #ffffff;
+  color: var(--text);
+  /* background-specific text */
+  --primary-text: #ffffff;
+  --secondary-text: #ffffff;
+  --tertiary-text: #ffffff;
+  --base-text: #ffffff;
+  --mantle-text: #ffffff;
+  --crust-text: #ffffff;
+  --overlay-text: #ffffff;
+  --footer-text: var(--text);
+  /* fonts - using Poppins from Google Fonts */
+  --heading: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --body: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+  font-family: var(--body);
+}
+
+/* Force dark backgrounds and text */
+body {
+  background-color: var(--base) !important;
+  color: var(--text) !important;
+}
+
+/* Header styling */
+.md-header {
+  background-color: var(--crust) !important;
+}
+
+.md-header__button {
+  color: var(--hltext) !important;
+}
+
+.md-header__title {
+  color: var(--hltext) !important;
+}
+
+/* Navigation styling */
+.md-nav__link {
+  color: var(--text) !important;
+}
+
+.md-nav__link:hover {
+  color: var(--primary) !important;
+}
+
+/* Main content styling */
+.md-main__inner {
+  background-color: var(--base) !important;
+}
+
+/* Typography styling */
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+  color: var(--hltext) !important;
+}
+
+.md-typeset a {
+  color: var(--primary) !important;
+}
+
+.md-typeset code {
+  background-color: var(--mantle) !important;
+  color: var(--hltext) !important;
+}
+
+.md-typeset pre > code {
+  background-color: var(--mantle) !important;
+  color: var(--hltext) !important;
+}
+
+/* Footer styling */
+.md-footer {
+  background-color: var(--crust) !important;
+  color: var(--text) !important;
+}
+
+.md-footer-nav__link {
+  color: var(--text) !important;
+}
+
+.md-footer-nav__link:hover {
+  color: var(--primary) !important;
+}
+
 /* Force Poppins font on all text elements */
 body, p, span, div, li, ul, ol, td, th, strong, em, b, i, h1, h2, h3, h4, h5, h6 {
     font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
