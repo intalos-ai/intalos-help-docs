@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <!-- UTF-8 encoding for proper character display -->
+    <meta charset="UTF-8">
+    
     <!-- Override CSP to allow unsafe-eval and unsafe-inline for JavaScript -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
     
@@ -102,7 +105,7 @@
         margin-left: calc(-100% - 3rem - 2rem);
       }
     </style>
-    <link rel="icon" type="image/x-icon" href=images/favicon.ico>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/responsivity.css" rel="stylesheet">
     <link href="../stylesheets/custom.css" rel="stylesheet">  
@@ -164,7 +167,7 @@
     
     
     <li class="nav-subitem">
-    <a href="#multiple-files">Multiple Files</a>
+    <a href="#single-file-upload">Single File Upload</a>
     </li>
     
     
@@ -256,7 +259,7 @@
     <h1 id="questionmedia-component">QuestionMedia Component</h1>
 <h2 id="overview">Overview</h2>
 <p>The <strong>QuestionMedia</strong> component allows you to receive and process media files uploaded by your users via WhatsApp. Perfect for collecting photos, documents, voice messages, and videos from your customers.</p>
-<p><strong>📸 Multiple Files</strong>: Users can send multiple files at once, and they'll be stored as an array in your variable.</p>
+<p><strong>📸 Single File Upload</strong>: Users can upload one file at a time. The file URL is stored as a string in your variable.</p>
 <h2 id="when-to-use-questionmedia">When to Use QuestionMedia</h2>
 <p>Ideal for scenarios like:
 - Collecting product photos or damage reports
@@ -284,21 +287,16 @@
 <li>S3 key (file location) stored in your variable</li>
 </ol>
 <hr />
-<h2 id="multiple-files">Multiple Files</h2>
+<h2 id="single-file-upload">Single File Upload</h2>
 <h3 id="how-it-works_1">How It Works</h3>
-<p>Users can send multiple files simultaneously from WhatsApp:</p>
+<p>Users can upload one file at a time from WhatsApp:</p>
 <p><strong>Variable storage:</strong>
-- <strong>1 file</strong> -&gt; String: <code>"uploads/.../photo.jpg"</code>
-- <strong>2+ files</strong> -&gt; Array: <code>["uploads/.../photo1.jpg", "uploads/.../photo2.jpg"]</code></p>
-<p><strong>Maximum Media Items setting:</strong>
-- Limit how many files to collect (1-10)
-- Default: 1 file
-- User sends 5, max is 3 -&gt; First 3 stored</p>
-<p><strong>Important</strong>: If any file fails validation (size, type, safety check), ALL files are rejected and the user must retry.</p>
+- <strong>File URL</strong> -&gt; String: <code>"uploads/question_media/permanent/bot_66_comp_xyz_a1b2c3d4.jpg"</code></p>
+<p><strong>Important</strong>: Only the first file received will be processed. If a user sends multiple files, only the first one will be accepted, and the user will receive a notification that additional files were ignored.</p>
 <p><strong>Example:</strong>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>User sends: 3 photos (2 valid, 1 too large)
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Result: &quot;1 of 3 items failed: Media size limit breached. Please try again.&quot;
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Action: User must resend ALL 3 photos
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>User sends: 3 photos at once
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Result: First photo processed and stored
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Notification: &quot;⚠️ Please upload only ONE file at a time. One of your files was received successfully. Additional files have been ignored.&quot;
 </span></code></pre></div></p>
 <hr />
 <h2 id="file-size-limits">File Size Limits</h2>
@@ -336,14 +334,10 @@
 </table>
 <p><strong>Note</strong>: These limits ensure fast processing and quick responses to users. WhatsApp requires bot responses within 200ms.</p>
 <h3 id="what-happens-if-file-is-too-large">What happens if file is too large?</h3>
-<p><strong>Single file upload:</strong>
+<p><strong>File upload:</strong>
 - User receives an error message
 - Flow can branch to "error" path
-- User can retry with smaller file</p>
-<p><strong>Multiple file upload:</strong>
-- <strong>All files are rejected</strong> (all-or-nothing validation)
-- User receives: "1 of 3 items failed: Media size limit breached. Please try again."
-- User must resend ALL files (including the valid ones)</p>
+- User can retry with a smaller file</p>
 <p><strong>Need larger files?</strong> Contact us at contact@intalos.de to discuss your use case.</p>
 <hr />
 <h2 id="image-safety-check-optional">Image Safety Check (Optional)</h2>
@@ -370,17 +364,12 @@
 - Medical/graphic images
 - Spoofed/manipulated content</p>
 <h3 id="what-happens-if-image-fails">What happens if image fails?</h3>
-<p><strong>Single image:</strong>
-- Image is rejected
+<p><strong>Image safety check:</strong>
+- Image is rejected if it fails safety check
 - User receives a notification
 - File is NOT saved
 - Flow branches to error path</p>
-<p><strong>Multiple images:</strong>
-- ALL images are rejected (all-or-nothing validation)
-- User sees: "1 of 3 items failed: Image safety check alert. Please try again."
-- NO files are saved
-- User must resend all images</p>
-<p><strong>Example message</strong>: "1 of 3 items failed: Image safety check alert - Image rejected due to adult content. Please try again."</p>
+<p><strong>Example message</strong>: "Image safety check alert - Image rejected due to adult content. Please try again."</p>
 <hr />
 <h2 id="advanced-configuration">Advanced Configuration</h2>
 <h3 id="error-handling">Error Handling</h3>
@@ -544,17 +533,16 @@
 </span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>Bot: &quot;Contract received! We&#39;ll review and contact you.&quot;
 </span></code></pre></div></p>
 <hr />
-<h3 id="3-property-damage-report-multiple-photos">3. Property Damage Report (Multiple Photos)</h3>
-<p><strong>Scenario</strong>: Insurance claim with damage photos</p>
+<h3 id="3-property-damage-report-single-photo">3. Property Damage Report (Single Photo)</h3>
+<p><strong>Scenario</strong>: Insurance claim with damage photo</p>
 <p><strong>Configuration</strong>:
 - Media Type: <code>Image</code>
-- Maximum Media Items: <code>3</code>
 - Storage Mode: <code>Permanent</code>
-- Store in: <code>damagePhotos</code></p>
+- Store in: <code>damagePhoto</code></p>
 <p><strong>Flow</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Bot: &quot;Please send up to 3 photos of the damage (you can send them all at once)&quot;
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>-&gt; QuestionMedia collects all photos
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>-&gt; Variable: [&quot;photo1.jpg&quot;, &quot;photo2.jpg&quot;, &quot;photo3.jpg&quot;]
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Bot: &quot;Please send a photo of the damage&quot;
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>-&gt; QuestionMedia collects photo
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>-&gt; Variable: &quot;uploads/question_media/permanent/photo.jpg&quot;
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>-&gt; APIRequest creates claim
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>-&gt; Bot: &quot;Claim submitted! Reference: {claimNumber}&quot;
 </span></code></pre></div></p>
@@ -635,10 +623,10 @@
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>     Tip: Use your camera app&#39;s &#39;Share &gt; Resize&#39; option if the file is too large.&quot;
 </span></code></pre></div></p>
 <hr />
-<h3 id="issue-multiple-files-rejected">Issue: Multiple files rejected</h3>
-<p><strong>Message</strong>: "1 of 3 items failed: Media size limit breached"</p>
-<p><strong>Why</strong>: One file failed validation, so all files were rejected</p>
-<p><strong>Solution</strong>: Check that ALL files meet requirements, then resend all files</p>
+<h3 id="issue-multiple-files-sent-at-once">Issue: Multiple files sent at once</h3>
+<p><strong>Message</strong>: "⚠️ Please upload only ONE file at a time. One of your files was received successfully. Additional files have been ignored."</p>
+<p><strong>Why</strong>: Only one file can be processed at a time</p>
+<p><strong>Solution</strong>: Ask users to send files one at a time, or use multiple QuestionMedia components in sequence if you need multiple files</p>
 <hr />
 <h3 id="issue-wrong-file-type-uploaded">Issue: Wrong file type uploaded</h3>
 <p><strong>User uploads</strong>: Word document instead of PDF</p>
@@ -789,7 +777,7 @@ Stored indefinitely (counts toward quota).</p>
 <h2 id="need-help">Need Help?</h2>
 <p>Email: contact@intalos.de</p>
 <hr />
-<p><strong>Last Updated</strong>: October 20, 2025</p>
+<p><strong>Last Updated</strong>: January 2025</p>
     <nav id="page-controls">
       <a href="#content" id="return-top">
         <i class="fa fa-arrow-up" alt="⇧"></i> Return to top

@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <!-- UTF-8 encoding for proper character display -->
+    <meta charset="UTF-8">
+    
     <!-- Override CSP to allow unsafe-eval and unsafe-inline for JavaScript -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
     
@@ -102,7 +105,7 @@
         margin-left: calc(-100% - 3rem - 2rem);
       }
     </style>
-    <link rel="icon" type="image/x-icon" href=images/favicon.ico>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/responsivity.css" rel="stylesheet">
     <link href="../stylesheets/custom.css" rel="stylesheet">  
@@ -310,7 +313,7 @@
 - <strong>Response</strong>: Shows the API response data
 - <strong>Headers</strong>: Displays request and response headers
 - <strong>Raw</strong>: Shows the raw response text
-- <strong>Curl</strong>: Displays the exact curl command that would be executed</p>
+- <strong>Curl</strong>: Displays the exact curl command that would be executed (with URL-encoded parameters)</p>
 <h3 id="why-testing-is-important">Why Testing is Important</h3>
 <ul>
 <li><strong>Validate Configuration</strong>: Ensure your API endpoint is correct</li>
@@ -354,6 +357,7 @@
 <li>Type a variable name (e.g., <code>curlCommand</code>)</li>
 <li>The variable will contain the exact curl command that was executed</li>
 </ol>
+<p><strong>Note</strong>: Query parameters in the curl command are automatically URL-encoded for proper formatting. Special characters in parameter values are encoded to ensure the command works correctly when copied and executed.</p>
 <p><strong>Use case</strong>: Debugging API issues by seeing the exact command that was sent to the server.</p>
 <hr />
 <h2 id="error-handling">Error Handling</h2>
@@ -557,7 +561,7 @@
 <h2 id="need-help">Need Help?</h2>
 <p>Email: contact@intalos.de</p>
 <hr />
-<p><strong>Last Updated</strong>: October 2025</p>
+<p><strong>Last Updated</strong>: January 2025</p>
     <nav id="page-controls">
       <a href="#content" id="return-top">
         <i class="fa fa-arrow-up" alt="⇧"></i> Return to top

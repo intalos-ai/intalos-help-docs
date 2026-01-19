@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <!-- UTF-8 encoding for proper character display -->
+    <meta charset="UTF-8">
+    
     <!-- Override CSP to allow unsafe-eval and unsafe-inline for JavaScript -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
     
@@ -102,7 +105,7 @@
         margin-left: calc(-100% - 3rem - 2rem);
       }
     </style>
-    <link rel="icon" type="image/x-icon" href=images/favicon.ico>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/responsivity.css" rel="stylesheet">
     <link href="../stylesheets/custom.css" rel="stylesheet">  
@@ -294,7 +297,8 @@
 <p><strong>Available functions</strong>:
 - <code>Sum(a, b)</code> - Add two numbers
 - <code>Multiply(a, b)</code> - Multiply two numbers
-- <code>ToString(a)</code> - Convert value to string</p>
+- <code>ToString(a)</code> - Convert value to string
+- <code>Length(value)</code> - Get the length of an array, string, or other iterable</p>
 <p><strong>Example</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Sum(10, 20)          -&gt; Result: 30
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Multiply(5, 4)       -&gt; Result: 20
@@ -315,7 +319,8 @@
 - <code>IsLessThan(a, b)</code> - Checks if a &lt; b
 - <code>IsGreaterOrEqual(a, b)</code> - Checks if a &gt;= b
 - <code>IsLessOrEqual(a, b)</code> - Checks if a &lt;= b
-- <code>Contains(container, value)</code> - Checks if value exists in container</p>
+- <code>Contains(container, value)</code> - Checks if value exists in container
+- <code>Length(value)</code> - Get the length of an array, string, or other iterable</p>
 <p><strong>Example</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>IsEqual({userAge}, 18)              -&gt; True if age is 18
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>IsGreaterThan({orderTotal}, 100)    -&gt; True if total &gt; 100
@@ -331,7 +336,7 @@
 - Multiple outcomes based on computed value
 - Complex decision trees</p>
 <p><strong>Available functions</strong>:
-- Same as Answer mode (Sum, Multiply, ToString)</p>
+- Same as Answer mode (Sum, Multiply, ToString, Length)</p>
 <p><strong>How it works</strong>:
 1. Formula calculates result
 2. Result converted to string
@@ -372,12 +377,15 @@
 <h3 id="enter-formula">Enter Formula</h3>
 <p>Double-click the formula text in the component to edit:</p>
 <p><strong>Format</strong>: <code>FunctionName(argument1, argument2)</code></p>
-<p><strong>Using variables</strong>: <code>{variableName}</code></p>
+<p><strong>Using variables</strong>: <code>{variableName}</code> or nested paths like <code>{variableName.property}</code> or <code>{variableName[0]}</code></p>
 <p><strong>Examples</strong>:
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Sum(10, 5)
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Multiply({price}, {quantity})
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>IsGreaterThan({userAge}, 18)
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Contains({userInput}, &quot;yes&quot;)
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>Length({myArray})
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>IsLessThan(Length({myArray}), 7)
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>{response.data.items[0].name}
 </span></code></pre></div></p>
 <hr />
 <h2 id="how-it-works">How It Works</h2>
@@ -450,10 +458,27 @@
 <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Formula 1: IsGreaterThan({quantity}, 0)
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Formula 2: IsLessThan({quantity}, 100)
 </span></code></pre></div></p>
+<h3 id="7-array-length-check">7. Array Length Check</h3>
+<p><strong>Mode</strong>: True/False 
+<strong>Formula</strong>: <code>IsLessThan(Length({photoArray}), 7)</code></p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>QuestionMedia collects photos
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>-&gt; Formula (check array length &lt; 7)
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>   |-- True -&gt; Process photos
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>   \-- False -&gt; &quot;Maximum 6 photos allowed&quot;
+</span></code></pre></div></p>
+<h3 id="8-nested-object-access">8. Nested Object Access</h3>
+<p><strong>Mode</strong>: Answer 
+<strong>Formula</strong>: <code>{apiResponse.data.items[0].name}</code></p>
+<p><strong>Use case</strong>: Access nested data from API responses
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>APIRequest returns: {&quot;data&quot;: {&quot;items&quot;: [{&quot;name&quot;: &quot;Product 1&quot;}]}}
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>-&gt; Formula extracts: {apiResponse.data.items[0].name}
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>-&gt; Result: &quot;Product 1&quot;
+</span></code></pre></div></p>
 <hr />
 <h2 id="formula-syntax">Formula Syntax</h2>
 <h3 id="function-format">Function Format</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>FunctionName(argument1, argument2)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>FunctionName(argument1, argument2)
 </span></code></pre></div>
 <p><strong>Rules</strong>:
 - Function name is case-sensitive
@@ -461,28 +486,36 @@
 - No spaces in function name
 - Variables wrapped in curly braces</p>
 <h3 id="using-variables">Using Variables</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Sum({variable1}, {variable2})
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>IsEqual({userInput}, &quot;yes&quot;)
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>Multiply({price}, {quantity})
-</span></code></pre></div>
+<p><strong>Simple variables</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Sum({variable1}, {variable2})
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>IsEqual({userInput}, &quot;yes&quot;)
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Multiply({price}, {quantity})
+</span></code></pre></div></p>
+<p><strong>Nested paths</strong> (access properties and array elements):
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>{response.data.name}              # Access nested object property
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>{response.items[0].title}         # Access first array item&#39;s property
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>{user.profile.email}              # Deep nesting supported
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>{apiResponse.records[0].id}       # Array index access
+</span></code></pre></div></p>
 <p><strong>Variable values</strong>:
 - Must exist before Formula runs
 - Automatically converted to appropriate type
-- Numbers, strings, and booleans supported</p>
+- Numbers, strings, booleans, arrays, and objects supported
+- Nested paths automatically resolved</p>
 <h3 id="allowed-values">Allowed Values</h3>
 <p><strong>Numbers</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Sum(10, 20)
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Multiply(5.5, 2)
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>IsGreaterThan(100, 50)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Sum(10, 20)
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Multiply(5.5, 2)
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>IsGreaterThan(100, 50)
 </span></code></pre></div></p>
 <p><strong>Strings</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>IsEqual({userName}, &quot;John&quot;)
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Contains({userInput}, &quot;yes&quot;)
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>ToString(12345)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>IsEqual({userName}, &quot;John&quot;)
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Contains({userInput}, &quot;yes&quot;)
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>ToString(12345)
 </span></code></pre></div></p>
 <p><strong>Variables</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Sum({var1}, {var2})
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>IsEqual({userChoice}, {expectedValue})
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Sum({var1}, {var2})
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>IsEqual({userChoice}, {expectedValue})
 </span></code></pre></div></p>
 <hr />
 <h2 id="available-functions-reference">Available Functions Reference</h2>
@@ -514,6 +547,12 @@
 <td>Any value</td>
 <td>String</td>
 <td><code>ToString(123)</code> -&gt; "123"</td>
+</tr>
+<tr>
+<td><code>Length(value)</code></td>
+<td>Array, string, or iterable</td>
+<td>Number</td>
+<td><code>Length({myArray})</code> -&gt; 5</td>
 </tr>
 </tbody>
 </table>
@@ -570,6 +609,12 @@
 <td>Boolean</td>
 <td><code>Contains("hello", "ell")</code> -&gt; True</td>
 </tr>
+<tr>
+<td><code>Length(value)</code></td>
+<td>Array, string, or iterable</td>
+<td>Number</td>
+<td><code>Length({myArray})</code> -&gt; 5</td>
+</tr>
 </tbody>
 </table>
 <hr />
@@ -582,9 +627,9 @@
 - Document complex formulas</p>
 <p><strong>DON'T</strong>:
 - Create overly complex calculations
-- Nest functions (not supported)
 - Use undefined variables
-- Perform calculations that could cause errors (divide by zero)</p>
+- Perform calculations that could cause errors (divide by zero)
+- Access non-existent nested paths (will keep placeholder)</p>
 <h3 id="variable-usage">Variable Usage</h3>
 <p><strong>DO</strong>:
 - Ensure variables exist before using in formulas
@@ -625,7 +670,7 @@
 <ol>
 <li>Toggle <strong>"Error Message to User"</strong> to ON</li>
 <li>Enter your message:
-   <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Sorry, we couldn&#39;t process that. Please try again.
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Sorry, we couldn&#39;t process that. Please try again.
 </span></code></pre></div></li>
 </ol>
 <h3 id="admin-email-notification">Admin Email Notification</h3>
@@ -661,36 +706,36 @@
 <hr />
 <h2 id="common-patterns">Common Patterns</h2>
 <h3 id="multi-step-validation">Multi-Step Validation</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>QuestionText (age)
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>-&gt; Formula (IsGreaterOrEqual({age}, 18))
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>   |-- True -&gt; Formula (IsLessThan({age}, 65))
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>   |         |-- True -&gt; Eligible
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>   |         \-- False -&gt; Senior category
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>   \-- False -&gt; &quot;Must be 18+&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>QuestionText (age)
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>-&gt; Formula (IsGreaterOrEqual({age}, 18))
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>   |-- True -&gt; Formula (IsLessThan({age}, 65))
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>   |         |-- True -&gt; Eligible
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>   |         \-- False -&gt; Senior category
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>   \-- False -&gt; &quot;Must be 18+&quot;
 </span></code></pre></div>
 <h3 id="dynamic-pricing">Dynamic Pricing</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Select quantity
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>-&gt; Formula (Multiply({quantity}, {pricePerItem}))
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>   -&gt; Store in {subtotal}
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>      -&gt; Formula (Sum({subtotal}, {shippingFee}))
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>         -&gt; Store in {total}
-</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>            -&gt; Show total
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Select quantity
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>-&gt; Formula (Multiply({quantity}, {pricePerItem}))
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>   -&gt; Store in {subtotal}
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>      -&gt; Formula (Sum({subtotal}, {shippingFee}))
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>         -&gt; Store in {total}
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>            -&gt; Show total
 </span></code></pre></div>
 <h3 id="input-range-validation">Input Range Validation</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>QuestionText (enter number)
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>-&gt; Formula (IsGreaterThan({number}, 0))
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>   |-- True -&gt; Formula (IsLessThan({number}, 100))
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>   |         |-- True -&gt; Valid range
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>   |         \-- False -&gt; &quot;Too high&quot;
-</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>   \-- False -&gt; &quot;Must be positive&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>QuestionText (enter number)
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>-&gt; Formula (IsGreaterThan({number}, 0))
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>   |-- True -&gt; Formula (IsLessThan({number}, 100))
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>   |         |-- True -&gt; Valid range
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>   |         \-- False -&gt; &quot;Too high&quot;
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>   \-- False -&gt; &quot;Must be positive&quot;
 </span></code></pre></div>
 <h3 id="conditional-flow-routing">Conditional Flow Routing</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>Calculate score
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>-&gt; Formula Custom (Sum({quiz1}, {quiz2}))
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>   |-- &quot;10&quot; -&gt; Perfect score flow
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>   |-- &quot;8&quot; -&gt; High score flow
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>   |-- &quot;5&quot; -&gt; Medium score flow
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>   \-- default -&gt; Low score flow
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>Calculate score
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>-&gt; Formula Custom (Sum({quiz1}, {quiz2}))
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>   |-- &quot;10&quot; -&gt; Perfect score flow
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>   |-- &quot;8&quot; -&gt; High score flow
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>   |-- &quot;5&quot; -&gt; Medium score flow
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>   \-- default -&gt; Low score flow
 </span></code></pre></div>
 <hr />
 <h2 id="troubleshooting">Troubleshooting</h2>
@@ -729,28 +774,28 @@
 <h2 id="advanced-tips">Advanced Tips</h2>
 <h3 id="chaining-formulas">Chaining Formulas</h3>
 <p>Perform complex calculations by chaining multiple Formula components:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Formula 1: Sum({price}, {tax})
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>  -&gt; Store in {priceWithTax}
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>     -&gt; Formula 2: Multiply({priceWithTax}, {quantity})
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>        -&gt; Store in {totalCost}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>Formula 1: Sum({price}, {tax})
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>  -&gt; Store in {priceWithTax}
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>     -&gt; Formula 2: Multiply({priceWithTax}, {quantity})
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>        -&gt; Store in {totalCost}
 </span></code></pre></div>
 <h3 id="validation-patterns">Validation Patterns</h3>
 <p><strong>Email validation</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Contains({email}, &quot;@&quot;)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>Contains({email}, &quot;@&quot;)
 </span></code></pre></div></p>
 <p><strong>Numeric range</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>IsGreaterOrEqual({value}, {min}) AND IsLessOrEqual({value}, {max})
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>(Use two Formula components)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>IsGreaterOrEqual({value}, {min}) AND IsLessOrEqual({value}, {max})
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>(Use two Formula components)
 </span></code></pre></div></p>
 <p><strong>String matching</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>IsEqual({userResponse}, &quot;yes&quot;)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>IsEqual({userResponse}, &quot;yes&quot;)
 </span></code></pre></div></p>
 <h3 id="dynamic-calculations">Dynamic Calculations</h3>
 <p>Use variables from previous components:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>APIRequest (get price from API)
-</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>-&gt; Store in {apiPrice}
-</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>   -&gt; Formula (Multiply({apiPrice}, {quantity}))
-</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>      -&gt; Store in {total}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>APIRequest (get price from API)
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>-&gt; Store in {apiPrice}
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>   -&gt; Formula (Multiply({apiPrice}, {quantity}))
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>      -&gt; Store in {total}
 </span></code></pre></div></p>
 <hr />
 <h2 id="comparison-with-other-components">Comparison with Other Components</h2>
@@ -777,38 +822,38 @@
 <hr />
 <h2 id="examples-by-use-case">Examples by Use Case</h2>
 <h3 id="price-calculation">Price Calculation</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Quantity: 5
-</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>Price per item: $10
-</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
-</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>Formula: Multiply(10, {quantity})
-</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>Variable: totalPrice
-</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>Result: $50
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>Quantity: 5
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>Price per item: $10
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>Formula: Multiply(10, {quantity})
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>Variable: totalPrice
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>Result: $50
 </span></code></pre></div>
 <h3 id="age-gate">Age Gate</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>User enters age: 25
-</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
-</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>Formula: IsGreaterOrEqual({userAge}, 21)
-</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>Routes to:
-</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>|-- True -&gt; Show alcohol products
-</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>\-- False -&gt; Show non-alcohol products
+<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>User enters age: 25
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>Formula: IsGreaterOrEqual({userAge}, 21)
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>Routes to:
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>|-- True -&gt; Show alcohol products
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>\-- False -&gt; Show non-alcohol products
 </span></code></pre></div>
 <h3 id="discount-tier">Discount Tier</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Order total: $250
-</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
-</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>Formula Custom: ToString({orderTotal})
-</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>Routes:
-</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>|-- &quot;100&quot; -&gt; 5% discount
-</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>|-- &quot;200&quot; -&gt; 10% discount
-</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>|-- &quot;500&quot; -&gt; 20% discount
-</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>\-- default -&gt; No discount
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>Order total: $250
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>Formula Custom: ToString({orderTotal})
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>Routes:
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>|-- &quot;100&quot; -&gt; 5% discount
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>|-- &quot;200&quot; -&gt; 10% discount
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>|-- &quot;500&quot; -&gt; 20% discount
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>\-- default -&gt; No discount
 </span></code></pre></div>
 <h3 id="input-validation">Input Validation</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>User enters quantity: 150
-</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
-</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>Formula: IsLessThan({quantity}, 100)
-</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>Routes to:
-</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>|-- True -&gt; Process order
-</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>\-- False -&gt; &quot;Maximum 99 items per order&quot;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>User enters quantity: 150
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>Formula: IsLessThan({quantity}, 100)
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>Routes to:
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>|-- True -&gt; Process order
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>\-- False -&gt; &quot;Maximum 99 items per order&quot;
 </span></code></pre></div>
 <hr />
 <h2 id="error-handling_1">Error Handling</h2>
@@ -830,7 +875,7 @@
 <ol>
 <li>Toggle <strong>"Error Message to User"</strong> to ON</li>
 <li>Enter your message:
-   <div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>Sorry, we couldn&#39;t process that value. Please try again.
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>Sorry, we couldn&#39;t process that value. Please try again.
 </span></code></pre></div></li>
 </ol>
 <h3 id="admin-email-notification_1">Admin Email Notification</h3>
@@ -864,9 +909,10 @@
 <h3 id="limitations_1">Limitations</h3>
 <ul>
 <li><strong>Two arguments maximum</strong> per function</li>
-<li><strong>No nested functions</strong>: Can't do <code>Sum(Multiply(2, 3), 5)</code></li>
+<li><strong>Nested function calls supported</strong>: <code>Length({myArray})</code>, <code>IsLessThan(Length({myArray}), 7)</code></li>
 <li><strong>No custom functions</strong>: Only predefined functions allowed</li>
 <li><strong>No loops or conditionals</strong>: Use separate components for complex logic</li>
+<li><strong>Nested paths</strong>: Automatically resolved, invalid paths keep placeholder</li>
 </ul>
 <hr />
 <h2 id="security_1">Security</h2>
@@ -888,7 +934,7 @@
 <h2 id="need-help">Need Help?</h2>
 <p>Email: contact@intalos.de</p>
 <hr />
-<p><strong>Last Updated</strong>: October 20, 2025</p>
+<p><strong>Last Updated</strong>: January 2025</p>
     <nav id="page-controls">
       <a href="#content" id="return-top">
         <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
