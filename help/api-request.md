@@ -105,7 +105,7 @@ The test modal includes multiple tabs:
 - **Response**: Shows the API response data
 - **Headers**: Displays request and response headers
 - **Raw**: Shows the raw response text
-- **Curl**: Displays the exact curl command that would be executed
+- **Curl**: Displays the exact curl command that would be executed (with URL-encoded parameters)
 
 ### Why Testing is Important
 
@@ -159,6 +159,8 @@ You can also store the actual curl command that was executed for debugging purpo
 1. Scroll to **"Store curl command in variable"**
 2. Type a variable name (e.g., `curlCommand`)
 3. The variable will contain the exact curl command that was executed
+
+**Note**: Query parameters in the curl command are automatically URL-encoded for proper formatting. Special characters in parameter values are encoded to ensure the command works correctly when copied and executed.
 
 **Use case**: Debugging API issues by seeing the exact command that was sent to the server.
 
@@ -437,6 +439,6 @@ Email: contact@intalos.de
 
 ---
 
-**Last Updated**: October 2025
+**Last Updated**: January 2025
 
 

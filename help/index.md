@@ -2,7 +2,9 @@
 
 Welcome to the Intalos Bot Builder Help Center! This comprehensive guide will help you build powerful bots using our visual flow editor.
 
-## Component Guides
+---
+
+## 📚 Component Guides
 
 ### Question Components
 Collect input and information from users:
@@ -45,6 +47,14 @@ Configure bot-wide integrations and features:
 
 ---
 
+## 🔌 Integrations Guides
+
+Learn how to connect your bots to external platforms:
+
+- [**WhatsApp Integrations**](integrations.md#whatsapp-integrations) - Set up and manage WhatsApp Business connections
+
+---
+
 ## Support
 
 Need help? We're here to assist you.
@@ -53,4 +63,4 @@ Need help? We're here to assist you.
 
 ---
 
-*Last updated: January 2025*
+*Last updated: December 2025*

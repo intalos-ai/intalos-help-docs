@@ -107,6 +107,8 @@ nav:
     - APIRequest: api-request.md
     - GoogleSheets: google-sheets.md
     - GoogleDrive: google-drive.md
+  - Integrations Guides:
+    - WhatsApp Integrations: integrations.md#whatsapp-integrations
   - Bot Settings:
     - Bot Settings Overview: bot-settings.md
     - Tuya IoT Integration: tuya-integration.md

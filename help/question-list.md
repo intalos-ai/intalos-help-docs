@@ -384,5 +384,5 @@ Email: contact@intalos.de
 
 ---
 
-**Last Updated**: October 20, 2025
+**Last Updated**: January 2025
 

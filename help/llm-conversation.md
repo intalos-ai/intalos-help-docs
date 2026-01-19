@@ -82,9 +82,8 @@ Currently supported:
 #### Select Model
 
 **Google Gemini models**:
-- `gemini-pro` - Best for text
-- `gemini-1.5-flash` - Fastest, most cost-effective
-- `gemini-1.5-pro` - Most capable
+- `gemini-2.5-flash` - Fastest, most cost-effective, ideal for most use cases
+- `gemini-2.5-pro` - Most capable, best for complex tasks requiring advanced reasoning
 
 ### API Configuration
 
@@ -376,23 +375,23 @@ Business Hours: Mon-Fri 9AM-5PM EST
 - Limiting history to last 5 exchanges
 - Keeping system prompts concise
 - Trimming AI output
-- Choosing efficient models (gemini-1.5-flash)
+- Choosing efficient models (gemini-2.5-flash)
 
 ### Model Selection
 
-**gemini-1.5-flash**:
-- Fastest
+**gemini-2.5-flash**:
+- Fastest response times
 - Most cost-effective
-- Good for most use cases
+- Ideal for most conversational use cases
+- Good balance of speed and capability
+- Recommended for general-purpose chatbots
 
-**gemini-1.5-pro**:
-- Most capable
-- Better for complex tasks
-- Higher cost
-
-**gemini-pro**:
-- Balanced option
-- Good for conversations
+**gemini-2.5-pro**:
+- Most capable and advanced
+- Best for complex reasoning tasks
+- Higher accuracy for nuanced questions
+- Higher cost per token
+- Recommended for specialized or complex use cases
 
 ---
 
@@ -595,7 +594,7 @@ Menu (QuestionButtons)
 ### Issue: Slow responses
 
 **Solution**:
-- Use faster model (gemini-1.5-flash)
+- Use faster model (gemini-2.5-flash)
 - Reduce history length
 - Minimize context size
 - Check network connection
@@ -639,5 +638,5 @@ Email: contact@intalos.de
 
 ---
 
-**Last Updated**: October 20, 2025
+**Last Updated**: January 2025
 

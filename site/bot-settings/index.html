@@ -5,7 +5,7 @@
     <!-- Override CSP to allow unsafe-eval and unsafe-inline for JavaScript -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
     
-    <title>Home - Intalos AI Bot Builder Help</title>
+    <title>Bot Settings Overview - Intalos AI Bot Builder Help</title>
     <style>
       /* Use system fonts instead of external Google Fonts */
       :root {
@@ -103,16 +103,16 @@
       }
     </style>
     <link rel="icon" type="image/x-icon" href=images/favicon.ico>
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsivity.css" rel="stylesheet">
-    <link href="stylesheets/custom.css" rel="stylesheet">  
-    <script src="javascripts/system-fonts.js"></script>  
-    <script src="javascripts/add-icons.js"></script>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">
+    <link href="../stylesheets/custom.css" rel="stylesheet">  
+    <script src="../javascripts/system-fonts.js"></script>  
+    <script src="../javascripts/add-icons.js"></script>
     <script>
       function on_share() {
         navigator.share({
           url: document.URL,
-          title: "Home -Intalos AI Bot Builder Help",
+          title: "Bot Settings Overview -Intalos AI Bot Builder Help",
         });
       }
     </script>
@@ -127,36 +127,11 @@
 </a>
 
   
-  <header id="header">
-    
-    
-     
-    
-    <img id="avatar" src="assets/landing-logo.png" />
-    
-
-    
-    
-    
-     
-    
-
-    
-    
-    
-     
-    <h1 id="title"><a href=.>Intalos AI Bot Builder Help</a></h1>
-
-    
-    
-    
-     
-    <ul id="socials">
-        
-    </ul>
-
-    
-    
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Bot Settings Overview</h1>
 </header>
   
   <main id="page">
@@ -165,19 +140,37 @@
 <ul>
 
 <li class="nav-item">
-<a href="#intalos-ai-bot-builder-help">Intalos AI Bot Builder Help</a>
+<a href="#bot-settings">Bot Settings</a>
     
     <ul>
     
     
     <li class="nav-subitem">
-    <a href="#component-guides">Component Guides</a>
+    <a href="#overview">Overview</a>
     </li>
     
     
     
     <li class="nav-subitem">
-    <a href="#support">Support</a>
+    <a href="#available-settings">Available Settings</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-to-access-bot-settings">How to Access Bot Settings</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#important-notes">Important Notes</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
     </li>
     
     
@@ -188,54 +181,53 @@
 </ul>
 
 </nav>
-    <h1 id="intalos-ai-bot-builder-help">Intalos AI Bot Builder Help</h1>
-<p>Welcome to the Intalos Bot Builder Help Center! This comprehensive guide will help you build powerful bots using our visual flow editor.</p>
-<h2 id="component-guides">Component Guides</h2>
-<h3 id="question-components">Question Components</h3>
-<p>Collect input and information from users:</p>
+    <h1 id="bot-settings">Bot Settings</h1>
+<h2 id="overview">Overview</h2>
+<p><strong>Bot Settings</strong> allow you to configure integrations and features that apply to your entire bot, rather than individual components in your flow. These settings enable advanced capabilities like IoT device control, API integrations, and other bot-wide configurations.</p>
+<hr />
+<h2 id="available-settings">Available Settings</h2>
+<h3 id="iot-integration">IoT Integration</h3>
+<p>Configure smart device control and home automation:</p>
 <ul>
-<li><a href="question-text/"><strong>QuestionText</strong></a> - Free-form text input from users</li>
-<li><a href="question-buttons/"><strong>QuestionButtons</strong></a> - Button selection (up to 3 options)</li>
-<li><a href="question-list/"><strong>QuestionList</strong></a> - Dropdown selection (up to 10 options)</li>
-<li><a href="question-media/"><strong>QuestionMedia</strong></a> - Collect photos, videos, audio, and documents</li>
-</ul>
-<h3 id="communication-components">Communication Components</h3>
-<p>Send messages and content to users:</p>
-<ul>
-<li><a href="media/"><strong>Media</strong></a> - Send images, videos, audio, and documents</li>
-<li><a href="email/"><strong>Email</strong></a> - Send automated emails</li>
-</ul>
-<h3 id="logic-processing-components">Logic &amp; Processing Components</h3>
-<p>Perform calculations, validations, and custom operations:</p>
-<ul>
-<li><a href="formula/"><strong>Formula</strong></a> - Calculations, comparisons, and conditional routing</li>
-<li><a href="custom-code/"><strong>CustomCode</strong></a> - Custom Python code for advanced logic</li>
-<li><a href="time-delay/"><strong>Time Delay</strong></a> - Pause the bot flow for a specified duration</li>
-</ul>
-<h3 id="ai-components">AI Components</h3>
-<p>Integrate artificial intelligence:</p>
-<ul>
-<li><a href="llm-conversation/"><strong>LLM Conversation</strong></a> - AI-powered conversations and natural language processing</li>
-</ul>
-<h3 id="integration-components">Integration Components</h3>
-<p>Connect to external services:</p>
-<ul>
-<li><a href="api-request/"><strong>APIRequest</strong></a> - Connect to external APIs and web services</li>
-<li><a href="google-sheets/"><strong>GoogleSheets</strong></a> - Read and write data to Google Sheets</li>
-<li><a href="google-drive/"><strong>GoogleDrive</strong></a> - Upload files to Google Drive</li>
-</ul>
-<h3 id="bot-settings">Bot Settings</h3>
-<p>Configure bot-wide integrations and features:</p>
-<ul>
-<li><a href="bot-settings/"><strong>Bot Settings Overview</strong></a> - Configure integrations and bot-wide features</li>
-<li><a href="tuya-integration/"><strong>Tuya IoT Integration</strong></a> - Control smart devices and home automation</li>
+<li><strong><a href="../tuya-integration/">Tuya IoT Integration</a></strong> - Control smart devices via Tuya Smart Life platform</li>
 </ul>
 <hr />
-<h2 id="support">Support</h2>
-<p>Need help? We're here to assist you.</p>
+<h2 id="how-to-access-bot-settings">How to Access Bot Settings</h2>
+<ol>
+<li><strong>Open your bot</strong> in the Bot Builder</li>
+<li>Click on <strong>"Bot Settings"</strong> (usually in the top navigation or sidebar)</li>
+<li>Navigate to the relevant tab (e.g., <strong>"IoT Integration"</strong>)</li>
+<li>Configure your settings</li>
+<li><strong>Save</strong> your changes</li>
+</ol>
+<hr />
+<h2 id="important-notes">Important Notes</h2>
+<h3 id="settings-vs-components">Settings vs Components</h3>
+<p><strong>Settings</strong> are bot-wide configurations that:
+- Apply to the entire bot
+- Don't appear as components in your flow diagram
+- Enable features that can be used throughout your bot
+- Require authentication/credentials</p>
+<p><strong>Components</strong> are individual steps in your bot flow that:
+- Appear in your flow diagram
+- Can be added, removed, and connected
+- Have their own configuration panels
+- Process specific tasks</p>
+<h3 id="security">Security</h3>
+<p>All bot settings include:
+- Secure credential storage (encrypted)
+- Per-bot isolation (settings don't leak between bots)
+- Rate limiting and cooldown protection
+- Session management</p>
+<hr />
+<h2 id="need-help">Need Help?</h2>
 <p><strong>Email</strong>: contact@intalos.de</p>
+<p><strong>Common Questions</strong>:
+- How do I access bot settings? Click "Bot Settings" in your bot builder
+- Can settings be shared between bots? No, each bot has its own settings
+- Are settings secure? Yes, all credentials are encrypted and stored securely</p>
 <hr />
-<p><em>Last updated: January 2025</em></p>
+<p><strong>Last Updated</strong>: October 2025</p>
     <nav id="page-controls">
       <a href="#content" id="return-top">
         <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
@@ -261,9 +253,9 @@
 
 
 
-<script src="javascripts/system-fonts.js"></script>
+<script src="../javascripts/system-fonts.js"></script>
 
-<script src="javascripts/add-icons.js"></script>
+<script src="../javascripts/add-icons.js"></script>
 
   </footer>
 </body>

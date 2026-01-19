@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Override CSP to allow unsafe-eval and unsafe-inline for JavaScript -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
+    
+    <title>Time Delay - Intalos AI Bot Builder Help</title>
+    <style>
+      /* Use system fonts instead of external Google Fonts */
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts - using system fonts instead of external fonts */
+        --heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        --mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+      nav#toc {
+        margin-left: calc(-100% - 3rem - 2rem);
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href=images/favicon.ico>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">
+    <link href="../stylesheets/custom.css" rel="stylesheet">  
+    <script src="../javascripts/system-fonts.js"></script>  
+    <script src="../javascripts/add-icons.js"></script>
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "Time Delay -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Time Delay</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#time-delay-component">Time Delay Component</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#when-to-use-time-delay">When to Use Time Delay</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#configuration">Configuration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-it-works">How It Works</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#common-use-cases">Common Use Cases</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="time-delay-component">Time Delay Component</h1>
+<h2 id="overview">Overview</h2>
+<p>The <strong>Time Delay</strong> component allows you to pause the bot flow for a specified duration before proceeding to the next step. This is useful for creating natural conversation pacing, simulating processing time, or ensuring proper timing between operations.</p>
+<h2 id="when-to-use-time-delay">When to Use Time Delay</h2>
+<p>Ideal for scenarios like:
+- Creating natural conversation pacing
+- Simulating processing time for user feedback
+- Ensuring proper timing between API calls
+- Adding delays before sending multiple messages
+- Creating a sense of "thinking" time for the bot</p>
+<hr />
+<h2 id="configuration">Configuration</h2>
+<h3 id="adding-time-delay-to-your-flow">Adding Time Delay to Your Flow</h3>
+<ol>
+<li>Click the <strong>"Time Delay"</strong> button in the component stencil</li>
+<li>The component will appear in your diagram</li>
+<li>Connect it between other components where you need a pause</li>
+</ol>
+<h3 id="setting-the-delay-duration">Setting the Delay Duration</h3>
+<ol>
+<li><strong>Select the Time Delay component</strong> in your diagram</li>
+<li><strong>Open the Inspector panel</strong> (right side)</li>
+<li><strong>Choose the delay duration</strong>:</li>
+<li><strong>0.5 seconds</strong> - Short pause, ideal for quick acknowledgments</li>
+<li>
+<p><strong>1 second</strong> - Standard pause, good for most use cases</p>
+</li>
+<li>
+<p><strong>The delay is automatically applied</strong> when the bot reaches this component</p>
+</li>
+</ol>
+<hr />
+<h2 id="how-it-works">How It Works</h2>
+<p>When the bot flow reaches a Time Delay component:
+1. The bot pauses execution for the selected duration
+2. A log entry is recorded showing the delay execution
+3. After the delay completes, the bot continues to the next component</p>
+<p><strong>Important</strong>: The delay is synchronous - the bot will wait for the full duration before proceeding.</p>
+<hr />
+<h2 id="common-use-cases">Common Use Cases</h2>
+<h3 id="1-natural-conversation-pacing">1. Natural Conversation Pacing</h3>
+<p><strong>Scenario</strong>: You want to add a pause between messages to make the conversation feel more natural.</p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>QuestionText → Time Delay (0.5s) → Media → Time Delay (1s) → QuestionButtons
+</span></code></pre></div></p>
+<p><strong>Result</strong>: 
+- User sends a message
+- Bot waits 0.5 seconds
+- Bot sends an image
+- Bot waits 1 second
+- Bot asks for button selection</p>
+<h3 id="2-processing-time-simulation">2. Processing Time Simulation</h3>
+<p><strong>Scenario</strong>: You want users to feel like the bot is "processing" their request.</p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>QuestionText → Time Delay (1s) → Formula → Media (showing results)
+</span></code></pre></div></p>
+<p><strong>Result</strong>:
+- User submits information
+- Bot pauses 1 second (simulating processing)
+- Bot calculates result
+- Bot displays result with an image</p>
+<h3 id="3-multiple-message-spacing">3. Multiple Message Spacing</h3>
+<p><strong>Scenario</strong>: You want to send multiple messages with spacing between them.</p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Media → Time Delay (0.5s) → Media → Time Delay (0.5s) → QuestionText
+</span></code></pre></div></p>
+<p><strong>Result</strong>:
+- Bot sends first image
+- Bot waits 0.5 seconds
+- Bot sends second image
+- Bot waits 0.5 seconds
+- Bot asks a question</p>
+<h3 id="4-pre-api-call-delay">4. Pre-API Call Delay</h3>
+<p><strong>Scenario</strong>: You want to add a delay before making an API call to ensure proper timing.</p>
+<p><strong>Flow</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>QuestionText → Time Delay (0.5s) → APIRequest → Media
+</span></code></pre></div></p>
+<p><strong>Result</strong>:
+- User submits request
+- Bot waits 0.5 seconds
+- Bot makes API call
+- Bot displays response</p>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="do">DO:</h3>
+<ul>
+<li>Use 0.5s delays for quick acknowledgments</li>
+<li>Use 1s delays for processing time simulation</li>
+<li>Place delays between consecutive messages for better readability</li>
+<li>Test your flow to ensure delays feel natural</li>
+</ul>
+<h3 id="dont">DON'T:</h3>
+<ul>
+<li>Use delays longer than 1 second (not available in current version)</li>
+<li>Add delays before critical user interactions (can feel slow)</li>
+<li>Overuse delays (can make the bot feel unresponsive)</li>
+<li>Place delays in time-sensitive flows</li>
+</ul>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="execution-flow">Execution Flow</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>1. Bot reaches Time Delay component
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>2. Delay starts (0.5s or 1s)
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>3. Log entry: &quot;Executing time delay of X seconds&quot;
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>4. Delay completes
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>5. Bot continues to next component
+</span></code></pre></div>
+<h3 id="logging">Logging</h3>
+<p>Time Delay execution is logged in the bot execution logs:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Executing time delay of 0.5 seconds
+</span></code></pre></div></p>
+<p>This helps with debugging and monitoring bot performance.</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="issue-delay-seems-too-short-or-too-long">Issue: Delay seems too short or too long</h3>
+<p><strong>Solution</strong>: 
+- For quicker pacing, use 0.5 seconds
+- For more noticeable pauses, use 1 second
+- Consider user expectations - longer delays may feel sluggish</p>
+<h3 id="issue-delay-doesnt-seem-to-execute">Issue: Delay doesn't seem to execute</h3>
+<p><strong>Solution</strong>: 
+- Check the bot execution logs for delay entries
+- Verify the component is connected properly in your flow
+- Ensure the bot flow actually reaches the Time Delay component</p>
+<h3 id="issue-bot-feels-slow-with-delays">Issue: Bot feels slow with delays</h3>
+<p><strong>Solution</strong>: 
+- Reduce the number of Time Delay components
+- Use shorter delays (0.5s) instead of longer ones (1s)
+- Consider removing delays from critical user interaction points</p>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p><strong>Email</strong>: contact@intalos.de</p>
+<p><strong>Common Questions</strong>:
+- Can I use delays longer than 1 second? Not in the current version
+- Can I add multiple delays in sequence? Yes, but be mindful of total wait time
+- Will delays affect bot performance? Minimal impact, delays are optimized</p>
+<hr />
+<p><strong>Last Updated</strong>: October 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/system-fonts.js"></script>
+
+<script src="../javascripts/add-icons.js"></script>
+
+  </footer>
+</body>
+
+</html>

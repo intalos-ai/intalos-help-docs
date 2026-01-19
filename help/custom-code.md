@@ -116,7 +116,45 @@ Your code has access to these safe Python built-ins:
 | `sum(list)` | Sum numbers | `sum([1, 2, 3])` -> 6 |
 | `bool(x)` | Convert to boolean | `bool("text")` -> True |
 
-**Note**: No imports allowed, no file access, no network requests.
+## Available Modules
+
+The following modules are pre-imported and available for use:
+
+### datetime Module
+
+For date and time operations:
+
+```python
+import datetime
+
+# Get current date
+today = datetime.date.today()
+
+# Parse date string
+date_obj = datetime.datetime.strptime("2024-12-25", "%Y-%m-%d")
+
+# Create date object
+birth_date = datetime.date(1990, 5, 15)
+
+# Calculate age
+age = today.year - birth_date.year - ((today.month, today.day) < (birth_date.month, birth_date.day))
+```
+
+**Available classes**:
+- `datetime.date` - Date operations
+- `datetime.datetime` - Date and time operations
+- `datetime.timedelta` - Time differences
+
+### time Module
+
+For time-related operations (used internally by datetime):
+
+```python
+# The time module is available for datetime operations
+# datetime.date.today() uses time internally
+```
+
+**Note**: Direct imports are not allowed, but `datetime` and `time` are pre-imported. No file access, no network requests.
 
 ---
 
@@ -224,7 +262,34 @@ def __custom_fn__(variables):
 - "adult" -> Adult flow
 - "senior" -> Senior flow
 
-### 6. Text Analysis
+### 6. Age Calculation from Date of Birth
+
+```python
+def __custom_fn__(variables):
+    import datetime
+    
+    # Get date of birth from variable (format: YYYY-MM-DD)
+    dob_str = variables.get('user_date_of_birth', '')
+    
+    if not dob_str:
+        raise ValueError("Date of birth is required")
+    
+    # Parse the date
+    dob = datetime.datetime.strptime(dob_str, "%Y-%m-%d").date()
+    
+    # Get today's date
+    today = datetime.date.today()
+    
+    # Calculate age
+    age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+    
+    variables['user_age'] = age
+    return age
+```
+
+**Note**: Uses pre-imported `datetime` module for date operations.
+
+### 7. Text Analysis
 
 ```python
 def __custom_fn__(variables):
@@ -387,10 +452,14 @@ Get notified when code fails:
 - **String operations**: split, join, upper, lower, strip, etc.
 - **List operations**: append, index, slice
 - **Dictionary operations**: get, set, keys, values
+- **Pre-imported modules**: `datetime` and `time` modules are available
+  - `datetime.date` - Date operations (e.g., `datetime.date.today()`)
+  - `datetime.datetime` - Date and time operations (e.g., `datetime.datetime.strptime()`)
+  - `datetime.timedelta` - Time differences
 
 ### What's NOT Allowed
 
-- **Imports**: No import statements
+- **Imports**: No import statements (except pre-imported modules: datetime, time)
 - **File operations**: No file read/write
 - **Network**: No HTTP requests or socket operations
 - **System calls**: No os, sys, subprocess
@@ -399,11 +468,14 @@ Get notified when code fails:
 
 ### Sandboxed Environment
 
-- Code runs in restricted environment
+- Code runs in isolated, restricted environment
 - Limited built-in functions only
 - No access to file system
 - No network access
 - Protects against malicious code
+- Improved error handling and timeout management
+- Enhanced compatibility with production environments (Gunicorn/uWSGI)
+- Better error messages for debugging failed executions
 
 ---
 
@@ -705,10 +777,12 @@ Get notified when code fails:
 ### Execution Environment
 
 - **Python version**: 3.12+
-- **Execution**: Synchronous
-- **Timeout**: 5 seconds max
+- **Execution**: Synchronous, isolated process
+- **Timeout**: 5 seconds max (with improved timeout handling)
 - **Memory**: Limited to prevent abuse
-- **Safety**: Sandboxed execution
+- **Safety**: Sandboxed execution in separate process
+- **Error handling**: Enhanced error messages and logging for debugging
+- **Production ready**: Optimized for WSGI servers (Gunicorn/uWSGI)
 
 ### Function Requirements
 
@@ -822,5 +896,5 @@ Email: contact@intalos.de
 
 ---
 
-**Last Updated**: October 20, 2025
+**Last Updated**: January 2025
 

@@ -33,6 +33,7 @@ The Formula component has three modes:
 - `Sum(a, b)` - Add two numbers
 - `Multiply(a, b)` - Multiply two numbers
 - `ToString(a)` - Convert value to string
+- `Length(value)` - Get the length of an array, string, or other iterable
 
 **Example**:
 ```
@@ -60,6 +61,7 @@ ToString({orderId})  -> Result: String version of orderId
 - `IsGreaterOrEqual(a, b)` - Checks if a >= b
 - `IsLessOrEqual(a, b)` - Checks if a <= b
 - `Contains(container, value)` - Checks if value exists in container
+- `Length(value)` - Get the length of an array, string, or other iterable
 
 **Example**:
 ```
@@ -82,7 +84,7 @@ Contains({userEmail}, "@")          -> True if email has @
 - Complex decision trees
 
 **Available functions**:
-- Same as Answer mode (Sum, Multiply, ToString)
+- Same as Answer mode (Sum, Multiply, ToString, Length)
 
 **How it works**:
 1. Formula calculates result
@@ -134,7 +136,7 @@ Double-click the formula text in the component to edit:
 
 **Format**: `FunctionName(argument1, argument2)`
 
-**Using variables**: `{variableName}`
+**Using variables**: `{variableName}` or nested paths like `{variableName.property}` or `{variableName[0]}`
 
 **Examples**:
 ```
@@ -142,6 +144,9 @@ Sum(10, 5)
 Multiply({price}, {quantity})
 IsGreaterThan({userAge}, 18)
 Contains({userInput}, "yes")
+Length({myArray})
+IsLessThan(Length({myArray}), 7)
+{response.data.items[0].name}
 ```
 
 ---
@@ -241,6 +246,31 @@ Formula 1: IsGreaterThan({quantity}, 0)
 Formula 2: IsLessThan({quantity}, 100)
 ```
 
+### 7. Array Length Check
+
+**Mode**: True/False 
+**Formula**: `IsLessThan(Length({photoArray}), 7)`
+
+**Flow**:
+```
+QuestionMedia collects photos
+-> Formula (check array length < 7)
+   |-- True -> Process photos
+   \-- False -> "Maximum 6 photos allowed"
+```
+
+### 8. Nested Object Access
+
+**Mode**: Answer 
+**Formula**: `{apiResponse.data.items[0].name}`
+
+**Use case**: Access nested data from API responses
+```
+APIRequest returns: {"data": {"items": [{"name": "Product 1"}]}}
+-> Formula extracts: {apiResponse.data.items[0].name}
+-> Result: "Product 1"
+```
+
 ---
 
 ## Formula Syntax
@@ -259,16 +289,26 @@ FunctionName(argument1, argument2)
 
 ### Using Variables
 
+**Simple variables**:
 ```
 Sum({variable1}, {variable2})
 IsEqual({userInput}, "yes")
 Multiply({price}, {quantity})
 ```
 
+**Nested paths** (access properties and array elements):
+```
+{response.data.name}              # Access nested object property
+{response.items[0].title}         # Access first array item's property
+{user.profile.email}              # Deep nesting supported
+{apiResponse.records[0].id}       # Array index access
+```
+
 **Variable values**:
 - Must exist before Formula runs
 - Automatically converted to appropriate type
-- Numbers, strings, and booleans supported
+- Numbers, strings, booleans, arrays, and objects supported
+- Nested paths automatically resolved
 
 ### Allowed Values
 
@@ -303,6 +343,7 @@ IsEqual({userChoice}, {expectedValue})
 | `Sum(a, b)` | 2 numbers | Number | `Sum(10, 5)` -> 15 |
 | `Multiply(a, b)` | 2 numbers | Number | `Multiply(3, 4)` -> 12 |
 | `ToString(a)` | Any value | String | `ToString(123)` -> "123" |
+| `Length(value)` | Array, string, or iterable | Number | `Length({myArray})` -> 5 |
 
 ### Comparison Functions (True/False mode)
 
@@ -315,6 +356,7 @@ IsEqual({userChoice}, {expectedValue})
 | `IsGreaterOrEqual(a, b)` | 2 numbers | Boolean | `IsGreaterOrEqual(5, 5)` -> True |
 | `IsLessOrEqual(a, b)` | 2 numbers | Boolean | `IsLessOrEqual(3, 5)` -> True |
 | `Contains(container, value)` | String, String | Boolean | `Contains("hello", "ell")` -> True |
+| `Length(value)` | Array, string, or iterable | Number | `Length({myArray})` -> 5 |
 
 ---
 
@@ -330,9 +372,9 @@ IsEqual({userChoice}, {expectedValue})
 
 **DON'T**:
 - Create overly complex calculations
-- Nest functions (not supported)
 - Use undefined variables
 - Perform calculations that could cause errors (divide by zero)
+- Access non-existent nested paths (will keep placeholder)
 
 ### Variable Usage
 
@@ -700,9 +742,10 @@ Get notified when errors occur:
 ### Limitations
 
 - **Two arguments maximum** per function
-- **No nested functions**: Can't do `Sum(Multiply(2, 3), 5)`
+- **Nested function calls supported**: `Length({myArray})`, `IsLessThan(Length({myArray}), 7)`
 - **No custom functions**: Only predefined functions allowed
 - **No loops or conditionals**: Use separate components for complex logic
+- **Nested paths**: Automatically resolved, invalid paths keep placeholder
 
 ---
 
@@ -732,5 +775,5 @@ Email: contact@intalos.de
 
 ---
 
-**Last Updated**: October 20, 2025
+**Last Updated**: January 2025
 

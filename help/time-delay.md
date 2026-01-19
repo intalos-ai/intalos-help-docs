@@ -187,5 +187,5 @@ This helps with debugging and monitoring bot performance.
 
 ---
 
-**Last Updated**: October 2025
+**Last Updated**: January 2025
 
