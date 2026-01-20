@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- UTF-8 encoding for proper character display -->
+    <meta charset="UTF-8">
+    
+    <!-- Override CSP to allow unsafe-eval and unsafe-inline for JavaScript -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
+    
+    <title>Integrations - Intalos AI Bot Builder Help</title>
+    <style>
+      /* Use system fonts instead of external Google Fonts */
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts - using system fonts instead of external fonts */
+        --heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        --mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+      nav#toc {
+        margin-left: calc(-100% - 3rem - 2rem);
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">
+    <link href="../stylesheets/custom.css" rel="stylesheet">  
+    <script src="../javascripts/system-fonts.js"></script>  
+    <script src="../javascripts/add-icons.js"></script>
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "Integrations -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Integrations</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#integrations">Integrations</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#overview">Overview</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#whatsapp-integrations">WhatsApp Integrations</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-whatsapp-integrations-work">How WhatsApp Integrations Work</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#setting-up-a-whatsapp-integration">Setting Up a WhatsApp Integration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#managing-your-integration">Managing Your Integration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-messages-flow">How Messages Flow</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#integration-limits">Integration Limits</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#advanced-features">Advanced Features</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="integrations">Integrations</h1>
+<h2 id="overview">Overview</h2>
+<p><strong>Integrations</strong> connect your Intalos AI bots to external platforms and services, enabling your bots to interact with users through various channels and access external data and functionality. Integrations are separate from bot components and are configured at the account level.</p>
+<hr />
+<h2 id="whatsapp-integrations">WhatsApp Integrations</h2>
+<h3 id="what-is-a-whatsapp-integration">What is a WhatsApp Integration?</h3>
+<p>A <strong>WhatsApp Integration</strong> connects your bot to WhatsApp Business API, allowing your bot to send and receive messages through WhatsApp. This enables you to build conversational experiences that users can access directly from their WhatsApp app.</p>
+<h3 id="when-to-use-whatsapp-integration">When to Use WhatsApp Integration</h3>
+<p>Perfect for scenarios like:
+- Customer support chatbots
+- Order processing and tracking
+- Appointment scheduling
+- Information delivery services
+- Interactive surveys and feedback
+- Automated notifications
+- E-commerce assistance</p>
+<hr />
+<h2 id="how-whatsapp-integrations-work">How WhatsApp Integrations Work</h2>
+<h3 id="architecture-overview">Architecture Overview</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>WhatsApp User
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    ↓ (sends message)
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>WhatsApp Business API
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ↓ (webhook)
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Intalos AI Platform
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ↓ (processes with your bot)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>Bot Flow Execution
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    ↓ (generates response)
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>WhatsApp Business API
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    ↓ (sends message)
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>WhatsApp User
+</span></code></pre></div>
+<h3 id="key-concepts">Key Concepts</h3>
+<p><strong>Integration</strong>: A connection between your Intalos AI account and a WhatsApp Business account. You can have multiple integrations for different WhatsApp numbers or business accounts.</p>
+<p><strong>Bot Connection</strong>: Each integration can be connected to one published bot. When a message arrives via WhatsApp, it triggers that bot's flow.</p>
+<p><strong>Webhooks</strong>: WhatsApp sends incoming messages to Intalos AI via webhooks. The integration handles webhook verification and message routing.</p>
+<hr />
+<h2 id="setting-up-a-whatsapp-integration">Setting Up a WhatsApp Integration</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before creating a WhatsApp integration, you need:</p>
+<ol>
+<li><strong>A Published Bot</strong>: Your bot must be published before you can connect it to a WhatsApp integration</li>
+<li><strong>WhatsApp Business API Credentials</strong>: You'll need:</li>
+<li>Business Account ID</li>
+<li>Phone Number ID</li>
+<li>App ID and App Secret</li>
+<li>Access Token (short-lived, which will be exchanged for a long-lived token)</li>
+<li>Verify Token (for webhook verification)</li>
+</ol>
+<h3 id="getting-whatsapp-business-api-credentials">Getting WhatsApp Business API Credentials</h3>
+<p><strong>Option 1: Meta Business Account (Self-Setup)</strong></p>
+<ol>
+<li>Go to <a href="https://developers.facebook.com/">Meta for Developers</a></li>
+<li>Create or access your Meta Business Account</li>
+<li>Set up a WhatsApp Business App</li>
+<li>Get your credentials from the app dashboard:</li>
+<li>Business Account ID</li>
+<li>Phone Number ID</li>
+<li>App ID and App Secret</li>
+<li>Generate a short-lived Access Token</li>
+<li>Create a Verify Token (any secure random string)</li>
+</ol>
+<p><strong>Option 2: Intalos AI Managed (Depending on Your Plan)</strong></p>
+<p>Contact Intalos AI support to request a WhatsApp Business number and credentials.</p>
+<h3 id="step-by-step-setup">Step-by-Step Setup</h3>
+<h4 id="1-navigate-to-integrations">1. Navigate to Integrations</h4>
+<ol>
+<li>Log in to your Intalos AI account</li>
+<li>Click on <strong>"Integrations"</strong> in the main navigation</li>
+<li>You'll see a list of your existing integrations</li>
+</ol>
+<h4 id="2-create-new-whatsapp-integration">2. Create New WhatsApp Integration</h4>
+<ol>
+<li>Click <strong>"Create Integration"</strong> or <strong>"Add WhatsApp Integration"</strong></li>
+<li>Select <strong>"WhatsApp Business"</strong> as the integration type</li>
+</ol>
+<h4 id="3-configure-basic-settings">3. Configure Basic Settings</h4>
+<p><strong>Integration Name</strong> (optional):
+- Give your integration a descriptive name (e.g., "Main Customer Support Line")
+- This helps you identify it if you have multiple integrations</p>
+<p><strong>Integrated Bot</strong>:
+- Select the published bot you want to connect
+- <strong>Important</strong>: The bot must be published before it appears in this list
+- You can change this later if needed</p>
+<h4 id="4-enter-whatsapp-credentials">4. Enter WhatsApp Credentials</h4>
+<p>Fill in the required fields:</p>
+<p><strong>Business Account ID</strong>:
+- Your Meta Business Account ID
+- Found in Meta Business Manager or WhatsApp Business API dashboard</p>
+<p><strong>Phone Number ID</strong>:
+- The ID of your WhatsApp Business phone number
+- Found in your WhatsApp Business API app settings</p>
+<p><strong>App ID</strong>:
+- Your Meta App ID
+- Found in your Meta App dashboard</p>
+<p><strong>App Secret</strong>:
+- Your Meta App Secret
+- Keep this secure and never share it publicly</p>
+<p><strong>Access Token</strong> (Short-lived):
+- A temporary access token from Meta
+- Intalos AI will automatically exchange this for a long-lived token
+- Found in your Meta App dashboard (generate a new one if needed)</p>
+<p><strong>Verify Token</strong>:
+- A secure random string you create
+- Used for webhook verification
+- Example: <code>my_secure_verify_token_12345</code>
+- <strong>Important</strong>: You'll need to enter this same token in your Meta webhook configuration</p>
+<p><strong>Version</strong>:
+- WhatsApp API version (default: <code>v21.0</code>)
+- Usually doesn't need to be changed</p>
+<h4 id="5-configure-integration-settings">5. Configure Integration Settings</h4>
+<p><strong>Error Email Alerts</strong>:
+- Toggle ON to receive email notifications when integration errors occur
+- Enter the email address where you want to receive alerts</p>
+<p><strong>Integration Expiry Time</strong>:
+- Set a time limit for inactive conversations
+- When enabled, conversations that haven't received messages for the specified time will expire
+- Useful for managing conversation state and resources</p>
+<p><strong>WhatsApp Template</strong> (Optional):
+- If you want to send template messages, configure the template name and language code
+- Templates must be approved by Meta before use</p>
+<p><strong>Trigger Recipients</strong> (Optional):
+- Configure who can trigger the bot
+- Can be set to specific phone numbers or left open for all users</p>
+<h4 id="6-activate-the-integration">6. Activate the Integration</h4>
+<ol>
+<li>Review all your settings</li>
+<li>Click <strong>"Save"</strong> or <strong>"Create Integration"</strong></li>
+<li><strong>Important</strong>: After creating, make sure to <strong>activate</strong> the integration</li>
+<li>Toggle the "Active" switch to ON</li>
+<li>The integration must be active to receive and send messages</li>
+</ol>
+<h4 id="7-configure-webhook-in-meta">7. Configure Webhook in Meta</h4>
+<p>After creating your integration in Intalos AI, you need to configure the webhook in Meta:</p>
+<ol>
+<li>Go to your Meta App dashboard</li>
+<li>Navigate to <strong>Webhooks</strong> section</li>
+<li><strong>Contact Intalos AI support</strong> (contact@intalos.de) to get the correct Intalos AI webhook URL for your account</li>
+<li>Add the webhook URL provided by Intalos AI support</li>
+<li>Enter the <strong>Verify Token</strong> you used when creating the integration</li>
+<li>Subscribe to <strong>messages</strong> events</li>
+<li>Verify the webhook (Meta will send a verification request)</li>
+</ol>
+<hr />
+<h2 id="managing-your-integration">Managing Your Integration</h2>
+<h3 id="viewing-integration-status">Viewing Integration Status</h3>
+<p>In the Integrations list, you can see:
+- <strong>Integration Name</strong>: Your custom name for the integration
+- <strong>Status</strong>: Active or Inactive
+- <strong>Connected Bot</strong>: Which bot is currently connected
+- <strong>Last Activity</strong>: When the integration last received or sent a message</p>
+<h3 id="editing-an-integration">Editing an Integration</h3>
+<ol>
+<li>Click on the integration in the list</li>
+<li>Make your changes</li>
+<li>Click <strong>"Save"</strong></li>
+<li>Changes take effect immediately (if integration is active)</li>
+</ol>
+<h3 id="activatingdeactivating">Activating/Deactivating</h3>
+<ul>
+<li><strong>To activate</strong>: Toggle the "Active" switch to ON</li>
+<li><strong>To deactivate</strong>: Toggle the "Active" switch to OFF</li>
+<li>When deactivated, the integration won't receive or send messages</li>
+</ul>
+<h3 id="changing-connected-bot">Changing Connected Bot</h3>
+<ol>
+<li>Open the integration</li>
+<li>Select a different published bot from the "Integrated Bot" dropdown</li>
+<li>Save the changes</li>
+<li>New conversations will use the new bot, but existing conversations will continue with their current bot</li>
+</ol>
+<h3 id="deleting-an-integration">Deleting an Integration</h3>
+<ol>
+<li>Open the integration</li>
+<li>Click <strong>"Delete"</strong> (usually at the bottom of the form)</li>
+<li>Confirm the deletion</li>
+<li><strong>Warning</strong>: This cannot be undone. All webhook connections will be lost.</li>
+</ol>
+<hr />
+<h2 id="how-messages-flow">How Messages Flow</h2>
+<h3 id="incoming-messages">Incoming Messages</h3>
+<ol>
+<li>User sends a message via WhatsApp</li>
+<li>WhatsApp Business API receives the message</li>
+<li>Meta sends a webhook to Intalos AI</li>
+<li>Intalos AI verifies the webhook signature</li>
+<li>The message is routed to the connected bot</li>
+<li>Bot flow executes based on the message content</li>
+<li>Bot generates a response</li>
+<li>Response is sent back to the user via WhatsApp</li>
+</ol>
+<h3 id="outgoing-messages">Outgoing Messages</h3>
+<ol>
+<li>Your bot flow reaches a component that sends a message (e.g., QuestionText, Media)</li>
+<li>Intalos AI formats the message for WhatsApp</li>
+<li>Message is sent via WhatsApp Business API</li>
+<li>User receives the message in WhatsApp</li>
+</ol>
+<h3 id="message-types-supported">Message Types Supported</h3>
+<ul>
+<li><strong>Text Messages</strong>: Plain text responses</li>
+<li><strong>Media Messages</strong>: Images, videos, audio, documents</li>
+<li><strong>Interactive Messages</strong>: Buttons, lists (via QuestionButtons, QuestionList components)</li>
+<li><strong>Template Messages</strong>: Pre-approved message templates (requires Meta approval)</li>
+</ul>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="security">Security</h3>
+<p><strong>DO</strong>:
+- Keep your App Secret and Access Token secure
+- Use strong, unique Verify Tokens
+- Regularly rotate access tokens
+- Monitor integration error alerts
+- Use HTTPS for all webhook communications (handled automatically by Intalos AI)</p>
+<p><strong>DON'T</strong>:
+- Share your credentials publicly
+- Commit credentials to version control
+- Use the same Verify Token for multiple integrations
+- Leave integrations active if not in use</p>
+<h3 id="performance">Performance</h3>
+<p><strong>DO</strong>:
+- Monitor your integration's activity
+- Set appropriate expiry times for inactive conversations
+- Use efficient bot flows to reduce response times
+- Test your bot thoroughly before connecting to production integration</p>
+<p><strong>DON'T</strong>:
+- Create unnecessary integrations
+- Leave expired conversations running
+- Overload your bot with complex flows that slow responses</p>
+<h3 id="user-experience">User Experience</h3>
+<p><strong>DO</strong>:
+- Provide clear instructions to users
+- Respond quickly to user messages
+- Handle errors gracefully
+- Test your bot with real WhatsApp messages before going live</p>
+<p><strong>DON'T</strong>:
+- Send too many messages in quick succession
+- Ignore user messages
+- Use technical error messages users won't understand</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="integration-not-receiving-messages">Integration Not Receiving Messages</h3>
+<p><strong>Check</strong>:
+1. Is the integration <strong>active</strong>? (Toggle must be ON)
+2. Is the webhook configured correctly in Meta?
+3. Is the Verify Token matching in both places?
+4. Is the connected bot <strong>published</strong>?
+5. Check integration error alerts for specific issues</p>
+<p><strong>Solution</strong>:
+- Verify webhook configuration in Meta dashboard
+- Check that webhook is subscribed to "messages" events
+- Ensure integration is active and bot is published</p>
+<h3 id="messages-not-sending">Messages Not Sending</h3>
+<p><strong>Check</strong>:
+1. Is the integration active?
+2. Is the Access Token valid and not expired?
+3. Are there any error alerts in your email?
+4. Is the bot flow completing successfully?</p>
+<p><strong>Solution</strong>:
+- Regenerate Access Token in Meta if expired
+- Check bot flow for errors
+- Review integration error logs</p>
+<h3 id="webhook-verification-failing">Webhook Verification Failing</h3>
+<p><strong>Check</strong>:
+1. Is the Verify Token exactly the same in both Intalos AI and Meta?
+2. Is the webhook URL correct?
+3. Is the webhook accessible (Intalos AI handles this automatically)?</p>
+<p><strong>Solution</strong>:
+- Double-check Verify Token matches exactly (case-sensitive)
+- Re-enter the Verify Token in Meta webhook settings
+- Contact support if issues persist</p>
+<h3 id="bot-not-responding">Bot Not Responding</h3>
+<p><strong>Check</strong>:
+1. Is the bot published?
+2. Is the bot connected to the integration?
+3. Is the bot flow working correctly in test mode?
+4. Are there any errors in the bot execution?</p>
+<p><strong>Solution</strong>:
+- Test the bot in Bot Builder test mode first
+- Ensure bot is published before connecting to integration
+- Check bot flow for logical errors or missing connections</p>
+<hr />
+<h2 id="integration-limits">Integration Limits</h2>
+<h3 id="current-limits">Current Limits</h3>
+<ul>
+<li><strong>Integrations per account</strong>: Multiple integrations supported</li>
+<li><strong>Bots per integration</strong>: 1 bot per integration (can be changed)</li>
+<li><strong>Message rate</strong>: Subject to WhatsApp Business API limits</li>
+<li><strong>Webhook timeout</strong>: 20 seconds (WhatsApp requirement)</li>
+</ul>
+<h3 id="whatsapp-business-api-limits">WhatsApp Business API Limits</h3>
+<ul>
+<li><strong>Rate limits</strong>: Vary by tier (check Meta documentation)</li>
+<li><strong>Template messages</strong>: Require Meta approval</li>
+<li><strong>24-hour messaging window</strong>: After user messages you, you have 24 hours to respond with free-form messages</li>
+</ul>
+<hr />
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="multiple-integrations">Multiple Integrations</h3>
+<p>You can create multiple WhatsApp integrations for:
+- Different phone numbers
+- Different business accounts
+- Different bots
+- Testing vs production environments</p>
+<h3 id="integration-settings">Integration Settings</h3>
+<p><strong>Error Email Alerts</strong>:
+- Get notified immediately when integration errors occur
+- Helps you respond quickly to issues
+- Configure in integration settings</p>
+<p><strong>Expiry Time</strong>:
+- Automatically expire inactive conversations
+- Helps manage conversation state
+- Prevents resource buildup from abandoned conversations</p>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p><strong>Email</strong>: contact@intalos.de</p>
+<p><strong>Common Questions</strong>:
+- How do I get WhatsApp Business API credentials? See "Getting WhatsApp Business API Credentials" section above
+- Can I use the same bot with multiple integrations? Yes, but each integration connects to one bot at a time
+- What happens if my Access Token expires? Intalos AI handles token refresh automatically for long-lived tokens
+- Can I test my integration before going live? Yes, use the Bot Builder test mode first, then create a test integration</p>
+<hr />
+<p><strong>Last Updated</strong>: December 2025</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/system-fonts.js"></script>
+
+<script src="../javascripts/add-icons.js"></script>
+
+  </footer>
+</body>
+
+</html>

@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <!-- UTF-8 encoding for proper character display -->
+    <meta charset="UTF-8">
+    
     <!-- Override CSP to allow unsafe-eval and unsafe-inline for JavaScript -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
     
@@ -102,7 +105,7 @@
         margin-left: calc(-100% - 3rem - 2rem);
       }
     </style>
-    <link rel="icon" type="image/x-icon" href=images/favicon.ico>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/responsivity.css" rel="stylesheet">
     <link href="../stylesheets/custom.css" rel="stylesheet">  
@@ -272,6 +275,29 @@
 <li>Allows users to proceed without typing</li>
 </ol>
 <p><strong>Note</strong>: Navigation buttons are only available when auto-transition is OFF.</p>
+<h3 id="input-validation">Input Validation</h3>
+<p>Validate user input to ensure correct format and data quality:</p>
+<ol>
+<li><strong>Enable Validation</strong>: Toggle <strong>"Input validation"</strong> to ON</li>
+<li><strong>Select Validation Type</strong>:</li>
+<li><strong>Number</strong>: Validates numeric input</li>
+<li><strong>Email</strong>: Validates email format</li>
+<li><strong>Date</strong>: Validates date in specified format</li>
+<li><strong>Regular Expression</strong>: Custom pattern matching</li>
+<li><strong>Configure Validation</strong>:</li>
+<li>For <strong>Date</strong>: Choose preset format or enter custom Python strptime format</li>
+<li>For <strong>Regex</strong>: Enter your regex pattern (e.g., <code>^[A-Za-z]+$</code>)</li>
+<li><strong>Custom Error Message</strong>: Optional custom message (default includes format info)</li>
+<li><strong>Length Limit</strong> (Optional):</li>
+<li>Toggle <strong>"Input length limit"</strong> to ON</li>
+<li>Set maximum character count</li>
+<li>Prevents overly long responses</li>
+</ol>
+<p><strong>Example Configurations</strong>:
+- <strong>Email Collection</strong>: Validation Type = Email
+- <strong>Phone Number</strong>: Validation Type = Regex, Pattern = <code>^[0-9]{10}$</code>
+- <strong>Birth Date</strong>: Validation Type = Date, Format = DD/MM/YYYY
+- <strong>Short Answer</strong>: Validation Type = Number, Max Length = 3</p>
 <h3 id="add-image">Add Image</h3>
 <p>Enhance your question with a visual element:</p>
 <ol>
@@ -329,6 +355,32 @@
 - Auto transition: ON
 - Variable: (disabled)</p>
 <p>Simply displays the message and moves on automatically.</p>
+<h3 id="5-email-collection-with-validation">5. Email Collection with Validation</h3>
+<p><strong>Configuration</strong>:
+- Message: "Please enter your email address"
+- Variable: <code>userEmail</code>
+- Input validation: ON
+- Validation type: Email
+- Go On: OFF</p>
+<p>Ensures users provide a valid email format.</p>
+<h3 id="6-date-collection-with-format-validation">6. Date Collection with Format Validation</h3>
+<p><strong>Configuration</strong>:
+- Message: "Please enter your date of birth (DD/MM/YYYY)"
+- Variable: <code>userBirthDate</code>
+- Input validation: ON
+- Validation type: Date
+- Date format: DD/MM/YYYY
+- Go On: OFF</p>
+<p>Validates date input matches the specified format.</p>
+<h3 id="7-phone-number-with-regex-validation">7. Phone Number with Regex Validation</h3>
+<p><strong>Configuration</strong>:
+- Message: "Enter your 10-digit phone number"
+- Variable: <code>userPhone</code>
+- Input validation: ON
+- Validation type: Regular Expression
+- Regex pattern: <code>^[0-9]{10}$</code>
+- Go On: OFF</p>
+<p>Ensures exactly 10 digits are entered.</p>
 <hr />
 <h2 id="best-practices">Best Practices</h2>
 <h3 id="message-clarity">Message Clarity</h3>
@@ -373,12 +425,78 @@
 - Use confusing button text</p>
 <hr />
 <h2 id="technical-details">Technical Details</h2>
-<h3 id="input-validation">Input Validation</h3>
-<p>The QuestionText component:
-- Accepts any text input from users
-- No automatic validation (use Formula or CustomCode for validation)
-- Stores raw user input in the variable
-- Trims whitespace from responses</p>
+<h3 id="input-validation_1">Input Validation</h3>
+<p>The QuestionText component supports built-in input validation to ensure users provide data in the correct format. Enable validation by toggling <strong>"Input validation"</strong> to ON.</p>
+<h4 id="validation-types">Validation Types</h4>
+<ol>
+<li><strong>Number Validation</strong></li>
+<li>Validates that input is a valid number (integer or decimal)</li>
+<li>Examples: <code>42</code>, <code>3.14</code>, <code>-10</code>, <code>0.5</code></li>
+<li>
+<p>Rejects: <code>abc</code>, <code>12abc</code>, <code>12.34.56</code></p>
+</li>
+<li>
+<p><strong>Email Validation</strong></p>
+</li>
+<li>Validates email address format</li>
+<li>Examples: <code>user@example.com</code>, <code>test.email+tag@domain.co.uk</code></li>
+<li>
+<p>Standard email format validation</p>
+</li>
+<li>
+<p><strong>Date Validation</strong></p>
+</li>
+<li>Validates date input in specified format</li>
+<li><strong>Preset Formats</strong>:<ul>
+<li><code>YYYY-MM-DD</code> (e.g., 2024-12-25)</li>
+<li><code>DD/MM/YYYY</code> (e.g., 25/12/2024)</li>
+<li><code>MM/DD/YYYY</code> (e.g., 12/25/2024)</li>
+<li><code>DD-MM-YYYY</code> (e.g., 25-12-2024)</li>
+<li><code>YYYY/MM/DD</code> (e.g., 2024/12/25)</li>
+<li><code>DD.MM.YYYY</code> (e.g., 25.12.2024)</li>
+</ul>
+</li>
+<li><strong>Custom Format</strong>: Use Python <code>strptime</code> format codes<ul>
+<li><code>%Y</code> for year (4 digits)</li>
+<li><code>%m</code> for month (01-12)</li>
+<li><code>%d</code> for day (01-31)</li>
+<li>Example: <code>%Y-%m-%d</code> for <code>2024-12-25</code></li>
+</ul>
+</li>
+<li>
+<p>Error message includes the expected format in brackets</p>
+</li>
+<li>
+<p><strong>Regular Expression (Regex) Validation</strong></p>
+</li>
+<li>Custom pattern matching using regex</li>
+<li>Enter your regex pattern in the "Regex Pattern" field</li>
+<li>Examples:<ul>
+<li><code>^[A-Za-z]+$</code> - Only letters</li>
+<li><code>^[0-9]{10}$</code> - Exactly 10 digits</li>
+<li><code>^[A-Za-z0-9]+$</code> - Alphanumeric only</li>
+</ul>
+</li>
+</ol>
+<h4 id="maximum-length-validation">Maximum Length Validation</h4>
+<p>Enable <strong>"Input length limit"</strong> to restrict the number of characters:
+- Set maximum length (e.g., 50, 100, 255)
+- Users cannot submit responses exceeding the limit
+- Error message indicates the maximum allowed length</p>
+<h4 id="custom-error-messages">Custom Error Messages</h4>
+<p>You can customize the validation error message:
+- Leave empty to use default messages
+- Default messages include format information (e.g., "Please enter a valid date in the required format (DD/MM/YYYY).")
+- Custom messages override defaults</p>
+<h4 id="validation-behavior">Validation Behavior</h4>
+<ul>
+<li>Validation occurs when user submits input</li>
+<li>Invalid input shows error message to user</li>
+<li>User must correct input before proceeding</li>
+<li>Valid input proceeds to next component</li>
+<li>Stores raw user input in the variable (after validation passes)</li>
+<li>Trims whitespace from responses</li>
+</ul>
 <h3 id="whatsapp-limitations">WhatsApp Limitations</h3>
 <ul>
 <li><strong>Outgoing message limit</strong>: 1024 characters</li>
@@ -435,7 +553,7 @@
 <h2 id="need-help">Need Help?</h2>
 <p>Email: contact@intalos.de</p>
 <hr />
-<p><strong>Last Updated</strong>: October 20, 2025</p>
+<p><strong>Last Updated</strong>: January 2025</p>
     <nav id="page-controls">
       <a href="#content" id="return-top">
         <i class="fa fa-arrow-up" alt="⇧"></i> Return to top

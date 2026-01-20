@@ -73,6 +73,33 @@ Send data in the request body for POST and PUT requests.
 
 **Body Variables**: Use `{{variableName}}` syntax for variables in the body.
 
+#### Unicode Character Handling
+
+When sending JSON request bodies, you can control how non-ASCII characters (like smart quotes, emojis, or accented characters) are encoded:
+
+1. Toggle **"Escape unicode in JSON"** to control encoding behavior:
+   - **ON (default)**: Non-ASCII characters are escaped as `\uXXXX` sequences (e.g., `'` becomes `\u2019`)
+   - **OFF**: Characters are sent as UTF-8, preserving the original characters
+
+**When to disable escaping**:
+- Your API or database expects UTF-8 characters directly
+- You want to preserve special characters like smart quotes (`'` instead of `'`)
+- You're sending text with emojis or international characters
+- Your receiving system stores the JSON as a string and you want readable characters
+
+**Example with unicode characters**:
+```json
+{
+  "message": "{{userMessage}}"
+}
+```
+
+If `userMessage` contains `Let's grab a drink?`:
+- **Escape ON**: Sends `"Let\\u2019s grab a drink?"` (escaped)
+- **Escape OFF**: Sends `"Let's grab a drink?"` (UTF-8, readable)
+
+**Note**: This setting applies to both static JSON text and variables inserted into the body. The toggle affects how the entire request body is encoded before sending.
+
 ---
 
 ## Testing Your API Call
@@ -397,6 +424,18 @@ Your account status: {userProfile.json.status}
 3. Ensure proper quote escaping
 4. Test without variables first, then add them
 
+### Issue: Unicode characters appear as escape sequences in database
+
+**Solution**: If you're seeing `\u2019` instead of `'` (or similar escaped characters) in your database:
+1. Toggle **"Escape unicode in JSON"** to OFF in the APIRequest component
+2. This will send UTF-8 characters directly instead of escaping them
+3. Test the request to verify characters are preserved correctly
+4. Note: Some APIs or databases may require escaped format - check your API documentation
+
+**Example**: If `Let's grab a drink?` appears as `Let\u2019s grab a drink?`:
+- Disable the "Escape unicode in JSON" toggle
+- The smart quote character will be sent as UTF-8 and stored correctly
+
 ---
 
 ## Important Notes
@@ -440,5 +479,19 @@ Email: contact@intalos.de
 ---
 
 **Last Updated**: January 2025
+
+---
+
+## Technical Details
+
+### JSON Encoding Behavior
+
+The APIRequest component uses different encoding methods based on the "Escape unicode in JSON" setting:
+
+- **When enabled (default)**: Uses Python's `json.dumps()` with `ensure_ascii=True`, which escapes all non-ASCII characters. The request is sent using the `json=` parameter in the `requests` library.
+
+- **When disabled**: Uses `json.dumps()` with `ensure_ascii=False` and sends the JSON as UTF-8 encoded bytes via the `data=` parameter with `Content-Type: application/json` header.
+
+This ensures that when the toggle is disabled, unicode characters in both static JSON text and variable values are preserved exactly as entered, without being converted to escape sequences.
 
 

@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <!-- UTF-8 encoding for proper character display -->
+    <meta charset="UTF-8">
+    
     <!-- Override CSP to allow unsafe-eval and unsafe-inline for JavaScript -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
     
@@ -102,7 +105,7 @@
         margin-left: calc(-100% - 3rem - 2rem);
       }
     </style>
-    <link rel="icon" type="image/x-icon" href=images/favicon.ico>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/responsivity.css" rel="stylesheet">
     <link href="../stylesheets/custom.css" rel="stylesheet">  
@@ -152,7 +155,7 @@
     
     
     <li class="nav-subitem">
-    <a href="#available-settings">Available Settings</a>
+    <a href="#available-settings-tabs">Available Settings Tabs</a>
     </li>
     
     
@@ -185,8 +188,32 @@
 <h2 id="overview">Overview</h2>
 <p><strong>Bot Settings</strong> allow you to configure integrations and features that apply to your entire bot, rather than individual components in your flow. These settings enable advanced capabilities like IoT device control, API integrations, and other bot-wide configurations.</p>
 <hr />
-<h2 id="available-settings">Available Settings</h2>
-<h3 id="iot-integration">IoT Integration</h3>
+<h2 id="available-settings-tabs">Available Settings Tabs</h2>
+<p>Bot Settings are organized into four main tabs:</p>
+<h3 id="1-general-settings">1. General Settings</h3>
+<p>Configure general bot-wide settings:
+- <strong>Enable Manual Restart</strong>: Allow manual restart of bot conversations (default: enabled)
+- Other general bot configuration options</p>
+<h3 id="2-variables">2. Variables</h3>
+<p>Manage bot variables and their types:
+- View all variables used in your bot
+- Set variable types (string, number, boolean, array, object, date, auto-detect)
+- Variables are automatically created when you use them in components
+- System variables (created automatically) vs user variables
+- Edit variable types to ensure proper data handling
+- Delete unused variables</p>
+<p><strong>Note</strong>: Variables are created automatically when you reference them in components. You can manage their types here to ensure correct data processing.</p>
+<h3 id="3-payment-integrations">3. Payment Integrations</h3>
+<p>Configure payment processor integrations:
+- <strong>Payment Processor Integration</strong>: Enable/disable payment processing
+- <strong>Yoco Integration</strong>: Configure Yoco payment webhooks
+  - Webhook Secret
+  - Yoco Webhook Payment Identifier
+- <strong>Payfast Integration</strong>: Configure Payfast payment settings
+- <strong>Payment Integration Meta Data</strong>: View payment integration metadata
+- <strong>Webhook Response Processing</strong>: Configure how payment webhook responses are processed
+  - Google Sheets integration for payment data</p>
+<h3 id="4-iot-integration">4. IoT Integration</h3>
 <p>Configure smart device control and home automation:</p>
 <ul>
 <li><strong><a href="../tuya-integration/">Tuya IoT Integration</a></strong> - Control smart devices via Tuya Smart Life platform</li>
@@ -196,7 +223,11 @@
 <ol>
 <li><strong>Open your bot</strong> in the Bot Builder</li>
 <li>Click on <strong>"Bot Settings"</strong> (usually in the top navigation or sidebar)</li>
-<li>Navigate to the relevant tab (e.g., <strong>"IoT Integration"</strong>)</li>
+<li>Navigate to the relevant tab:</li>
+<li><strong>General</strong>: General bot settings</li>
+<li><strong>Variables</strong>: Manage bot variables</li>
+<li><strong>Payment Integrations</strong>: Configure payment processors</li>
+<li><strong>IoT Integration</strong>: Configure smart device control</li>
 <li>Configure your settings</li>
 <li><strong>Save</strong> your changes</li>
 </ol>
@@ -227,7 +258,7 @@
 - Can settings be shared between bots? No, each bot has its own settings
 - Are settings secure? Yes, all credentials are encrypted and stored securely</p>
 <hr />
-<p><strong>Last Updated</strong>: October 2025</p>
+<p><strong>Last Updated</strong>: January 2025</p>
     <nav id="page-controls">
       <a href="#content" id="return-top">
         <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
