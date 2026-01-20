@@ -225,6 +225,12 @@
     </li>
     
     
+    
+    <li class="nav-subitem">
+    <a href="#technical-details">Technical Details</a>
+    </li>
+    
+    
     </ul>
     
 </li>
@@ -288,6 +294,27 @@
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
 </span></code></pre></div></p>
 <p><strong>Body Variables</strong>: Use <code>{{variableName}}</code> syntax for variables in the body.</p>
+<h4 id="unicode-character-handling">Unicode Character Handling</h4>
+<p>When sending JSON request bodies, you can control how non-ASCII characters (like smart quotes, emojis, or accented characters) are encoded:</p>
+<ol>
+<li>Toggle <strong>"Escape unicode in JSON"</strong> to control encoding behavior:</li>
+<li><strong>ON (default)</strong>: Non-ASCII characters are escaped as <code>\uXXXX</code> sequences (e.g., <code>'</code> becomes <code>\u2019</code>)</li>
+<li><strong>OFF</strong>: Characters are sent as UTF-8, preserving the original characters</li>
+</ol>
+<p><strong>When to disable escaping</strong>:
+- Your API or database expects UTF-8 characters directly
+- You want to preserve special characters like smart quotes (<code>'</code> instead of <code>'</code>)
+- You're sending text with emojis or international characters
+- Your receiving system stores the JSON as a string and you want readable characters</p>
+<p><strong>Example with unicode characters</strong>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{userMessage}}&quot;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p>If <code>userMessage</code> contains <code>Let's grab a drink?</code>:
+- <strong>Escape ON</strong>: Sends <code>"Let\\u2019s grab a drink?"</code> (escaped)
+- <strong>Escape OFF</strong>: Sends <code>"Let's grab a drink?"</code> (UTF-8, readable)</p>
+<p><strong>Note</strong>: This setting applies to both static JSON text and variables inserted into the body. The toggle affects how the entire request body is encoded before sending.</p>
 <hr />
 <h2 id="testing-your-api-call">Testing Your API Call</h2>
 <p>Before deploying, test your API request to ensure it works correctly:</p>
@@ -295,9 +322,9 @@
 <ol>
 <li><strong>Enable Test Mode</strong>: Toggle <strong>"Add test values"</strong> to ON</li>
 <li><strong>Add Test Values</strong>: Enter test values for any variables in your request:
-   <div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Variable: {userName}    Test Value: John Doe
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Variable: {userEmail}   Test Value: john@example.com
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Variable: {deviceId}    Test Value: bf1234567890abcdef
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Variable: {userName}    Test Value: John Doe
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Variable: {userEmail}   Test Value: john@example.com
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>Variable: {deviceId}    Test Value: bf1234567890abcdef
 </span></code></pre></div></li>
 <li><strong>Execute Test</strong>: Click <strong>"Test the request"</strong> button</li>
 <li><strong>Review Results</strong>: Check the response in the popup modal</li>
@@ -332,9 +359,9 @@
 <li>Add a "default" arrow for unlisted status codes</li>
 </ol>
 <p><strong>Example Flow</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>APIRequest -&gt; 200 -&gt; Success Message
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>          -&gt; 404 -&gt; &quot;User not found&quot; Message
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>          -&gt; default -&gt; Error Handling
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>APIRequest -&gt; 200 -&gt; Success Message
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>          -&gt; 404 -&gt; &quot;User not found&quot; Message
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>          -&gt; default -&gt; Error Handling
 </span></code></pre></div></p>
 <hr />
 <h2 id="storing-api-responses">Storing API Responses</h2>
@@ -342,13 +369,13 @@
 <ol>
 <li>Scroll to <strong>"Store output in variable"</strong></li>
 <li>Type a variable name or select an existing one
-   <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Example: apiResponse
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Example: apiResponse
 </span></code></pre></div></li>
 </ol>
 <p><strong>Access response data in later components</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Status Code: {apiResponse.status_code}
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Response Text: {apiResponse.text}
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>JSON Data: {apiResponse.json.fieldName}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Status Code: {apiResponse.status_code}
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Response Text: {apiResponse.text}
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>JSON Data: {apiResponse.json.fieldName}
 </span></code></pre></div></p>
 <h3 id="store-curl-command-for-debugging">Store Curl Command for Debugging</h3>
 <p>You can also store the actual curl command that was executed for debugging purposes:</p>
@@ -372,11 +399,11 @@
 <ol>
 <li>Toggle <strong>"Error Message to User"</strong> to ON</li>
 <li>Enter your message:
-   <div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>We&#39;re having trouble connecting to our system. Please try again later.
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>We&#39;re having trouble connecting to our system. Please try again later.
 </span></code></pre></div></li>
 </ol>
 <p><strong>Dynamic Error Messages</strong>: Use variables in error messages:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Sorry {userName}, we couldn&#39;t process your request. Error: {errorDetails}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Sorry {userName}, we couldn&#39;t process your request. Error: {errorDetails}
 </span></code></pre></div></p>
 <h3 id="admin-email-notification">Admin Email Notification</h3>
 <p>Get notified when API errors occur:</p>
@@ -387,26 +414,26 @@
 <hr />
 <h2 id="variable-reference-guide">Variable Reference Guide</h2>
 <h3 id="using-variables-in-urls">Using Variables in URLs</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Syntax: {variableName}
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Example: https://api.example.com/users/{userId}/orders/{orderId}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Syntax: {variableName}
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Example: https://api.example.com/users/{userId}/orders/{orderId}
 </span></code></pre></div>
 <h3 id="using-variables-in-parameters">Using Variables in Parameters</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Syntax: {{variableName}}
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Example:
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  Key: search    Value: {{searchTerm}}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Syntax: {{variableName}}
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Example:
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  Key: search    Value: {{searchTerm}}
 </span></code></pre></div>
 <h3 id="using-variables-in-headers">Using Variables in Headers</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Syntax: {variableName}
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>Example:
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  Key: Authorization    Value: Bearer {apiToken}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Syntax: {variableName}
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Example:
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>  Key: Authorization    Value: Bearer {apiToken}
 </span></code></pre></div>
 <h3 id="using-variables-in-body">Using Variables in Body</h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Syntax: {{variableName}}
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Example:
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>{
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>  &quot;user&quot;: &quot;{{userName}}&quot;,
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  &quot;action&quot;: &quot;{{userAction}}&quot;
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Syntax: {{variableName}}
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Example:
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>{
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>  &quot;user&quot;: &quot;{{userName}}&quot;,
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>  &quot;action&quot;: &quot;{{userAction}}&quot;
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>}
 </span></code></pre></div>
 <hr />
 <h2 id="common-use-cases">Common Use Cases</h2>
@@ -416,17 +443,17 @@
 - URL: <code>https://your-crm.com/api/users/{phoneNumber}</code>
 - Store in: <code>userProfile</code></p>
 <p><strong>Usage in next component</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Welcome back, {userProfile.json.firstName}!
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Your account status: {userProfile.json.status}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Welcome back, {userProfile.json.firstName}!
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Your account status: {userProfile.json.status}
 </span></code></pre></div></p>
 <h3 id="2-validate-email-address">2. Validate Email Address</h3>
 <p><strong>Configuration</strong>:
 - Method: <code>POST</code>
 - URL: <code>https://api.emailvalidation.com/validate</code>
 - Body:
-  <div class="language-json highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{userEmail}}&quot;</span>
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="p">}</span>
+  <div class="language-json highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{userEmail}}&quot;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">}</span>
 </span></code></pre></div>
 - Response Routing: ON
   - 200 -&gt; "Email is valid"
@@ -436,15 +463,15 @@
 - Method: <code>POST</code>
 - URL: <code>https://your-helpdesk.com/api/tickets</code>
 - Headers:
-  <div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Authorization: Bearer YOUR_API_KEY
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Content-Type: application/json
+  <div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Authorization: Bearer YOUR_API_KEY
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Content-Type: application/json
 </span></code></pre></div>
 - Body:
-  <div class="language-json highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&quot;subject&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ticketSubject}}&quot;</span><span class="p">,</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ticketDescription}}&quot;</span><span class="p">,</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">&quot;customer_phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{userPhone}}&quot;</span>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="p">}</span>
+  <div class="language-json highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">&quot;subject&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ticketSubject}}&quot;</span><span class="p">,</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{ticketDescription}}&quot;</span><span class="p">,</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="nt">&quot;customer_phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{userPhone}}&quot;</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="p">}</span>
 </span></code></pre></div></p>
 <h3 id="4-update-customer-preferences">4. Update Customer Preferences</h3>
 <p><strong>Configuration</strong>:
@@ -461,15 +488,15 @@
 - Method: <code>POST</code>
 - URL: <code>https://magic.intalos.de/api/tuya/devices/switch/</code>
 - Body:
-  <div class="language-json highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{deviceId}}&quot;</span><span class="p">,</span>
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{deviceAction}}&quot;</span><span class="p">,</span>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span><span class="nt">&quot;bot_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{botId}}&quot;</span>
-</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="p">}</span>
+  <div class="language-json highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="p">{</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="nt">&quot;device_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{deviceId}}&quot;</span><span class="p">,</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{deviceAction}}&quot;</span><span class="p">,</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="nt">&quot;bot_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{{botId}}&quot;</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="p">}</span>
 </span></code></pre></div>
 - Store in: <code>deviceResponse</code></p>
 <p><strong>Usage in next component</strong>:
-<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>{deviceResponse.json.message}
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>{deviceResponse.json.message}
 </span></code></pre></div></p>
 <p><strong>Note</strong>: Requires Tuya integration to be enabled in Bot Settings -&gt; IoT Integration.</p>
 <hr />
@@ -534,22 +561,31 @@
 2. Check for missing commas or quotes
 3. Ensure proper quote escaping
 4. Test without variables first, then add them</p>
+<h3 id="issue-unicode-characters-appear-as-escape-sequences-in-database">Issue: Unicode characters appear as escape sequences in database</h3>
+<p><strong>Solution</strong>: If you're seeing <code>\u2019</code> instead of <code>'</code> (or similar escaped characters) in your database:
+1. Toggle <strong>"Escape unicode in JSON"</strong> to OFF in the APIRequest component
+2. This will send UTF-8 characters directly instead of escaping them
+3. Test the request to verify characters are preserved correctly
+4. Note: Some APIs or databases may require escaped format - check your API documentation</p>
+<p><strong>Example</strong>: If <code>Let's grab a drink?</code> appears as <code>Let\u2019s grab a drink?</code>:
+- Disable the "Escape unicode in JSON" toggle
+- The smart quote character will be sent as UTF-8 and stored correctly</p>
 <hr />
 <h2 id="important-notes">Important Notes</h2>
 <h3 id="api-endpoint-whitelisting">API Endpoint Whitelisting</h3>
 <p><strong>External APIs</strong>: If your API has firewall restrictions, you must whitelist our backend server:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Hostname to whitelist: https://magic.intalos.de
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>Hostname to whitelist: https://magic.intalos.de
 </span></code></pre></div>
 <p>Contact your IT team to add this to your API's allowed origins.</p>
 <p><strong>Internal Intalos APIs</strong>: Some endpoints (like Tuya IoT integration) are internal and don't require external whitelisting. These are automatically accessible from within the Intalos platform.</p>
 <h3 id="response-format">Response Format</h3>
 <p>The API response is stored with this structure:
-<div class="language-javascript highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="p">{</span>
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="s2">&quot;status_code&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span>
-</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="s2">&quot;headers&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">},</span>
-</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="s2">&quot;text&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;raw response text&quot;</span><span class="p">,</span>
-</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="s2">&quot;json&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// Only if response is JSON</span>
-</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="p">}</span>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">{</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="s2">&quot;status_code&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">200</span><span class="p">,</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="s2">&quot;headers&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span><span class="s2">&quot;text&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;raw response text&quot;</span><span class="p">,</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">  </span><span class="s2">&quot;json&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// Only if response is JSON</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="p">}</span>
 </span></code></pre></div></p>
 <h3 id="timeout-limits">Timeout Limits</h3>
 <ul>
@@ -562,6 +598,19 @@
 <p>Email: contact@intalos.de</p>
 <hr />
 <p><strong>Last Updated</strong>: January 2025</p>
+<hr />
+<h2 id="technical-details">Technical Details</h2>
+<h3 id="json-encoding-behavior">JSON Encoding Behavior</h3>
+<p>The APIRequest component uses different encoding methods based on the "Escape unicode in JSON" setting:</p>
+<ul>
+<li>
+<p><strong>When enabled (default)</strong>: Uses Python's <code>json.dumps()</code> with <code>ensure_ascii=True</code>, which escapes all non-ASCII characters. The request is sent using the <code>json=</code> parameter in the <code>requests</code> library.</p>
+</li>
+<li>
+<p><strong>When disabled</strong>: Uses <code>json.dumps()</code> with <code>ensure_ascii=False</code> and sends the JSON as UTF-8 encoded bytes via the <code>data=</code> parameter with <code>Content-Type: application/json</code> header.</p>
+</li>
+</ul>
+<p>This ensures that when the toggle is disabled, unicode characters in both static JSON text and variable values are preserved exactly as entered, without being converted to escape sequences.</p>
     <nav id="page-controls">
       <a href="#content" id="return-top">
         <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
