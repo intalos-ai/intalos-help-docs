@@ -4,6 +4,12 @@ Welcome to the Intalos Bot Builder Help Center! This comprehensive guide will he
 
 ---
 
+## 🛠 Bot Builder
+
+- [**Canvas & Publishing**](bot-builder.md) – Zoom controls, mouse navigation, and pre-publish validation
+
+---
+
 ## 📚 Component Guides
 
 ### Question Components
@@ -52,6 +58,8 @@ Configure bot-wide integrations and features:
 Learn how to connect your bots to external platforms:
 
 - [**WhatsApp Integrations**](integrations.md#whatsapp-integrations) - Set up and manage WhatsApp Business connections
+- [**API Integrations**](integrations.md#api-integrations) - Integrate bots via REST API for custom applications and websites
+- [**Integration Test Runner**](integrations.md#integration-test-runner) - Validate API/WhatsApp behavior with timeline playback and runner tools
 
 ---
 
@@ -63,4 +71,4 @@ Need help? We're here to assist you.
 
 ---
 
-*Last updated: December 2025*
+*Last updated: January 2026*

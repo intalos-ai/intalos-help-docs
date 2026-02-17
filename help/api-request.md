@@ -61,6 +61,8 @@ Send data in the request body for POST and PUT requests.
 
 1. Toggle **"Customize Body"** to ON
 2. Enter your JSON data in the editor
+3. Click **"Format JSON"** to auto-format and validate your JSON body
+   - If the JSON is invalid, you will see an error toast with details
 
 **Example**:
 ```json
@@ -422,7 +424,8 @@ Your account status: {userProfile.json.status}
 1. Validate your JSON using an online validator
 2. Check for missing commas or quotes
 3. Ensure proper quote escaping
-4. Test without variables first, then add them
+4. Use the **"Format JSON"** button in the component editor to auto-format and validate
+5. Test without variables first, then add them
 
 ### Issue: Unicode characters appear as escape sequences in database
 

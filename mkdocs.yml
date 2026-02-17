@@ -89,6 +89,8 @@ docs_dir: help
 # Navigation
 nav:
   - Home: index.md
+  - Bot Builder:
+    - Canvas & Publishing: bot-builder.md
   - Question Components:
     - QuestionText: question-text.md
     - QuestionButtons: question-buttons.md
@@ -108,7 +110,7 @@ nav:
     - GoogleSheets: google-sheets.md
     - GoogleDrive: google-drive.md
   - Integrations Guides:
-    - WhatsApp Integrations: integrations.md#whatsapp-integrations
+    - Integrations: integrations.md
   - Bot Settings:
     - Bot Settings Overview: bot-settings.md
     - Tuya IoT Integration: tuya-integration.md
