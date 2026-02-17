@@ -213,6 +213,84 @@
     </li>
     
     
+    
+    <li class="nav-subitem">
+    <a href="#api-integrations">API Integrations</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#how-api-integrations-work">How API Integrations Work</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#setting-up-an-api-integration">Setting Up an API Integration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#using-the-api-integration">Using the API Integration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#example-integration-code">Example Integration Code</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#managing-your-api-integration">Managing Your API Integration</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#session-management">Session Management</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#best-practices_1">Best Practices</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#troubleshooting_1">Troubleshooting</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#integration-limits_1">Integration Limits</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#advanced-features_1">Advanced Features</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#integration-test-runner">Integration Test Runner</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help_1">Need Help?</a>
+    </li>
+    
+    
     </ul>
     
 </li>
@@ -302,6 +380,7 @@
 <p><strong>Integrated Bot</strong>:
 - Select the published bot you want to connect
 - <strong>Important</strong>: The bot must be published before it appears in this list
+- Bots in the selection dropdown are shown in alphabetical order for easier lookup
 - You can change this later if needed</p>
 <h4 id="4-enter-whatsapp-credentials">4. Enter WhatsApp Credentials</h4>
 <p>Fill in the required fields:</p>
@@ -541,7 +620,705 @@
 - What happens if my Access Token expires? Intalos AI handles token refresh automatically for long-lived tokens
 - Can I test my integration before going live? Yes, use the Bot Builder test mode first, then create a test integration</p>
 <hr />
-<p><strong>Last Updated</strong>: December 2025</p>
+<h2 id="api-integrations">API Integrations</h2>
+<h3 id="what-is-an-api-integration">What is an API Integration?</h3>
+<p>An <strong>API Integration</strong> allows your bot to be triggered and interacted with via REST API calls, enabling you to integrate your bot into custom applications, websites, mobile apps, or any system that can make HTTP requests. Instead of users interacting through WhatsApp, they interact through your own application's interface while your bot handles the conversation logic.</p>
+<h3 id="when-to-use-api-integration">When to Use API Integration</h3>
+<p>Perfect for scenarios like:
+- <strong>Custom Web Applications</strong>: Embed conversational bots into your website
+- <strong>Mobile Apps</strong>: Add bot functionality to iOS or Android applications
+- <strong>Backend Services</strong>: Integrate bot logic into your existing backend systems
+- <strong>Third-Party Integrations</strong>: Connect bots to other platforms via API
+- <strong>White-Label Solutions</strong>: Provide bot functionality under your own brand
+- <strong>Multi-Channel Support</strong>: Use the same bot logic across different channels
+- <strong>Programmatic Access</strong>: Trigger bots from scripts, automation tools, or scheduled tasks</p>
+<hr />
+<h2 id="how-api-integrations-work">How API Integrations Work</h2>
+<h3 id="architecture-overview_1">Architecture Overview</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Your Application/Website
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    ↓ (HTTP POST request)
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Intalos AI API Endpoint
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    ↓ (authenticates with API key)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Bot Flow Execution
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    ↓ (processes request)
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Bot Generates Response
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    ↓ (returns JSON)
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Your Application/Website
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    ↓ (displays to user)
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>User Interface
+</span></code></pre></div>
+<h3 id="key-concepts_1">Key Concepts</h3>
+<p><strong>Integration</strong>: A connection between your Intalos AI account and your application. Each integration has a unique API key for authentication.</p>
+<p><strong>Session</strong>: A conversation session represents a single user's interaction with your bot. Each session has a unique <code>session_id</code> that you provide or that gets auto-generated.</p>
+<p><strong>API Key</strong>: A secure token used to authenticate API requests. API keys are encrypted at rest and should be kept secret.</p>
+<p><strong>Endpoints</strong>: Two main endpoints:
+- <strong>Session Start</strong>: <code>/api/integrations/api/&lt;integration_id&gt;/session/</code> - Start a new conversation
+- <strong>Send Message</strong>: <code>/api/integrations/api/&lt;integration_id&gt;/session/&lt;session_id&gt;/message/</code> - Continue an existing conversation</p>
+<hr />
+<h2 id="setting-up-an-api-integration">Setting Up an API Integration</h2>
+<h3 id="prerequisites_1">Prerequisites</h3>
+<p>Before creating an API integration, you need:</p>
+<ol>
+<li><strong>A Published Bot</strong>: Your bot must be published before you can connect it to an API integration</li>
+<li><strong>Your Application Ready</strong>: Have your application, website, or system ready to make HTTP requests</li>
+</ol>
+<h3 id="step-by-step-setup_1">Step-by-Step Setup</h3>
+<h4 id="1-navigate-to-integrations_1">1. Navigate to Integrations</h4>
+<ol>
+<li>Log in to your Intalos AI account</li>
+<li>Click on <strong>"Integrations"</strong> in the main navigation</li>
+<li>Click on <strong>"API Integration"</strong> card</li>
+</ol>
+<h4 id="2-create-new-api-integration">2. Create New API Integration</h4>
+<ol>
+<li>Click <strong>"Create API Integration"</strong> or <strong>"Add New"</strong></li>
+<li>You'll see the API Integration form</li>
+</ol>
+<h4 id="3-configure-basic-settings_1">3. Configure Basic Settings</h4>
+<p><strong>Integration Alias</strong>:
+- Give your integration a descriptive name (e.g., "Customer Support API", "Mobile App Bot")
+- This helps you identify it if you have multiple integrations
+- Example: <code>production-customer-support</code></p>
+<p><strong>API Key</strong>:
+- <strong>Option 1</strong>: Leave blank to auto-generate a secure API key
+- <strong>Option 2</strong>: Provide your own API key (must be a secure random string)
+- <strong>Important</strong>: Save this key securely - you'll need it for API authentication
+- The key will be displayed once after creation (masked in the UI afterward)
+- Example auto-generated key: <code>xK9mP2qR7vW4nT8yU1zA5bC6dE3fG0hI</code></p>
+<p><strong>Integrated Bot</strong>:
+- Select the published bot you want to connect
+- <strong>Important</strong>: The bot must be published before it appears in this list
+- Bots in the selection dropdown are shown in alphabetical order for easier lookup
+- You can change this later if needed</p>
+<p><strong>Error Email Alerts</strong>:
+- Toggle ON to receive email notifications when integration errors occur
+- Enter the email address where you want to receive alerts</p>
+<h4 id="4-save-and-activate">4. Save and Activate</h4>
+<ol>
+<li>Review all your settings</li>
+<li>Click <strong>"Save"</strong> or <strong>"Create Integration"</strong></li>
+<li><strong>Important</strong>: After creating, make sure to <strong>activate</strong> the integration</li>
+<li>Toggle the "Active" switch to ON</li>
+<li>The integration must be active to accept API requests</li>
+<li><strong>Save your API Key</strong>: Copy the API key immediately after creation</li>
+<li>It will be masked in future views for security</li>
+<li>If lost, you'll need to regenerate it</li>
+</ol>
+<hr />
+<h2 id="using-the-api-integration">Using the API Integration</h2>
+<h3 id="base-url">Base URL</h3>
+<p>All API endpoints use your Intalos AI instance base URL:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>https://your-instance.intalos.de/api/integrations/api/&lt;integration_id&gt;/
+</span></code></pre></div></p>
+<h3 id="authentication">Authentication</h3>
+<p>API requests must include your API key in one of two ways:</p>
+<p><strong>Option 1: X-API-Key Header</strong> (Recommended)
+<div class="language-http highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="err">X-API-Key: your_api_key_here</span>
+</span></code></pre></div></p>
+<p><strong>Option 2: Authorization Bearer Header</strong>
+<div class="language-http highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="err">Authorization: Bearer your_api_key_here</span>
+</span></code></pre></div></p>
+<p><strong>Note</strong>: If both headers are present, <code>X-API-Key</code> takes precedence.</p>
+<h3 id="idempotency">Idempotency</h3>
+<p>To safely retry requests (e.g. after network timeouts), use the <code>Idempotency-Key</code> header. When you send the same key with the same request body, the API returns the cached response instead of executing again.</p>
+<p><strong>Header</strong>:
+<div class="language-http highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="err">Idempotency-Key: your-unique-key-per-request</span>
+</span></code></pre></div></p>
+<p><strong>Behavior</strong>:
+- Use a unique key per distinct operation (e.g. UUID, or <code>session_id</code> + sequence number)
+- Same key + same body → returns cached response with <code>"idempotency_replayed": true</code>
+- Same key + different body → returns <code>409 Conflict</code> with error
+- Key is optional; omit it for non-idempotent requests</p>
+<p><strong>Supported endpoints</strong>: Session start and Send message.</p>
+<h3 id="starting-a-session">Starting a Session</h3>
+<p><strong>Endpoint</strong>: <code>POST /api/integrations/api/&lt;integration_id&gt;/session/</code></p>
+<p><strong>Request Headers</strong>:
+<div class="language-http highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="err">Content-Type: application/json</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="err">X-API-Key: your_api_key_here</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="err">Idempotency-Key: optional-unique-key-for-retries</span>
+</span></code></pre></div></p>
+<p><strong>Request Body</strong> (all fields optional):
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;session_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user-123&quot;</span><span class="p">,</span><span class="w">           </span><span class="c1">// Optional: custom session ID (auto-generated if omitted)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;user_identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user-123&quot;</span><span class="p">,</span><span class="w">      </span><span class="c1">// Optional: user identifier for logging (defaults to session_id)</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">&quot;force_restart&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">             </span><span class="c1">// Optional: force restart even if session exists (default: false)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nt">&quot;variables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">                      </span><span class="c1">// Optional: seed bot variables at session start (requires variable injection enabled in integration settings)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nt">&quot;customer_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nt">&quot;order_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ORD-123&quot;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="nt">&quot;message_payload&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="w">          </span><span class="c1">// Optional: sets on_create_message_payload for the initial trigger (e.g. for bots that branch on first input)</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Variable injection</strong>: The <code>variables</code> field lets you pre-populate bot variables when starting a session. This must be enabled in your API integration settings. Variable names must match variables defined in Bot Settings.</p>
+<p><strong>Response</strong> (Success - 200 OK):
+<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">&quot;session_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user-123&quot;</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;component_id_abc&quot;</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello! How can I help you?&quot;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="nt">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">      </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello! How can I help you?&quot;</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">  </span><span class="p">],</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">  </span><span class="nt">&quot;is_final&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Response Fields</strong>:
+- <code>session_id</code>: The session identifier (your provided one or auto-generated)
+- <code>state</code>: Current bot state/component ID
+- <code>message</code>: The first message from the bot (for convenience)
+- <code>messages</code>: Array of all messages from the bot in this response
+- <code>is_final</code>: Whether the bot has reached an End component (conversation complete)
+- <code>idempotency_replayed</code>: If present and <code>true</code>, this is a cached response from an idempotent retry</p>
+<p><strong>Error Responses</strong>:
+- <code>401 Unauthorized</code>: Invalid or missing API key
+- <code>404 Not Found</code>: Integration not found or inactive
+- <code>409 Conflict</code>: Session already exists (use <code>force_restart: true</code> or message endpoint)
+- <code>500 Internal Server Error</code>: Bot execution error</p>
+<h3 id="sending-a-message">Sending a Message</h3>
+<p><strong>Endpoint</strong>: <code>POST /api/integrations/api/&lt;integration_id&gt;/session/&lt;session_id&gt;/message/</code></p>
+<p><strong>Request Headers</strong>:
+<div class="language-http highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="err">Content-Type: application/json</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="err">X-API-Key: your_api_key_here</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="err">Idempotency-Key: optional-unique-key-for-retries</span>
+</span></code></pre></div></p>
+<p><strong>Request Body</strong> (for text messages):
+<div class="language-json highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello, I need help&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Request Body</strong> (for button/list selections):
+<div class="language-json highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">&quot;selected_option_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;component_id_xyz&quot;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Response</strong> (Success - 200 OK):
+<div class="language-json highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">&quot;session_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user-123&quot;</span><span class="p">,</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;component_id_def&quot;</span><span class="p">,</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;buttons&quot;</span><span class="p">,</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;What would you like to do?&quot;</span><span class="p">,</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">      </span><span class="p">{</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;component_id_xyz&quot;</span><span class="p">,</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Option 1&quot;</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">      </span><span class="p">{</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;component_id_abc&quot;</span><span class="p">,</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">        </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Option 2&quot;</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">  </span><span class="nt">&quot;messages&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;buttons&quot;</span><span class="p">,</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">      </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;What would you like to do?&quot;</span><span class="p">,</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">      </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;component_id_xyz&quot;</span><span class="p">,</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="w">          </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Option 1&quot;</span>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;component_id_abc&quot;</span><span class="p">,</span>
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="w">          </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Option 2&quot;</span>
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-12-31"><a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a><span class="w">      </span><span class="p">]</span>
+</span><span id="__span-12-32"><a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-12-33"><a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a><span class="w">  </span><span class="p">],</span>
+</span><span id="__span-12-34"><a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a><span class="w">  </span><span class="nt">&quot;is_final&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+</span><span id="__span-12-35"><a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Message Types</strong>:</p>
+<p>The API returns different message types based on your bot components:</p>
+<p><strong>Text Messages</strong>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Your message here&quot;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Button Messages</strong>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;buttons&quot;</span><span class="p">,</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Choose an option:&quot;</span><span class="p">,</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;component_id_1&quot;</span><span class="p">,</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">      </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Option 1&quot;</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;component_id_2&quot;</span><span class="p">,</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">      </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Option 2&quot;</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>List Messages</strong>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;list&quot;</span><span class="p">,</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Select from list:&quot;</span><span class="p">,</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;component_id_1&quot;</span><span class="p">,</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="w">      </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Item 1&quot;</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;component_id_2&quot;</span><span class="p">,</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="w">      </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Item 2&quot;</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="w">  </span><span class="p">]</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Media Messages</strong>:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;media&quot;</span><span class="p">,</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Image caption&quot;</span><span class="p">,</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="nt">&quot;media_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://example.com/image.jpg&quot;</span><span class="p">,</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">  </span><span class="nt">&quot;caption&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Image caption&quot;</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p><strong>Error Responses</strong>:
+- <code>401 Unauthorized</code>: Invalid or missing API key
+- <code>404 Not Found</code>: Session not found or integration inactive
+- <code>422 Unprocessable Entity</code>: Invalid request body format
+- <code>500 Internal Server Error</code>: Bot execution error</p>
+<hr />
+<h2 id="example-integration-code">Example Integration Code</h2>
+<h3 id="javascripttypescript-example">JavaScript/TypeScript Example</h3>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">API_BASE_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;https://your-instance.intalos.de/api/integrations/api&#39;</span><span class="p">;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">INTEGRATION_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">31</span><span class="p">;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">API_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;your_api_key_here&#39;</span><span class="p">;</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="c1">// Start a new session</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">startSession</span><span class="p">(</span><span class="nx">sessionId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">    </span><span class="sb">`</span><span class="si">${</span><span class="nx">API_BASE_URL</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">INTEGRATION_ID</span><span class="si">}</span><span class="sb">/session/`</span><span class="p">,</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">      </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">      </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="w">        </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">        </span><span class="s1">&#39;X-API-Key&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">API_KEY</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">      </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">        </span><span class="nx">session_id</span><span class="o">:</span><span class="w"> </span><span class="nx">sessionId</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="sb">`user-</span><span class="si">${</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a><span class="w">        </span><span class="nx">user_identifier</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;user-123&#39;</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">      </span><span class="p">})</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`API error: </span><span class="si">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="p">}</span>
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="c1">// Send a message</span>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">sessionId</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span>
+</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="w">    </span><span class="sb">`</span><span class="si">${</span><span class="nx">API_BASE_URL</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">INTEGRATION_ID</span><span class="si">}</span><span class="sb">/session/</span><span class="si">${</span><span class="nx">sessionId</span><span class="si">}</span><span class="sb">/message/`</span><span class="p">,</span>
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a><span class="w">      </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="w">      </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a><span class="w">        </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+</span><span id="__span-17-37"><a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a><span class="w">        </span><span class="s1">&#39;X-API-Key&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">API_KEY</span>
+</span><span id="__span-17-38"><a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-17-39"><a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a><span class="w">      </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+</span><span id="__span-17-40"><a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a><span class="w">        </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="nx">message</span>
+</span><span id="__span-17-41"><a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a><span class="w">      </span><span class="p">})</span>
+</span><span id="__span-17-42"><a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-43"><a id="__codelineno-17-43" name="__codelineno-17-43" href="#__codelineno-17-43"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-17-44"><a id="__codelineno-17-44" name="__codelineno-17-44" href="#__codelineno-17-44"></a>
+</span><span id="__span-17-45"><a id="__codelineno-17-45" name="__codelineno-17-45" href="#__codelineno-17-45"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-46"><a id="__codelineno-17-46" name="__codelineno-17-46" href="#__codelineno-17-46"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`API error: </span><span class="si">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span><span id="__span-17-47"><a id="__codelineno-17-47" name="__codelineno-17-47" href="#__codelineno-17-47"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-17-48"><a id="__codelineno-17-48" name="__codelineno-17-48" href="#__codelineno-17-48"></a>
+</span><span id="__span-17-49"><a id="__codelineno-17-49" name="__codelineno-17-49" href="#__codelineno-17-49"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</span><span id="__span-17-50"><a id="__codelineno-17-50" name="__codelineno-17-50" href="#__codelineno-17-50"></a><span class="p">}</span>
+</span><span id="__span-17-51"><a id="__codelineno-17-51" name="__codelineno-17-51" href="#__codelineno-17-51"></a>
+</span><span id="__span-17-52"><a id="__codelineno-17-52" name="__codelineno-17-52" href="#__codelineno-17-52"></a><span class="c1">// Select a button/list option</span>
+</span><span id="__span-17-53"><a id="__codelineno-17-53" name="__codelineno-17-53" href="#__codelineno-17-53"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">selectOption</span><span class="p">(</span><span class="nx">sessionId</span><span class="p">,</span><span class="w"> </span><span class="nx">optionId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-54"><a id="__codelineno-17-54" name="__codelineno-17-54" href="#__codelineno-17-54"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span>
+</span><span id="__span-17-55"><a id="__codelineno-17-55" name="__codelineno-17-55" href="#__codelineno-17-55"></a><span class="w">    </span><span class="sb">`</span><span class="si">${</span><span class="nx">API_BASE_URL</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">INTEGRATION_ID</span><span class="si">}</span><span class="sb">/session/</span><span class="si">${</span><span class="nx">sessionId</span><span class="si">}</span><span class="sb">/message/`</span><span class="p">,</span>
+</span><span id="__span-17-56"><a id="__codelineno-17-56" name="__codelineno-17-56" href="#__codelineno-17-56"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-17-57"><a id="__codelineno-17-57" name="__codelineno-17-57" href="#__codelineno-17-57"></a><span class="w">      </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+</span><span id="__span-17-58"><a id="__codelineno-17-58" name="__codelineno-17-58" href="#__codelineno-17-58"></a><span class="w">      </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-59"><a id="__codelineno-17-59" name="__codelineno-17-59" href="#__codelineno-17-59"></a><span class="w">        </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+</span><span id="__span-17-60"><a id="__codelineno-17-60" name="__codelineno-17-60" href="#__codelineno-17-60"></a><span class="w">        </span><span class="s1">&#39;X-API-Key&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">API_KEY</span>
+</span><span id="__span-17-61"><a id="__codelineno-17-61" name="__codelineno-17-61" href="#__codelineno-17-61"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-17-62"><a id="__codelineno-17-62" name="__codelineno-17-62" href="#__codelineno-17-62"></a><span class="w">      </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+</span><span id="__span-17-63"><a id="__codelineno-17-63" name="__codelineno-17-63" href="#__codelineno-17-63"></a><span class="w">        </span><span class="nx">selected_option_id</span><span class="o">:</span><span class="w"> </span><span class="nx">optionId</span>
+</span><span id="__span-17-64"><a id="__codelineno-17-64" name="__codelineno-17-64" href="#__codelineno-17-64"></a><span class="w">      </span><span class="p">})</span>
+</span><span id="__span-17-65"><a id="__codelineno-17-65" name="__codelineno-17-65" href="#__codelineno-17-65"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-17-66"><a id="__codelineno-17-66" name="__codelineno-17-66" href="#__codelineno-17-66"></a><span class="w">  </span><span class="p">);</span>
+</span><span id="__span-17-67"><a id="__codelineno-17-67" name="__codelineno-17-67" href="#__codelineno-17-67"></a>
+</span><span id="__span-17-68"><a id="__codelineno-17-68" name="__codelineno-17-68" href="#__codelineno-17-68"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-69"><a id="__codelineno-17-69" name="__codelineno-17-69" href="#__codelineno-17-69"></a><span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`API error: </span><span class="si">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span><span id="__span-17-70"><a id="__codelineno-17-70" name="__codelineno-17-70" href="#__codelineno-17-70"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-17-71"><a id="__codelineno-17-71" name="__codelineno-17-71" href="#__codelineno-17-71"></a>
+</span><span id="__span-17-72"><a id="__codelineno-17-72" name="__codelineno-17-72" href="#__codelineno-17-72"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</span><span id="__span-17-73"><a id="__codelineno-17-73" name="__codelineno-17-73" href="#__codelineno-17-73"></a><span class="p">}</span>
+</span><span id="__span-17-74"><a id="__codelineno-17-74" name="__codelineno-17-74" href="#__codelineno-17-74"></a>
+</span><span id="__span-17-75"><a id="__codelineno-17-75" name="__codelineno-17-75" href="#__codelineno-17-75"></a><span class="c1">// Usage example</span>
+</span><span id="__span-17-76"><a id="__codelineno-17-76" name="__codelineno-17-76" href="#__codelineno-17-76"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">chatExample</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-77"><a id="__codelineno-17-77" name="__codelineno-17-77" href="#__codelineno-17-77"></a><span class="w">  </span><span class="c1">// Start conversation</span>
+</span><span id="__span-17-78"><a id="__codelineno-17-78" name="__codelineno-17-78" href="#__codelineno-17-78"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">startSession</span><span class="p">(</span><span class="s1">&#39;my-user-123&#39;</span><span class="p">);</span>
+</span><span id="__span-17-79"><a id="__codelineno-17-79" name="__codelineno-17-79" href="#__codelineno-17-79"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Bot:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">session</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+</span><span id="__span-17-80"><a id="__codelineno-17-80" name="__codelineno-17-80" href="#__codelineno-17-80"></a>
+</span><span id="__span-17-81"><a id="__codelineno-17-81" name="__codelineno-17-81" href="#__codelineno-17-81"></a><span class="w">  </span><span class="c1">// Send user message</span>
+</span><span id="__span-17-82"><a id="__codelineno-17-82" name="__codelineno-17-82" href="#__codelineno-17-82"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">sendMessage</span><span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">session_id</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Hello!&#39;</span><span class="p">);</span>
+</span><span id="__span-17-83"><a id="__codelineno-17-83" name="__codelineno-17-83" href="#__codelineno-17-83"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Bot:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">response1</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+</span><span id="__span-17-84"><a id="__codelineno-17-84" name="__codelineno-17-84" href="#__codelineno-17-84"></a>
+</span><span id="__span-17-85"><a id="__codelineno-17-85" name="__codelineno-17-85" href="#__codelineno-17-85"></a><span class="w">  </span><span class="c1">// If bot sent buttons, select one</span>
+</span><span id="__span-17-86"><a id="__codelineno-17-86" name="__codelineno-17-86" href="#__codelineno-17-86"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">response1</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;buttons&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-17-87"><a id="__codelineno-17-87" name="__codelineno-17-87" href="#__codelineno-17-87"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">optionId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response1</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">options</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">id</span><span class="p">;</span>
+</span><span id="__span-17-88"><a id="__codelineno-17-88" name="__codelineno-17-88" href="#__codelineno-17-88"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">response2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">selectOption</span><span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">session_id</span><span class="p">,</span><span class="w"> </span><span class="nx">optionId</span><span class="p">);</span>
+</span><span id="__span-17-89"><a id="__codelineno-17-89" name="__codelineno-17-89" href="#__codelineno-17-89"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Bot:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">response2</span><span class="p">.</span><span class="nx">message</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+</span><span id="__span-17-90"><a id="__codelineno-17-90" name="__codelineno-17-90" href="#__codelineno-17-90"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-17-91"><a id="__codelineno-17-91" name="__codelineno-17-91" href="#__codelineno-17-91"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="python-example">Python Example</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">API_BASE_URL</span> <span class="o">=</span> <span class="s1">&#39;https://your-instance.intalos.de/api/integrations/api&#39;</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="n">INTEGRATION_ID</span> <span class="o">=</span> <span class="mi">31</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">API_KEY</span> <span class="o">=</span> <span class="s1">&#39;your_api_key_here&#39;</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>    <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>    <span class="s1">&#39;X-API-Key&#39;</span><span class="p">:</span> <span class="n">API_KEY</span>
+</span><span id="__span-18-10"><a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="p">}</span>
+</span><span id="__span-18-11"><a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>
+</span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">start_session</span><span class="p">(</span><span class="n">session_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span><span id="__span-18-13"><a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Start a new bot session.&quot;&quot;&quot;</span>
+</span><span id="__span-18-14"><a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a>    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">API_BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">INTEGRATION_ID</span><span class="si">}</span><span class="s1">/session/&#39;</span>
+</span><span id="__span-18-15"><a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-18-16"><a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a>        <span class="s1">&#39;session_id&#39;</span><span class="p">:</span> <span class="n">session_id</span> <span class="ow">or</span> <span class="sa">f</span><span class="s1">&#39;user-</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+</span><span id="__span-18-17"><a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a>        <span class="s1">&#39;user_identifier&#39;</span><span class="p">:</span> <span class="s1">&#39;user-123&#39;</span>
+</span><span id="__span-18-18"><a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a>    <span class="p">}</span>
+</span><span id="__span-18-19"><a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</span><span id="__span-18-20"><a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a>    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+</span><span id="__span-18-21"><a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a>    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="__span-18-22"><a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a>
+</span><span id="__span-18-23"><a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="k">def</span><span class="w"> </span><span class="nf">send_message</span><span class="p">(</span><span class="n">session_id</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+</span><span id="__span-18-24"><a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Send a text message to the bot.&quot;&quot;&quot;</span>
+</span><span id="__span-18-25"><a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a>    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">API_BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">INTEGRATION_ID</span><span class="si">}</span><span class="s1">/session/</span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s1">/message/&#39;</span>
+</span><span id="__span-18-26"><a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a>    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">message</span><span class="p">}</span>
+</span><span id="__span-18-27"><a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</span><span id="__span-18-28"><a id="__codelineno-18-28" name="__codelineno-18-28" href="#__codelineno-18-28"></a>    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+</span><span id="__span-18-29"><a id="__codelineno-18-29" name="__codelineno-18-29" href="#__codelineno-18-29"></a>    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="__span-18-30"><a id="__codelineno-18-30" name="__codelineno-18-30" href="#__codelineno-18-30"></a>
+</span><span id="__span-18-31"><a id="__codelineno-18-31" name="__codelineno-18-31" href="#__codelineno-18-31"></a><span class="k">def</span><span class="w"> </span><span class="nf">select_option</span><span class="p">(</span><span class="n">session_id</span><span class="p">,</span> <span class="n">option_id</span><span class="p">):</span>
+</span><span id="__span-18-32"><a id="__codelineno-18-32" name="__codelineno-18-32" href="#__codelineno-18-32"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Select a button or list option.&quot;&quot;&quot;</span>
+</span><span id="__span-18-33"><a id="__codelineno-18-33" name="__codelineno-18-33" href="#__codelineno-18-33"></a>    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">API_BASE_URL</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">INTEGRATION_ID</span><span class="si">}</span><span class="s1">/session/</span><span class="si">{</span><span class="n">session_id</span><span class="si">}</span><span class="s1">/message/&#39;</span>
+</span><span id="__span-18-34"><a id="__codelineno-18-34" name="__codelineno-18-34" href="#__codelineno-18-34"></a>    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;selected_option_id&#39;</span><span class="p">:</span> <span class="n">option_id</span><span class="p">}</span>
+</span><span id="__span-18-35"><a id="__codelineno-18-35" name="__codelineno-18-35" href="#__codelineno-18-35"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</span><span id="__span-18-36"><a id="__codelineno-18-36" name="__codelineno-18-36" href="#__codelineno-18-36"></a>    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+</span><span id="__span-18-37"><a id="__codelineno-18-37" name="__codelineno-18-37" href="#__codelineno-18-37"></a>    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="__span-18-38"><a id="__codelineno-18-38" name="__codelineno-18-38" href="#__codelineno-18-38"></a>
+</span><span id="__span-18-39"><a id="__codelineno-18-39" name="__codelineno-18-39" href="#__codelineno-18-39"></a><span class="c1"># Usage example</span>
+</span><span id="__span-18-40"><a id="__codelineno-18-40" name="__codelineno-18-40" href="#__codelineno-18-40"></a><span class="n">session</span> <span class="o">=</span> <span class="n">start_session</span><span class="p">(</span><span class="s1">&#39;my-user-123&#39;</span><span class="p">)</span>
+</span><span id="__span-18-41"><a id="__codelineno-18-41" name="__codelineno-18-41" href="#__codelineno-18-41"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bot: </span><span class="si">{</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">][</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-18-42"><a id="__codelineno-18-42" name="__codelineno-18-42" href="#__codelineno-18-42"></a>
+</span><span id="__span-18-43"><a id="__codelineno-18-43" name="__codelineno-18-43" href="#__codelineno-18-43"></a><span class="n">response</span> <span class="o">=</span> <span class="n">send_message</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;session_id&#39;</span><span class="p">],</span> <span class="s1">&#39;Hello!&#39;</span><span class="p">)</span>
+</span><span id="__span-18-44"><a id="__codelineno-18-44" name="__codelineno-18-44" href="#__codelineno-18-44"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bot: </span><span class="si">{</span><span class="n">response</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">][</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-18-45"><a id="__codelineno-18-45" name="__codelineno-18-45" href="#__codelineno-18-45"></a>
+</span><span id="__span-18-46"><a id="__codelineno-18-46" name="__codelineno-18-46" href="#__codelineno-18-46"></a><span class="k">if</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">][</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;buttons&#39;</span><span class="p">:</span>
+</span><span id="__span-18-47"><a id="__codelineno-18-47" name="__codelineno-18-47" href="#__codelineno-18-47"></a>    <span class="n">option_id</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">][</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+</span><span id="__span-18-48"><a id="__codelineno-18-48" name="__codelineno-18-48" href="#__codelineno-18-48"></a>    <span class="n">response2</span> <span class="o">=</span> <span class="n">select_option</span><span class="p">(</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;session_id&#39;</span><span class="p">],</span> <span class="n">option_id</span><span class="p">)</span>
+</span><span id="__span-18-49"><a id="__codelineno-18-49" name="__codelineno-18-49" href="#__codelineno-18-49"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bot: </span><span class="si">{</span><span class="n">response2</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">][</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="curl-examples">cURL Examples</h3>
+<p><strong>Start Session</strong>:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="s1">&#39;https://your-instance.intalos.de/api/integrations/api/31/session/&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;X-API-Key: your_api_key_here&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="s1">    &quot;session_id&quot;: &quot;user-123&quot;,</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="s1">    &quot;user_identifier&quot;: &quot;user-123&quot;</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="s1">  }&#39;</span>
+</span></code></pre></div></p>
+<p><strong>Send Message</strong>:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="s1">&#39;https://your-instance.intalos.de/api/integrations/api/31/session/user-123/message/&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;X-API-Key: your_api_key_here&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="s1">    &quot;message&quot;: &quot;Hello, I need help&quot;</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="s1">  }&#39;</span>
+</span></code></pre></div></p>
+<p><strong>Select Option</strong>:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">  </span><span class="s1">&#39;https://your-instance.intalos.de/api/integrations/api/31/session/user-123/message/&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;X-API-Key: your_api_key_here&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="s1">    &quot;selected_option_id&quot;: &quot;component_id_xyz&quot;</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="s1">  }&#39;</span>
+</span></code></pre></div></p>
+<hr />
+<h2 id="managing-your-api-integration">Managing Your API Integration</h2>
+<h3 id="viewing-integration-details">Viewing Integration Details</h3>
+<p>In the API Integration form, you can see:
+- <strong>Integration Alias</strong>: Your custom name for the integration
+- <strong>API Endpoints</strong>: Direct links to the session endpoints (displayed when editing)
+- <strong>Status</strong>: Active or Inactive
+- <strong>Connected Bot</strong>: Which bot is currently connected
+- <strong>Created Date</strong>: When the integration was created</p>
+<h3 id="editing-an-integration_1">Editing an Integration</h3>
+<ol>
+<li>Click on the integration in the list</li>
+<li>Make your changes:</li>
+<li>Update the alias</li>
+<li>Change the connected bot</li>
+<li>Update error email settings</li>
+<li><strong>Note</strong>: API key cannot be changed (create new integration if needed)</li>
+<li>Click <strong>"Save"</strong></li>
+<li>Changes take effect immediately (if integration is active)</li>
+</ol>
+<h3 id="regenerating-api-key">Regenerating API Key</h3>
+<p>If you need a new API key:
+1. Create a new API integration
+2. Update your application to use the new API key
+3. Delete the old integration once migration is complete</p>
+<p><strong>Important</strong>: API keys cannot be edited - you must create a new integration to get a new key.</p>
+<h3 id="activatingdeactivating_1">Activating/Deactivating</h3>
+<ul>
+<li><strong>To activate</strong>: Toggle the "Active" switch to ON</li>
+<li><strong>To deactivate</strong>: Toggle the "Active" switch to OFF</li>
+<li>When deactivated, the integration won't accept API requests</li>
+</ul>
+<h3 id="changing-connected-bot_1">Changing Connected Bot</h3>
+<ol>
+<li>Open the integration</li>
+<li>Select a different published bot from the "Integrated Bot" dropdown</li>
+<li>Save the changes</li>
+<li>New sessions will use the new bot, but existing sessions will continue with their current bot</li>
+</ol>
+<h3 id="deleting-an-integration_1">Deleting an Integration</h3>
+<ol>
+<li>Open the integration</li>
+<li>Click <strong>"Delete"</strong> (usually at the bottom of the form)</li>
+<li>Confirm the deletion</li>
+<li><strong>Warning</strong>: This cannot be undone. All API access will be lost.</li>
+</ol>
+<hr />
+<h2 id="session-management">Session Management</h2>
+<h3 id="session-lifecycle">Session Lifecycle</h3>
+<ol>
+<li><strong>Start</strong>: Create a new session via <code>/session/</code> endpoint</li>
+<li><strong>Active</strong>: Send messages via <code>/session/&lt;id&gt;/message/</code> endpoint</li>
+<li><strong>Final</strong>: Bot reaches End component (<code>is_final: true</code>)</li>
+<li><strong>Complete</strong>: Session is automatically deleted when final</li>
+</ol>
+<h3 id="session-ids">Session IDs</h3>
+<ul>
+<li><strong>Custom Session IDs</strong>: Provide your own <code>session_id</code> for easier tracking</li>
+<li><strong>Auto-Generated</strong>: If omitted, a UUID is generated automatically</li>
+<li><strong>Uniqueness</strong>: Each <code>session_id</code> can only have one active session</li>
+<li><strong>Restarting</strong>: Use <code>force_restart: true</code> to restart an existing session</li>
+</ul>
+<h3 id="force-restart">Force Restart</h3>
+<p>If you need to restart a session:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="p">{</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">  </span><span class="nt">&quot;session_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user-123&quot;</span><span class="p">,</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span><span class="nt">&quot;force_restart&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<p>This will:
+- Delete any existing session with that <code>session_id</code>
+- Start a fresh conversation from the beginning
+- Useful for testing or resetting user sessions</p>
+<hr />
+<h2 id="best-practices_1">Best Practices</h2>
+<h3 id="security_1">Security</h3>
+<p><strong>DO</strong>:
+- Keep your API key secure and never expose it in client-side code
+- Use environment variables or secure secret management
+- Rotate API keys periodically
+- Use HTTPS for all API requests
+- Monitor integration error alerts
+- Implement rate limiting in your application</p>
+<p><strong>DON'T</strong>:
+- Commit API keys to version control
+- Share API keys publicly
+- Expose API keys in browser JavaScript (use backend proxy)
+- Use the same API key for multiple applications
+- Leave integrations active if not in use</p>
+<h3 id="performance_1">Performance</h3>
+<p><strong>DO</strong>:
+- Reuse session IDs for the same user across requests
+- Handle <code>is_final</code> flag to know when conversation is complete
+- Implement proper error handling and retries
+- Cache session state in your application when appropriate
+- Monitor API response times</p>
+<p><strong>DON'T</strong>:
+- Create new sessions unnecessarily (reuse existing ones)
+- Ignore error responses
+- Make synchronous API calls in UI thread (use async/await)
+- Forget to handle <code>is_final</code> state</p>
+<h3 id="user-experience_1">User Experience</h3>
+<p><strong>DO</strong>:
+- Display bot messages clearly in your UI
+- Handle button/list options appropriately
+- Show loading states while waiting for bot responses
+- Handle errors gracefully with user-friendly messages
+- Test your integration thoroughly before going live</p>
+<p><strong>DON'T</strong>:
+- Expose technical error messages to end users
+- Ignore the <code>is_final</code> flag
+- Make users wait without feedback
+- Forget to handle different message types (text, buttons, media)</p>
+<hr />
+<h2 id="troubleshooting_1">Troubleshooting</h2>
+<h3 id="401-unauthorized-error">401 Unauthorized Error</h3>
+<p><strong>Check</strong>:
+1. Is the API key correct?
+2. Is the <code>X-API-Key</code> header present?
+3. Is the API key not expired or revoked?</p>
+<p><strong>Solution</strong>:
+- Verify API key matches exactly (no extra spaces)
+- Check that header name is <code>X-API-Key</code> (case-sensitive)
+- Ensure integration is active</p>
+<h3 id="404-not-found-error">404 Not Found Error</h3>
+<p><strong>Check</strong>:
+1. Is the integration ID correct?
+2. Is the integration active?
+3. Is the session ID correct (for message endpoint)?</p>
+<p><strong>Solution</strong>:
+- Verify integration ID in the URL
+- Check integration status in the UI
+- Ensure session was created successfully</p>
+<h3 id="409-conflict-error-session-already-exists">409 Conflict Error (Session Already Exists)</h3>
+<p><strong>Check</strong>:
+1. Are you trying to start a session that already exists?
+2. Is the previous session still active?</p>
+<p><strong>Solution</strong>:
+- Use <code>force_restart: true</code> to restart the session
+- Use the message endpoint to continue existing session
+- Use a different <code>session_id</code></p>
+<h3 id="messages-not-appearing">Messages Not Appearing</h3>
+<p><strong>Check</strong>:
+1. Is the bot published?
+2. Is the bot connected to the integration?
+3. Are there any errors in the response?</p>
+<p><strong>Solution</strong>:
+- Ensure bot is published before connecting to integration
+- Check bot flow for errors
+- Review integration error alerts</p>
+<h3 id="bot-not-responding-correctly">Bot Not Responding Correctly</h3>
+<p><strong>Check</strong>:
+1. Is the bot flow working correctly in test mode?
+2. Are you sending the correct message format?
+3. Are button/list selections using the correct <code>option_id</code>?</p>
+<p><strong>Solution</strong>:
+- Test the bot in Bot Builder test mode first
+- Verify message format matches API specification
+- Check that <code>option_id</code> matches the <code>id</code> from bot's response</p>
+<hr />
+<h2 id="integration-limits_1">Integration Limits</h2>
+<h3 id="current-limits_1">Current Limits</h3>
+<ul>
+<li><strong>Integrations per account</strong>: Multiple integrations supported</li>
+<li><strong>Bots per integration</strong>: 1 bot per integration (can be changed)</li>
+<li><strong>Sessions</strong>: Unlimited sessions supported</li>
+<li><strong>Session duration</strong>: Sessions expire after 300 seconds of inactivity</li>
+<li><strong>Request timeout</strong>: 30 seconds (for bot execution)</li>
+</ul>
+<h3 id="rate-limiting">Rate Limiting</h3>
+<ul>
+<li>Rate limits may apply based on your plan</li>
+<li>Implement exponential backoff for retries</li>
+<li>Monitor response headers for rate limit information</li>
+</ul>
+<hr />
+<h2 id="advanced-features_1">Advanced Features</h2>
+<h3 id="multiple-integrations_1">Multiple Integrations</h3>
+<p>You can create multiple API integrations for:
+- Different applications or services
+- Different bots
+- Testing vs production environments
+- Different API keys for different clients</p>
+<h3 id="session-persistence">Session Persistence</h3>
+<ul>
+<li>Sessions persist until bot reaches End component (<code>is_final: true</code>)</li>
+<li>Sessions automatically expire after 300 seconds of inactivity</li>
+<li>Use <code>force_restart</code> to manually restart sessions</li>
+</ul>
+<h3 id="error-handling">Error Handling</h3>
+<ul>
+<li>Always check HTTP status codes</li>
+<li>Handle <code>is_final</code> flag to know when conversation ends</li>
+<li>Implement retry logic for transient errors</li>
+<li>Log errors for debugging</li>
+</ul>
+<hr />
+<h2 id="integration-test-runner">Integration Test Runner</h2>
+<p>The <strong>Test Runner</strong> in Bot Builder lets you run end-to-end integration simulations directly from the canvas. It supports both WhatsApp and API behavior in one place and is the recommended way to validate flows before deployment.</p>
+<h3 id="where-to-find-it">Where to Find It</h3>
+<ul>
+<li>Open your bot in Bot Builder.</li>
+<li>Click the <strong>Test Runner</strong> button in the top action bar.</li>
+<li>The runner opens as a side panel while keeping the canvas visible.</li>
+</ul>
+<h3 id="what-it-supports">What It Supports</h3>
+<ul>
+<li><strong>Integration Type Selection</strong>: choose WhatsApp or API in the runner.</li>
+<li><strong>Default Type</strong>: WhatsApp is selected by default.</li>
+<li><strong>Simulation Mode</strong>: run tests even if no integration is linked to the bot.</li>
+<li><strong>Start Variables + On-create payload</strong>: seed variables and payload before starting a session.</li>
+<li><strong>Media/File Input Steps</strong>:</li>
+<li><code>QuestionMedia</code>: upload required media file type.</li>
+<li><code>GoogleDrive</code>: upload file support is available in runner mode.</li>
+</ul>
+<h3 id="canvas-playback-features">Canvas Playback Features</h3>
+<ul>
+<li><strong>Active Component Highlighting</strong>: current component is highlighted during execution.</li>
+<li><strong>Auto-transition Playback</strong>: optional step-by-step playback for fast transitions.</li>
+<li><strong>Component Timeline</strong>: optional per-component timeline entries in output.</li>
+<li><strong>Centering + Zoom</strong>: runner can pan/zoom to active components for easier debugging.</li>
+</ul>
+<h3 id="output-and-timeline">Output and Timeline</h3>
+<ul>
+<li><strong>Chronological Output</strong>: component timeline entries and bot/user messages are interleaved in execution order.</li>
+<li><strong>Changed Variables View</strong>: each component event can show changed variable values.</li>
+<li><strong>Large Output Collapse</strong>: big variable payloads are collapsed with expand/collapse controls.</li>
+<li><strong>Media Preview</strong>: image/video/audio outputs are rendered inline where possible.</li>
+</ul>
+<h3 id="session-and-cleanup-behavior">Session and Cleanup Behavior</h3>
+<ul>
+<li>Runner sessions are isolated from production traffic.</li>
+<li>Sessions are cleaned up when the runner is closed.</li>
+<li>Stale runner sessions are automatically cleaned up by inactivity rules.</li>
+</ul>
+<h3 id="ui-improvements-in-runner">UI Improvements in Runner</h3>
+<ul>
+<li>Sticky header (title + close button) remains visible while scrolling.</li>
+<li>Sticky composer/footer keeps message/file input, options dropdown, and <strong>Send</strong> visible.</li>
+<li>Clear visual separation between scrollable output and input/send area.</li>
+</ul>
+<h3 id="variable-delta-fields">Variable Delta Fields</h3>
+<p>In component timeline output:</p>
+<ul>
+<li><code>changed</code>: variables added or updated by that component step.</li>
+<li><code>removed_keys</code>: variables that existed before the step but were removed after it.</li>
+</ul>
+<hr />
+<h2 id="need-help_1">Need Help?</h2>
+<p><strong>Email</strong>: contact@intalos.de</p>
+<p><strong>Common Questions</strong>:
+- How do I get my API key? It's displayed once after creating the integration, or auto-generated if you leave it blank
+- Can I use the same bot with multiple API integrations? Yes, each integration can connect to one bot
+- What happens if my session expires? Create a new session or use <code>force_restart: true</code>
+- Can I test my integration before going live? Yes, use the Bot Builder test mode first, then test with API calls
+- How do I handle button selections? Use <code>selected_option_id</code> with the <code>id</code> from the bot's response options</p>
+<hr />
+<p><strong>Last Updated</strong>: January 2026</p>
     <nav id="page-controls">
       <a href="#content" id="return-top">
         <i class="fa fa-arrow-up" alt="⇧"></i> Return to top

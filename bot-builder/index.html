@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- UTF-8 encoding for proper character display -->
+    <meta charset="UTF-8">
+    
+    <!-- Override CSP to allow unsafe-eval and unsafe-inline for JavaScript -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-eval' 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
+    
+    <title>Canvas & Publishing - Intalos AI Bot Builder Help</title>
+    <style>
+      /* Use system fonts instead of external Google Fonts */
+      :root {
+        /* colors */
+        --primary: #05b2dc;
+        --secondary: #ef9B0f;
+        --tertiary: #ef3e36;
+        /* shades */
+        --base: #ffffff;
+        --mantle: #f5f4f5;
+        --crust: #d4d2d5;
+        --overlay: #aBaBaE;
+        --footer: #000000cc;
+        /* text */
+        --text: #343233;
+        --hltext: #ffffff;
+        color: var(--text);
+        /* background-specific text */
+        --primary-text: var(--hltext);
+        --secondary-text: var(--hltext);
+        --tertiary-text: var(--hltext);
+        --base-text: var(--text);
+        --mantle-text: var(--text);
+        --crust-text: var(--text);
+        --overlay-text: var(--hltext);
+        --footer-text: var(--hltext);
+        /* fonts - using system fonts instead of external fonts */
+        --heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        --mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+        font-family: var(--body); 
+      }
+      /* dark mode */
+      @media (prefers-color-scheme: dark) {
+        :root {
+          /* colors */
+          --primary: #05b2dc;
+          --secondary: #ef9B0f;
+          --tertiary: #ef3e36;
+          /* shades */
+          --base: #343233;
+          --mantle: #373536;
+          --crust: #3E3C3D;
+          --overlay: #646461;
+          --footer: #00000022;
+          /* text */
+          --text: #ffffff;
+          --hltext: #343233;
+          color: var(--text);
+          /* background-specific text */
+          --primary-text: var(--text);
+          --secondary-text: var(--text);
+          --tertiary-text: var(--text);
+          --base-text: var(--text);
+          --mantle-text: var(--text);
+          --crust-text: var(--text);
+          --overlay-text: var(--hltext);
+          --footer-text: var(--text);
+        }
+      }
+      /* style settings */
+      header#header {
+        grid-template-columns: 8rem auto 8rem;
+      }
+      body#background {
+        background: fixed center/cover var(--base);
+        
+        
+      }
+      #background-gradient {
+        background: linear-gradient(
+          45deg, 
+          color-mix(in srgb, var(--mantle) 80%, transparent), transparent, color-mix(in srgb, var(--crust) 20%, transparent)
+        );
+      }
+      content#content {
+        padding: 0 3rem;
+        background: color-mix(in srgb, var(--base) 0%, transparent);
+        border-left: none;
+        border-right: none;
+      }
+      #avatar {
+        
+        border-radius: 1rem;
+        
+      }
+      footer#footer a {
+        color: #ef9B0f;
+      }
+      footer#footer a:hover {
+        color: #ef3e36;
+      }
+      nav#toc {
+        margin-left: calc(-100% - 3rem - 2rem);
+      }
+    </style>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/responsivity.css" rel="stylesheet">
+    <link href="../stylesheets/custom.css" rel="stylesheet">  
+    <script src="../javascripts/system-fonts.js"></script>  
+    <script src="../javascripts/add-icons.js"></script>
+    <script>
+      function on_share() {
+        navigator.share({
+          url: document.URL,
+          title: "Canvas & Publishing -Intalos AI Bot Builder Help",
+        });
+      }
+    </script>
+</head>
+
+<body id="background">
+  <div id="background-gradient"></div>
+  <content id="content">
+  
+<a id="share-btn" onclick="on_share()">
+  <i class="fa fa-share-alt" alt="🔗"></i>
+</a>
+
+  
+  <header id="article-header">
+    <a href=.. id="return-home">
+        <i class="fa fa-arrow-left" alt="⇦"></i> Home
+    </a>
+    <h1 id="title">Canvas & Publishing</h1>
+</header>
+  
+  <main id="page">
+    <nav class="vertical" id="toc">
+
+<ul>
+
+<li class="nav-item">
+<a href="#bot-builder-interface">Bot Builder Interface</a>
+    
+    <ul>
+    
+    
+    <li class="nav-subitem">
+    <a href="#canvas-zoom-controls">Canvas Zoom Controls</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#pre-publish-validator">Pre-Publish Validator</a>
+    </li>
+    
+    
+    
+    <li class="nav-subitem">
+    <a href="#need-help">Need Help?</a>
+    </li>
+    
+    
+    </ul>
+    
+</li>
+
+</ul>
+
+</nav>
+    <h1 id="bot-builder-interface">Bot Builder Interface</h1>
+<p>This guide covers the Bot Builder canvas controls and the pre-publish validation that runs when you publish your bot.</p>
+<hr />
+<h2 id="canvas-zoom-controls">Canvas Zoom Controls</h2>
+<p>The zoom toolbar appears on the Bot Builder canvas. Use it to navigate and focus on different parts of your bot flow.</p>
+<h3 id="toolbar-buttons">Toolbar Buttons</h3>
+<ul>
+<li><strong>Zoom In</strong> – Increases the zoom level (magnifies the canvas).</li>
+<li><strong>Zoom Out</strong> – Decreases the zoom level.</li>
+<li><strong>Zoom to Extents</strong> – Fits the entire diagram in view so all components are visible at once.</li>
+</ul>
+<h3 id="mouse-controls">Mouse Controls</h3>
+<ul>
+<li><strong>Mouse wheel</strong> – Scroll up to zoom in, scroll down to zoom out. The zoom is centered on the cursor position, so you can zoom into a specific area by hovering over it.</li>
+<li><strong>Right-click and drag</strong> – Pan around the canvas.</li>
+<li><strong>Left-click</strong> – Select and move components.</li>
+<li><strong>Left-click and hold</strong> – Select multiple components and move them together. Hold Ctrl (Cmd on Mac) to add more components to the selection.</li>
+</ul>
+<h3 id="when-to-use">When to Use</h3>
+<ul>
+<li><strong>Zoom to Extents</strong> – When you want an overview of the whole flow or lose your place on a large diagram.</li>
+<li><strong>Zoom In/Out</strong> – When editing a specific part of the flow and need a closer or wider view.</li>
+<li><strong>Cursor-centered zoom</strong> – When focusing on one component or section while building.</li>
+</ul>
+<hr />
+<h2 id="pre-publish-validator">Pre-Publish Validator</h2>
+<p>When you click <strong>Publish</strong>, the platform runs a validation check on your bot diagram. It reports any problems that could cause errors in production.</p>
+<h3 id="what-gets-validated">What Gets Validated</h3>
+<p>The validator checks for:</p>
+<p><strong>Blocking errors</strong> (publish is blocked until fixed):</p>
+<ul>
+<li>Empty diagram or no publishable components</li>
+<li>Missing or invalid Start component (exactly one required)</li>
+<li>Components with no inbound connector</li>
+<li>Connectors with missing or invalid source/target</li>
+<li>Navigation buttons (Go Back / Go On) with missing labels or invalid configuration</li>
+<li>Duplicate option labels in QuestionButtons, QuestionList, LlmConversation, or APIRequest components</li>
+</ul>
+<p><strong>Warnings</strong> (publish is allowed, but you should review):</p>
+<ul>
+<li><strong>Dead-end component</strong> – A non-terminal component has no outbound connector and may stop the flow</li>
+<li><strong>Unmapped error port</strong> – A component with error output enabled has no connector from its error port</li>
+<li><strong>Unreachable component</strong> – A component that cannot be reached from the Start node</li>
+</ul>
+<h3 id="how-validation-works">How Validation Works</h3>
+<ol>
+<li>Click <strong>Publish</strong> in the Bot Builder.</li>
+<li>If validation fails, a message lists the issues.</li>
+<li>For each error, the canvas pans to the first affected component.</li>
+<li>Fix the reported issues and click <strong>Publish</strong> again.</li>
+<li>If there are only warnings, you can still publish; review them and fix when possible.</li>
+</ol>
+<h3 id="common-fixes">Common Fixes</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dead-end component</td>
+<td>Add an outbound connector from the component to the next step or an End component</td>
+</tr>
+<tr>
+<td>Unmapped error port</td>
+<td>Connect the error output port to a handler (e.g. error message, fallback flow)</td>
+</tr>
+<tr>
+<td>Unreachable component</td>
+<td>Connect the component into the main flow from Start</td>
+</tr>
+<tr>
+<td>Missing Go Back/Go On label</td>
+<td>Open the component, enable the button, and enter a label</td>
+</tr>
+<tr>
+<td>Duplicate option labels</td>
+<td>Give each option in QuestionButtons, LlmConversation, or APIRequest a unique label</td>
+</tr>
+<tr>
+<td>No inbound connector</td>
+<td>Connect the component from an upstream component (e.g. Start or a previous step)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="need-help">Need Help?</h2>
+<p><strong>Email</strong>: contact@intalos.de</p>
+    <nav id="page-controls">
+      <a href="#content" id="return-top">
+        <i class="fa fa-arrow-up" alt="⇧"></i> Return to top
+      </a>
+    </nav>
+  </main>
+  </content>
+  <footer id="footer">
+    
+
+<p>Compiled from markdown using <a href="https://www.mkdocs.org/">MkDocs</a>. Theme is <a href="https://teparsons.github.io/mkdocs-landing/">Landing</a> by <a href="https://toddparsons.co.uk">Todd Parsons</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="../javascripts/system-fonts.js"></script>
+
+<script src="../javascripts/add-icons.js"></script>
+
+  </footer>
+</body>
+
+</html>

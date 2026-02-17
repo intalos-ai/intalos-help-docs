@@ -285,6 +285,8 @@
 <ol>
 <li>Toggle <strong>"Customize Body"</strong> to ON</li>
 <li>Enter your JSON data in the editor</li>
+<li>Click <strong>"Format JSON"</strong> to auto-format and validate your JSON body</li>
+<li>If the JSON is invalid, you will see an error toast with details</li>
 </ol>
 <p><strong>Example</strong>:
 <div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
@@ -560,7 +562,8 @@
 1. Validate your JSON using an online validator
 2. Check for missing commas or quotes
 3. Ensure proper quote escaping
-4. Test without variables first, then add them</p>
+4. Use the <strong>"Format JSON"</strong> button in the component editor to auto-format and validate
+5. Test without variables first, then add them</p>
 <h3 id="issue-unicode-characters-appear-as-escape-sequences-in-database">Issue: Unicode characters appear as escape sequences in database</h3>
 <p><strong>Solution</strong>: If you're seeing <code>\u2019</code> instead of <code>'</code> (or similar escaped characters) in your database:
 1. Toggle <strong>"Escape unicode in JSON"</strong> to OFF in the APIRequest component
